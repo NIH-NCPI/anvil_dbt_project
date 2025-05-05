@@ -1,0 +1,8 @@
+*
+!.gitignore
+
+!example_data/
+!example_data/**/*
+
+!m00m00
+!m00m00/**/*

@@ -1,0 +1,135 @@
+version: 2
+models:
+- name: m00m00_src_participant
+  description: Model for m00m00_src_participant.
+  columns:
+  - name: Study Code
+    description: '{{ doc("m00m00_src_participant_study_code") }}'
+    data_type: string
+  - name: Participant Global ID
+    description: '{{ doc("m00m00_src_participant_participant_global_id") }}'
+    data_type: string
+  - name: Participant External ID
+    description: '{{ doc("m00m00_src_participant_participant_external_id") }}'
+    data_type: string
+  - name: Event ID
+    description: '{{ doc("m00m00_src_participant_event_id") }}'
+    data_type: integer
+  - name: Event Type
+    description: '{{ doc("m00m00_src_participant_event_type") }}'
+    data_type: string
+  - name: Condition or Measure Source Text
+    description: '{{ doc("m00m00_src_participant_condition_or_measure_source_text")
+      }}'
+    data_type: string
+  - name: Age at Condition or Measure Observation
+    description: '{{ doc("m00m00_src_participant_age_at_condition_or_measure_observation")
+      }}'
+    data_type: integer or float
+  - name: Condition Interpretation
+    description: '{{ doc("m00m00_src_participant_condition_interpretation") }}'
+    data_type: string
+  - name: Condition Status
+    description: '{{ doc("m00m00_src_participant_condition_status") }}'
+    data_type: string
+  - name: Condition Data Source
+    description: '{{ doc("m00m00_src_participant_condition_data_source") }}'
+    data_type: string
+  - name: HPO Label
+    description: '{{ doc("m00m00_src_participant_hpo_label") }}'
+    data_type: string
+  - name: HPO Code
+    description: '{{ doc("m00m00_src_participant_hpo_code") }}'
+    data_type: string
+  - name: MONDO Label
+    description: '{{ doc("m00m00_src_participant_mondo_label") }}'
+    data_type: string
+  - name: MONDO Code
+    description: '{{ doc("m00m00_src_participant_mondo_code") }}'
+    data_type: string
+  - name: MAXO Label
+    description: '{{ doc("m00m00_src_participant_maxo_label") }}'
+    data_type: string
+  - name: MAXO Code
+    description: '{{ doc("m00m00_src_participant_maxo_code") }}'
+    data_type: string
+  - name: Other Label
+    description: '{{ doc("m00m00_src_participant_other_label") }}'
+    data_type: string
+  - name: Other Code
+    description: '{{ doc("m00m00_src_participant_other_code") }}'
+    data_type: string
+  - name: Measure Value
+    description: '{{ doc("m00m00_src_participant_measure_value") }}'
+    data_type: float
+  - name: Measure Unit
+    description: '{{ doc("m00m00_src_participant_measure_unit") }}'
+    data_type: string
+- name: m00m00_stg_participant
+  description: Model for m00m00_stg_participant.
+  columns:
+  - name: study_code
+    description: '{{ doc("m00m00_stg_participant_study_code") }}'
+    data_type: string
+  - name: participant_global_id
+    description: '{{ doc("m00m00_stg_participant_participant_global_id") }}'
+    data_type: string
+  - name: participant_external_id
+    description: '{{ doc("m00m00_stg_participant_participant_external_id") }}'
+    data_type: string
+  - name: event_id
+    description: '{{ doc("m00m00_stg_participant_event_id") }}'
+    data_type: integer
+  - name: event_type
+    description: '{{ doc("m00m00_stg_participant_event_type") }}'
+    data_type: string
+  - name: condition_or_measure_source_text
+    description: '{{ doc("m00m00_stg_participant_condition_or_measure_source_text")
+      }}'
+    data_type: string
+  - name: age_at_condition_or_measure_observation
+    description: '{{ doc("m00m00_stg_participant_age_at_condition_or_measure_observation")
+      }}'
+    data_type: integer or float
+  - name: condition_interpretation
+    description: '{{ doc("m00m00_stg_participant_condition_interpretation") }}'
+    data_type: string
+  - name: condition_status
+    description: '{{ doc("m00m00_stg_participant_condition_status") }}'
+    data_type: string
+  - name: condition_data_source
+    description: '{{ doc("m00m00_stg_participant_condition_data_source") }}'
+    data_type: string
+  - name: hpo_label
+    description: '{{ doc("m00m00_stg_participant_hpo_label") }}'
+    data_type: string
+  - name: hpo_code
+    description: '{{ doc("m00m00_stg_participant_hpo_code") }}'
+    data_type: string
+  - name: mondo_label
+    description: '{{ doc("m00m00_stg_participant_mondo_label") }}'
+    data_type: string
+  - name: mondo_code
+    description: '{{ doc("m00m00_stg_participant_mondo_code") }}'
+    data_type: string
+  - name: maxo_label
+    description: '{{ doc("m00m00_stg_participant_maxo_label") }}'
+    data_type: string
+  - name: maxo_code
+    description: '{{ doc("m00m00_stg_participant_maxo_code") }}'
+    data_type: string
+  - name: other_label
+    description: '{{ doc("m00m00_stg_participant_other_label") }}'
+    data_type: string
+  - name: other_code
+    description: '{{ doc("m00m00_stg_participant_other_code") }}'
+    data_type: string
+  - name: measure_value
+    description: '{{ doc("m00m00_stg_participant_measure_value") }}'
+    data_type: float
+  - name: measure_unit
+    description: '{{ doc("m00m00_stg_participant_measure_unit") }}'
+    data_type: string
+  - name: ftd_key
+    description: '{{ doc("m00m00_stg_participant_ftd_key") }}'
+    data_type: String

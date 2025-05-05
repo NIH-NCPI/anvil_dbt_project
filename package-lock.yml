@@ -1,0 +1,8 @@
+packages:
+  - package: dbt-labs/dbt_utils
+    version: 1.3.0
+  - local: include/catalog/sources/m00m00
+  - local: include/catalog/sources/aecom
+  - local: include/catalog/ftd_consensus
+  - local: include/catalog/tgt_consensus_a
+sha1_hash: e591bff11738c0fd2b17507850aa3ef428c86790

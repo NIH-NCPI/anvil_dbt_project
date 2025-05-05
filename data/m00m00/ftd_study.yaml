@@ -1,0 +1,11 @@
+study_id: m00m00
+data_dictionary:
+  condition:
+    identifier: ftd_condition_dd.csv
+  participant:
+    identifier: ftd_participant_dd.csv
+  study:
+    identifier: ftd_study_dd.csv
+data_files:
+  participant:
+    identifier: null

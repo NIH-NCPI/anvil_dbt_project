@@ -1,0 +1,31 @@
+name: ftd
+version: 1.0.0
+profile: include
+model-paths:
+- models
+macro-paths:
+- macros
+clean-targets:
+- target
+- dbt_packages
+models:
+  aecom:
+    aecom_ftd_condition:
+      +schema: aecom_ftd_data
+      +materialized: table
+    aecom_ftd_participant:
+      +schema: aecom_ftd_data
+      +materialized: table
+    aecom_ftd_study:
+      +schema: aecom_ftd_data
+      +materialized: table
+  m00m00:
+    m00m00_ftd_condition:
+      +schema: m00m00_ftd_data
+      +materialized: table
+    m00m00_ftd_participant:
+      +schema: m00m00_ftd_data
+      +materialized: table
+    m00m00_ftd_study:
+      +schema: m00m00_ftd_data
+      +materialized: table

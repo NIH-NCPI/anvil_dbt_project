@@ -1,0 +1,20 @@
+name: tgt
+version: 1.0.0
+profile: m00m00
+model-paths:
+- models
+macro-paths:
+- macros
+clean-targets:
+- target
+- dbt_packages
+vars:
+  target_schema: fallback_schema
+  source_table: m00m00_src_condition
+models:
+  tgt:
+    +materialized: table
+    tgt_participant: null
+    tgt_measurement: null
+    tgt_condition: null
+    tgt_event: null

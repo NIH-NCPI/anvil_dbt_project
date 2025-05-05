@@ -1,0 +1,135 @@
+version: 2
+models:
+- name: m00m00_src_condition
+  description: Model for m00m00_src_condition.
+  columns:
+  - name: Study Code
+    description: '{{ doc("m00m00_src_condition_study_code") }}'
+    data_type: String
+  - name: Participant Global ID
+    description: '{{ doc("m00m00_src_condition_participant_global_id") }}'
+    data_type: String
+  - name: Participant External ID
+    description: '{{ doc("m00m00_src_condition_participant_external_id") }}'
+    data_type: String
+  - name: Event ID
+    description: '{{ doc("m00m00_src_condition_event_id") }}'
+    data_type: Integer
+  - name: Event Type
+    description: '{{ doc("m00m00_src_condition_event_type") }}'
+    data_type: String
+  - name: Condition or Measure Source Text
+    description: '{{ doc("m00m00_src_condition_condition_or_measure_source_text")
+      }}'
+    data_type: String
+  - name: Age at Condition or Measure Observation
+    description: '{{ doc("m00m00_src_condition_age_at_condition_or_measure_observation")
+      }}'
+    data_type: Float
+  - name: Condition Interpretation
+    description: '{{ doc("m00m00_src_condition_condition_interpretation") }}'
+    data_type: String
+  - name: Condition Status
+    description: '{{ doc("m00m00_src_condition_condition_status") }}'
+    data_type: String
+  - name: Condition Data Source
+    description: '{{ doc("m00m00_src_condition_condition_data_source") }}'
+    data_type: String
+  - name: HPO Label
+    description: '{{ doc("m00m00_src_condition_hpo_label") }}'
+    data_type: String
+  - name: HPO Code
+    description: '{{ doc("m00m00_src_condition_hpo_code") }}'
+    data_type: String
+  - name: MONDO Label
+    description: '{{ doc("m00m00_src_condition_mondo_label") }}'
+    data_type: String
+  - name: MONDO Code
+    description: '{{ doc("m00m00_src_condition_mondo_code") }}'
+    data_type: String
+  - name: MAXO Label
+    description: '{{ doc("m00m00_src_condition_maxo_label") }}'
+    data_type: String
+  - name: MAXO Code
+    description: '{{ doc("m00m00_src_condition_maxo_code") }}'
+    data_type: String
+  - name: Other Label
+    description: '{{ doc("m00m00_src_condition_other_label") }}'
+    data_type: String
+  - name: Other Code
+    description: '{{ doc("m00m00_src_condition_other_code") }}'
+    data_type: String
+  - name: Measure Value
+    description: '{{ doc("m00m00_src_condition_measure_value") }}'
+    data_type: Float
+  - name: Measure Unit
+    description: '{{ doc("m00m00_src_condition_measure_unit") }}'
+    data_type: String
+- name: m00m00_stg_condition
+  description: Model for m00m00_stg_condition.
+  columns:
+  - name: study_code
+    description: '{{ doc("m00m00_stg_condition_study_code") }}'
+    data_type: String
+  - name: participant_global_id
+    description: '{{ doc("m00m00_stg_condition_participant_global_id") }}'
+    data_type: String
+  - name: participant_external_id
+    description: '{{ doc("m00m00_stg_condition_participant_external_id") }}'
+    data_type: String
+  - name: event_id
+    description: '{{ doc("m00m00_stg_condition_event_id") }}'
+    data_type: Integer
+  - name: event_type
+    description: '{{ doc("m00m00_stg_condition_event_type") }}'
+    data_type: String
+  - name: condition_or_measure_source_text
+    description: '{{ doc("m00m00_stg_condition_condition_or_measure_source_text")
+      }}'
+    data_type: String
+  - name: age_at_condition_or_measure_observation
+    description: '{{ doc("m00m00_stg_condition_age_at_condition_or_measure_observation")
+      }}'
+    data_type: Float
+  - name: condition_interpretation
+    description: '{{ doc("m00m00_stg_condition_condition_interpretation") }}'
+    data_type: String
+  - name: condition_status
+    description: '{{ doc("m00m00_stg_condition_condition_status") }}'
+    data_type: String
+  - name: condition_data_source
+    description: '{{ doc("m00m00_stg_condition_condition_data_source") }}'
+    data_type: String
+  - name: hpo_label
+    description: '{{ doc("m00m00_stg_condition_hpo_label") }}'
+    data_type: String
+  - name: hpo_code
+    description: '{{ doc("m00m00_stg_condition_hpo_code") }}'
+    data_type: String
+  - name: mondo_label
+    description: '{{ doc("m00m00_stg_condition_mondo_label") }}'
+    data_type: String
+  - name: mondo_code
+    description: '{{ doc("m00m00_stg_condition_mondo_code") }}'
+    data_type: String
+  - name: maxo_label
+    description: '{{ doc("m00m00_stg_condition_maxo_label") }}'
+    data_type: String
+  - name: maxo_code
+    description: '{{ doc("m00m00_stg_condition_maxo_code") }}'
+    data_type: String
+  - name: other_label
+    description: '{{ doc("m00m00_stg_condition_other_label") }}'
+    data_type: String
+  - name: other_code
+    description: '{{ doc("m00m00_stg_condition_other_code") }}'
+    data_type: String
+  - name: measure_value
+    description: '{{ doc("m00m00_stg_condition_measure_value") }}'
+    data_type: Float
+  - name: measure_unit
+    description: '{{ doc("m00m00_stg_condition_measure_unit") }}'
+    data_type: String
+  - name: ftd_key
+    description: '{{ doc("m00m00_stg_condition_ftd_key") }}'
+    data_type: String
