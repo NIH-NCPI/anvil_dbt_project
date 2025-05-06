@@ -1,14 +1,12 @@
-*
-!.gitignore
+*   # Will automatically ignore any dirs not specified below
 
-!example_data/
-!example_data/**/*
+!.gitignore
 
 !m00m00
 !m00m00/**/*
 
-!gregor_test
-!gregor_test/**/*
+!gregor_test_study
+!gregor_test_study/**/*
 
-!data_expectations_utils
-!data_expectations_utils/**/*
+!static
+!static/**/*

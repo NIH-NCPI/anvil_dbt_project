@@ -1,0 +1,19 @@
+name: tgt
+version: 1.0.0
+profile: gregor_test_study
+model-paths:
+- models
+macro-paths:
+- macros
+clean-targets:
+- target
+- dbt_packages
+vars:
+  target_schema: fallback_schema
+  source_table: gregor_test_study_src_participant
+models:
+  tgt:
+    +materialized: table
+    tgt_participant: null
+    tgt_phenotype: null
+

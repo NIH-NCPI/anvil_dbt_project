@@ -1,4 +1,4 @@
-study_id: gregor
+study_id: gregor_test_study
 project_id: anvil
 pipeline_db: anvil_postgres
   

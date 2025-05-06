@@ -22,3 +22,4 @@ sex,Reported biological sex,string,Male / Female,,,,sex
 sex_detail,Additional detail about sex or gender,string,,,,,sex_detail
 solve_status,Status of diagnostic resolution,string,Unaffected / Unsolved,,,,solve_status
 twin_id,Identifier for twin if applicable,string,0,,,,twin_id
+ftd_key,Unique key for the FTD record,String,,,,,ftd_key
