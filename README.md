@@ -1,142 +1,59 @@
-## Prerequisites
-* Clone this repo, and the utils repo.
-* Create a venv before installing packages
-* If source files are in synapse, login and set up a personal access token. Reference the docs.
-  - [Synapse Authentication Guide](https://python-docs.synapse.org/en/stable/tutorials/authentication/)
-  - [Synapse REST Table Examples](https://rest-docs.synapse.org/rest/org/sagebionetworks/repo/web/controller/TableExamples.html)
-  - Add the PAT to .synapseConfig 
-* Set-up .bash_profile. See template below
-* db connection
-  - see local postgres connection notes below to create a new db
-  - db connection will depend on organization and project.
-* Set up a profiles.yml
-* Data file requirements.
-- `src/{study}_study.yaml`, `ftd_study.yaml`and data files in `data/{study}`
+# Anvil dbt project
+Contains the dbt pipelines for all AnVIL studies.
 
-## Set vars in .bash_profile(suggested)
-```
-export PYTHONPATH=~{path_to_utils}/dbt-utils/src:$PYTHONPATH
-export PG_USER={pg_username} # could instead use ~/.pgpass
-export PG_PASS={pg_password} # could instead use ~/.pgpass
-```
+## Procedure
+**REMINDER:** Before any commit! Make sure the the .gitignore files are set up properly before making any commits! They should already be set up and no edits needed, but verify this! 
 
-## Requirements
-```bash
-pip install -r ../requirements.txt
-```
+### 1. Don't Panic 
+  -It is a lot of info! Ask a teammate for help, especially for your first env and pipeline setup.
 
-## Setup
-### Creating a New Postgres DB
-The local PostgreSQL database will store tables from the pipeline run. Each study requires a separate DB, but you can reuse the same role/user.
+### 2. Setup
+Recommended, if running on your local computer(not in Terra), create a venv, and activate it.
 
-### 1. Log into PostgreSQL as Admin
-```bash
-sudo -u postgres psql
-```
-Exit with `\q`.
+1. Install the project requirements with `pip install -r requirements.txt` from the root dir.  This will install the utils package, among other dbt required installations.
 
-### 2. Create a Role
-```sql
-CREATE ROLE {my_role} LOGIN CREATEDB PASSWORD '{password}';
--- Example:
--- CREATE ROLE dev_role LOGIN CREATEDB PASSWORD 'my_password';
-```
-Drop and retry if needed:
-```sql
-DROP ROLE {my_role};
-SELECT rolname FROM pg_roles WHERE rolcanlogin;
-```
+2. Set up your `~/.dbt/profiles.yml` and define environment variables(secrets) somewhere. Ask team about our secrets handling strategy. 
 
-### 3. Create a Database
-```sql
-CREATE DATABASE {db};
-```
+3. Recommended - store all data stored in the `/data` directory of the project and named as the utils expects, the utils will automatically pick up the files. You can add a different src dir in the command by using the `--filepath argument`. You’ll see that option in the run step. All files the utils are looking for should exist in the same dir whatever the case may be.
 
-### 4. Create a User
-```sql
-CREATE USER {my_user} WITH PASSWORD '{password}';
-GRANT {my_role} TO {my_user};
-GRANT ALL PRIVILEGES ON DATABASE {db} TO {my_user};
-ALTER ROLE {my_user} WITH SUPERUSER; -- Needed for COPY
-```
+### 3. Run the utils
 
-### 5. Connect as the New User
-```bash
-sudo systemctl restart postgresql
-psql -U {my_user} -d {db} -h {host} -p {port}
-# Example: psql -U my_user -d default_db -h localhost -p 5432
-```
+1. The utils use dbt as well to make a db connection. So you’ll want to run `dbt clean` then `dbt deps` in the terminal. These commands clear out any past dbt packages you have imported brings in the current ones listed in `therootdir/packages.yml`.
 
-### 6. Save Your Password for Convenience
-```bash
+2. Run the utils command(s)
+    - These are stored in the `rootdir/scripts dir`. 
 
-chmod 600 ~/.pgpass
-```
+#### import_data.py
+  - You may not need to use this if you’ve already imported the data via other means. Currently set up for postgres and synapse imports. Notes on postgres and synapse setup are in another castle(repo).
+  - Uses the study config `({study}_study.yaml)` file that defines the projects src data and data dictionaries to create and load tables in your db(db is also defined in the `study config`, should match a profile in your `profiles.yml`). 
+  - From the root dir run `./scripts/import_data.py -s {study_id}`
+  - The `study_id` should be the same across the board. Whatever used in the study config file.
+  - `--filepath` arg is also available, see below.
 
-### Helpful Queries
-```sql
-SELECT current_database(), current_user;
-SELECT schemaname, tablename FROM pg_tables;
-SELECT schemaname, tablename FROM pg_tables
-WHERE schemaname NOT LIKE 'pg%'
-AND schemaname NOT LIKE 'information%'
-AND tablename NOT LIKE 'my_first_dbt_model'
-ORDER BY schemaname;
+#### generate_model_docs.py
+ - Uses the study config file, and others(…. if something isn’t right ask a teammate), to generate all documents needed for the study, in the correct file locations. 
+ - From the root dir run `./scripts/generate_model_docs.py -s {study_id} -p {project_id}`
+ - The `study_id` should be the same across the board. Whatever used in the study config file. 
+ - The `project_id` is the org associated with the study, also defined in the study config file.
+ - `--filepath` arg is also available, see below.
 
--- Drop tables/schemas
-DROP TABLE pg_tables.{your_table_name};
-DROP SCHEMA dbo_aecom_data CASCADE;
+### 4. Inspect the run log(s) and the generated directories for errors. 
 
--- Inspect table data
-SELECT * FROM schemaname.tablename LIMIT 50;
-```
+### 5. Manual edits to files. Listed at the end of the utils generation script log.
+  - Find in file references to m00m00( there are ~3 of them). Replace these with your study_id.
+  - Edit the `rootdir/packages.yml` to contain any new models in your source dir. 
 
-## Project Workflow
-- Run everything from inside the "ftd" project directory.
+### 6. Test the run script/dbt commands manually.
+  - If the data is imported correctly, You should be able to run the source models. 
+    - `dbt clean`
+    - `dbt deps`
+    - `dbt run {study_id}_src_{table_id}`
+    - `dbt run {study_id}_stg_{table_id}`
+  - You can also run the generated pipeline run script from the root dir  `./{project_id}/scripts/run_{study_id).sh`. This should run the src models, but complain at the ftd and tgt model runs, because the sql in the models are most likely not runnable at this time. dbt does not often give helpful errors when more than one model is run at a time. Suggestion, while editing the pipeline use single commands like in previous step.  The run commands generated are mainly useful for the end product, full pipeline run. Examples of run commands for each stage are seen in `rootdir/scripts/examples/ex_run_commands.sh`. You could also edit this file to run the commands you want to while setting up the project for the first time. 
 
-### Study YAML Creation
-- Ensure table details are accurate: use filenames for CSVs or Synapse IDs.
-- Replace all `m00m00` placeholders with your study ID.
-- Check `profiles.yml` in the examples dir for the expected file format.
+### Reminder
+  - Make sure the the .gitignore files are set up properly before any commits or pushes! If this happens tell someone! Data and secrets must not go to Github and if they do we would need to act.
 
-
-### Run Order
-1. `dbt clean && dbt deps`
-2. Log into your database
-3. Import source data (if needed)
-```bash
-./scripts/import_data.py -s {study_id}
-```
-- Delete tables if re-importing due to errors
-```sql
-DROP TABLE schema_name.table_name;
-```
-4. Generate model docs
-```bash
-./scripts/generate_model_docs.py
-```
-- Replace all `m00m00` placeholders manually
-- Study-specific updates may be needed
-- Give permissions to new scripts if necessary
-
-```bash
-chmod +x scripts/process_new_study.py
-```
-
-### Transformation Workflow
-- Test models step-by-step with `dbt run`
-- Add working models to `packages.yml`
-- Use `scripts/examples/ex_run_commands.sh` for command templates
-- Run `dbt clean && dbt deps` frequently
-
-### Debugging Tips
-- If getting new errors related to doc files, suggested fix is to delete the file and regenerate it.
-- Check the root `dbt_project.yml` import paths, if a module is unknown by dbt
-
-
-## Final Goal
-Generate a complete dbt pipeline for the study including:
-- Study-specific configs
-- Model transformations
-- Usable repository with all requirements
+### Suggestion:
+  - Rerun the utils generation if needed. Many docs files are generated with the utils. These can be HARD to keep up with if not generating them programmatically. If one of the data dictionaries has an error, fix the data dictionary, and rerun the generation script. The generation script will not overwrite some files so as to not remove any major work(sql files especially) if you need these regenerated, delete the files manually before re-Running the generation script.
 

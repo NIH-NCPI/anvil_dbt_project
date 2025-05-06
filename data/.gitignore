@@ -6,3 +6,9 @@
 
 !m00m00
 !m00m00/**/*
+
+!gregor_test
+!gregor_test/**/*
+
+!data_expectations_utils
+!data_expectations_utils/**/*
