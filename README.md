@@ -33,9 +33,10 @@ Ctrl + X # then follow the prompts.
 
 ### 3. Run the utils
 
-1. The utils use dbt as well to make a db connection. So you’ll want to run `dbt clean` then `dbt deps` in the terminal. These commands clear out any past dbt packages you have imported brings in the current ones listed in `therootdir/packages.yml`. At this time you do not want any of the study imports uncommented in this file. If you see an error like 'model {model} does not have requred Node...'(at this stage!) this is most likely th problem.
+1.  Make sure the `rootdir/dbt_project.yml` `profile` identifies the dbt db profile required for your study.
+2.  The utils use dbt as well to make a db connection. So you’ll want to run `dbt clean` then `dbt deps` in the terminal. These commands clear out any past dbt packages you have imported brings in the current ones listed in `therootdir/packages.yml`. At this time you do not want any of the study imports uncommented in this file. If you see an error like 'model {model} does not have requred Node...'(at this stage!) this is most likely th problem.
 
-2. Run the utils command(s)
+3.  Run the utils command(s)
     - These are stored in the `rootdir/scripts dir`. 
 
 #### import_data.py
