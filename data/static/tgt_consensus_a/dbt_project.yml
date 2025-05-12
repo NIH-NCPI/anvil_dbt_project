@@ -1,0 +1,30 @@
+name: 'tgt'
+version: '1.0.0'
+profile: 'm00m00'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+clean-targets: 
+  - "target"
+  - "dbt_packages"
+
+vars:
+  target_schema: "fallback_schema"
+  source_table: "m00m00_stg_participant" # Fallback table, define a ftd table that exists.
+
+models:
+  tgt:
+    +materialized: table
+    tgt_additive:
+    tgt_condition:
+    tgt_contacts:
+    tgt_datafile:
+    tgt_dataset_manifest:
+    tgt_dataset_meta:
+    tgt_encounter:
+    tgt_family:
+    tgt_participant:
+    tgt_phenotype:
+    tgt_specimen:
+    tgt_study:

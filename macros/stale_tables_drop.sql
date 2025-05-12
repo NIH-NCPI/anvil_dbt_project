@@ -1,0 +1,3 @@
+-- TODO: According to dbt users local dbt dbs can be easily overrun with stale tables.
+-- Suggestion: Check for this issue periodically,
+-- If an issue, create a macro to find tables that have an alter data > n_days.

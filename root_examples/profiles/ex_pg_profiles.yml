@@ -1,0 +1,12 @@
+postgres:
+  target: dev
+  outputs:
+    dev:
+      dbname: anvil_src_db    # db you have already created with your username and password with altered permissions to the db
+      host: localhost
+      pass: "{{ env_var('PG_TEST_PASSWORD') }}"
+      port: 5432
+      schema: anvil
+      threads: 1
+      type: postgres
+      user: "{{ env_var('PG_USER') }}"

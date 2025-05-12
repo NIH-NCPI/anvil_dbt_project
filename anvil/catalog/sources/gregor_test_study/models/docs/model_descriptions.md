@@ -1,19 +1,9 @@
 ### Participant Models
 
-{% docs gregor_test_study_src_participant %}
-Model for gregor_test_study_src_participant.
+{% docs GREGoR_synthetic_participant_revised07Aug2024 %}
+Model for GREGoR_synthetic_participant_revised07Aug2024.
 {% enddocs %}
 
 {% docs gregor_test_study_stg_participant %}
 Model for gregor_test_study_stg_participant.
-{% enddocs %}
-
-### Phenotype Models
-
-{% docs gregor_test_study_src_phenotype %}
-Model for gregor_test_study_src_phenotype.
-{% enddocs %}
-
-{% docs gregor_test_study_stg_phenotype %}
-Model for gregor_test_study_stg_phenotype.
 {% enddocs %}

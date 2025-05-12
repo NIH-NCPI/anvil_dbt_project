@@ -1,6 +1,6 @@
 name: catalog
 version: 1.0.0
-profile: anvil_postgres
+profile: anvil_duckdb
 model-paths:
 - models
 macro-paths:

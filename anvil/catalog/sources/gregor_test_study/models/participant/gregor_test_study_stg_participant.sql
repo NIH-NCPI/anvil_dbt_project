@@ -1,8 +1,8 @@
 {{ config(materialized='table') }}
 
-with source as (
-    select 
-       "AnVIL_GREGoR_GSS_U07_GRU_participant_id"::text AS "anvil_gregor_gss_u07_gru_participant_id",
+    with source as (
+        select 
+        "AnVIL_GREGoR_GSS_U07_GRU_participant_id"::text AS "anvil_gregor_gss_u07_gru_participant_id",
        "affected_status"::text AS "affected_status",
        "age_at_enrollment"::text AS "age_at_enrollment",
        "age_at_last_observation"::text AS "age_at_last_observation",
@@ -25,10 +25,11 @@ with source as (
        "sex_detail"::text AS "sex_detail",
        "solve_status"::text AS "solve_status",
        "twin_id"::text AS "twin_id"
-    from {{ ref('gregor_test_study_src_participant') }}
-)
+        from {{ source('gregor_test_study','GREGoR_synthetic_participant_revised07Aug2024') }}
+    )
 
-select 
-    *,
-    concat(study_code, '-', participant_global_id) AS ftd_key
-from source
+    select 
+        *,
+        concat(study_code, '-', participant_global_id) as ftd_key
+    from source
+    

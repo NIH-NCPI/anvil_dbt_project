@@ -10,9 +10,9 @@ clean-targets:
 - dbt_packages
 models:
   gregor_test_study:
-    gregor_test_study_ftd_phenotype:
-      +schema: gregor_test_study_ftd_data
-      +materialized: table
     gregor_test_study_ftd_participant:
-      +schema: gregor_test_study_ftd_data
+      +schema: main
+      +materialized: table
+    gregor_test_study_ftd_phenotype:
+      +schema: main
       +materialized: table

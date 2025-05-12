@@ -1,9 +1,10 @@
-dbt-core
+dbt-core==1.9.4
 dbt-postgres
 dbt-sqlserver
+dbt-duckdb==1.9.3
 synapseclient
 pandas
 openpyxl
-protobuf==4.25.3 # dbt core and adapters require version <5.0.0
+protobuf
 
 git+https://github.com/NIH-NCPI/pipeline-utils.git@main#egg=dbt_pipeline_utils

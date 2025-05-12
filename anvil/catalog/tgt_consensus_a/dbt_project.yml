@@ -10,10 +10,19 @@ clean-targets:
 - dbt_packages
 vars:
   target_schema: fallback_schema
-  source_table: gregor_test_study_src_participant
+  source_table: gregor_test_study_stg_participant
 models:
   tgt:
     +materialized: table
+    # tgt_additive: null
+    # tgt_condition: null
+    # tgt_contacts: null
+    # tgt_datafile: null
+    # tgt_dataset_manifest: null
+    # tgt_dataset_meta: null
+    # tgt_encounter: null
+    # tgt_family: null
     tgt_participant: null
     tgt_phenotype: null
-
+    # tgt_specimen: null
+    # tgt_study: null

@@ -1,0 +1,13 @@
+synapse:
+  target: dev
+  outputs:
+    dev:
+      type: sqlserver
+      driver: "ODBC Driver 17 for SQL Server"
+      server: rver.database.windows.net
+      database: anvil
+      schema: anvil_src_data
+      user: "{{ env_var('SYN_USERNAME') }}"
+      password: "{{ env_var('SYN_PASSWORD') }}"
+      trust_server_certificate: false
+      port: 1433

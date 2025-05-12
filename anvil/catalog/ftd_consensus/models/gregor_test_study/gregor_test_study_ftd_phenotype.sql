@@ -1,8 +1,8 @@
 {{ config(materialized='table', schema='gregor_test_study_data') }}
 
-with source as (
-    select 
-       GEN_UNKNOWN.study_code::text AS "study_code",
+    with source as (
+        select 
+        GEN_UNKNOWN.study_code::text AS "study_code",
        GEN_UNKNOWN.participant_global_id::text AS "participant_global_id",
        GEN_UNKNOWN.participant_external_id::text AS "participant_external_id",
        GEN_UNKNOWN.event_id::text AS "event_id",
@@ -22,10 +22,11 @@ with source as (
        GEN_UNKNOWN.other_code::text AS "other_code",
        GEN_UNKNOWN.measure_value::integer AS "measure_value",
        GEN_UNKNOWN.measure_unit::text AS "measure_unit"
-    from {{ ref('gregor_test_study_stg_participant') }} AS participant
-    JOIN {{ ref('gregor_test_study_stg_phenotype') }} AS phenotype USING (ftd_key)
-)
+        from {{ ref('gregor_test_study_stg_participant') }} as participant
+        join {{ ref('gregor_test_study_stg_phenotype') }} AS phenotype using (ftd_key)
+    )
 
-select 
-    * 
-from source
+    select 
+        * 
+    from source
+    

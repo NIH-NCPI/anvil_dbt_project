@@ -1,0 +1,137 @@
+version: 2
+models:
+- name: gregor_test_study_ftd_phenotype
+  description: Model for gregor_test_study_ftd_phenotype.
+  columns:
+  - name: study_code
+    description: '{{ doc("gregor_test_study_ftd_phenotype_study_code") }}'
+    data_type: enumeration
+  - name: participant_global_id
+    description: '{{ doc("gregor_test_study_ftd_phenotype_participant_global_id")
+      }}'
+    data_type: string
+  - name: participant_external_id
+    description: '{{ doc("gregor_test_study_ftd_phenotype_participant_external_id")
+      }}'
+    data_type: string
+  - name: event_id
+    description: '{{ doc("gregor_test_study_ftd_phenotype_event_id") }}'
+    data_type: string
+  - name: event_type
+    description: '{{ doc("gregor_test_study_ftd_phenotype_event_type") }}'
+    data_type: string
+  - name: condition_or_measure_source_text
+    description: '{{ doc("gregor_test_study_ftd_phenotype_condition_or_measure_source_text")
+      }}'
+    data_type: string
+  - name: age_at_condition_or_measure_observation
+    description: '{{ doc("gregor_test_study_ftd_phenotype_age_at_condition_or_measure_observation")
+      }}'
+    data_type: integer
+  - name: condition_interpretation
+    description: '{{ doc("gregor_test_study_ftd_phenotype_condition_interpretation")
+      }}'
+    data_type: enumeration
+  - name: condition_status
+    description: '{{ doc("gregor_test_study_ftd_phenotype_condition_status") }}'
+    data_type: enumeration
+  - name: condition_data_source
+    description: '{{ doc("gregor_test_study_ftd_phenotype_condition_data_source")
+      }}'
+    data_type: enumeration
+  - name: hpo_label
+    description: '{{ doc("gregor_test_study_ftd_phenotype_hpo_label") }}'
+    data_type: string
+  - name: hpo_code
+    description: '{{ doc("gregor_test_study_ftd_phenotype_hpo_code") }}'
+    data_type: string
+  - name: mondo_label
+    description: '{{ doc("gregor_test_study_ftd_phenotype_mondo_label") }}'
+    data_type: string
+  - name: mondo_code
+    description: '{{ doc("gregor_test_study_ftd_phenotype_mondo_code") }}'
+    data_type: string
+  - name: maxo_label
+    description: '{{ doc("gregor_test_study_ftd_phenotype_maxo_label") }}'
+    data_type: string
+  - name: maxo_code
+    description: '{{ doc("gregor_test_study_ftd_phenotype_maxo_code") }}'
+    data_type: string
+  - name: other_label
+    description: '{{ doc("gregor_test_study_ftd_phenotype_other_label") }}'
+    data_type: string
+  - name: other_code
+    description: '{{ doc("gregor_test_study_ftd_phenotype_other_code") }}'
+    data_type: string
+  - name: measure_value
+    description: '{{ doc("gregor_test_study_ftd_phenotype_measure_value") }}'
+    data_type: integer
+  - name: measure_unit
+    description: '{{ doc("gregor_test_study_ftd_phenotype_measure_unit") }}'
+    data_type: string
+- name: gregor_test_study_ftd_participant
+  description: Model for gregor_test_study_ftd_participant.
+  columns:
+  - name: study_code
+    description: '{{ doc("gregor_test_study_ftd_participant_study_code") }}'
+    data_type: enumeration
+  - name: participant_global_id
+    description: '{{ doc("gregor_test_study_ftd_participant_participant_global_id")
+      }}'
+    data_type: string
+  - name: participant_external_id
+    description: '{{ doc("gregor_test_study_ftd_participant_participant_external_id")
+      }}'
+    data_type: string
+  - name: family_id
+    description: '{{ doc("gregor_test_study_ftd_participant_family_id") }}'
+    data_type: string
+  - name: family_type
+    description: '{{ doc("gregor_test_study_ftd_participant_family_type") }}'
+    data_type: enumeration
+  - name: father_id
+    description: '{{ doc("gregor_test_study_ftd_participant_father_id") }}'
+    data_type: string
+  - name: mother_id
+    description: '{{ doc("gregor_test_study_ftd_participant_mother_id") }}'
+    data_type: string
+  - name: sibling_id
+    description: '{{ doc("gregor_test_study_ftd_participant_sibling_id") }}'
+    data_type: string
+  - name: other_family_member_id
+    description: '{{ doc("gregor_test_study_ftd_participant_other_family_member_id")
+      }}'
+    data_type: string
+  - name: family_relationship
+    description: '{{ doc("gregor_test_study_ftd_participant_family_relationship")
+      }}'
+    data_type: enumeration
+  - name: sex
+    description: '{{ doc("gregor_test_study_ftd_participant_sex") }}'
+    data_type: enumeration
+  - name: race
+    description: '{{ doc("gregor_test_study_ftd_participant_race") }}'
+    data_type: enumeration
+  - name: ethnicity
+    description: '{{ doc("gregor_test_study_ftd_participant_ethnicity") }}'
+    data_type: enumeration
+  - name: down_syndrome_status
+    description: '{{ doc("gregor_test_study_ftd_participant_down_syndrome_status")
+      }}'
+    data_type: enumeration
+  - name: age_at_first_patient_engagement
+    description: '{{ doc("gregor_test_study_ftd_participant_age_at_first_patient_engagement")
+      }}'
+    data_type: integer
+  - name: first_patient_engagement_event
+    description: '{{ doc("gregor_test_study_ftd_participant_first_patient_engagement_event")
+      }}'
+    data_type: string
+  - name: outcomes_vital_status
+    description: '{{ doc("gregor_test_study_ftd_participant_outcomes_vital_status")
+      }}'
+    data_type: enumeration
+  - name: age_at_last_vital_status
+    description: '{{ doc("gregor_test_study_ftd_participant_age_at_last_vital_status")
+      }}'
+    data_type: integer
