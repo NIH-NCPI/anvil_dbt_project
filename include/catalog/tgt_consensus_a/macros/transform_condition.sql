@@ -5,7 +5,6 @@ WITH src_condition AS (
     FROM {{ ref(source_table) }}
 )
 
-
 SELECT
     *
 FROM src_condition c

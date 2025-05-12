@@ -3,8 +3,8 @@ dbt deps  || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # dbt seed
 
 # src/stg single model dbt command examples
-# dbt run --select  m00m00_stg_combined
-# dbt run --select  m00m00_stg_study
+# dbt run --select  m00m00_stg_participant
+# dbt run --select  m00m00_stg_condition
 
 # FTD single model dbt command examples
 # dbt run --select  m00m00_ftd_participant

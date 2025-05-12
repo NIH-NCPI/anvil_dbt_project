@@ -1,19 +1,9 @@
 ### Participant Models
 
-{% docs m00m00_src_participant %}
-Model for m00m00_src_participant.
+{% docs participants_m00m00 %}
+Model for participants_m00m00.
 {% enddocs %}
 
 {% docs m00m00_stg_participant %}
 Model for m00m00_stg_participant.
-{% enddocs %}
-
-### Condition Models
-
-{% docs m00m00_src_condition %}
-Model for m00m00_src_condition.
-{% enddocs %}
-
-{% docs m00m00_stg_condition %}
-Model for m00m00_stg_condition.
 {% enddocs %}

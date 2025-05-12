@@ -1,8 +1,8 @@
 {{ config(materialized='table', schema='m00m00_data') }}
 
-with source as (
-    select 
-       participant.study_code::text AS "study_code",
+    with source as (
+        select 
+        participant.study_code::text AS "study_code",
        participant.participant_global_id::text AS "participant_global_id",
        participant.participant_external_id::text AS "participant_external_id",
        participant.event_id::text AS "event_id",
@@ -22,10 +22,11 @@ with source as (
        participant.other_code::text AS "other_code",
        participant.measure_value::integer AS "measure_value",
        participant.measure_unit::text AS "measure_unit"
-    from {{ ref('m00m00_stg_participant') }} AS participant
-    JOIN {{ ref('m00m00_stg_condition') }} AS condition USING (ftd_key)
-)
+        from {{ ref('m00m00_stg_participant') }} as participant
+        join {{ ref('m00m00_stg_condition') }} AS condition using (ftd_key)
+    )
 
-select 
-    * 
-from source
+    select 
+        * 
+    from source
+    

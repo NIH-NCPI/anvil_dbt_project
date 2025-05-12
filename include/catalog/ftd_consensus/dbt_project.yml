@@ -10,12 +10,9 @@ clean-targets:
 - dbt_packages
 models:
   m00m00:
-    m00m00_ftd_condition:
-      +schema: m00m00_ftd_data
-      +materialized: table
     m00m00_ftd_participant:
-      +schema: m00m00_ftd_data
+      +schema: m00m00_src_data
       +materialized: table
-    m00m00_ftd_study:
-      +schema: m00m00_ftd_data
+    m00m00_ftd_condition:
+      +schema: m00m00_src_data
       +materialized: table

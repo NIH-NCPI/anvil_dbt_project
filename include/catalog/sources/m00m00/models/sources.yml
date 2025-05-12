@@ -1,0 +1,94 @@
+version: 2
+sources:
+- name: m00m00
+  schema: m00m00_src_data
+  tables:
+  - name: participants_m00m00
+    description: Source table for participants_m00m00.
+    columns:
+    - name: Study Code
+      description: '{{ doc("participants_m00m00_study_code") }}'
+    - name: Participant Global ID
+      description: '{{ doc("participants_m00m00_participant_global_id") }}'
+    - name: Participant External ID
+      description: '{{ doc("participants_m00m00_participant_external_id") }}'
+    - name: Event ID
+      description: '{{ doc("participants_m00m00_event_id") }}'
+    - name: Event Type
+      description: '{{ doc("participants_m00m00_event_type") }}'
+    - name: Condition or Measure Source Text
+      description: '{{ doc("participants_m00m00_condition_or_measure_source_text")
+        }}'
+    - name: Age at Condition or Measure Observation
+      description: '{{ doc("participants_m00m00_age_at_condition_or_measure_observation")
+        }}'
+    - name: Condition Interpretation
+      description: '{{ doc("participants_m00m00_condition_interpretation") }}'
+    - name: Condition Status
+      description: '{{ doc("participants_m00m00_condition_status") }}'
+    - name: Condition Data Source
+      description: '{{ doc("participants_m00m00_condition_data_source") }}'
+    - name: HPO Label
+      description: '{{ doc("participants_m00m00_hpo_label") }}'
+    - name: HPO Code
+      description: '{{ doc("participants_m00m00_hpo_code") }}'
+    - name: MONDO Label
+      description: '{{ doc("participants_m00m00_mondo_label") }}'
+    - name: MONDO Code
+      description: '{{ doc("participants_m00m00_mondo_code") }}'
+    - name: MAXO Label
+      description: '{{ doc("participants_m00m00_maxo_label") }}'
+    - name: MAXO Code
+      description: '{{ doc("participants_m00m00_maxo_code") }}'
+    - name: Other Label
+      description: '{{ doc("participants_m00m00_other_label") }}'
+    - name: Other Code
+      description: '{{ doc("participants_m00m00_other_code") }}'
+    - name: Measure Value
+      description: '{{ doc("participants_m00m00_measure_value") }}'
+    - name: Measure Unit
+      description: '{{ doc("participants_m00m00_measure_unit") }}'
+  - name: condition_m00m00
+    description: Source table for condition_m00m00.
+    columns:
+    - name: Study Code
+      description: '{{ doc("condition_m00m00_study_code") }}'
+    - name: Participant Global ID
+      description: '{{ doc("condition_m00m00_participant_global_id") }}'
+    - name: Participant External ID
+      description: '{{ doc("condition_m00m00_participant_external_id") }}'
+    - name: Event ID
+      description: '{{ doc("condition_m00m00_event_id") }}'
+    - name: Event Type
+      description: '{{ doc("condition_m00m00_event_type") }}'
+    - name: Condition or Measure Source Text
+      description: '{{ doc("condition_m00m00_condition_or_measure_source_text") }}'
+    - name: Age at Condition or Measure Observation
+      description: '{{ doc("condition_m00m00_age_at_condition_or_measure_observation")
+        }}'
+    - name: Condition Interpretation
+      description: '{{ doc("condition_m00m00_condition_interpretation") }}'
+    - name: Condition Status
+      description: '{{ doc("condition_m00m00_condition_status") }}'
+    - name: Condition Data Source
+      description: '{{ doc("condition_m00m00_condition_data_source") }}'
+    - name: HPO Label
+      description: '{{ doc("condition_m00m00_hpo_label") }}'
+    - name: HPO Code
+      description: '{{ doc("condition_m00m00_hpo_code") }}'
+    - name: MONDO Label
+      description: '{{ doc("condition_m00m00_mondo_label") }}'
+    - name: MONDO Code
+      description: '{{ doc("condition_m00m00_mondo_code") }}'
+    - name: MAXO Label
+      description: '{{ doc("condition_m00m00_maxo_label") }}'
+    - name: MAXO Code
+      description: '{{ doc("condition_m00m00_maxo_code") }}'
+    - name: Other Label
+      description: '{{ doc("condition_m00m00_other_label") }}'
+    - name: Other Code
+      description: '{{ doc("condition_m00m00_other_code") }}'
+    - name: Measure Value
+      description: '{{ doc("condition_m00m00_measure_value") }}'
+    - name: Measure Unit
+      description: '{{ doc("condition_m00m00_measure_unit") }}'

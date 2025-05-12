@@ -1,8 +1,8 @@
 {{ config(materialized='table') }}
 
-with source as (
-    select 
-       "Study Code"::text AS "study_code",
+    with source as (
+        select 
+        "Study Code"::text AS "study_code",
        "Participant Global ID"::text AS "participant_global_id",
        "Participant External ID"::text AS "participant_external_id",
        "Event ID"::integer AS "event_id",
@@ -22,10 +22,11 @@ with source as (
        "Other Code"::text AS "other_code",
        "Measure Value"::float AS "measure_value",
        "Measure Unit"::text AS "measure_unit"
-    from {{ ref('m00m00_src_participant') }}
-)
+        from {{ source('m00m00','participants_m00m00') }}
+    )
 
-select 
-    *,
-    concat(study_code, '-', participant_global_id) AS ftd_key
-from source
+    select 
+        *,
+        concat(study_code, '-', participant_global_id) as ftd_key
+    from source
+    

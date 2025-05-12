@@ -1,8 +1,8 @@
 {{ config(materialized='table', schema='m00m00_data') }}
 
-with source as (
-    select 
-       participant.study_code::text AS "study_code",
+    with source as (
+        select 
+        participant.study_code::text AS "study_code",
        GEN_UNKNOWN.study_title::text AS "study_title",
        GEN_UNKNOWN.program::text AS "program",
        GEN_UNKNOWN.study_description::text AS "study_description",
@@ -27,10 +27,11 @@ with source as (
        GEN_UNKNOWN.guid_mapped::text AS "guid_mapped",
        GEN_UNKNOWN.acknowledgments::text AS "acknowledgments",
        GEN_UNKNOWN.citation_statement::text AS "citation_statement"
-    from {{ ref('m00m00_stg_participant') }} AS participant
-    JOIN {{ ref('m00m00_stg_condition') }} AS condition USING (ftd_key)
-)
+        from {{ ref('m00m00_stg_participant') }} as participant
+        join {{ ref('m00m00_stg_condition') }} AS condition using (ftd_key)
+    )
 
-select 
-    * 
-from source
+    select 
+        * 
+    from source
+    

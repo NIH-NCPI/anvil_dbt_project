@@ -1,8 +1,8 @@
 {{ config(materialized='table', schema='m00m00_data') }}
 
-with source as (
-    select 
-       participant.study_code::text AS "study_code",
+    with source as (
+        select 
+        participant.study_code::text AS "study_code",
        participant.participant_global_id::text AS "participant_global_id",
        participant.participant_external_id::text AS "participant_external_id",
        GEN_UNKNOWN.family_id::text AS "family_id",
@@ -20,10 +20,11 @@ with source as (
        GEN_UNKNOWN.first_patient_engagement_event::text AS "first_patient_engagement_event",
        GEN_UNKNOWN.outcomes_vital_status::text AS "outcomes_vital_status",
        GEN_UNKNOWN.age_at_last_vital_status::integer AS "age_at_last_vital_status"
-    from {{ ref('m00m00_stg_participant') }} AS participant
-    JOIN {{ ref('m00m00_stg_condition') }} AS condition USING (ftd_key)
-)
+        from {{ ref('m00m00_stg_participant') }} as participant
+        join {{ ref('m00m00_stg_condition') }} AS condition using (ftd_key)
+    )
 
-select 
-    * 
-from source
+    select 
+        * 
+    from source
+    
