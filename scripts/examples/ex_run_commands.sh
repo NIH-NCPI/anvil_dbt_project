@@ -20,8 +20,9 @@ dbt deps  || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # dbt run --select tgt_study --vars '{"source_table": "m00m00_ftd_study", "target_schema": "m00m00_tgt_data"}'
 
 # gregor/duckdb examples
-dbt run --select  gregor_test_study_stg_participant
-dbt run --select  gregor_test_study_stg_phenotype
+dbt run --select  gregor_ts_stg_participant
+dbt run --select  gregor_ts_stg_phenotype
+dbt run --select  gregor_ts_ftd_participant
 # dbt run --select  gregor_test_study_ftd_participant
 # dbt run --select  gregor_test_study_ftd_phenotype
 # dbt run --select tgt_participant --vars '{"source_table": "gregor_test_study_ftd_participant", "target_schema": "main"}'

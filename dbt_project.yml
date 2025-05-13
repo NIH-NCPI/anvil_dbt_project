@@ -1,12 +1,11 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'base'
-version: '1.0.0'
+name: "base"
+version: "1.0.0"
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'postgres'
+profile: "anvil_duckdb"
 
 model-paths:
   - models
@@ -15,6 +14,6 @@ macro-paths:
 seed-paths:
   - seeds
 
-clean-targets:  # directories to be removed by `dbt clean`
+clean-targets: # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"

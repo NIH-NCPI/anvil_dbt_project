@@ -1,18 +1,23 @@
-name: ftd
+name: gregor_ts
 version: 1.0.0
 profile: anvil
 model-paths:
 - models
 macro-paths:
 - macros
+snapshot-paths:
+- snapshots
 clean-targets:
 - target
 - dbt_packages
 models:
-  gregor_ts:
-    gregor_ts_ftd_participant:
+  +schema: main
+  +materialized: table
+  participant:
+    gregor_ts_stg_participant:
       +schema: main
       +materialized: table
-    gregor_ts_ftd_phenotype:
+  phenotype:
+    gregor_ts_stg_phenotype:
       +schema: main
       +materialized: table
