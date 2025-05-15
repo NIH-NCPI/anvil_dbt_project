@@ -1,5 +1,6 @@
-# Anvil dbt project
-Contains the dbt pipelines for all AnVIL studies.
+# dbt_pipeline
+The base dbt pipeline. Can be used as a template for the creation of organization specific dbt projects.
+This repo contains test data and can be used for onboarding and discovery purposes.
 
 ## Procedure
 **REMINDER:** Before any commit! Make sure the the .gitignore files are set up properly before making any commits! They should already be set up and no edits needed, but verify this! 
@@ -29,7 +30,11 @@ nano ~/.dbt/profiles.yml
 Ctrl + X # then follow the prompts.
   ```
 
-3. Recommended - store all data stored in the `/data` directory of the project and named as the utils expects, the utils will automatically pick up the files. You can add a different src dir in the command by using the `--filepath argument`. You’ll see that option in the run step. All files the utils are looking for should exist in the same dir whatever the case may be.
+3. Edit the rootdir dbt_project.yml `profile`. This should be set to the name of the profile created for your database in the profiles.yaml.
+
+4.  Store data
+ - See `rootdir/data/data_expectations_utils` for an example of the data that should be stored at this time. More information should be found in the README of the data dir as well.
+ - Recommended - store all data stored in the `/data` directory of the project and named as the utils expects, the utils will automatically pick up the files. You can add a different src dir in the command by using the `--filepath argument`. You’ll see that option in the run step. All files the utils are looking for should exist in the same dir whatever the case may be.
 
 ### 3. Run the utils
 
