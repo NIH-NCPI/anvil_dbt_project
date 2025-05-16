@@ -1,6 +1,6 @@
 name: 'tgt'
 version: '1.0.0'
-profile: 'm00m00'
+profile: 'anvil'
 
 model-paths: ["models"]
 macro-paths: ["macros"]
@@ -11,7 +11,7 @@ clean-targets:
 
 vars:
   target_schema: "fallback_schema"
-  source_table: "m00m00_stg_participant" # Fallback table, define a ftd table that exists.
+  source_table: "{study_id}_stg_participant" # Fallback table, define a ftd table that exists.
 
 models:
   tgt:

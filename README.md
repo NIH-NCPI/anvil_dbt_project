@@ -34,7 +34,7 @@ Ctrl + X # then follow the prompts.
 
 4.  Store data
  - See `rootdir/data/data_expectations_utils` for an example of the data that should be stored at this time. More information should be found in the README of the data dir as well.
- - Recommended - store all data stored in the `/data` directory of the project and named as the utils expects, the utils will automatically pick up the files. You can add a different src dir in the command by using the `--filepath argument`. You’ll see that option in the run step. All files the utils are looking for should exist in the same dir whatever the case may be.
+ - Store all data stored in the `/data` directory of the project and named as the utils expects, the utils will automatically pick up the files. You can add a different src dir in the command by using the `--filepath argument`. You’ll see that option in the run step. All files the utils are looking for should exist in the same dir whatever the case may be.
 
 ### 3. Run the utils
 
@@ -61,9 +61,7 @@ Ctrl + X # then follow the prompts.
 ### 4. Inspect the run log(s) and the generated directories for errors. 
 
 ### 5. Manual edits to files. Listed at the end of the utils generation script log.
-  - Find in file references to m00m00( there are ~3 of them). Replace these with your study_id.
   - Edit the `rootdir/packages.yml` to contain any new models in your source dir. 
-  - Edit the `dbt_project.yml` files `profile` if needed. The profile should be set to the one set up in the `~/.dbt/profiles.yml`
 
 ### 6. Test the run script/dbt commands manually.
   - If the data is imported correctly, You should be able to run the source models. 

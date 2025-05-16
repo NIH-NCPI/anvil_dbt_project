@@ -6,7 +6,7 @@ name: 'base'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'postgres'
+profile: 'anvil_duckdb'
 
 model-paths:
   - models

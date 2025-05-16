@@ -1,6 +1,6 @@
 study_id: gregor_synthetic
 project_id: anvil
-pipeline_db: anvil_postgres
+pipeline_db: anvil_duckdb
   
 data_dictionary:
   participant:

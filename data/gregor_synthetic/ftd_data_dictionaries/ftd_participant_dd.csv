@@ -1,0 +1,4 @@
+variable_name,description,data_type,enumerations,min,max,Comment,src_variable_name
+subject_id,Subject ID,String				,,,,,subject_id
+subject_type,Subject Type,String				,,,,,subject_type
+organism_type,Organism Type,String				,,,,,organism_type

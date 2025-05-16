@@ -3,11 +3,8 @@
 
 !.gitignore
 
-!m00m00
-!m00m00/**/*
-
-!gregor_test_study
-!gregor_test_study/**/*
+!gregor_synthetic
+!gregor_synthetic/**/*
 
 !static
 !static/**/*

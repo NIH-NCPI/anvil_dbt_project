@@ -1,4 +1,4 @@
-study_id: m00m00
+study_id: anvil
 data_dictionary:
   additive:
     identifier: ftd_additive_dd.csv
