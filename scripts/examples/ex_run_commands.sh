@@ -4,12 +4,12 @@ dbt deps  || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # 
 
 # gregor/duckdb examples
-dbt run --select  gregor_test_study_stg_participant
-dbt run --select  gregor_test_study_stg_phenotype
-# dbt run --select  gregor_test_study_ftd_participant
-# dbt run --select  gregor_test_study_ftd_phenotype
-# dbt run --select tgt_participant --vars '{"source_table": "gregor_test_study_ftd_participant", "target_schema": "main"}'
-# dbt run --select tgt_phenotype --vars '{"source_table": "gregor_test_study_ftd_phenotype", "target_schema": "main"}'
+dbt run --select  gregor_synthetic_stg_participant
+dbt run --select  gregor_synthetic_stg_phenotype
+# dbt run --select  gregor_synthetic_ftd_participant
+# dbt run --select  gregor_synthetic_ftd_phenotype
+# dbt run --select tgt_participant --vars '{"source_table": "gregor_synthetic_ftd_participant", "target_schema": "main"}'
+# dbt run --select tgt_phenotype --vars '{"source_table": "gregor_synthetic_ftd_phenotype", "target_schema": "main"}'
 
 # Run a single target model and its dependencies.
 # dbt run --select tgt_participant --vars '{"source_table": "gregor_synthetic_ftd_participant", "target_schema": "gregor_synthetic_tgt_data"}'

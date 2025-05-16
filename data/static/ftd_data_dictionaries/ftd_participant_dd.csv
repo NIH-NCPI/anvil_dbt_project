@@ -1,4 +1,0 @@
-variable_name,description,data_type,enumerations,min,max,Comment
-subject_id,Subject ID,String				
-subject_type,Subject Type,String				
-organism_type,Organism Type,String				

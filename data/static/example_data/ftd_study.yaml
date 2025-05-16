@@ -1,27 +1,34 @@
 study_id: anvil
 data_dictionary:
-  additive:
-    identifier: ftd_additive_dd.csv
-  condition:
-    identifier: ftd_condition_dd.csv
-  contacts:
-    identifier: ftd_contacts_dd.csv
-  datafile:
-    identifier: ftd_datafile_dd.csv
-  dataset_manifest:
-    identifier: ftd_dataset_manifest_dd.csv
-  dataset_meta:
-    identifier: ftd_dataset_meta_dd.csv
-  encounter:
-    identifier: ftd_encounter_dd.csv
+  demographics:
+    identifier: ftd_demographics_dd.csv
+  demographics_external_id:
+    identifier: ftd_demographics_external_id.csv
+  demographics_race_dd:
+    identifier: ftd_demographics_race.csv
+  demographics_source_data:
+    identifier: ftd_demographics_source_data.csv
   family:
     identifier: ftd_family_dd.csv
-  participant:
-    identifier: ftd_participant_dd.csv
-  specimen:
-    identifier: ftd_specimen_dd.csv
+  family_external_id:
+    identifier: family_external_id_dd.csv
+  family_family_relationships:
+    identifier: ftd_family_family_relationships_dd.csv
+  family_member:
+    identifier: ftd_family_member_dd.csv
+  family_member_external_id:
+    identifier: ftd_memeber_external_id_dd.csv
+  family_relationship:
+    identifier: ftd_relationship.csv
+  family_relationship_external_id:
+    identifier: ftd_family_relationship_external_id.csv
   study:
-    identifier: ftd_study_dd.csv
+    identifier: ftd_study.csv
+  study_external_id:
+    identifier: ftd_external_id.csv
+  study_external_study_id:
+    identifier: ftd_study_external_id.csv
+
 data_files:
   participant:
     identifier: null

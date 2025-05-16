@@ -1,9 +1,34 @@
-study_id: gregor
+study_id: anvil
 data_dictionary:
-  phenotype:
-    identifier: ftd_phenotype_dd.csv
-  participant:
-    identifier: ftd_participant_dd.csv
+  demographics:
+    identifier: ftd_demographics_dd.csv
+  demographics_external_id:
+    identifier: ftd_demographics_external_id_dd.csv
+  demographics_race:
+    identifier: ftd_demographics_race_dd.csv
+  demographics_source_data:
+    identifier: ftd_demographics_source_data_dd.csv
+  family:
+    identifier: ftd_family_dd.csv
+  family_external_id:
+    identifier: ftd_family_external_id_dd.csv
+  family_family_relationships:
+    identifier: ftd_family_family_relationships_dd.csv
+  family_member:
+    identifier: ftd_family_member_dd.csv
+  family_member_external_id:
+    identifier: ftd_family_member_external_id_dd.csv
+  family_relationship:
+    identifier: ftd_family_relationship_dd.csv
+  family_relationship_external_id:
+    identifier: ftd_family_relationship_external_id_dd.csv
+  study:
+    identifier: ftd_study_dd.csv
+  study_external_id:
+    identifier: ftd_study_external_id_dd.csv
+  study_external_study_id:
+    identifier: ftd_study_external_study_id_dd.csv
+
 data_files:
   participant:
     identifier: null

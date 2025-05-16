@@ -11,7 +11,7 @@ clean-targets:
 
 vars:
   target_schema: "fallback_schema"
-  source_table: "{study_id}_stg_participant" # Fallback table, define a ftd table that exists.
+  source_table: "{study_id}_stg_{table_id}" # Fallback table, define a stg table that is being run.
 
 models:
   tgt:
