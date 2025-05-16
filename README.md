@@ -12,6 +12,7 @@ This repo contains test data and can be used for onboarding and discovery purpos
 Recommended, if running on your local computer(not in Terra), create a venv, and activate it.
 
 1. Install the project requirements with `pip install -r requirements.txt` from the root dir.  This will install the utils package, among other dbt required installations.
+- NOTE: If there are issues with a pkg not installing use `pip install --force-reinstall --no-cache-dir -r requirements.txt`
 
 2. Set up your `~/.dbt/profiles.yml` if required, define environment variables(secrets) somewhere. Ask team about our secrets handling strategy. Example profiles exist in `/root_examples/profiles/ex_*`. If more than one is required, place them all to the same file. `~/.dbt/profiles.yml`
 ```bash

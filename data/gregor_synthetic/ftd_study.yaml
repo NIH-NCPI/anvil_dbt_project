@@ -28,7 +28,16 @@ data_dictionary:
     identifier: ftd_study_external_id_dd.csv
   study_external_study_id:
     identifier: ftd_study_external_study_id_dd.csv
-
+  subject_assertion:
+    identifier: ftd_subject_assertion_dd.csv
+  subject_assertion_external_id:
+    identifier: ftd_subject_assertion_external_id_dd.csv
+  subject_assertion_source_data:
+    identifier: ftd_subject_assertion_source_data_dd.csv
+  subject:
+    identifier: ftd_subject_dd.csv  
+  subject_external_id:
+    identifier: ftd_subject_external_id_dd.csv
 data_files:
   participant:
     identifier: null
