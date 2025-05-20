@@ -1,3 +1,0 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
-Demographics_id,Autocreated FK slot,string,,,,Foreign Key: Demographics.id,
-race,Reported race as defined by the 1997 OMB directives.,enumeration,,,american_indian_or_alaskan_native=None;asian=None;black_or_african_american=None;native_hawaiian_or_pacific_islander=None;white=None;other_race=None;unknown=None;asked_but_unknown=None,

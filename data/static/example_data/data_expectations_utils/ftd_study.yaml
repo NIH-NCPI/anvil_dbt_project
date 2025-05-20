@@ -1,9 +1,0 @@
-study_id: gregor
-data_dictionary:
-  phenotype:
-    identifier: ftd_phenotype_dd.csv
-  participant:
-    identifier: ftd_participant_dd.csv
-data_files:
-  participant:
-    identifier: null
