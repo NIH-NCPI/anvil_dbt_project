@@ -1,661 +1,711 @@
 version: 2
 models:
-- name: gregor_synthetic_ftd_demographics_source_data
-  description: Model for gregor_synthetic_ftd_demographics_source_data.
-  columns:
-  - name: demographics_id
-    description: '{{ doc("gregor_synthetic_ftd_demographics_source_data_demographics_id")
-      }}'
-    data_type: string
-  - name: source_data_id
-    description: '{{ doc("gregor_synthetic_ftd_demographics_source_data_source_data_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_sample
-  description: Model for gregor_synthetic_ftd_sample.
-  columns:
-  - name: parent_sample
-    description: '{{ doc("gregor_synthetic_ftd_sample_parent_sample") }}'
-    data_type: string
-  - name: sample_type
-    description: '{{ doc("gregor_synthetic_ftd_sample_sample_type") }}'
-    data_type: string
-  - name: availablity_status
-    description: '{{ doc("gregor_synthetic_ftd_sample_availablity_status") }}'
-    data_type: enumeration
-  - name: quantity_number
-    description: '{{ doc("gregor_synthetic_ftd_sample_quantity_number") }}'
-    data_type: number
-  - name: quantity_units
-    description: '{{ doc("gregor_synthetic_ftd_sample_quantity_units") }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_sample_has_access_policy") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_sample_id") }}'
-    data_type: string
-  - name: subject_id
-    description: '{{ doc("gregor_synthetic_ftd_sample_subject_id") }}'
-    data_type: string
-  - name: biospecimen_collection_id
-    description: '{{ doc("gregor_synthetic_ftd_sample_biospecimen_collection_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_sample_processing
-  description: Model for gregor_synthetic_ftd_sample_processing.
-  columns:
-  - name: sample_id
-    description: '{{ doc("gregor_synthetic_ftd_sample_processing_sample_id") }}'
-    data_type: string
-  - name: processing
-    description: '{{ doc("gregor_synthetic_ftd_sample_processing_processing") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_file
-  description: Model for gregor_synthetic_ftd_file.
-  columns:
-  - name: filename
-    description: '{{ doc("gregor_synthetic_ftd_file_filename") }}'
-    data_type: string
-  - name: format
-    description: '{{ doc("gregor_synthetic_ftd_file_format") }}'
-    data_type: enumeration
-  - name: data_type
-    description: '{{ doc("gregor_synthetic_ftd_file_data_type") }}'
-    data_type: enumeration
-  - name: size
-    description: '{{ doc("gregor_synthetic_ftd_file_size") }}'
-    data_type: integer
-  - name: drs_uri
-    description: '{{ doc("gregor_synthetic_ftd_file_drs_uri") }}'
-    data_type: string
-  - name: file_metadata
-    description: '{{ doc("gregor_synthetic_ftd_file_file_metadata") }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_file_has_access_policy") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_file_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_study_external_id
-  description: Model for gregor_synthetic_ftd_study_external_id.
-  columns:
-  - name: study_id
-    description: '{{ doc("gregor_synthetic_ftd_study_external_id_study_id") }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_study_external_id_external_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_sample_storage_method
-  description: Model for gregor_synthetic_ftd_sample_storage_method.
-  columns:
-  - name: sample_id
-    description: '{{ doc("gregor_synthetic_ftd_sample_storage_method_sample_id") }}'
-    data_type: string
-  - name: storage_method
-    description: '{{ doc("gregor_synthetic_ftd_sample_storage_method_storage_method")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_study_external_study_id
-  description: Model for gregor_synthetic_ftd_study_external_study_id.
-  columns:
-  - name: study_id
-    description: '{{ doc("gregor_synthetic_ftd_study_external_study_id_study_id")
-      }}'
-    data_type: string
-  - name: external_study_id
-    description: '{{ doc("gregor_synthetic_ftd_study_external_study_id_external_study_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_accesspolicy
-  description: Model for gregor_synthetic_ftd_accesspolicy.
-  columns:
-  - name: disease_limitation
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_disease_limitation") }}'
-    data_type: string
-  - name: description
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_description") }}'
-    data_type: string
-  - name: website
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_website") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_study_funding_source
-  description: Model for gregor_synthetic_ftd_study_funding_source.
-  columns:
-  - name: study_id
-    description: '{{ doc("gregor_synthetic_ftd_study_funding_source_study_id") }}'
-    data_type: string
-  - name: funding_source
-    description: '{{ doc("gregor_synthetic_ftd_study_funding_source_funding_source")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_sample_external_id
-  description: Model for gregor_synthetic_ftd_sample_external_id.
-  columns:
-  - name: sample_id
-    description: '{{ doc("gregor_synthetic_ftd_sample_external_id_sample_id") }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_sample_external_id_external_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_biospecimencollection_external_id
-  description: Model for gregor_synthetic_ftd_biospecimencollection_external_id.
-  columns:
-  - name: biospecimencollection_id
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_external_id_biospecimencollection_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_demographics
-  description: Model for gregor_synthetic_ftd_demographics.
-  columns:
-  - name: date_of_birth
-    description: '{{ doc("gregor_synthetic_ftd_demographics_date_of_birth") }}'
-    data_type: integer
-  - name: date_of_birth_type
-    description: '{{ doc("gregor_synthetic_ftd_demographics_date_of_birth_type") }}'
-    data_type: enumeration
-  - name: sex
-    description: '{{ doc("gregor_synthetic_ftd_demographics_sex") }}'
-    data_type: enumeration
-  - name: sex_display
-    description: '{{ doc("gregor_synthetic_ftd_demographics_sex_display") }}'
-    data_type: string
-  - name: race_display
-    description: '{{ doc("gregor_synthetic_ftd_demographics_race_display") }}'
-    data_type: string
-  - name: ethnicity
-    description: '{{ doc("gregor_synthetic_ftd_demographics_ethnicity") }}'
-    data_type: enumeration
-  - name: ethnicity_display
-    description: '{{ doc("gregor_synthetic_ftd_demographics_ethnicity_display") }}'
-    data_type: string
-  - name: age_at_last_vital_status
-    description: '{{ doc("gregor_synthetic_ftd_demographics_age_at_last_vital_status")
-      }}'
-    data_type: integer
-  - name: vital_status
-    description: '{{ doc("gregor_synthetic_ftd_demographics_vital_status") }}'
-    data_type: enumeration
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_demographics_has_access_policy") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_demographics_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_subject
-  description: Model for gregor_synthetic_ftd_subject.
-  columns:
-  - name: subject_type
-    description: '{{ doc("gregor_synthetic_ftd_subject_subject_type") }}'
-    data_type: enumeration
-  - name: organism_type
-    description: '{{ doc("gregor_synthetic_ftd_subject_organism_type") }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_subject_has_access_policy") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_subject_id") }}'
-    data_type: string
-  - name: has_demographics_id
-    description: '{{ doc("gregor_synthetic_ftd_subject_has_demographics_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_aliquot_external_id
-  description: Model for gregor_synthetic_ftd_aliquot_external_id.
-  columns:
-  - name: aliquot_id
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_external_id_aliquot_id") }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_external_id_external_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_familymember
-  description: Model for gregor_synthetic_ftd_familymember.
-  columns:
-  - name: family_member
-    description: '{{ doc("gregor_synthetic_ftd_familymember_family_member") }}'
-    data_type: string
-  - name: family_role
-    description: '{{ doc("gregor_synthetic_ftd_familymember_family_role") }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_familymember_has_access_policy") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_familymember_id") }}'
-    data_type: string
-  - name: family_id
-    description: '{{ doc("gregor_synthetic_ftd_familymember_family_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_subjectassertion_external_id
-  description: Model for gregor_synthetic_ftd_subjectassertion_external_id.
-  columns:
-  - name: subjectassertion_id
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_external_id_subjectassertion_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_filemetadata_external_id
-  description: Model for gregor_synthetic_ftd_filemetadata_external_id.
-  columns:
-  - name: filemetadata_id
-    description: '{{ doc("gregor_synthetic_ftd_filemetadata_external_id_filemetadata_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_filemetadata_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_subjectassertion
-  description: Model for gregor_synthetic_ftd_subjectassertion.
-  columns:
-  - name: assertion_type
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_assertion_type") }}'
-    data_type: enumeration
-  - name: age_at_assertion
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_age_at_assertion")
-      }}'
-    data_type: number
-  - name: age_at_event
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_age_at_event") }}'
-    data_type: number
-  - name: age_at_resolution
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_age_at_resolution")
-      }}'
-    data_type: number
-  - name: code
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_code") }}'
-    data_type: string
-  - name: display
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_display") }}'
-    data_type: string
-  - name: value_code
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_code") }}'
-    data_type: string
-  - name: value_display
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_display") }}'
-    data_type: string
-  - name: value_number
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_number") }}'
-    data_type: number
-  - name: value_units
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_units") }}'
-    data_type: string
-  - name: value_units_display
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_units_display")
-      }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_has_access_policy")
-      }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_id") }}'
-    data_type: string
-  - name: subject_id
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_subject_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_biospecimencollection
-  description: Model for gregor_synthetic_ftd_biospecimencollection.
-  columns:
-  - name: age_at_collection
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_age_at_collection")
-      }}'
-    data_type: integer
-  - name: method
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_method") }}'
-    data_type: enumeration
-  - name: site
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_site") }}'
-    data_type: enumeration
-  - name: spatial_qualifier
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_spatial_qualifier")
-      }}'
-    data_type: enumeration
-  - name: laterality
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_laterality")
-      }}'
-    data_type: enumeration
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_has_access_policy")
-      }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_familymember_external_id
-  description: Model for gregor_synthetic_ftd_familymember_external_id.
-  columns:
-  - name: familymember_id
-    description: '{{ doc("gregor_synthetic_ftd_familymember_external_id_familymember_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_familymember_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_subjectassertion_source_data
-  description: Model for gregor_synthetic_ftd_subjectassertion_source_data.
-  columns:
-  - name: subjectassertion_id
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_source_data_subjectassertion_id")
-      }}'
-    data_type: string
-  - name: source_data_id
-    description: '{{ doc("gregor_synthetic_ftd_subjectassertion_source_data_source_data_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_accesspolicy_external_id
-  description: Model for gregor_synthetic_ftd_accesspolicy_external_id.
-  columns:
-  - name: accesspolicy_id
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_external_id_accesspolicy_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_file_sample
-  description: Model for gregor_synthetic_ftd_file_sample.
-  columns:
-  - name: file_id
-    description: '{{ doc("gregor_synthetic_ftd_file_sample_file_id") }}'
-    data_type: string
-  - name: sample_id
-    description: '{{ doc("gregor_synthetic_ftd_file_sample_sample_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_family_external_id
-  description: Model for gregor_synthetic_ftd_family_external_id.
-  columns:
-  - name: family_id
-    description: '{{ doc("gregor_synthetic_ftd_family_external_id_family_id") }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_family_external_id_external_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_file_subject
-  description: Model for gregor_synthetic_ftd_file_subject.
-  columns:
-  - name: file_id
-    description: '{{ doc("gregor_synthetic_ftd_file_subject_file_id") }}'
-    data_type: string
-  - name: subject_id
-    description: '{{ doc("gregor_synthetic_ftd_file_subject_subject_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_filemetadata
-  description: Model for gregor_synthetic_ftd_filemetadata.
-  columns:
-  - name: code
-    description: '{{ doc("gregor_synthetic_ftd_filemetadata_code") }}'
-    data_type: string
-  - name: display
-    description: '{{ doc("gregor_synthetic_ftd_filemetadata_display") }}'
-    data_type: string
-  - name: value_code
-    description: '{{ doc("gregor_synthetic_ftd_filemetadata_value_code") }}'
-    data_type: string
-  - name: value_display
-    description: '{{ doc("gregor_synthetic_ftd_filemetadata_value_display") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_filemetadata_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_accesscontrolledrecord_external_id
-  description: Model for gregor_synthetic_ftd_accesscontrolledrecord_external_id.
-  columns:
-  - name: accesscontrolledrecord_id
-    description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_external_id_accesscontrolledrecord_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_demographics_external_id
-  description: Model for gregor_synthetic_ftd_demographics_external_id.
-  columns:
-  - name: demographics_id
-    description: '{{ doc("gregor_synthetic_ftd_demographics_external_id_demographics_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_demographics_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_file_external_id
-  description: Model for gregor_synthetic_ftd_file_external_id.
-  columns:
-  - name: file_id
-    description: '{{ doc("gregor_synthetic_ftd_file_external_id_file_id") }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_file_external_id_external_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_familyrelationship
-  description: Model for gregor_synthetic_ftd_familyrelationship.
-  columns:
-  - name: family_member
-    description: '{{ doc("gregor_synthetic_ftd_familyrelationship_family_member")
-      }}'
-    data_type: string
-  - name: other_family_member
-    description: '{{ doc("gregor_synthetic_ftd_familyrelationship_other_family_member")
-      }}'
-    data_type: string
-  - name: relationship_code
-    description: '{{ doc("gregor_synthetic_ftd_familyrelationship_relationship_code")
-      }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_familyrelationship_has_access_policy")
-      }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_familyrelationship_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_subject_external_id
-  description: Model for gregor_synthetic_ftd_subject_external_id.
-  columns:
-  - name: subject_id
-    description: '{{ doc("gregor_synthetic_ftd_subject_external_id_subject_id") }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_subject_external_id_external_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_aliquot
-  description: Model for gregor_synthetic_ftd_aliquot.
-  columns:
-  - name: availablity_status
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_availablity_status") }}'
-    data_type: enumeration
-  - name: quantity_number
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_quantity_number") }}'
-    data_type: number
-  - name: quantity_units
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_quantity_units") }}'
-    data_type: string
-  - name: concentration_number
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_concentration_number") }}'
-    data_type: number
-  - name: concentration_unit
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_concentration_unit") }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_has_access_policy") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_id") }}'
-    data_type: string
-  - name: sample_id
-    description: '{{ doc("gregor_synthetic_ftd_aliquot_sample_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_thing_external_id
-  description: Model for gregor_synthetic_ftd_thing_external_id.
-  columns:
-  - name: thing_id
-    description: '{{ doc("gregor_synthetic_ftd_thing_external_id_thing_id") }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_thing_external_id_external_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_demographics_race
-  description: Model for gregor_synthetic_ftd_demographics_race.
-  columns:
-  - name: demographics_id
-    description: '{{ doc("gregor_synthetic_ftd_demographics_race_demographics_id")
-      }}'
-    data_type: string
-  - name: race
-    description: '{{ doc("gregor_synthetic_ftd_demographics_race_race") }}'
-    data_type: enumeration
-- name: gregor_synthetic_ftd_study
-  description: Model for gregor_synthetic_ftd_study.
-  columns:
-  - name: parent_study_id
-    description: '{{ doc("gregor_synthetic_ftd_study_parent_study_id") }}'
-    data_type: string
-  - name: study_title
-    description: '{{ doc("gregor_synthetic_ftd_study_study_title") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_study_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_familyrelationship_external_id
-  description: Model for gregor_synthetic_ftd_familyrelationship_external_id.
-  columns:
-  - name: familyrelationship_id
-    description: '{{ doc("gregor_synthetic_ftd_familyrelationship_external_id_familyrelationship_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_familyrelationship_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_accesspolicy_data_access_type
-  description: Model for gregor_synthetic_ftd_accesspolicy_data_access_type.
-  columns:
-  - name: accesspolicy_id
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_data_access_type_accesspolicy_id")
-      }}'
-    data_type: string
-  - name: data_access_type
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_data_access_type_data_access_type")
-      }}'
-    data_type: enumeration
-- name: gregor_synthetic_ftd_family_family_relationships
-  description: Model for gregor_synthetic_ftd_family_family_relationships.
-  columns:
-  - name: family_id
-    description: '{{ doc("gregor_synthetic_ftd_family_family_relationships_family_id")
-      }}'
-    data_type: string
-  - name: family_relationships_id
-    description: '{{ doc("gregor_synthetic_ftd_family_family_relationships_family_relationships_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_sourcedata_external_id
-  description: Model for gregor_synthetic_ftd_sourcedata_external_id.
-  columns:
-  - name: sourcedata_id
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_external_id_sourcedata_id")
-      }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_external_id_external_id")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_sourcedata
-  description: Model for gregor_synthetic_ftd_sourcedata.
-  columns:
-  - name: code
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_code") }}'
-    data_type: string
-  - name: display
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_display") }}'
-    data_type: string
-  - name: value_code
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_code") }}'
-    data_type: string
-  - name: value_display
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_display") }}'
-    data_type: string
-  - name: value_number
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_number") }}'
-    data_type: number
-  - name: value_units
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_units") }}'
-    data_type: string
-  - name: value_units_display
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_units_display") }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_has_access_policy") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_accesspolicy_access_policy_code
-  description: Model for gregor_synthetic_ftd_accesspolicy_access_policy_code.
-  columns:
-  - name: accesspolicy_id
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_access_policy_code_accesspolicy_id")
-      }}'
-    data_type: string
-  - name: access_policy_code
-    description: '{{ doc("gregor_synthetic_ftd_accesspolicy_access_policy_code_access_policy_code")
-      }}'
-    data_type: enumeration
-- name: gregor_synthetic_ftd_study_principal_investigator
-  description: Model for gregor_synthetic_ftd_study_principal_investigator.
-  columns:
-  - name: study_id
-    description: '{{ doc("gregor_synthetic_ftd_study_principal_investigator_study_id")
-      }}'
-    data_type: string
-  - name: principal_investigator
-    description: '{{ doc("gregor_synthetic_ftd_study_principal_investigator_principal_investigator")
-      }}'
-    data_type: string
-- name: gregor_synthetic_ftd_accesscontrolledrecord
-  description: Model for gregor_synthetic_ftd_accesscontrolledrecord.
-  columns:
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_has_access_policy")
-      }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_id") }}'
-    data_type: string
-- name: gregor_synthetic_ftd_family
-  description: Model for gregor_synthetic_ftd_family.
-  columns:
-  - name: family_type
-    description: '{{ doc("gregor_synthetic_ftd_family_family_type") }}'
-    data_type: enumeration
-  - name: family_description
-    description: '{{ doc("gregor_synthetic_ftd_family_family_description") }}'
-    data_type: string
-  - name: consanguinity
-    description: '{{ doc("gregor_synthetic_ftd_family_consanguinity") }}'
-    data_type: enumeration
-  - name: family_study_focus
-    description: '{{ doc("gregor_synthetic_ftd_family_family_study_focus") }}'
-    data_type: string
-  - name: has_access_policy
-    description: '{{ doc("gregor_synthetic_ftd_family_has_access_policy") }}'
-    data_type: string
-  - name: id
-    description: '{{ doc("gregor_synthetic_ftd_family_id") }}'
-    data_type: string
+  - name: gregor_synthetic_ftd_demographics_source_data
+    description: Model for gregor_synthetic_ftd_demographics_source_data.
+    columns:
+      - name: demographics_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_demographics_source_data_demographics_id")
+          }}'
+        data_type: string
+      - name: source_data_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_demographics_source_data_source_data_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_sample
+    description: Model for gregor_synthetic_ftd_sample.
+    columns:
+      - name: parent_sample
+        description: '{{ doc("gregor_synthetic_ftd_sample_parent_sample") }}'
+        data_type: string
+      - name: sample_type
+        description: '{{ doc("gregor_synthetic_ftd_sample_sample_type") }}'
+        data_type: string
+      - name: availablity_status
+        description: '{{ doc("gregor_synthetic_ftd_sample_availablity_status") }}'
+        data_type: enumeration
+      - name: quantity_number
+        description: '{{ doc("gregor_synthetic_ftd_sample_quantity_number") }}'
+        data_type: number
+      - name: quantity_units
+        description: '{{ doc("gregor_synthetic_ftd_sample_quantity_units") }}'
+        data_type: string
+      - name: has_access_policy
+        description: '{{ doc("gregor_synthetic_ftd_sample_has_access_policy") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_sample_id") }}'
+        data_type: string
+      - name: subject_id
+        description: '{{ doc("gregor_synthetic_ftd_sample_subject_id") }}'
+        data_type: string
+      - name: biospecimen_collection_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_sample_biospecimen_collection_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_sample_processing
+    description: Model for gregor_synthetic_ftd_sample_processing.
+    columns:
+      - name: sample_id
+        description: '{{ doc("gregor_synthetic_ftd_sample_processing_sample_id") }}'
+        data_type: string
+      - name: processing
+        description: '{{ doc("gregor_synthetic_ftd_sample_processing_processing") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_file
+    description: Model for gregor_synthetic_ftd_file.
+    columns:
+      - name: filename
+        description: '{{ doc("gregor_synthetic_ftd_file_filename") }}'
+        data_type: string
+      - name: format
+        description: '{{ doc("gregor_synthetic_ftd_file_format") }}'
+        data_type: enumeration
+      - name: data_type
+        description: '{{ doc("gregor_synthetic_ftd_file_data_type") }}'
+        data_type: enumeration
+      - name: size
+        description: '{{ doc("gregor_synthetic_ftd_file_size") }}'
+        data_type: integer
+      - name: drs_uri
+        description: '{{ doc("gregor_synthetic_ftd_file_drs_uri") }}'
+        data_type: string
+      - name: file_metadata
+        description: '{{ doc("gregor_synthetic_ftd_file_file_metadata") }}'
+        data_type: string
+      - name: has_access_policy
+        description: '{{ doc("gregor_synthetic_ftd_file_has_access_policy") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_file_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_study_external_id
+    description: Model for gregor_synthetic_ftd_study_external_id.
+    columns:
+      - name: study_id
+        description: '{{ doc("gregor_synthetic_ftd_study_external_id_study_id") }}'
+        data_type: string
+      - name: external_id
+        description: '{{ doc("gregor_synthetic_ftd_study_external_id_external_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_sample_storage_method
+    description: Model for gregor_synthetic_ftd_sample_storage_method.
+    columns:
+      - name: sample_id
+        description: '{{ doc("gregor_synthetic_ftd_sample_storage_method_sample_id") }}'
+        data_type: string
+      - name: storage_method
+        description:
+          '{{ doc("gregor_synthetic_ftd_sample_storage_method_storage_method")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_study_external_study_id
+    description: Model for gregor_synthetic_ftd_study_external_study_id.
+    columns:
+      - name: study_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_study_external_study_id_study_id")
+          }}'
+        data_type: string
+      - name: external_study_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_study_external_study_id_external_study_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_accesspolicy
+    description: Model for gregor_synthetic_ftd_accesspolicy.
+    columns:
+      - name: disease_limitation
+        description: '{{ doc("gregor_synthetic_ftd_accesspolicy_disease_limitation") }}'
+        data_type: string
+      - name: description
+        description: '{{ doc("gregor_synthetic_ftd_accesspolicy_description") }}'
+        data_type: string
+      - name: website
+        description: '{{ doc("gregor_synthetic_ftd_accesspolicy_website") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_accesspolicy_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_study_funding_source
+    description: Model for gregor_synthetic_ftd_study_funding_source.
+    columns:
+      - name: study_id
+        description: '{{ doc("gregor_synthetic_ftd_study_funding_source_study_id") }}'
+        data_type: string
+      - name: funding_source
+        description:
+          '{{ doc("gregor_synthetic_ftd_study_funding_source_funding_source")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_sample_external_id
+    description: Model for gregor_synthetic_ftd_sample_external_id.
+    columns:
+      - name: sample_id
+        description: '{{ doc("gregor_synthetic_ftd_sample_external_id_sample_id") }}'
+        data_type: string
+      - name: external_id
+        description: '{{ doc("gregor_synthetic_ftd_sample_external_id_external_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_biospecimencollection_external_id
+    description: Model for gregor_synthetic_ftd_biospecimencollection_external_id.
+    columns:
+      - name: biospecimencollection_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_biospecimencollection_external_id_biospecimencollection_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_biospecimencollection_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_demographics
+    description: Model for gregor_synthetic_ftd_demographics.
+    columns:
+      - name: date_of_birth
+        description: '{{ doc("gregor_synthetic_ftd_demographics_date_of_birth") }}'
+        data_type: integer
+      - name: date_of_birth_type
+        description: '{{ doc("gregor_synthetic_ftd_demographics_date_of_birth_type") }}'
+        data_type: enumeration
+      - name: sex
+        description: '{{ doc("gregor_synthetic_ftd_demographics_sex") }}'
+        data_type: enumeration
+      - name: sex_display
+        description: '{{ doc("gregor_synthetic_ftd_demographics_sex_display") }}'
+        data_type: string
+      - name: race_display
+        description: '{{ doc("gregor_synthetic_ftd_demographics_race_display") }}'
+        data_type: string
+      - name: ethnicity
+        description: '{{ doc("gregor_synthetic_ftd_demographics_ethnicity") }}'
+        data_type: enumeration
+      - name: ethnicity_display
+        description: '{{ doc("gregor_synthetic_ftd_demographics_ethnicity_display") }}'
+        data_type: string
+      - name: age_at_last_vital_status
+        description:
+          '{{ doc("gregor_synthetic_ftd_demographics_age_at_last_vital_status")
+          }}'
+        data_type: integer
+      - name: vital_status
+        description: '{{ doc("gregor_synthetic_ftd_demographics_vital_status") }}'
+        data_type: enumeration
+      - name: has_access_policy
+        description: '{{ doc("gregor_synthetic_ftd_demographics_has_access_policy") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_demographics_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_subject
+    description: Model for gregor_synthetic_ftd_subject.
+    columns:
+      - name: subject_type
+        description: '{{ doc("gregor_synthetic_ftd_subject_subject_type") }}'
+        data_type: enumeration
+      - name: organism_type
+        description: '{{ doc("gregor_synthetic_ftd_subject_organism_type") }}'
+        data_type: string
+      - name: has_access_policy
+        description: '{{ doc("gregor_synthetic_ftd_subject_has_access_policy") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_subject_id") }}'
+        data_type: string
+      - name: has_demographics_id
+        description: '{{ doc("gregor_synthetic_ftd_subject_has_demographics_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_aliquot_external_id
+    description: Model for gregor_synthetic_ftd_aliquot_external_id.
+    columns:
+      - name: aliquot_id
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_external_id_aliquot_id") }}'
+        data_type: string
+      - name: external_id
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_external_id_external_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_familymember
+    description: Model for gregor_synthetic_ftd_familymember.
+    columns:
+      - name: family_member
+        description: '{{ doc("gregor_synthetic_ftd_familymember_family_member") }}'
+        data_type: string
+      - name: family_role
+        description: '{{ doc("gregor_synthetic_ftd_familymember_family_role") }}'
+        data_type: string
+      - name: has_access_policy
+        description: '{{ doc("gregor_synthetic_ftd_familymember_has_access_policy") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_familymember_id") }}'
+        data_type: string
+      - name: family_id
+        description: '{{ doc("gregor_synthetic_ftd_familymember_family_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_subjectassertion_external_id
+    description: Model for gregor_synthetic_ftd_subjectassertion_external_id.
+    columns:
+      - name: subjectassertion_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_subjectassertion_external_id_subjectassertion_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_subjectassertion_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_filemetadata_external_id
+    description: Model for gregor_synthetic_ftd_filemetadata_external_id.
+    columns:
+      - name: filemetadata_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_filemetadata_external_id_filemetadata_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_filemetadata_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_subjectassertion
+    description: Model for gregor_synthetic_ftd_subjectassertion.
+    columns:
+      - name: assertion_type
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_assertion_type") }}'
+        data_type: enumeration
+      - name: age_at_assertion
+        description:
+          '{{ doc("gregor_synthetic_ftd_subjectassertion_age_at_assertion")
+          }}'
+        data_type: number
+      - name: age_at_event
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_age_at_event") }}'
+        data_type: number
+      - name: age_at_resolution
+        description:
+          '{{ doc("gregor_synthetic_ftd_subjectassertion_age_at_resolution")
+          }}'
+        data_type: number
+      - name: code
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_code") }}'
+        data_type: string
+      - name: display
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_display") }}'
+        data_type: string
+      - name: value_code
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_code") }}'
+        data_type: string
+      - name: value_display
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_display") }}'
+        data_type: string
+      - name: value_number
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_number") }}'
+        data_type: number
+      - name: value_units
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_value_units") }}'
+        data_type: string
+      - name: value_units_display
+        description:
+          '{{ doc("gregor_synthetic_ftd_subjectassertion_value_units_display")
+          }}'
+        data_type: string
+      - name: has_access_policy
+        description:
+          '{{ doc("gregor_synthetic_ftd_subjectassertion_has_access_policy")
+          }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_id") }}'
+        data_type: string
+      - name: subject_id
+        description: '{{ doc("gregor_synthetic_ftd_subjectassertion_subject_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_biospecimencollection
+    description: Model for gregor_synthetic_ftd_biospecimencollection.
+    columns:
+      - name: age_at_collection
+        description:
+          '{{ doc("gregor_synthetic_ftd_biospecimencollection_age_at_collection")
+          }}'
+        data_type: integer
+      - name: method
+        description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_method") }}'
+        data_type: enumeration
+      - name: site
+        description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_site") }}'
+        data_type: enumeration
+      - name: spatial_qualifier
+        description:
+          '{{ doc("gregor_synthetic_ftd_biospecimencollection_spatial_qualifier")
+          }}'
+        data_type: enumeration
+      - name: laterality
+        description:
+          '{{ doc("gregor_synthetic_ftd_biospecimencollection_laterality")
+          }}'
+        data_type: enumeration
+      - name: has_access_policy
+        description:
+          '{{ doc("gregor_synthetic_ftd_biospecimencollection_has_access_policy")
+          }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_familymember_external_id
+    description: Model for gregor_synthetic_ftd_familymember_external_id.
+    columns:
+      - name: familymember_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_familymember_external_id_familymember_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_familymember_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_subjectassertion_source_data
+    description: Model for gregor_synthetic_ftd_subjectassertion_source_data.
+    columns:
+      - name: subjectassertion_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_subjectassertion_source_data_subjectassertion_id")
+          }}'
+        data_type: string
+      - name: source_data_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_subjectassertion_source_data_source_data_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_accesspolicy_external_id
+    description: Model for gregor_synthetic_ftd_accesspolicy_external_id.
+    columns:
+      - name: accesspolicy_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesspolicy_external_id_accesspolicy_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesspolicy_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_file_sample
+    description: Model for gregor_synthetic_ftd_file_sample.
+    columns:
+      - name: file_id
+        description: '{{ doc("gregor_synthetic_ftd_file_sample_file_id") }}'
+        data_type: string
+      - name: sample_id
+        description: '{{ doc("gregor_synthetic_ftd_file_sample_sample_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_family_external_id
+    description: Model for gregor_synthetic_ftd_family_external_id.
+    columns:
+      - name: family_id
+        description: '{{ doc("gregor_synthetic_ftd_family_external_id_family_id") }}'
+        data_type: string
+      - name: external_id
+        description: '{{ doc("gregor_synthetic_ftd_family_external_id_external_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_file_subject
+    description: Model for gregor_synthetic_ftd_file_subject.
+    columns:
+      - name: file_id
+        description: '{{ doc("gregor_synthetic_ftd_file_subject_file_id") }}'
+        data_type: string
+      - name: subject_id
+        description: '{{ doc("gregor_synthetic_ftd_file_subject_subject_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_filemetadata
+    description: Model for gregor_synthetic_ftd_filemetadata.
+    columns:
+      - name: code
+        description: '{{ doc("gregor_synthetic_ftd_filemetadata_code") }}'
+        data_type: string
+      - name: display
+        description: '{{ doc("gregor_synthetic_ftd_filemetadata_display") }}'
+        data_type: string
+      - name: value_code
+        description: '{{ doc("gregor_synthetic_ftd_filemetadata_value_code") }}'
+        data_type: string
+      - name: value_display
+        description: '{{ doc("gregor_synthetic_ftd_filemetadata_value_display") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_filemetadata_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_accesscontrolledrecord_external_id
+    description: Model for gregor_synthetic_ftd_accesscontrolledrecord_external_id.
+    columns:
+      - name: accesscontrolledrecord_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_external_id_accesscontrolledrecord_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_demographics_external_id
+    description: Model for gregor_synthetic_ftd_demographics_external_id.
+    columns:
+      - name: demographics_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_demographics_external_id_demographics_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_demographics_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_file_external_id
+    description: Model for gregor_synthetic_ftd_file_external_id.
+    columns:
+      - name: file_id
+        description: '{{ doc("gregor_synthetic_ftd_file_external_id_file_id") }}'
+        data_type: string
+      - name: external_id
+        description: '{{ doc("gregor_synthetic_ftd_file_external_id_external_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_familyrelationship
+    description: Model for gregor_synthetic_ftd_familyrelationship.
+    columns:
+      - name: family_member
+        description:
+          '{{ doc("gregor_synthetic_ftd_familyrelationship_family_member")
+          }}'
+        data_type: string
+      - name: other_family_member
+        description:
+          '{{ doc("gregor_synthetic_ftd_familyrelationship_other_family_member")
+          }}'
+        data_type: string
+      - name: relationship_code
+        description:
+          '{{ doc("gregor_synthetic_ftd_familyrelationship_relationship_code")
+          }}'
+        data_type: string
+      - name: has_access_policy
+        description:
+          '{{ doc("gregor_synthetic_ftd_familyrelationship_has_access_policy")
+          }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_familyrelationship_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_subject_external_id
+    description: Model for gregor_synthetic_ftd_subject_external_id.
+    columns:
+      - name: subject_id
+        description: '{{ doc("gregor_synthetic_ftd_subject_external_id_subject_id") }}'
+        data_type: string
+      - name: external_id
+        description: '{{ doc("gregor_synthetic_ftd_subject_external_id_external_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_aliquot
+    description: Model for gregor_synthetic_ftd_aliquot.
+    columns:
+      - name: availablity_status
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_availablity_status") }}'
+        data_type: enumeration
+      - name: quantity_number
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_quantity_number") }}'
+        data_type: number
+      - name: quantity_units
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_quantity_units") }}'
+        data_type: string
+      - name: concentration_number
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_concentration_number") }}'
+        data_type: number
+      - name: concentration_unit
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_concentration_unit") }}'
+        data_type: string
+      - name: has_access_policy
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_has_access_policy") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_id") }}'
+        data_type: string
+      - name: sample_id
+        description: '{{ doc("gregor_synthetic_ftd_aliquot_sample_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_thing_external_id
+    description: Model for gregor_synthetic_ftd_thing_external_id.
+    columns:
+      - name: thing_id
+        description: '{{ doc("gregor_synthetic_ftd_thing_external_id_thing_id") }}'
+        data_type: string
+      - name: external_id
+        description: '{{ doc("gregor_synthetic_ftd_thing_external_id_external_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_demographics_race
+    description: Model for gregor_synthetic_ftd_demographics_race.
+    columns:
+      - name: demographics_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_demographics_race_demographics_id")
+          }}'
+        data_type: string
+      - name: race
+        description: '{{ doc("gregor_synthetic_ftd_demographics_race_race") }}'
+        data_type: enumeration
+  - name: gregor_synthetic_ftd_study
+    description: Model for gregor_synthetic_ftd_study.
+    columns:
+      - name: parent_study_id
+        description: '{{ doc("gregor_synthetic_ftd_study_parent_study_id") }}'
+        data_type: string
+      - name: study_title
+        description: '{{ doc("gregor_synthetic_ftd_study_study_title") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_study_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_familyrelationship_external_id
+    description: Model for gregor_synthetic_ftd_familyrelationship_external_id.
+    columns:
+      - name: familyrelationship_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_familyrelationship_external_id_familyrelationship_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_familyrelationship_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_accesspolicy_data_access_type
+    description: Model for gregor_synthetic_ftd_accesspolicy_data_access_type.
+    columns:
+      - name: accesspolicy_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesspolicy_data_access_type_accesspolicy_id")
+          }}'
+        data_type: string
+      - name: data_access_type
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesspolicy_data_access_type_data_access_type")
+          }}'
+        data_type: enumeration
+  - name: gregor_synthetic_ftd_family_family_relationships
+    description: Model for gregor_synthetic_ftd_family_family_relationships.
+    columns:
+      - name: family_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_family_family_relationships_family_id")
+          }}'
+        data_type: string
+      - name: family_relationships_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_family_family_relationships_family_relationships_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_sourcedata_external_id
+    description: Model for gregor_synthetic_ftd_sourcedata_external_id.
+    columns:
+      - name: sourcedata_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_sourcedata_external_id_sourcedata_id")
+          }}'
+        data_type: string
+      - name: external_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_sourcedata_external_id_external_id")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_sourcedata
+    description: Model for gregor_synthetic_ftd_sourcedata.
+    columns:
+      - name: code
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_code") }}'
+        data_type: string
+      - name: display
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_display") }}'
+        data_type: string
+      - name: value_code
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_code") }}'
+        data_type: string
+      - name: value_display
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_display") }}'
+        data_type: string
+      - name: value_number
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_number") }}'
+        data_type: number
+      - name: value_units
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_units") }}'
+        data_type: string
+      - name: value_units_display
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_units_display") }}'
+        data_type: string
+      - name: has_access_policy
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_has_access_policy") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_sourcedata_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_accesspolicy_access_policy_code
+    description: Model for gregor_synthetic_ftd_accesspolicy_access_policy_code.
+    columns:
+      - name: accesspolicy_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesspolicy_access_policy_code_accesspolicy_id")
+          }}'
+        data_type: string
+      - name: access_policy_code
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesspolicy_access_policy_code_access_policy_code")
+          }}'
+        data_type: enumeration
+  - name: gregor_synthetic_ftd_study_principal_investigator
+    description: Model for gregor_synthetic_ftd_study_principal_investigator.
+    columns:
+      - name: study_id
+        description:
+          '{{ doc("gregor_synthetic_ftd_study_principal_investigator_study_id")
+          }}'
+        data_type: string
+      - name: principal_investigator
+        description:
+          '{{ doc("gregor_synthetic_ftd_study_principal_investigator_principal_investigator")
+          }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_accesscontrolledrecord
+    description: Model for gregor_synthetic_ftd_accesscontrolledrecord.
+    columns:
+      - name: has_access_policy
+        description:
+          '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_has_access_policy")
+          }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_id") }}'
+        data_type: string
+  - name: gregor_synthetic_ftd_family
+    description: Model for gregor_synthetic_ftd_family.
+    columns:
+      - name: family_type
+        description: '{{ doc("gregor_synthetic_ftd_family_family_type") }}'
+        data_type: enumeration
+      - name: family_description
+        description: '{{ doc("gregor_synthetic_ftd_family_family_description") }}'
+        data_type: string
+      - name: consanguinity
+        description: '{{ doc("gregor_synthetic_ftd_family_consanguinity") }}'
+        data_type: enumeration
+      - name: family_study_focus
+        description: '{{ doc("gregor_synthetic_ftd_family_family_study_focus") }}'
+        data_type: string
+      - name: has_access_policy
+        description: '{{ doc("gregor_synthetic_ftd_family_has_access_policy") }}'
+        data_type: string
+      - name: id
+        description: '{{ doc("gregor_synthetic_ftd_family_id") }}'
+        data_type: string
