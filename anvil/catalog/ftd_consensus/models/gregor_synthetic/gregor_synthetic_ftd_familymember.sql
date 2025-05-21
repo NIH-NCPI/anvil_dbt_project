@@ -3,7 +3,7 @@
     with source as (
         select 
         {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "family_member",
-       GEN_UNKNOWN.family_role::text as "family_role",
+       participant.proband_relationship::text as "family_role",
        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "has_access_policy",
        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "id",
        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "family_id"

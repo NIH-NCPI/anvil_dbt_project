@@ -4,7 +4,7 @@
         select 
         {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "family_member",
        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "other_family_member",
-       GEN_UNKNOWN.relationship_code::text as "relationship_code",
+        participant.relationship_code::text as "relationship_code",
        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "has_access_policy",
        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant

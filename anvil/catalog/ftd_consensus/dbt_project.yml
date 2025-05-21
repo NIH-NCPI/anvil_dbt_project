@@ -2,12 +2,12 @@ name: ftd
 version: 1.0.0
 profile: anvil
 model-paths:
-- models
+  - models
 macro-paths:
-- macros
+  - macros
 clean-targets:
-- target
-- dbt_packages
+  - target
+  - dbt_packages
 models:
   gregor_synthetic:
     gregor_synthetic_ftd_demographics_source_data:
