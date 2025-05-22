@@ -8,7 +8,7 @@
        GEN_UNKNOWN.id::text as "id",
        participant.family_id::text as "Family_id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
+        -- join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
     )
 
     select 
