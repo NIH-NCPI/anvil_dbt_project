@@ -1,0 +1,18 @@
+name: ftd
+version: 1.0.0
+profile: anvil
+model-paths:
+- models
+macro-paths:
+- macros
+clean-targets:
+- target
+- dbt_packages
+models:
+  gregor_synthetic:
+    gregor_synthetic_ftd_participant:
+      +schema: main
+      +materialized: table
+    gregor_synthetic_ftd_phenotype:
+      +schema: main
+      +materialized: table

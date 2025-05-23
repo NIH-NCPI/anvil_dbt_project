@@ -1,0 +1,6 @@
+variable_name,description,data_type,min,max,units,enumerations,comment,src_variable_name
+code,The structured term defining the meaning of the assertion.,string,,,,,,code
+display,The friendly display string of the coded term,string,,,,,,display
+value_code,The structured term defining the value of the assertion.,string,,,,,,value_code
+value_display,The friendly display string of the coded term for the value of the assertion.,string,,,,,,value_display
+id,ID associated with a class,string,,,,,,id
