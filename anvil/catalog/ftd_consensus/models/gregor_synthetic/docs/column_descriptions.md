@@ -4,12 +4,12 @@ Model for gregor_synthetic_ftd_demographics_source_data.
 
 
 {% docs gregor_synthetic_ftd_demographics_source_data_demographics_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_source_data_source_data_id %}
-None
+The sources from which this assertion was derived
 {% enddocs %}
 
 
@@ -19,47 +19,47 @@ Model for gregor_synthetic_ftd_sample.
 
 
 {% docs gregor_synthetic_ftd_sample_parent_sample %}
-None
+Sample from which this sample is derived
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_sample_type %}
-None
+Type of material of which this Sample is comprised
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_availablity_status %}
-None
+Can this Sample be requested for further analysis?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_quantity_number %}
-None
+The total quantity of the specimen
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_quantity_units %}
-None
+The structured term defining the units of the quantity.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_subject_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_biospecimen_collection_id %}
-None
+Biospecimen Collection that generated this sample.
 {% enddocs %}
 
 
@@ -69,12 +69,12 @@ Model for gregor_synthetic_ftd_sample_processing.
 
 
 {% docs gregor_synthetic_ftd_sample_processing_sample_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_processing_processing %}
-None
+Processing that was applied to the Parent Sample or from the Biospecimen Collection that yielded this distinct sample
 {% enddocs %}
 
 
@@ -84,42 +84,42 @@ Model for gregor_synthetic_ftd_file.
 
 
 {% docs gregor_synthetic_ftd_file_filename %}
-None
+The name of the file.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_format %}
-None
+The format of the file.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_data_type %}
-None
+The type of data within this file.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_size %}
-None
+Size of the file, in Bytes.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_drs_uri %}
-None
+DRS location to access the data.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_file_metadata %}
-None
+Additional metadata about the contents of the file, eg, genome reference build.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
@@ -129,12 +129,12 @@ Model for gregor_synthetic_ftd_study_external_id.
 
 
 {% docs gregor_synthetic_ftd_study_external_id_study_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_study_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -144,12 +144,12 @@ Model for gregor_synthetic_ftd_sample_storage_method.
 
 
 {% docs gregor_synthetic_ftd_sample_storage_method_sample_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_storage_method_storage_method %}
-None
+Sample storage method, eg, Frozen or with additives
 {% enddocs %}
 
 
@@ -159,12 +159,12 @@ Model for gregor_synthetic_ftd_study_external_study_id.
 
 
 {% docs gregor_synthetic_ftd_study_external_study_id_study_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_study_external_study_id_external_study_id %}
-None
+External Study ID
 {% enddocs %}
 
 
@@ -174,17 +174,17 @@ Model for gregor_synthetic_ftd_accesspolicy.
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_disease_limitation %}
-None
+Disease Use Limitations
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_website %}
-None
+Website
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
@@ -194,12 +194,12 @@ Model for gregor_synthetic_ftd_study_funding_source.
 
 
 {% docs gregor_synthetic_ftd_study_funding_source_study_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_study_funding_source_funding_source %}
-None
+Funding Source
 {% enddocs %}
 
 
@@ -209,12 +209,12 @@ Model for gregor_synthetic_ftd_sample_external_id.
 
 
 {% docs gregor_synthetic_ftd_sample_external_id_sample_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sample_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -224,12 +224,12 @@ Model for gregor_synthetic_ftd_biospecimencollection_external_id.
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_external_id_biospecimencollection_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -239,57 +239,57 @@ Model for gregor_synthetic_ftd_demographics.
 
 
 {% docs gregor_synthetic_ftd_demographics_date_of_birth %}
-None
+Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_date_of_birth_type %}
-None
+Privacy rule modification applied to date_of_birth.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_sex %}
-None
+Sex of the individual
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_sex_display %}
-None
+The friendly display string of the coded term for Sex
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_race_display %}
-None
+The friendly display string of the coded term(s) for Race
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_ethnicity %}
-None
+Reported ethnicity as defined by the 1997 OMB directives.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_ethnicity_display %}
-None
+The friendly display string of the coded term for Ethnicity
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_age_at_last_vital_status %}
-None
+Age at last vital status in decimal years.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_vital_status %}
-None
+Vital Status
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
@@ -299,27 +299,27 @@ Model for gregor_synthetic_ftd_subject.
 
 
 {% docs gregor_synthetic_ftd_subject_subject_type %}
-None
+Type of entity this record represents
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subject_organism_type %}
-None
+Organism Type Label
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subject_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subject_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subject_has_demographics_id %}
-None
+A demographic summary of the participant.
 {% enddocs %}
 
 
@@ -329,12 +329,12 @@ Model for gregor_synthetic_ftd_aliquot_external_id.
 
 
 {% docs gregor_synthetic_ftd_aliquot_external_id_aliquot_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_aliquot_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -344,27 +344,27 @@ Model for gregor_synthetic_ftd_familymember.
 
 
 {% docs gregor_synthetic_ftd_familymember_family_member %}
-None
+The family member Subject who is the relationship "subject".
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familymember_family_role %}
-None
+The "role" of this indiviudal in this family.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familymember_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familymember_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familymember_family_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
@@ -374,12 +374,12 @@ Model for gregor_synthetic_ftd_subjectassertion_external_id.
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_external_id_subjectassertion_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -389,12 +389,12 @@ Model for gregor_synthetic_ftd_filemetadata_external_id.
 
 
 {% docs gregor_synthetic_ftd_filemetadata_external_id_filemetadata_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_filemetadata_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -404,72 +404,72 @@ Model for gregor_synthetic_ftd_subjectassertion.
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_assertion_type %}
-None
+The semantic type of the resource, eg, Condition.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_age_at_assertion %}
-None
+The age in decimal years of the Subject when the assertion was made.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_age_at_event %}
-None
+The age in decimal years of the Subject at the time point which the assertion describes, | eg, age of onset or when a measurement was performed.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_age_at_resolution %}
-None
+The age in decimal years of the Subject when the asserted state was resolved.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_code %}
-None
+The structured term defining the meaning of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_display %}
-None
+The friendly display string of the coded term
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_value_code %}
-None
+The structured term defining the value of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_value_display %}
-None
+The friendly display string of the coded term for the value of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_value_number %}
-None
+The numeric value of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_value_units %}
-None
+The structured term defining the units of the value.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_value_units_display %}
-None
+The friendly display string of units of the value.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_subject_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
@@ -479,37 +479,37 @@ Model for gregor_synthetic_ftd_biospecimencollection.
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_age_at_collection %}
-None
+The age at which this biospecimen was collected.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_method %}
-None
+The approach used to collect the biospecimen.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_site %}
-None
+The location of the specimen collection.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_spatial_qualifier %}
-None
+Any spatial/location qualifiers
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_laterality %}
-None
+Laterality information for the site
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_biospecimencollection_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
@@ -519,12 +519,12 @@ Model for gregor_synthetic_ftd_familymember_external_id.
 
 
 {% docs gregor_synthetic_ftd_familymember_external_id_familymember_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familymember_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -534,12 +534,12 @@ Model for gregor_synthetic_ftd_subjectassertion_source_data.
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_source_data_subjectassertion_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subjectassertion_source_data_source_data_id %}
-None
+The sources from which this assertion was derived
 {% enddocs %}
 
 
@@ -549,12 +549,12 @@ Model for gregor_synthetic_ftd_accesspolicy_external_id.
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_external_id_accesspolicy_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -564,12 +564,12 @@ Model for gregor_synthetic_ftd_file_sample.
 
 
 {% docs gregor_synthetic_ftd_file_sample_file_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_sample_sample_id %}
-None
+The Samples(s) used to generate data in this file.
 {% enddocs %}
 
 
@@ -579,12 +579,12 @@ Model for gregor_synthetic_ftd_family_external_id.
 
 
 {% docs gregor_synthetic_ftd_family_external_id_family_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_family_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -594,12 +594,12 @@ Model for gregor_synthetic_ftd_file_subject.
 
 
 {% docs gregor_synthetic_ftd_file_subject_file_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_subject_subject_id %}
-None
+The Subject(s) which this file describes.
 {% enddocs %}
 
 
@@ -609,27 +609,27 @@ Model for gregor_synthetic_ftd_filemetadata.
 
 
 {% docs gregor_synthetic_ftd_filemetadata_code %}
-None
+The structured term defining the meaning of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_filemetadata_display %}
-None
+The friendly display string of the coded term
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_filemetadata_value_code %}
-None
+The structured term defining the value of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_filemetadata_value_display %}
-None
+The friendly display string of the coded term for the value of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_filemetadata_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
@@ -639,12 +639,12 @@ Model for gregor_synthetic_ftd_accesscontrolledrecord_external_id.
 
 
 {% docs gregor_synthetic_ftd_accesscontrolledrecord_external_id_accesscontrolledrecord_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_accesscontrolledrecord_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -654,12 +654,12 @@ Model for gregor_synthetic_ftd_demographics_external_id.
 
 
 {% docs gregor_synthetic_ftd_demographics_external_id_demographics_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -669,12 +669,12 @@ Model for gregor_synthetic_ftd_file_external_id.
 
 
 {% docs gregor_synthetic_ftd_file_external_id_file_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_file_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -684,27 +684,28 @@ Model for gregor_synthetic_ftd_familyrelationship.
 
 
 {% docs gregor_synthetic_ftd_familyrelationship_family_member %}
-None
+The family member Subject who is the relationship "subject".
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familyrelationship_other_family_member %}
-None
+The family member Subject for the relationship "object".
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familyrelationship_relationship_code %}
-None
+Code definting the relationship predicate. Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
+
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familyrelationship_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familyrelationship_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
@@ -714,12 +715,12 @@ Model for gregor_synthetic_ftd_subject_external_id.
 
 
 {% docs gregor_synthetic_ftd_subject_external_id_subject_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_subject_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -729,42 +730,42 @@ Model for gregor_synthetic_ftd_aliquot.
 
 
 {% docs gregor_synthetic_ftd_aliquot_availablity_status %}
-None
+Can this Sample be requested for further analysis?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_aliquot_quantity_number %}
-None
+The total quantity of the specimen
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_aliquot_quantity_units %}
-None
+The structured term defining the units of the quantity.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_aliquot_concentration_number %}
-None
+What is the concentration of the analyte in the Aliquot?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_aliquot_concentration_unit %}
-None
+Units associated with the concentration of the analyte in the Aliquot? UCUM coding preferred (with curie, UCUM)
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_aliquot_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_aliquot_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_aliquot_sample_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
@@ -774,12 +775,12 @@ Model for gregor_synthetic_ftd_thing_external_id.
 
 
 {% docs gregor_synthetic_ftd_thing_external_id_thing_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_thing_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -789,12 +790,12 @@ Model for gregor_synthetic_ftd_demographics_race.
 
 
 {% docs gregor_synthetic_ftd_demographics_race_demographics_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_demographics_race_race %}
-None
+Reported race as defined by the 1997 OMB directives.
 {% enddocs %}
 
 
@@ -804,17 +805,17 @@ Model for gregor_synthetic_ftd_study.
 
 
 {% docs gregor_synthetic_ftd_study_parent_study_id %}
-None
+Parent Study ID
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_study_study_title %}
-None
+Study Title
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_study_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
@@ -824,12 +825,12 @@ Model for gregor_synthetic_ftd_familyrelationship_external_id.
 
 
 {% docs gregor_synthetic_ftd_familyrelationship_external_id_familyrelationship_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_familyrelationship_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -839,12 +840,12 @@ Model for gregor_synthetic_ftd_accesspolicy_data_access_type.
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_data_access_type_accesspolicy_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_data_access_type_data_access_type %}
-None
+Data Access Type
 {% enddocs %}
 
 
@@ -854,12 +855,12 @@ Model for gregor_synthetic_ftd_family_family_relationships.
 
 
 {% docs gregor_synthetic_ftd_family_family_relationships_family_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_family_family_relationships_family_relationships_id %}
-None
+Family relationships associated with this family.
 {% enddocs %}
 
 
@@ -869,12 +870,12 @@ Model for gregor_synthetic_ftd_sourcedata_external_id.
 
 
 {% docs gregor_synthetic_ftd_sourcedata_external_id_sourcedata_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_external_id_external_id %}
-None
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -884,47 +885,47 @@ Model for gregor_synthetic_ftd_sourcedata.
 
 
 {% docs gregor_synthetic_ftd_sourcedata_code %}
-None
+The structured term defining the meaning of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_display %}
-None
+The friendly display string of the coded term
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_value_code %}
-None
+The structured term defining the value of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_value_display %}
-None
+The friendly display string of the coded term for the value of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_value_number %}
-None
+The numeric value of the assertion.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_value_units %}
-None
+The structured term defining the units of the value.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_value_units_display %}
-None
+The friendly display string of units of the value.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_sourcedata_id %}
-None
+ID associated with a class
 {% enddocs %}
 
 
@@ -934,12 +935,12 @@ Model for gregor_synthetic_ftd_accesspolicy_access_policy_code.
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_access_policy_code_accesspolicy_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_accesspolicy_access_policy_code_access_policy_code %}
-None
+Access Policy Code
 {% enddocs %}
 
 
@@ -949,12 +950,27 @@ Model for gregor_synthetic_ftd_study_principal_investigator.
 
 
 {% docs gregor_synthetic_ftd_study_principal_investigator_study_id %}
-None
+Autocreated FK slot
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_study_principal_investigator_principal_investigator %}
-None
+Principal Investigator
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_accesscontrolledrecord_description %}
+Model for gregor_synthetic_ftd_accesscontrolledrecord.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_accesscontrolledrecord_has_access_policy %}
+Which access policy applies to this element?
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_accesscontrolledrecord_id %}
+ID associated with a class
 {% enddocs %}
 
 
@@ -964,30 +980,31 @@ Model for gregor_synthetic_ftd_family.
 
 
 {% docs gregor_synthetic_ftd_family_family_type %}
-None
+Describes the 'type' of study family, eg, trio.
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_family_family_description %}
-None
+Free title describing the study family, such as potential inheritance or details about consanguinity
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_family_consanguinity %}
-None
+Is there known or suspected consanguinity in this study family?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_family_family_study_focus %}
-None
+What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
+
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_family_has_access_policy %}
-None
+Which access policy applies to this element?
 {% enddocs %}
 
 
 {% docs gregor_synthetic_ftd_family_id %}
-None
+ID associated with a class
 {% enddocs %}

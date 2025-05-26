@@ -1,39 +1,17 @@
-{{ config(materialized='table', schema='gregor_synthetic_data') }}
 
+{{ config(materialized='table', schema='gregor_synthetic_data') }}
     with source as (
         select 
-        participant.ftd_key,
-        'human'::text as "subject_type",
-        'mammal'::text as "organism_type",
-    --    GEN_UNKNOWN.has_access_policy::text as "has_access_policy",
-       {{ generate_uuid_key('s') }}::text as "id",
-    --    GEN_UNKNOWN.has_demographics_id::text as "has_demographics_id"
+        GEN_UNKNOWN.subject_type::text as "subject_type",
+       GEN_UNKNOWN.organism_type::text as "organism_type",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "has_access_policy",
+       {{ generate_global_id(prefix='sb',descriptor=['participant.anvil_gregor_gss_u07_gru_participant_id'], study_id='gregor_synthetic') }}::text as "id",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "has_demographics_id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-    ),
-
-    
-    get_ap_fk as (
-        select 
-        "id",
-        "ftd_key"
-        from {{ ref('gregor_synthetic_ftd_accesspolicy') }}
-    ),
-
-
-    get_d_fk as (
-        select 
-        "id",
-        "ftd_key"
-        from {{ ref('gregor_synthetic_ftd_demographics') }}
+        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
+on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
     )
-
-
-
     select 
-        source.*,
-        ap.id::text as "has_access_policy",
-        d.id::text as "has_demographics_id"
+        * 
     from source
-    join get_ap_fk as ap using (ftd_key)
-    join get_d_fk as d using (ftd_key)
     

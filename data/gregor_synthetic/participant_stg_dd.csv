@@ -14,8 +14,8 @@ paternal_id,Paternal ID (0 if unknown),integer,0,,,,paternal_id
 phenotype_description,Description of phenotype,string,,,,,phenotype_description
 pmid_id,PMID of a related publication or report,string,,,,,pmid_id
 prior_testing,Indicates whether prior genetic testing was conducted,string,,,,,prior_testing
-Self_relationship,Relationship to self (usually 'Self'),string,Self,,,,Self_relationship
-Self_relationship_detail,Further detail on relationship to self,string,,,,,Self_relationship_detail
+proband_relationship,Relationship to self (usually 'Self'),string,Self,,,,proband_relationship
+proband_relationship_detail,Further detail on relationship to self,string,,,,,proband_relationship_detail
 reported_ethnicity,Ethnicity reported by participant or caregiver,string,Hispanic or Latino / Not Hispanic or Latino,,,,reported_ethnicity
 reported_race,Race reported by participant or caregiver,string,White,,,,reported_race
 sex,Reported biological sex,string,Male / Female,,,,sex

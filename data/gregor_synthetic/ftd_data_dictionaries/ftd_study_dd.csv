@@ -1,4 +1,4 @@
-variable_name,description,data_type,min,max,units,enumerations,comment,src_variable_name
-parent_study_id,Parent Study ID,string,,,,,Foreign Key: Study.id,parent_study_id
-study_title,Study Title,string,,,,,,study_title
-id,ID associated with a class,string,,,,,,id
+variable_name,description,data_type,min,max,units,enumerations,comment,src_variable_name,variable_description
+parent_study_id,Parent Study ID,string,,,,,Foreign Key: Study.id,parent_study_id,Parent Study ID
+study_title,Study Title,string,,,,,,study_title,Study Title
+id,ID associated with a class,string,,,,,,id,ID associated with a class

@@ -1,3 +1,3 @@
-variable_name,description,data_type,min,max,units,enumerations,comment,src_variable_name
-has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id,has_access_policy
-id,ID associated with a class,string,,,,,,id
+variable_name,description,data_type,min,max,units,enumerations,comment,src_variable_name,variable_description
+has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id,has_access_policy,Which access policy applies to this element?
+id,ID associated with a class,string,,,,,,id,ID associated with a class

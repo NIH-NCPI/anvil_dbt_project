@@ -3,7 +3,7 @@ models:
 - name: gregor_synthetic_stg_participant
   description: Model for gregor_synthetic_stg_participant.
   columns:
-  - name: AnVIL_GREGoR_GSS_U07_GRU_participant_id
+  - name: anvil_gregor_gss_u07_gru_participant_id
     description: '{{ doc("gregor_synthetic_stg_participant_anvil_gregor_gss_u07_gru_participant_id")
       }}'
     data_type: string
@@ -52,11 +52,12 @@ models:
   - name: prior_testing
     description: '{{ doc("gregor_synthetic_stg_participant_prior_testing") }}'
     data_type: string
-  - name: Self_relationship
-    description: '{{ doc("gregor_synthetic_stg_participant_self_relationship") }}'
+  - name: proband_relationship
+    description: '{{ doc("gregor_synthetic_stg_participant_proband_relationship")
+      }}'
     data_type: string
-  - name: Self_relationship_detail
-    description: '{{ doc("gregor_synthetic_stg_participant_self_relationship_detail")
+  - name: proband_relationship_detail
+    description: '{{ doc("gregor_synthetic_stg_participant_proband_relationship_detail")
       }}'
     data_type: string
   - name: reported_ethnicity

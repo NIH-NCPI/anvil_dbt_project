@@ -1,3 +1,3 @@
-variable_name,description,data_type,min,max,units,enumerations,comment,src_variable_name
-SubjectAssertion_id,Autocreated FK slot,string,,,,,Foreign Key: SubjectAssertion.id,SubjectAssertion_id
-external_id,"Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",string,,,,,,external_id
+variable_name,description,data_type,min,max,units,enumerations,comment,src_variable_name,variable_description
+SubjectAssertion_id,Autocreated FK slot,string,,,,,Foreign Key: SubjectAssertion.id,SubjectAssertion_id,Autocreated FK slot
+external_id,"Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP",string,,,,,,external_id,"Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP"

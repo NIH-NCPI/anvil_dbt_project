@@ -2,11 +2,12 @@
 
     with source as (
         select 
-        GEN_UNKNOWN.parent_study_id::text as "parent_study_id",
+        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "parent_study_id",
        GEN_UNKNOWN.study_title::text as "study_title",
-       GEN_UNKNOWN.id::text as "id"
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
+        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
+on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
     )
 
     select 

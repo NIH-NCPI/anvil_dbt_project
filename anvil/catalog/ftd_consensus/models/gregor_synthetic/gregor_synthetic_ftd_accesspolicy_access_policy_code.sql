@@ -2,10 +2,11 @@
 
     with source as (
         select 
-        GEN_UNKNOWN.AccessPolicy_id::text as "AccessPolicy_id",
+        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "accesspolicy_id",
        GEN_UNKNOWN.access_policy_code::text as "access_policy_code"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
+        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
+on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
     )
 
     select 

@@ -2,10 +2,11 @@
 
     with source as (
         select 
-        GEN_UNKNOWN.Thing_id::text as "Thing_id",
+        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "thing_id",
        GEN_UNKNOWN.external_id::text as "external_id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
+        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
+on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
     )
 
     select 

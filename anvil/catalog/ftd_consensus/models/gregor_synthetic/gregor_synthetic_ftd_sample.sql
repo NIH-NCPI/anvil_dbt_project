@@ -2,17 +2,18 @@
 
     with source as (
         select 
-        GEN_UNKNOWN.parent_sample::text as "parent_sample",
+        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "parent_sample",
        GEN_UNKNOWN.sample_type::text as "sample_type",
        GEN_UNKNOWN.availablity_status::text as "availablity_status",
        GEN_UNKNOWN.quantity_number::text as "quantity_number",
        GEN_UNKNOWN.quantity_units::text as "quantity_units",
-       GEN_UNKNOWN.has_access_policy::text as "has_access_policy",
-       GEN_UNKNOWN.id::text as "id",
-       GEN_UNKNOWN.Subject_id::text as "Subject_id",
-       GEN_UNKNOWN.biospecimen_collection_id::text as "biospecimen_collection_id"
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "has_access_policy",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "id",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "subject_id",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "biospecimen_collection_id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
+        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
+on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
     )
 
     select 

@@ -7,11 +7,12 @@
        GEN_UNKNOWN.quantity_units::text as "quantity_units",
        GEN_UNKNOWN.concentration_number::text as "concentration_number",
        GEN_UNKNOWN.concentration_unit::text as "concentration_unit",
-       GEN_UNKNOWN.has_access_policy::text as "has_access_policy",
-       GEN_UNKNOWN.id::text as "id",
-       GEN_UNKNOWN.Sample_id::text as "Sample_id"
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "has_access_policy",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "id",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "sample_id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
+        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
+on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
     )
 
     select 

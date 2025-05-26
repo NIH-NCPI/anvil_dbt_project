@@ -126,6 +126,9 @@ data_dictionary:
   study_principal_investigator:
     identifier: Study_principal_investigator-dd.csv
     pipeline_identifier: ftd_study_principal_investigator_dd.csv
+  accesscontrolledrecord:
+    identifier: AccessControlledRecord-dd.csv
+    pipeline_identifier: ftd_accesscontrolledrecord_dd.csv
   family:
     identifier: Family-dd.csv
     pipeline_identifier: ftd_family_dd.csv
