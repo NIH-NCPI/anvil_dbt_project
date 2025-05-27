@@ -6,10 +6,17 @@ dbt deps  || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # gregor/duckdb examples
 dbt run --select  gregor_synthetic_stg_participant
 dbt run --select  gregor_synthetic_stg_phenotype
-# dbt run --select  gregor_synthetic_ftd_subject
+dbt run --select  gregor_synthetic_ftd_subject
+dbt run --select  gregor_synthetic_ftd_subject_external_id
+dbt run --select  gregor_synthetic_ftd_subjectassertion
+dbt run --select  gregor_synthetic_ftd_subjectassertion_external_id
 dbt run --select  gregor_synthetic_ftd_demographics
+dbt run --select  gregor_synthetic_ftd_demographics_external_id
 dbt run --select  gregor_synthetic_ftd_demographics_race
 dbt run --select  gregor_synthetic_ftd_familymember
+dbt run --select  gregor_synthetic_ftd_familymember_external_id
+dbt run --select  gregor_synthetic_ftd_familyrelationship
+dbt run --select  gregor_synthetic_ftd_familyrelationship_external_id
 dbt run --select  gregor_synthetic_ftd_accesspolicy_access_policy_code
 # dbt run --select  gregor_synthetic_ftd_participant
 # dbt run --select  gregor_synthetic_ftd_phenotype
