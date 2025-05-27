@@ -3,6 +3,7 @@
     with source as (
         select 
 <<<<<<< HEAD
+<<<<<<< HEAD
        {{ generate_global_id(prefix='dm',descriptor=['participant.anvil_gregor_gss_u07_gru_participant_id'], study_id='gregor_synthetic') }}::text as "Demographics_id",
        GEN_UNKNOWN.race::text as "race"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
@@ -10,6 +11,9 @@
 on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
 =======
         GEN_UNKNOWN.Demographics_id::text as "Demographics_id",
+=======
+        {{ generate_global_id(prefix='dm',descriptor=['participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id'], study_id='gregor_synthetic') }}::text as "Demographics_id",
+>>>>>>> b81083e (Using global id function in external_id files)
         CASE participant.reported_race
             WHEN 'American Indian or Alaskan Native' THEN 'american_indian_or_alaskan_native'
             WHEN 'Asian' THEN 'asian'

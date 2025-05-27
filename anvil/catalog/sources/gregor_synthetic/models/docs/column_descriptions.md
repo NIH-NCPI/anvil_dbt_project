@@ -62,13 +62,19 @@ PMID of a related publication or report
 Indicates whether prior genetic testing was conducted
 {% enddocs %}
 
-{% docs GREGoR_synthetic_participant_revised07Aug2024_proband_relationship %}
-Relationship to self (usually 'Self')
-{% enddocs %}
+# <<<<<<< HEAD
 
-{% docs GREGoR_synthetic_participant_revised07Aug2024_proband_relationship_detail %}
-Further detail on relationship to self
-{% enddocs %}
+> > > > > > > b81083e (Using global id function in external_id files)
+> > > > > > > {% docs GREGoR_synthetic_participant_revised07Aug2024_proband_relationship %}
+> > > > > > > Relationship to self (usually 'Self')
+> > > > > > > {% enddocs %}
+
+# <<<<<<< HEAD
+
+> > > > > > > b81083e (Using global id function in external_id files)
+> > > > > > > {% docs GREGoR_synthetic_participant_revised07Aug2024_proband_relationship_detail %}
+> > > > > > > Further detail on relationship to self
+> > > > > > > {% enddocs %}
 
 {% docs GREGoR_synthetic_participant_revised07Aug2024_reported_ethnicity %}
 Ethnicity reported by participant or caregiver
