@@ -2,7 +2,7 @@
 
     with source as (
         select 
-        GEN_UNKNOWN.Demographics_id::text as "Demographics_id",
+        {{ generate_global_id(prefix='dm',descriptor=['participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id'], study_id='gregor_synthetic') }}::text as "Demographics_id",
         CASE participant.reported_race
             WHEN 'American Indian or Alaskan Native' THEN 'american_indian_or_alaskan_native'
             WHEN 'Asian' THEN 'asian'

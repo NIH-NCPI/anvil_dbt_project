@@ -51,11 +51,11 @@ sources:
     - name: prior_testing
       description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_prior_testing")
         }}'
-    - name: Self_relationship
-      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_self_relationship")
+    - name: proband_relationship
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_proband_relationship")
         }}'
-    - name: Self_relationship_detail
-      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_self_relationship_detail")
+    - name: proband_relationship_detail
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_proband_relationship_detail")
         }}'
     - name: reported_ethnicity
       description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_reported_ethnicity")

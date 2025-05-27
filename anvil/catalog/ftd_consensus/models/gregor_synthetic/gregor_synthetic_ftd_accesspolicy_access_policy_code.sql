@@ -2,10 +2,10 @@
 
     with source as (
         select 
-        GEN_UNKNOWN.AccessPolicy_id::text as "AccessPolicy_id",
+        -- GEN_UNKNOWN.AccessPolicy_id::text as "AccessPolicy_id",
        participant.consent_code::text as "access_policy_code"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
+        -- join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
     )
 
     select 

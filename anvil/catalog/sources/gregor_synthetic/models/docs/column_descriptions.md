@@ -78,12 +78,12 @@ Indicates whether prior genetic testing was conducted
 {% enddocs %}
 
 
-{% docs GREGoR_synthetic_participant_revised07Aug2024_self_relationship %}
+{% docs GREGoR_synthetic_participant_revised07Aug2024_proband_relationship %}
 Relationship to self (usually 'Self')
 {% enddocs %}
 
 
-{% docs GREGoR_synthetic_participant_revised07Aug2024_self_relationship_detail %}
+{% docs GREGoR_synthetic_participant_revised07Aug2024_proband_relationship_detail %}
 Further detail on relationship to self
 {% enddocs %}
 
@@ -198,12 +198,12 @@ Indicates whether prior genetic testing was conducted
 {% enddocs %}
 
 
-{% docs gregor_synthetic_stg_participant_self_relationship %}
+{% docs gregor_synthetic_stg_participant_proband_relationship %}
 Relationship to self (usually 'Self')
 {% enddocs %}
 
 
-{% docs gregor_synthetic_stg_participant_self_relationship_detail %}
+{% docs gregor_synthetic_stg_participant_proband_relationship_detail %}
 Further detail on relationship to self
 {% enddocs %}
 
