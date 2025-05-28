@@ -66,7 +66,7 @@ sa = con.execute(
 print(f"FTD Subject\n {sa}\n")
 
 sae = con.execute(
-    "aLECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_subjectassertion_external_id LIMIT 10"
+    "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_subjectassertion_external_id LIMIT 10"
 ).fetchall()
 print(f"FTD Subject External Id\n {sae}\n")
 
