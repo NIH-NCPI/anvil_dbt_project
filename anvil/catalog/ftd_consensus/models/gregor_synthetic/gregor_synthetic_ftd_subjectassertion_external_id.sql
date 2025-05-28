@@ -3,7 +3,7 @@
     with source as (
         select 
         {{ generate_global_id(prefix='sa',descriptor=['phenotype.AnVIL_GREGoR_GSS_U07_GRU_phenotype_id'], study_id='gregor_synthetic') }}::text as "SubjectAssertion_id",
-        -- GEN_UNKNOWN.external_id::text as "external_id"
+        phenotype.AnVIL_GREGoR_GSS_U07_GRU_phenotype_id::text as "external_id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
         join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
         on participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id = phenotype.participant_id 
