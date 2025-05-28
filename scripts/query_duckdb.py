@@ -18,32 +18,32 @@ print(f"FTD Demographics\n {d}\n")
 de = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_demographics_external_id LIMIT 10"
 ).fetchall()
-print(f"FTD Demographics\n {de}\n")
+print(f"FTD Demographics External Id\n {de}\n")
 
 dr = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_demographics_race LIMIT 10"
 ).fetchall()
-print(f"FTD Demographics\n {dr}\n")
+print(f"FTD Demographics Race\n {dr}\n")
 
 fm = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familymember LIMIT 10"
 ).fetchall()
-print(f"FTD Demographics\n {fm}\n")
+print(f"FTD Family Member\n {fm}\n")
 
 fme = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familymember_external_id LIMIT 10"
 ).fetchall()
-print(f"FTD Demographics\n {fme}\n")
+print(f"FTD Family Member External Id\n {fme}\n")
 
 fr = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familyrelationship LIMIT 10"
 ).fetchall()
-print(f"FTD Demographics\n {fr}\n")
+print(f"FTD Family Relationship\n {fr}\n")
 
 fre = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familyrelationship_external_id LIMIT 10"
 ).fetchall()
-print(f"FTD Demographics\n {fre}\n")
+print(f"FTD Family Relationship External Id\n {fre}\n")
 
 # ap = con.execute(
 #     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_accesspolicy LIMIT 10"
@@ -63,12 +63,12 @@ print(f"FTD Subject External Id\n {se}\n")
 sa = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_subjectassertion LIMIT 10"
 ).fetchall()
-print(f"FTD Subject\n {sa}\n")
+print(f"FTD Subject Assertion\n {sa}\n")
 
 sae = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_subjectassertion_external_id LIMIT 10"
 ).fetchall()
-print(f"FTD Subject External Id\n {sae}\n")
+print(f"FTD Subject Assertion External Id\n {sae}\n")
 
 apapc = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_accesspolicy_access_policy_code LIMIT 10"
