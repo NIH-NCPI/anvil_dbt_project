@@ -20,10 +20,15 @@ print(f"FTD Demographics\n {d}\n")
 # ).fetchall()
 # print(f"FTD AccessPolicy\n {ap}\n")
 
-# s = con.execute(
-#     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_subject LIMIT 10"
-# ).fetchall()
-# print(f"FTD Subject\n {s}\n")
+s = con.execute(
+    "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_subject LIMIT 10"
+).fetchall()
+print(f"FTD Subject\n {s}\n")
+
+se = con.execute(
+    "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_subject_external_id LIMIT 10"
+).fetchall()
+print(f"FTD Subject External Id\n {se}\n")
 
 apapc = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_accesspolicy_access_policy_code LIMIT 10"

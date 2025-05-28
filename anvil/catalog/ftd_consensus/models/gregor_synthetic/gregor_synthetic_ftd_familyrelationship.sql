@@ -2,7 +2,6 @@
 
     with source as (
         select 
-<<<<<<< HEAD
         {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "family_member",
        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "other_family_member",
         CASE participant.proband_relationship
