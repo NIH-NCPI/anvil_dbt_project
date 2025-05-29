@@ -3,7 +3,27 @@
     with source as (
         select 
         -- GEN_UNKNOWN.family_member::text as "family_member",
-       participant.proband_relationship::text as "family_role",
+        CASE participant.proband_relationship
+            WHEN 'Mother' THEN 'MTH'
+            WHEN 'Father' THEN 'FTH'
+            WHEN 'Sibling' THEN 'SIB'
+            WHEN 'Child' THEN 'CHILD'
+            WHEN 'Maternal Half Sibling' THEN 'HSIB'
+            WHEN 'Paternal Half Sibling' THEN 'HSIB'
+            WHEN 'Maternal Grandmother' THEN 'MGRMTH'
+            WHEN 'Maternal Grandfather' THEN 'MGRFTH'
+            WHEN 'Paternal Grandmother' THEN 'PGRMTH'
+            WHEN 'Paternal Grandfather' THEN 'PGRFTH'
+            WHEN 'Maternal Aunt' THEN 'MAUNT'
+            WHEN 'Paternal Aunt' THEN 'PAUNT'
+            WHEN 'Maternal Uncle' THEN 'MUNCLE'
+            WHEN 'Paternal Uncle' THEN 'PUNCLE'
+            WHEN 'Niece' THEN 'NIECE'
+            WHEN 'Nephew' THEN 'NEPHEW'
+            WHEN 'Maternal 1st Cousin' THEN 'MCOUSN'
+            WHEN 'Paternal 1st Cousin' THEN 'PCOUSN'
+            ELSE participant.proband_relationship
+        END::text as "family_role",
     --    GEN_UNKNOWN.has_access_policy::text as "has_access_policy",
         {{ generate_global_id(prefix='fm',descriptor=['participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id'], study_id='gregor_synthetic') }}::text as "id",
        participant.family_id::text as "Family_id"
