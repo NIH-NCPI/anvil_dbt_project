@@ -13,10 +13,10 @@ dbt run --select  gregor_synthetic_ftd_subjectassertion_external_id
 dbt run --select  gregor_synthetic_ftd_demographics
 dbt run --select  gregor_synthetic_ftd_demographics_external_id
 dbt run --select  gregor_synthetic_ftd_demographics_race
-dbt run --select  gregor_synthetic_ftd_familymember
-dbt run --select  gregor_synthetic_ftd_familymember_external_id
 dbt run --select  gregor_synthetic_ftd_familyrelationship
 dbt run --select  gregor_synthetic_ftd_familyrelationship_external_id
+dbt run --select  gregor_synthetic_ftd_familymember
+dbt run --select  gregor_synthetic_ftd_familymember_external_id
 dbt run --select  gregor_synthetic_ftd_accesspolicy_access_policy_code
 # dbt run --select  gregor_synthetic_ftd_participant
 # dbt run --select  gregor_synthetic_ftd_phenotype
