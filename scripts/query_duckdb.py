@@ -25,15 +25,6 @@ dr = con.execute(
 ).fetchall()
 print(f"FTD Demographics Race\n {dr}\n")
 
-fm = con.execute(
-    "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familymember LIMIT 10"
-).fetchall()
-print(f"FTD Family Member\n {fm}\n")
-
-fme = con.execute(
-    "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familymember_external_id LIMIT 10"
-).fetchall()
-print(f"FTD Family Member External Id\n {fme}\n")
 
 fr = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familyrelationship LIMIT 10"
@@ -44,6 +35,16 @@ fre = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familyrelationship_external_id LIMIT 10"
 ).fetchall()
 print(f"FTD Family Relationship External Id\n {fre}\n")
+
+fm = con.execute(
+    "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familymember LIMIT 10"
+).fetchall()
+print(f"FTD Family Member\n {fm}\n")
+
+fme = con.execute(
+    "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_familymember_external_id LIMIT 10"
+).fetchall()
+print(f"FTD Family Member External Id\n {fme}\n")
 
 # ap = con.execute(
 #     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_accesspolicy LIMIT 10"

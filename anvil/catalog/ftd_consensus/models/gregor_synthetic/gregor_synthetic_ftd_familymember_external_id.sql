@@ -2,23 +2,11 @@
 
     with source as (
         select 
-<<<<<<< HEAD
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "familymember_id",
-=======
-        {{ generate_global_id(prefix='fm',descriptor=['participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id'], study_id='gregor_synthetic') }}::text as "FamilyMember_id",
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> b81083e (Using global id function in external_id files)
-       GEN_UNKNOWN.external_id::text as "external_id"
-=======
-    --    GEN_UNKNOWN.external_id::text as "external_id"
->>>>>>> f1f1cfe (Modified family relationship file, external_id files)
-=======
+        {{ generate_global_id(prefix='fm',descriptor=['participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id'], study_id='gregor_synthetic') }}::text as "familyMember_id",
         participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id::text as "external_id"
->>>>>>> 9cff46c (Modified external id's in external id files)
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
         join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
-on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
+        on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
     )
 
     select 
