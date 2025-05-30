@@ -21,7 +21,7 @@
             ELSE participant.reported_ethnicity
         END::text as "ethnicity",
         -- GEN_UNKNOWN.ethnicity_display::text as "ethnicity_display",
-        -- GEN_UNKNOWN.age_at_last_vital_status::integer as "age_at_last_vital_status",
+        participant.age_at_last_observation::integer as "age_at_last_vital_status",
         -- GEN_UNKNOWN.vital_status::text as "vital_status",
         -- GEN_UNKNOWN.has_access_policy::text as "has_access_policy",
         {{ generate_global_id(prefix='sb',descriptor=['participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id'], study_id='gregor_synthetic') }}::text as "id",
