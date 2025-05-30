@@ -20,9 +20,9 @@
             WHEN 'asked but unknown' THEN 'asked_but_unknown'
             ELSE participant.reported_ethnicity
         END::text as "ethnicity",
-        GEN_UNKNOWN.ethnicity_display::text as "ethnicity_display",
-        GEN_UNKNOWN.age_at_last_vital_status::integer as "age_at_last_vital_status",
-        GEN_UNKNOWN.vital_status::text as "vital_status",
+        -- GEN_UNKNOWN.ethnicity_display::text as "ethnicity_display",
+        participant.age_at_last_observation::integer as "age_at_last_vital_status",
+        -- GEN_UNKNOWN.vital_status::text as "vital_status",
         -- NOTE! Currently, For the model to run successfully, the global_id rows must be able to create SQL, the args cannot be invalid, even when commented out. Use placeholders for now.
 -- To see the generated sql, run `dbt compile --select {model}`
 -- Brenda plans to make these run easier later.

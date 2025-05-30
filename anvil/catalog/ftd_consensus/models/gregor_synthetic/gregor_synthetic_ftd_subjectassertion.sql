@@ -26,13 +26,26 @@
 >>>>>>> b81083e (Using global id function in external_id files)
         phenotype.onset_age_range::text as "age_at_event",
         -- GEN_UNKNOWN.age_at_resolution::text as "age_at_resolution",
-        -- GEN_UNKNOWN.code::text as "code",
+        CASE 
+            WHEN UPPER(phenotype.ontology) = 'HPO' THEN 'HP'
+            WHEN UPPER(phenotype.ontology) = 'MONDO' THEN 'MONDO'
+            WHEN UPPER(phenotype.ontology) = 'MAXO' THEN 'MAXO'
+            WHEN UPPER(phenotype.ontology) = 'NCIT' THEN 'NCIT'
+            WHEN UPPER(phenotype.ontology) = 'SNOMED CT' THEN 'SNOMED'
+            WHEN UPPER(phenotype.ontology) = 'SYMP' THEN 'SYMP'
+            WHEN UPPER(phenotype.ontology) = 'LOINC' THEN 'LOINC'
+            WHEN UPPER(phenotype.ontology) = 'MEDDRA' THEN 'MEDDRA'
+            WHEN UPPER(phenotype.ontology) = 'MESH' THEN 'MESH'
+            WHEN UPPER(phenotype.ontology) = 'UCUM' THEN 'UCUM'
+            WHEN UPPER(phenotype.ontology) = 'OMIT' THEN 'OMIT'
+            WHEN UPPER(phenotype.ontology) = 'OMIM' THEN 'MIM'
+            WHEN UPPER(phenotype.ontology) = 'CDCREC' THEN 'CDCREC'
+            ELSE phenotype.ontology
+        END || ':' || SPLIT_PART(phenotype.term_id, ':', 2)::text as "code",
         -- GEN_UNKNOWN.display::text as "display",
-        CASE phenotype.presence
-            WHEN 'Present' THEN 'SNOMED:373066001'
-            WHEN 'Absent' THEN 'SNOMED:373067005'
-            WHEN 'Unknown' THEN 'SNOMED:261665006'
-            ELSE phenotype.presence
+        CASE participant.affected_status
+            WHEN 'Affected' THEN 'SCTID:782964007'
+            ELSE null
         END::text as "value_code",
         phenotype.presence::text as "value_display",
         -- GEN_UNKNOWN.value_number::text as "value_number",
