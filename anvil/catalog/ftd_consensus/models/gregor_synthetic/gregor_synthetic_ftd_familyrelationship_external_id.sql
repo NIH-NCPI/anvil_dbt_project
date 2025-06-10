@@ -2,7 +2,7 @@
 
     with source as (
         select 
-        {{ generate_global_id(prefix='fr',descriptor=['participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id'], study_id='gregor_synthetic') }}::text as "FamilyRelationship_id",
+        {{ generate_global_id(prefix='fr',descriptor=['participant.anvil_gregor_gss_u07_gru_participant_id'], study_id='gregor_synthetic') }}::text as "FamilyRelationship_id",
     --    GEN_UNKNOWN.external_id::text as "external_id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
         join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype

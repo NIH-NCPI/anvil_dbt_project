@@ -2,18 +2,7 @@
 
     with source as (
         select 
-<<<<<<< HEAD
-<<<<<<< HEAD
-       {{ generate_global_id(prefix='dm',descriptor=['participant.anvil_gregor_gss_u07_gru_participant_id'], study_id='gregor_synthetic') }}::text as "Demographics_id",
-       GEN_UNKNOWN.race::text as "race"
-        from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
-on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
-=======
-        GEN_UNKNOWN.Demographics_id::text as "Demographics_id",
-=======
-        {{ generate_global_id(prefix='dm',descriptor=['participant.AnVIL_GREGoR_GSS_U07_GRU_participant_id'], study_id='gregor_synthetic') }}::text as "Demographics_id",
->>>>>>> b81083e (Using global id function in external_id files)
+            {{ generate_global_id(prefix='dm',descriptor=['participant.anvil_gregor_gss_u07_gru_participant_id'], study_id='gregor_synthetic') }}::text as "Demographics_id",
         CASE participant.reported_race
             WHEN 'American Indian or Alaskan Native' THEN 'american_indian_or_alaskan_native'
             WHEN 'Asian' THEN 'asian'
@@ -26,8 +15,8 @@ on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_i
             ELSE participant.reported_race
         END::text as "race"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        -- join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype using (ftd_key)
->>>>>>> de565fd (Started work on phenotype transforms)
+        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
+    on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
     )
 
     select 
