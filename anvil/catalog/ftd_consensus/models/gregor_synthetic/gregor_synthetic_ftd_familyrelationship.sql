@@ -5,7 +5,7 @@
         CASE 
             WHEN participant.paternal_id != 0 THEN {{ generate_global_id(prefix='fr',descriptor=participant.paternal_id, study_id='gregor_synthetic') }}
             WHEN participant.maternal_id != 0 THEN {{ generate_global_id(prefix='fr',descriptor=participant.maternal_id, study_id='gregor_synthetic') }}
-            WHEN participant.twin_id != 0 THEN CAST(participant.twin_id AS INTEGER)
+            WHEN participant.twin_id != 0 THEN {{ generate_global_id(prefix='fr',descriptor=CAST(participant.twin_id AS INTEGER), study_id='gregor_synthetic') }}
         END::text as "family_member",
         CASE 
             WHEN participant.paternal_id != 0 OR participant.maternal_id != 0 OR participant.twin_id != 0
