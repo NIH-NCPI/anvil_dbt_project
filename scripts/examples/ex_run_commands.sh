@@ -18,6 +18,7 @@ dbt run --select  gregor_synthetic_ftd_familyrelationship_external_id
 dbt run --select  gregor_synthetic_ftd_familymember
 dbt run --select  gregor_synthetic_ftd_familymember_external_id
 dbt run --select  gregor_synthetic_ftd_accesspolicy_access_policy_code
+dbt run --select  gregor_synthetic_ftd_accesspolicy
 # dbt run --select  gregor_synthetic_ftd_participant
 # dbt run --select  gregor_synthetic_ftd_phenotype
 # dbt run --select tgt_participant --vars '{"source_table": "gregor_synthetic_ftd_participant", "target_schema": "main"}'

@@ -75,3 +75,8 @@ apapc = con.execute(
     "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_accesspolicy_access_policy_code LIMIT 10"
 ).fetchall()
 print(f"FTD Access Policy Access Policy Code\n {apapc}\n")
+
+ap = con.execute(
+    "SELECT * FROM main_gregor_synthetic_data.gregor_synthetic_ftd_accesspolicy LIMIT 10"
+).fetchall()
+print(f"FTD Access Policy\n {ap}\n")
