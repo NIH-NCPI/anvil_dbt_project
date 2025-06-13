@@ -2,7 +2,7 @@ packages:
   - package: dbt-labs/dbt_utils
     version: 1.3.0
 
-      #  - local: "anvil/catalog/sources/gregor_synthetic"
+       - local: "anvil/catalog/sources/GREGoR_HMB_20240208"
 
-      # - local: "anvil/catalog/ftd_consensus"
+       - local: "anvil/catalog/ftd_consensus"
   # - local: "anvil/catalog/tgt_consensus_a"
