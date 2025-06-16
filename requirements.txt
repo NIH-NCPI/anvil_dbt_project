@@ -7,7 +7,7 @@ synapseclient==4.7.0
 pandas==2.2.3
 openpyxl==3.1.5
 
-protobuf==5.29.4 # dbt core and adapters require version <5.0.0. Check GH advisory db: CVE-2025-4565
+protobuf==5.29.4 # dbt core and adapters require specific versions, do check GH advisory db: CVE-2025-4565
 numpy==1.26
 
 # To force an update: pip install --no-cache --force-install {the pkg)
