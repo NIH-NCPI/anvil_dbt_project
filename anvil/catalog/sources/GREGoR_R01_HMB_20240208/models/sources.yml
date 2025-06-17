@@ -1,0 +1,88 @@
+version: 2
+sources:
+- name: GREGoR_R01_HMB_20240208
+  schema: main
+  tables:
+  - name: GREGoR_R01_HMB_20240208_participant
+    description: Source table for GREGoR_R01_HMB_20240208_participant.
+    columns:
+    - name: participant_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_participant_id") }}'
+    - name: affected_status
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_affected_status")
+        }}'
+    - name: age_at_enrollment
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_age_at_enrollment")
+        }}'
+    - name: age_at_last_observation
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_age_at_last_observation")
+        }}'
+    - name: ancestry_detail
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_ancestry_detail")
+        }}'
+    - name: consent_code
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_consent_code") }}'
+    - name: family_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_family_id") }}'
+    - name: gregor_center
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_gregor_center") }}'
+    - name: internal_project_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_internal_project_id")
+        }}'
+    - name: maternal_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_maternal_id") }}'
+    - name: paternal_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_paternal_id") }}'
+    - name: phenotype_description
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_phenotype_description")
+        }}'
+    - name: pmid_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_pmid_id") }}'
+    - name: prior_testing
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_prior_testing") }}'
+    - name: proband_relationship
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_proband_relationship")
+        }}'
+    - name: proband_relationship_detail
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_proband_relationship_detail")
+        }}'
+    - name: recontactable
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_recontactable") }}'
+    - name: reported_ethnicity
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_reported_ethnicity")
+        }}'
+    - name: reported_race
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_reported_race") }}'
+    - name: sex
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_sex") }}'
+    - name: sex_detail
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_sex_detail") }}'
+    - name: twin_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_twin_id") }}'
+    - name: ingest_provenance
+      description: '{{ doc("GREGoR_R01_HMB_20240208_participant_ingest_provenance")
+        }}'
+  - name: GREGoR_R01_HMB_20240208_phenotype
+    description: Source table for GREGoR_R01_HMB_20240208_phenotype.
+    columns:
+    - name: phenotype_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_phenotype_id") }}'
+    - name: additional_details
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_additional_details")
+        }}'
+    - name: additional_modifiers
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_additional_modifiers")
+        }}'
+    - name: onset_age_range
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_onset_age_range") }}'
+    - name: ontology
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_ontology") }}'
+    - name: participant_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_participant_id") }}'
+    - name: presence
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_presence") }}'
+    - name: term_id
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_term_id") }}'
+    - name: ingest_provenance
+      description: '{{ doc("GREGoR_R01_HMB_20240208_phenotype_ingest_provenance")
+        }}'
