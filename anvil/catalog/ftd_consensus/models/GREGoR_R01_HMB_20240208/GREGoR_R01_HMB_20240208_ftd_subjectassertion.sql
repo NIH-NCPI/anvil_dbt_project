@@ -28,7 +28,7 @@
             ELSE null
         END::text as "value_code",
         phenotype.presence::text as "value_display",
-        -- GEN_UNKNOWN.value_number::text as "value_number",
+        participant.age_at_enrollment::text as "value_number",
         -- GEN_UNKNOWN.value_units::text as "value_units",
         -- GEN_UNKNOWN.value_units_display ::text as "value_units_display",
         -- GEN_UNKNOWN.has_access_policy::text as "has_access_policy",
