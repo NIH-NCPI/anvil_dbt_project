@@ -9,136 +9,269 @@ clean-targets:
 - target
 - dbt_packages
 models:
-  GREGoR_R01_HMB_20240208:
-    GREGoR_R01_HMB_20240208_ftd_accesscontrolledrecord_external_id:
+  GREGoR_R03_HMB_20250612:
+    GREGoR_R03_HMB_20250612_ftd_accesscontrolledrecord_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_aliquot_external_id:
+    GREGoR_R03_HMB_20250612_ftd_aliquot_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_accesspolicy_data_access_type:
+    GREGoR_R03_HMB_20250612_ftd_accesspolicy_data_access_type:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_family_external_id:
+    GREGoR_R03_HMB_20250612_ftd_family_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_file:
+    GREGoR_R03_HMB_20250612_ftd_file:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_subjectassertion_source_data:
+    GREGoR_R03_HMB_20250612_ftd_subjectassertion_source_data:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_file_subject:
+    GREGoR_R03_HMB_20250612_ftd_file_subject:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_subject:
+    GREGoR_R03_HMB_20250612_ftd_subject:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_study_external_id:
+    GREGoR_R03_HMB_20250612_ftd_study_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_familymember_external_id:
+    GREGoR_R03_HMB_20250612_ftd_familymember_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_file_external_id:
+    GREGoR_R03_HMB_20250612_ftd_file_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_familymember:
+    GREGoR_R03_HMB_20250612_ftd_familymember:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_demographics_external_id:
+    GREGoR_R03_HMB_20250612_ftd_demographics_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_sample_storage_method:
+    GREGoR_R03_HMB_20250612_ftd_sample_storage_method:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_study:
+    GREGoR_R03_HMB_20250612_ftd_study:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_accesspolicy_access_policy_code:
+    GREGoR_R03_HMB_20250612_ftd_accesspolicy_access_policy_code:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_accesspolicy_external_id:
+    GREGoR_R03_HMB_20250612_ftd_accesspolicy_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_thing_external_id:
+    GREGoR_R03_HMB_20250612_ftd_thing_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_accesscontrolledrecord:
+    GREGoR_R03_HMB_20250612_ftd_accesscontrolledrecord:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_family:
+    GREGoR_R03_HMB_20250612_ftd_family:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_sourcedata_external_id:
+    GREGoR_R03_HMB_20250612_ftd_sourcedata_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_subject_external_id:
+    GREGoR_R03_HMB_20250612_ftd_subject_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_biospecimencollection_external_id:
+    GREGoR_R03_HMB_20250612_ftd_biospecimencollection_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_demographics:
+    GREGoR_R03_HMB_20250612_ftd_demographics:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_study_funding_source:
+    GREGoR_R03_HMB_20250612_ftd_study_funding_source:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_sample:
+    GREGoR_R03_HMB_20250612_ftd_sample:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_familyrelationship:
+    GREGoR_R03_HMB_20250612_ftd_familyrelationship:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_filemetadata:
+    GREGoR_R03_HMB_20250612_ftd_filemetadata:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_subjectassertion:
+    GREGoR_R03_HMB_20250612_ftd_subjectassertion:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_accesspolicy:
+    GREGoR_R03_HMB_20250612_ftd_accesspolicy:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_sample_external_id:
+    GREGoR_R03_HMB_20250612_ftd_sample_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_filemetadata_external_id:
+    GREGoR_R03_HMB_20250612_ftd_filemetadata_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_biospecimencollection:
+    GREGoR_R03_HMB_20250612_ftd_biospecimencollection:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_aliquot:
+    GREGoR_R03_HMB_20250612_ftd_aliquot:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_sourcedata:
+    GREGoR_R03_HMB_20250612_ftd_sourcedata:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_study_external_study_id:
+    GREGoR_R03_HMB_20250612_ftd_study_external_study_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_file_sample:
+    GREGoR_R03_HMB_20250612_ftd_file_sample:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_study_principal_investigator:
+    GREGoR_R03_HMB_20250612_ftd_study_principal_investigator:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_demographics_source_data:
+    GREGoR_R03_HMB_20250612_ftd_demographics_source_data:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_family_family_relationships:
+    GREGoR_R03_HMB_20250612_ftd_family_family_relationships:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_familyrelationship_external_id:
+    GREGoR_R03_HMB_20250612_ftd_familyrelationship_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_sample_processing:
+    GREGoR_R03_HMB_20250612_ftd_sample_processing:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_demographics_race:
+    GREGoR_R03_HMB_20250612_ftd_demographics_race:
       +schema: main
       +materialized: table
-    GREGoR_R01_HMB_20240208_ftd_subjectassertion_external_id:
+    GREGoR_R03_HMB_20250612_ftd_subjectassertion_external_id:
+      +schema: main
+      +materialized: table
+  GREGoR_R03_GRU_20250612:
+    GREGoR_R03_GRU_20250612_ftd_accesscontrolledrecord_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_aliquot_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_accesspolicy_data_access_type:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_family_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_file:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_subjectassertion_source_data:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_file_subject:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_subject:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_study_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_familymember_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_file_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_familymember:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_demographics_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_sample_storage_method:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_study:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_accesspolicy_access_policy_code:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_accesspolicy_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_thing_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_accesscontrolledrecord:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_family:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_sourcedata_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_subject_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_biospecimencollection_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_demographics:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_study_funding_source:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_sample:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_familyrelationship:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_filemetadata:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_subjectassertion:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_accesspolicy:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_sample_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_filemetadata_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_biospecimencollection:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_aliquot:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_sourcedata:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_study_external_study_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_file_sample:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_study_principal_investigator:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_demographics_source_data:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_family_family_relationships:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_familyrelationship_external_id:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_sample_processing:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_demographics_race:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_subjectassertion_external_id:
       +schema: main
       +materialized: table
