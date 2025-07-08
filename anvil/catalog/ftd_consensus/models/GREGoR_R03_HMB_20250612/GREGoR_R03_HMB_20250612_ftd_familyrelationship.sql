@@ -29,9 +29,7 @@
         UNION 
         -- Normal Direction of family relationship
         SELECT
-        (select DISTINCT CAST(participant_id as STRING) FROM {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as stg 
-        WHERE CAST(stg.family_id as STRING) = CAST(participant.family_id as STRING) 
-            AND CAST(stg.proband_relationship AS STRING) = 'Self') as other_family_member, -- is proband's participant ID
+        proband.participant_id as other_family_member, -- is proband's participant ID. -- Josh changed this as other_family_member, -- is proband's participant ID
         participant.participant_id AS participant_id, -- is not proband's participant ID
        CASE 
            WHEN participant.proband_relationship =  'Mother' THEN 'KIN:027' -- system: http://purl.org/ga4gh/kin.owl
@@ -51,9 +49,12 @@
            WHEN participant.proband_relationship =  'Maternal 1st Cousin' THEN 'KIN:015'
            WHEN participant.proband_relationship =  'Paternal 1st Cousin' THEN 'KIN:016'
            WHEN participant.proband_relationship =  'Other' THEN 'KIN:001'
-        END::text as "relationship_code",       
+        END::text as "relationship_code", 
         {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='GREGoR_R03_HMB_20250612') }}::text as "has_access_policy",
         from {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as participant
+        LEFT JOIN {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as proband 
+        ON proband.family_id = participant.family_id  -- If multiple probands per family, assuming siblings
+        AND proband.proband_relationship = 'Self'
         where participant.proband_relationship != 'Self'
           and participant.proband_relationship NOT IN ('Self', 'Niece', 'Nephew')
 
