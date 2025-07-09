@@ -11,7 +11,7 @@
             WHEN 'Intersex' THEN 'intersex'
             ELSE participant.sex 
         END::text as "sex",
-        -- GEN_UNKNOWN.sex_display::text as "sex_display",
+        participant.sex::text as "sex_display",
         participant.reported_race::text as "race_display",
         CASE participant.reported_ethnicity
             WHEN 'Hispanic or Latino' THEN 'hispanic_or_latino'
@@ -20,7 +20,7 @@
             WHEN 'asked but unknown' THEN 'asked_but_unknown'
             ELSE participant.reported_ethnicity
         END::text as "ethnicity",
-        -- GEN_UNKNOWN.ethnicity_display::text as "ethnicity_display",
+        participant.reported_ethnicity::text as "ethnicity_display",
         participant.age_at_last_observation::integer as "age_at_last_vital_status",
         -- GEN_UNKNOWN.vital_status::text as "vital_status",
         -- NOTE! Currently, For the model to run successfully, the global_id rows must be able to create SQL, the args cannot be invalid, even when commented out. Use placeholders for now.

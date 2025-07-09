@@ -2,7 +2,7 @@
 
     with source as (
         select 
-        {# {{ generate_global_id(prefix='',descriptor=[''], study_id='GREGoR_R03_GRU_20250612') }}::text as "family_member",#}
+        {{ generate_global_id(prefix='fm',descriptor=['participant.participant_id'], study_id='GREGoR_R03_GRU_20250612') }}::text as "family_member",
         CASE participant.proband_relationship
             WHEN 'Mother' THEN 'MTH'
             WHEN 'Father' THEN 'FTH'
@@ -22,7 +22,7 @@
             WHEN 'Nephew' THEN 'NEPHEW'
             WHEN 'Maternal 1st Cousin' THEN 'MCOUSN'
             WHEN 'Paternal 1st Cousin' THEN 'PCOUSN'
-            ELSE participant.proband_relationship
+            WHEN 'Self' THEN 'SNOMED:85900004'
         END::text as "family_role",       
         {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='GREGoR_R03_GRU_20250612') }}::text as "has_access_policy",
         {{ generate_global_id(prefix='fm',descriptor=['participant.participant_id'], study_id='GREGoR_R03_GRU_20250612') }}::text as "id",
