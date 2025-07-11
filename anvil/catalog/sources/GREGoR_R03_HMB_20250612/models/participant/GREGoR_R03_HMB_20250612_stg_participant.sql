@@ -30,7 +30,7 @@
     )
 
     select 
-        *,
-        concat('participant_id','-','family_id') as ftd_key
-    from source
+        ROW_NUMBER() OVER () AS ftd_index
+        ,source.*
+        from source
     

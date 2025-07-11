@@ -4,21 +4,38 @@ dbt deps  || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # 
 
 # gregor/duckdb examples
-dbt run --select  GREGoR_R03_GRU_20250612_stg_participant
-dbt run --select  GREGoR_R03_GRU_20250612_stg_phenotype
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_subject
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_subject_external_id
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_subjectassertion
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_subjectassertion_external_id
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_demographics
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_demographics_external_id
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_demographics_race
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_familyrelationship
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_familyrelationship_external_id
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_familymember
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_familymember_external_id
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_accesspolicy_access_policy_code
-dbt run --select  GREGoR_R03_GRU_20250612_ftd_accesspolicy
+# dbt run --select  GREGoR_R03_GRU_20250612_stg_participant
+# dbt run --select  GREGoR_R03_GRU_20250612_stg_phenotype
+# dbt run --select  GREGoR_R03_GRU_20250612_stg_experiment
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_subject
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_subject_external_id
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_subjectassertion
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_subjectassertion_external_id
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_demographics
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_demographics_external_id
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_demographics_race
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_familyrelationship
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_familyrelationship_external_id
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_familymember
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_familymember_external_id
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_accesspolicy_access_policy_code
+# dbt run --select  GREGoR_R03_GRU_20250612_ftd_accesspolicy
+dbt run --select  GREGoR_R03_HMB_20250612_stg_participant
+# dbt run --select  GREGoR_R03_HMB_20250612_stg_phenotype
+dbt run --select  GREGoR_R03_HMB_20250612_stg_experiment
+dbt run --select  GREGoR_R03_HMB_20250612_ftd_subject
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_subject_external_id
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_subjectassertion
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_subjectassertion_external_id
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_demographics
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_demographics_external_id
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_demographics_race
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_familyrelationship
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_familyrelationship_external_id
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_familymember
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_familymember_external_id
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_accesspolicy_access_policy_code
+# dbt run --select  GREGoR_R03_HMB_20250612_ftd_accesspolicy
 
 # dbt run --select  GREGoR_R03_GRU_20250612_ftd_participant
 # dbt run --select  GREGoR_R03_GRU_20250612_ftd_phenotype

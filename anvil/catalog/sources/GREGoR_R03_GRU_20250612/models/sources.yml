@@ -88,3 +88,14 @@ sources:
       description: '{{ doc("GREGoR_R03_GRU_20250612_phenotype_syndromic") }}'
     - name: term_id
       description: '{{ doc("GREGoR_R03_GRU_20250612_phenotype_term_id") }}'
+  - name: GREGoR_R03_GRU_20250612_experiment
+    description: Source table for GREGoR_R03_GRU_20250612_experiment.
+    columns:
+    - name: experiment_id
+      description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_experiment_id") }}'
+    - name: table_name
+      description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_table_name") }}'
+    - name: id_in_table
+      description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_id_in_table") }}'
+    - name: participant_id
+      description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_participant_id") }}'
