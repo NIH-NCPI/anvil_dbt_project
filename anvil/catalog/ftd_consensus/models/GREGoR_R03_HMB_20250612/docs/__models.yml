@@ -97,20 +97,25 @@ models:
   - name: subject_type
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_subject_type") }}'
     data_type: enumeration
+    tests: []
   - name: organism_type
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_organism_type") }}'
     data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_has_access_policy")
       }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_id") }}'
     data_type: string
+    tests: []
   - name: has_demographics_id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_has_demographics_id")
       }}'
     data_type: string
+    tests: []
 - name: GREGoR_R03_HMB_20250612_ftd_study_external_id
   description: Model for GREGoR_R03_HMB_20250612_ftd_study_external_id.
   columns:
@@ -150,19 +155,25 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familymember_family_member")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: family_role
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familymember_family_role") }}'
     data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familymember_has_access_policy")
       }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familymember_id") }}'
     data_type: string
+    tests: []
   - name: family_id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familymember_family_id") }}'
     data_type: string
+    tests: []
 - name: GREGoR_R03_HMB_20250612_ftd_demographics_external_id
   description: Model for GREGoR_R03_HMB_20250612_ftd_demographics_external_id.
   columns:
@@ -204,10 +215,13 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_accesspolicy_access_policy_code_accesspolicy_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: access_policy_code
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_accesspolicy_access_policy_code_access_policy_code")
       }}'
     data_type: enumeration
+    tests: []
 - name: GREGoR_R03_HMB_20250612_ftd_accesspolicy_external_id
   description: Model for GREGoR_R03_HMB_20250612_ftd_accesspolicy_external_id.
   columns:
@@ -304,42 +318,53 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_date_of_birth")
       }}'
     data_type: integer
+    tests: []
   - name: date_of_birth_type
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_date_of_birth_type")
       }}'
     data_type: enumeration
+    tests: []
   - name: sex
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_sex") }}'
     data_type: enumeration
+    tests: []
   - name: sex_display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_sex_display") }}'
     data_type: string
+    tests: []
   - name: race_display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_race_display")
       }}'
     data_type: string
+    tests: []
   - name: ethnicity
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_ethnicity") }}'
     data_type: enumeration
+    tests: []
   - name: ethnicity_display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_ethnicity_display")
       }}'
     data_type: string
+    tests: []
   - name: age_at_last_vital_status
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_age_at_last_vital_status")
       }}'
     data_type: integer
+    tests: []
   - name: vital_status
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_vital_status")
       }}'
     data_type: enumeration
+    tests: []
   - name: has_access_policy
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_has_access_policy")
       }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_id") }}'
     data_type: string
+    tests: []
 - name: GREGoR_R03_HMB_20250612_ftd_study_funding_source
   description: Model for GREGoR_R03_HMB_20250612_ftd_study_funding_source.
   columns:
@@ -390,21 +415,29 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familyrelationship_family_member")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: other_family_member
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familyrelationship_other_family_member")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: relationship_code
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familyrelationship_relationship_code")
       }}'
     data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familyrelationship_has_access_policy")
       }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familyrelationship_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: GREGoR_R03_HMB_20250612_ftd_filemetadata
   description: Model for GREGoR_R03_HMB_20250612_ftd_filemetadata.
   columns:
@@ -431,55 +464,69 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_assertion_type")
       }}'
     data_type: enumeration
+    tests: []
   - name: age_at_assertion
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_age_at_assertion")
       }}'
     data_type: number
+    tests: []
   - name: age_at_event
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_age_at_event")
       }}'
     data_type: number
+    tests: []
   - name: age_at_resolution
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_age_at_resolution")
       }}'
     data_type: number
+    tests: []
   - name: code
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_code") }}'
     data_type: string
+    tests: []
   - name: display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_display") }}'
     data_type: string
+    tests: []
   - name: value_code
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_value_code")
       }}'
     data_type: string
+    tests: []
   - name: value_display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_value_display")
       }}'
     data_type: string
+    tests: []
   - name: value_number
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_value_number")
       }}'
     data_type: number
+    tests: []
   - name: value_units
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_value_units")
       }}'
     data_type: string
+    tests: []
   - name: value_units_display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_value_units_display")
       }}'
     data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_has_access_policy")
       }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_id") }}'
     data_type: string
+    tests: []
   - name: subject_id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_subject_id")
       }}'
     data_type: string
+    tests: []
 - name: GREGoR_R03_HMB_20250612_ftd_accesspolicy
   description: Model for GREGoR_R03_HMB_20250612_ftd_accesspolicy.
   columns:
@@ -487,15 +534,20 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_accesspolicy_disease_limitation")
       }}'
     data_type: string
+    tests: []
   - name: description
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_accesspolicy_description") }}'
     data_type: string
+    tests:
+    - not_null
   - name: website
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_accesspolicy_website") }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_accesspolicy_id") }}'
     data_type: string
+    tests: []
 - name: GREGoR_R03_HMB_20250612_ftd_sample_external_id
   description: Model for GREGoR_R03_HMB_20250612_ftd_sample_external_id.
   columns:
@@ -693,9 +745,12 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_race_demographics_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: race
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_race_race") }}'
     data_type: enumeration
+    tests: []
 - name: GREGoR_R03_HMB_20250612_ftd_subjectassertion_external_id
   description: Model for GREGoR_R03_HMB_20250612_ftd_subjectassertion_external_id.
   columns:

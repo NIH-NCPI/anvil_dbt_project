@@ -571,7 +571,6 @@ The family member Subject for the relationship "object".
 
 {% docs GREGoR_R03_GRU_20250612_ftd_familyrelationship_relationship_code %}
 Code definting the relationship predicate. Relationship of the "Family Member" to the "Other Family Member" (i.e. mother, father, etc). Code must be from the HL7 [FamilyMember ValueSet](https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html)
-
 {% enddocs %}
 
 

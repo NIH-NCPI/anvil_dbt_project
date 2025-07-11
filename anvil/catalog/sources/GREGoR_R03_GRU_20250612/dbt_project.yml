@@ -21,3 +21,7 @@ models:
     GREGoR_R03_GRU_20250612_stg_phenotype:
       +schema: main
       +materialized: table
+  experiment:
+    GREGoR_R03_GRU_20250612_stg_experiment:
+      +schema: main
+      +materialized: table

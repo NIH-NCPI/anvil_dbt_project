@@ -346,3 +346,53 @@ nan
 {% docs GREGoR_R03_HMB_20250612_stg_phenotype_term_id %}
 Ontology identifier for the phenotype term
 {% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_experiment_description %}
+Model for GREGoR_R03_HMB_20250612_experiment.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_experiment_experiment_id %}
+table_name.experiment_id_in_table
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_experiment_table_name %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_experiment_id_in_table %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_experiment_participant_id %}
+participant.participant_id
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_experiment_description %}
+Model for GREGoR_R03_HMB_20250612_stg_experiment.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_experiment_experiment_id %}
+table_name.experiment_id_in_table
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_experiment_table_name %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_experiment_id_in_table %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_experiment_participant_id %}
+participant.participant_id
+{% enddocs %}
