@@ -48,7 +48,7 @@
            WHEN participant.proband_relationship =  'Paternal Uncle' THEN 'KIN:059'           
            WHEN participant.proband_relationship =  'Maternal 1st Cousin' THEN 'KIN:015'
            WHEN participant.proband_relationship =  'Paternal 1st Cousin' THEN 'KIN:016'
-           WHEN participant.proband_relationship =  'Other' THEN 'KIN:001'
+           WHEN participant.proband_relationship =  'Other' OR participant.proband_relationship =  'Unknown' THEN 'KIN:001'
         END::text as "relationship_code", 
         {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='GREGoR_R03_HMB_20250612') }}::text as "has_access_policy",
         from {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as participant

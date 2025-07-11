@@ -2,4 +2,4 @@ variable_name,description,data_type,min,max,units,enumerations,comment,tests
 disease_limitation,Disease Use Limitations,string,,,,,,
 description,Description,string,,,,,,not_null
 website,Website,string,,,,,,
-id,ID associated with a class,string,,,,,not_null
+id,ID associated with a class,string,,,,,,not_null

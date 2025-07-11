@@ -97,7 +97,16 @@ models:
   - name: subject_type
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_subject_type") }}'
     data_type: enumeration
-    tests: []
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - participant
+        - non_participant
+        - cell_line
+        - animal_model
+        - group
+        - other
   - name: organism_type
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_organism_type") }}'
     data_type: string
@@ -110,7 +119,8 @@ models:
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_id") }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
   - name: has_demographics_id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subject_has_demographics_id")
       }}'
@@ -169,7 +179,8 @@ models:
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familymember_id") }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
   - name: family_id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familymember_family_id") }}'
     data_type: string
@@ -221,7 +232,20 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_accesspolicy_access_policy_code_access_policy_code")
       }}'
     data_type: enumeration
-    tests: []
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - gru
+        - hmb
+        - ds
+        - irb
+        - pub
+        - col
+        - npu
+        - mds
+        - gso
+        - gsr
 - name: GREGoR_R03_HMB_20250612_ftd_accesspolicy_external_id
   description: Model for GREGoR_R03_HMB_20250612_ftd_accesspolicy_external_id.
   columns:
@@ -327,25 +351,42 @@ models:
   - name: sex
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_sex") }}'
     data_type: enumeration
-    tests: []
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - female
+        - male
+        - unknown
+        - intersex
   - name: sex_display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_sex_display") }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
   - name: race_display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_race_display")
       }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
   - name: ethnicity
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_ethnicity") }}'
     data_type: enumeration
-    tests: []
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - hispanic_or_latino
+        - not_hispanic_or_latino
+        - unknown
+        - asked_but_unknown
   - name: ethnicity_display
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_ethnicity_display")
       }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
   - name: age_at_last_vital_status
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_age_at_last_vital_status")
       }}'
@@ -364,7 +405,8 @@ models:
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_id") }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
 - name: GREGoR_R03_HMB_20250612_ftd_study_funding_source
   description: Model for GREGoR_R03_HMB_20250612_ftd_study_funding_source.
   columns:
@@ -427,7 +469,8 @@ models:
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familyrelationship_relationship_code")
       }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
   - name: has_access_policy
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_familyrelationship_has_access_policy")
       }}'
@@ -521,7 +564,8 @@ models:
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_id") }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
   - name: subject_id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_subjectassertion_subject_id")
       }}'
@@ -547,7 +591,8 @@ models:
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_accesspolicy_id") }}'
     data_type: string
-    tests: []
+    tests:
+    - not_null
 - name: GREGoR_R03_HMB_20250612_ftd_sample_external_id
   description: Model for GREGoR_R03_HMB_20250612_ftd_sample_external_id.
   columns:
@@ -750,7 +795,18 @@ models:
   - name: race
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_demographics_race_race") }}'
     data_type: enumeration
-    tests: []
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - american_indian_or_alaskan_native
+        - asian
+        - black_or_african_american
+        - native_hawaiian_or_pacific_islander
+        - white
+        - other_race
+        - unknown
+        - asked_but_unknown
 - name: GREGoR_R03_HMB_20250612_ftd_subjectassertion_external_id
   description: Model for GREGoR_R03_HMB_20250612_ftd_subjectassertion_external_id.
   columns:
