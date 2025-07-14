@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='GREGoR_R03_GRU_20250612_data') }}
 
     with source as (
-        select 
+        select DISTINCT
         -- GEN_UNKNOWN.date_of_birth::integer as "date_of_birth",
         -- GEN_UNKNOWN.date_of_birth_type::text as "date_of_birth_type",
         CASE participant.sex
