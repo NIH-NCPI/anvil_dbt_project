@@ -9,269 +9,136 @@ clean-targets:
 - target
 - dbt_packages
 models:
-  GREGoR_R03_GRU_20250612:
-    GREGoR_R03_GRU_20250612_ftd_accesscontrolledrecord_external_id:
+  gregor_synthetic:
+    gregor_synthetic_ftd_demographics_source_data:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_aliquot_external_id:
+    gregor_synthetic_ftd_sample:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_accesspolicy_data_access_type:
+    gregor_synthetic_ftd_sample_processing:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_family_external_id:
+    gregor_synthetic_ftd_file:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_file:
+    gregor_synthetic_ftd_study_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_subjectassertion_source_data:
+    gregor_synthetic_ftd_sample_storage_method:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_file_subject:
+    gregor_synthetic_ftd_study_external_study_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_subject:
+    gregor_synthetic_ftd_accesspolicy:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_study_external_id:
+    gregor_synthetic_ftd_study_funding_source:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_familymember_external_id:
+    gregor_synthetic_ftd_sample_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_file_external_id:
+    gregor_synthetic_ftd_biospecimencollection_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_familymember:
+    gregor_synthetic_ftd_demographics:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_demographics_external_id:
+    gregor_synthetic_ftd_subject:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_sample_storage_method:
+    gregor_synthetic_ftd_aliquot_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_study:
+    gregor_synthetic_ftd_familymember:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_accesspolicy_access_policy_code:
+    gregor_synthetic_ftd_subjectassertion_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_accesspolicy_external_id:
+    gregor_synthetic_ftd_filemetadata_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_thing_external_id:
+    gregor_synthetic_ftd_subjectassertion:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_accesscontrolledrecord:
+    gregor_synthetic_ftd_biospecimencollection:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_family:
+    gregor_synthetic_ftd_familymember_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_sourcedata_external_id:
+    gregor_synthetic_ftd_subjectassertion_source_data:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_subject_external_id:
+    gregor_synthetic_ftd_accesspolicy_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_biospecimencollection_external_id:
+    gregor_synthetic_ftd_file_sample:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_demographics:
+    gregor_synthetic_ftd_family_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_study_funding_source:
+    gregor_synthetic_ftd_file_subject:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_sample:
+    gregor_synthetic_ftd_filemetadata:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_familyrelationship:
+    gregor_synthetic_ftd_accesscontrolledrecord_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_filemetadata:
+    gregor_synthetic_ftd_demographics_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_subjectassertion:
+    gregor_synthetic_ftd_file_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_accesspolicy:
+    gregor_synthetic_ftd_familyrelationship:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_sample_external_id:
+    gregor_synthetic_ftd_subject_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_filemetadata_external_id:
+    gregor_synthetic_ftd_aliquot:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_biospecimencollection:
+    gregor_synthetic_ftd_thing_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_aliquot:
+    gregor_synthetic_ftd_demographics_race:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_sourcedata:
+    gregor_synthetic_ftd_study:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_study_external_study_id:
+    gregor_synthetic_ftd_familyrelationship_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_file_sample:
+    gregor_synthetic_ftd_accesspolicy_data_access_type:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_study_principal_investigator:
+    gregor_synthetic_ftd_family_family_relationships:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_demographics_source_data:
+    gregor_synthetic_ftd_sourcedata_external_id:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_family_family_relationships:
+    gregor_synthetic_ftd_sourcedata:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_familyrelationship_external_id:
+    gregor_synthetic_ftd_accesspolicy_access_policy_code:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_sample_processing:
+    gregor_synthetic_ftd_study_principal_investigator:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_demographics_race:
+    gregor_synthetic_ftd_accesscontrolledrecord:
       +schema: main
       +materialized: table
-    GREGoR_R03_GRU_20250612_ftd_subjectassertion_external_id:
-      +schema: main
-      +materialized: table
-  GREGoR_R03_HMB_20250612:
-    GREGoR_R03_HMB_20250612_ftd_accesscontrolledrecord_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_aliquot_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_accesspolicy_data_access_type:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_family_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_file:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_subjectassertion_source_data:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_file_subject:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_subject:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_study_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_familymember_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_file_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_familymember:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_demographics_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_sample_storage_method:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_study:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_accesspolicy_access_policy_code:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_accesspolicy_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_thing_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_accesscontrolledrecord:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_family:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_sourcedata_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_subject_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_biospecimencollection_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_demographics:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_study_funding_source:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_sample:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_familyrelationship:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_filemetadata:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_subjectassertion:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_accesspolicy:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_sample_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_filemetadata_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_biospecimencollection:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_aliquot:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_sourcedata:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_study_external_study_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_file_sample:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_study_principal_investigator:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_demographics_source_data:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_family_family_relationships:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_familyrelationship_external_id:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_sample_processing:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_demographics_race:
-      +schema: main
-      +materialized: table
-    GREGoR_R03_HMB_20250612_ftd_subjectassertion_external_id:
+    gregor_synthetic_ftd_family:
       +schema: main
       +materialized: table
