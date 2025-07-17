@@ -1,0 +1,15 @@
+{{ config(materialized='table', schema='gregor_synthetic_data') }}
+
+    with source as (
+        select 
+       {{ generate_global_id(prefix='dm',descriptor=['participant.anvil_gregor_gss_u07_gru_participant_id'], study_id='gregor_synthetic') }}::text as "Demographics_id",
+       GEN_UNKNOWN.race::text as "race"
+        from {{ ref('gregor_synthetic_stg_participant') }} as participant
+        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
+on participant.anvil_gregor_gss_u07_gru_participant_id = phenotype.participant_id 
+    )
+
+    select 
+        * 
+    from source
+    
