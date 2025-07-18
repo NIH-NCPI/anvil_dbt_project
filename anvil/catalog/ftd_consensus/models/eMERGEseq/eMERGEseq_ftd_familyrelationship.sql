@@ -1,0 +1,21 @@
+{{ config(materialized='table', schema='eMERGEseq_data') }}
+
+    with source as (
+        select 
+        {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "family_member",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "other_family_member",
+       GEN_UNKNOWN.relationship_code::text as "relationship_code",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "has_access_policy",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "id"
+        from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
+        join {{ ref('eMERGEseq_stg_demographics') }} as demographics
+on subjectconsent.subject_id = demographics.subject_id  join {{ ref('eMERGEseq_stg_phecode') }} as phecode
+on   join {{ ref('eMERGEseq_stg_samplesubjectmapping') }} as samplesubjectmapping
+on   join {{ ref('eMERGEseq_stg_sampleattributes') }} as sampleattributes
+on  
+    )
+
+    select 
+        * 
+    from source
+    

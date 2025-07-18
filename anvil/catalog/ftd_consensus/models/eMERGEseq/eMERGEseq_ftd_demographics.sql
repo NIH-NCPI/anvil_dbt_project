@@ -1,0 +1,59 @@
+{{ config(materialized='table', schema='eMERGEseq_data') }}
+
+    with source as (
+        select 
+        demographics.year_birth::integer as "date_of_birth",
+       'year_only'::text as "date_of_birth_type",
+        CASE demographics.sex
+            WHEN 'C46110' THEN 'female'
+            WHEN 'C46109' THEN 'male'
+            WHEN 'U' THEN 'unknown'
+            WHEN '.' THEN 'unknown'
+            WHEN 'NA' THEN 'unknown'
+        END::text as "sex",       
+         CASE demographics.sex
+            WHEN 'C46110' THEN 'Female'
+            WHEN 'C46109' THEN 'Male'
+            WHEN 'U' THEN 'Unknown'
+            WHEN '.' THEN 'Unknown'
+            WHEN 'NA' THEN 'Unknown'
+        END::text as "sex_display",
+       CASE demographics.race
+            WHEN 'C41259' THEN 'american_indian_or_alaskan_native'
+            WHEN 'C41260' THEN 'asian'
+            WHEN 'C16352' THEN 'black_or_african_american'
+            WHEN 'C41219' THEN 'native_hawaiian_or_pacific_islander'
+            WHEN 'C41261' THEN 'white'
+            WHEN 'C17998' THEN 'unknown'
+            WHEN 'C43234' THEN 'unknown'
+            WHEN '.' THEN 'unknown'
+            WHEN 'NA' THEN 'unknown'
+       END::text as "race_display",
+       CASE demographics.ethnicity
+            WHEN 'C17459' THEN 'hispanic_or_latino'
+            WHEN 'C41222' THEN 'not_hispanic_or_latino'
+            WHEN 'C41221' THEN 'unknown'
+            WHEN '.' THEN 'asked_but_unknown'
+            WHEN 'NA' THEN 'unknown'
+        END::text as "ethnicity",
+        CASE demographics.ethnicity
+            WHEN 'C17459' THEN 'Hispanic or Latino'
+            WHEN 'C41222' THEN 'Not Hispanic or Latino'
+            WHEN 'C41221' THEN 'unknown'
+            WHEN '.' THEN 'asked but unknown'
+            WHEN 'NA' THEN 'unknown'
+        END::text as "ethnicity_display",
+--        GEN_UNKNOWN.age_at_last_vital_status::integer as "age_at_last_vital_status",
+--        GEN_UNKNOWN.vital_status::text as "vital_status",
+--        { { generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='eMERGEseq') }}::text as "has_access_policy",
+       {{ generate_global_id(prefix='dm',descriptor=['demographics.subject_id'], study_id='eMERGEseq') }}::text as "id"
+        from {{ ref('eMERGEseq_stg_subjectconsent') }} as demographics
+        join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
+        on demographics.subject_id = subjectconsent.subjet_id
+        
+    )
+
+select 
+        * 
+    from source
+    
