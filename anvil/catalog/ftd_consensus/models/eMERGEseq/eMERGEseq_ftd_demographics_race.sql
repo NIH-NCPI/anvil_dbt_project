@@ -2,17 +2,21 @@
 
     with source as (
         select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "demographics_id",
-       GEN_UNKNOWN.race::text as "race"
-        from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
-        join {{ ref('eMERGEseq_stg_demographics') }} as demographics
-on subjectconsent.subject_id = demographics.subject_id  join {{ ref('eMERGEseq_stg_phecode') }} as phecode
-on   join {{ ref('eMERGEseq_stg_samplesubjectmapping') }} as samplesubjectmapping
-on   join {{ ref('eMERGEseq_stg_sampleattributes') }} as sampleattributes
-on  
+        {{ generate_global_id(prefix='dm',descriptor=['demographics.subject_id'], study_id='eMERGEseq') }}::text as "demographics_id",
+       CASE demographics.race
+            WHEN 'C41259' THEN 'american_indian_or_alaskan_native'
+            WHEN 'C41260' THEN 'asian'
+            WHEN 'C16352' THEN 'black_or_african_american'
+            WHEN 'C41219' THEN 'native_hawaiian_or_pacific_islander'
+            WHEN 'C41261' THEN 'white'
+            WHEN 'C17998' THEN 'unknown'
+            WHEN 'C43234' THEN 'unknown'
+            WHEN '.' THEN 'unknown'
+            WHEN 'NA' THEN 'unknown'
+       END::text as "race"
+        from {{ ref('eMERGEseq_stg_demographics') }} as demographics
     )
 
     select 
         * 
     from source
-    
