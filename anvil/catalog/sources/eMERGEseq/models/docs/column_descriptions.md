@@ -118,22 +118,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_401_1 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_401.1 %}
+None
+{% enddocs %}
+
+```python
+{% docs eMERGEseq_Phecode_DS_20200925_phe_250.2 %}
+None
+{% enddocs %}
+```
+
+{% docs eMERGEseq_Phecode_DS_20200925_phe_272.1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_250_2 %}
-None
-{% enddocs %}
-
-
-{% docs eMERGEseq_Phecode_DS_20200925_phe_272_1 %}
-None
-{% enddocs %}
-
-
-{% docs eMERGEseq_Phecode_DS_20200925_phe_411_4 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_411.4 %}
 None
 {% enddocs %}
 
@@ -143,27 +143,27 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_427_21 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_427.21 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_530_11 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_530.11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_296_22 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_296.22 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_313_1 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_313.1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_244_4 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_244.4 %}
 None
 {% enddocs %}
 
@@ -173,22 +173,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_272_11 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_272.11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_278_1 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_278.1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_174_11 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_174.11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_296_2 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_296.2 %}
 None
 {% enddocs %}
 
@@ -198,22 +198,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_327_32 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_327.32 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_313_3 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_313.3 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_278_11 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_278.11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_272_13 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_272.13 %}
 None
 {% enddocs %}
 
@@ -233,22 +233,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_401_1 %}
+{% docs eMERGEseq_stg_phecode_phe_401.1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_250_2 %}
+{% docs eMERGEseq_stg_phecode_phe_250.2 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_272_1 %}
+{% docs eMERGEseq_stg_phecode_phe_272.1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_411_4 %}
+{% docs eMERGEseq_stg_phecode_phe_411.4 %}
 None
 {% enddocs %}
 
@@ -258,27 +258,27 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_427_21 %}
+{% docs eMERGEseq_stg_phecode_phe_427.21 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_530_11 %}
+{% docs eMERGEseq_stg_phecode_phe_530.11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_296_22 %}
+{% docs eMERGEseq_stg_phecode_phe_296.22 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_313_1 %}
+{% docs eMERGEseq_stg_phecode_phe_313.1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_244_4 %}
+{% docs eMERGEseq_stg_phecode_phe_244.4 %}
 None
 {% enddocs %}
 
@@ -288,22 +288,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_272_11 %}
+{% docs eMERGEseq_stg_phecode_phe_272.11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_278_1 %}
+{% docs eMERGEseq_stg_phecode_phe_278.1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_174_11 %}
+{% docs eMERGEseq_stg_phecode_phe_174.11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_296_2 %}
+{% docs eMERGEseq_stg_phecode_phe_296.2 %}
 None
 {% enddocs %}
 
@@ -313,22 +313,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_327_32 %}
+{% docs eMERGEseq_stg_phecode_phe_327.32 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_313_3 %}
+{% docs eMERGEseq_stg_phecode_phe_313.3 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_278_11 %}
+{% docs eMERGEseq_stg_phecode_phe_278.11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_272_13 %}
+{% docs eMERGEseq_stg_phecode_phe_272.13 %}
 None
 {% enddocs %}
 
