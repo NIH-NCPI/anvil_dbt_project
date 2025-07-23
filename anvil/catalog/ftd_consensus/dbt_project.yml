@@ -275,7 +275,6 @@ models:
     GREGoR_R03_HMB_20250612_ftd_subjectassertion_external_id:
       +schema: main
       +materialized: table
-<<<<<<< HEAD
   gregor_synthetic:
     gregor_synthetic_ftd_sample_storage_method:
       +schema: main
@@ -406,8 +405,7 @@ models:
     gregor_synthetic_ftd_biospecimencollection:
       +schema: main
       +materialized: table
-    gregor_synthetic_ftd_accesspolicy_data_access_type:
-=======
+    gregor_synthetic_ftd_accesspolicy_data_access_type: null
   cmg_bh:
     cmg_bh_ftd_file_subject:
       +schema: main
@@ -539,6 +537,5 @@ models:
       +schema: main
       +materialized: table
     cmg_bh_ftd_sourcedata:
->>>>>>> 75e1e27 (Create pipeline)
       +schema: main
       +materialized: table
