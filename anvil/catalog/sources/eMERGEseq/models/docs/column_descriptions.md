@@ -1,43 +1,3 @@
-{% docs eMERGEseq_SubjectConsent_DS_20201020_description %}
-Model for eMERGEseq_SubjectConsent_DS_20201020.
-{% enddocs %}
-
-
-{% docs eMERGEseq_SubjectConsent_DS_20201020_subject_id %}
-None
-{% enddocs %}
-
-
-{% docs eMERGEseq_SubjectConsent_DS_20201020_consent %}
-None
-{% enddocs %}
-
-
-{% docs eMERGEseq_SubjectConsent_DS_20201020_subject_source %}
-None
-{% enddocs %}
-
-
-{% docs eMERGEseq_stg_subjectconsent_description %}
-Model for eMERGEseq_stg_subjectconsent.
-{% enddocs %}
-
-
-{% docs eMERGEseq_stg_subjectconsent_subject_id %}
-None
-{% enddocs %}
-
-
-{% docs eMERGEseq_stg_subjectconsent_consent %}
-None
-{% enddocs %}
-
-
-{% docs eMERGEseq_stg_subjectconsent_subject_source %}
-None
-{% enddocs %}
-
-
 {% docs eMERGEseq_Demographics_DS_20200925_description %}
 Model for eMERGEseq_Demographics_DS_20200925.
 {% enddocs %}
@@ -118,22 +78,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_401.1 %}
-None
-{% enddocs %}
-
-```python
-{% docs eMERGEseq_Phecode_DS_20200925_phe_250.2 %}
-None
-{% enddocs %}
-```
-
-{% docs eMERGEseq_Phecode_DS_20200925_phe_272.1 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_401_1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_411.4 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_250_2 %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_Phecode_DS_20200925_phe_272_1 %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_Phecode_DS_20200925_phe_411_4 %}
 None
 {% enddocs %}
 
@@ -143,27 +103,27 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_427.21 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_427_21 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_530.11 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_530_11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_296.22 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_296_22 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_313.1 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_313_1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_244.4 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_244_4 %}
 None
 {% enddocs %}
 
@@ -173,22 +133,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_272.11 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_272_11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_278.1 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_278_1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_174.11 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_174_11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_296.2 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_296_2 %}
 None
 {% enddocs %}
 
@@ -198,22 +158,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_327.32 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_327_32 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_313.3 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_313_3 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_278.11 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_278_11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_Phecode_DS_20200925_phe_272.13 %}
+{% docs eMERGEseq_Phecode_DS_20200925_phe_272_13 %}
 None
 {% enddocs %}
 
@@ -233,22 +193,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_401.1 %}
+{% docs eMERGEseq_stg_phecode_phe_401_1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_250.2 %}
+{% docs eMERGEseq_stg_phecode_phe_250_2 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_272.1 %}
+{% docs eMERGEseq_stg_phecode_phe_272_1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_411.4 %}
+{% docs eMERGEseq_stg_phecode_phe_411_4 %}
 None
 {% enddocs %}
 
@@ -258,27 +218,27 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_427.21 %}
+{% docs eMERGEseq_stg_phecode_phe_427_21 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_530.11 %}
+{% docs eMERGEseq_stg_phecode_phe_530_11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_296.22 %}
+{% docs eMERGEseq_stg_phecode_phe_296_22 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_313.1 %}
+{% docs eMERGEseq_stg_phecode_phe_313_1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_244.4 %}
+{% docs eMERGEseq_stg_phecode_phe_244_4 %}
 None
 {% enddocs %}
 
@@ -288,22 +248,22 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_272.11 %}
+{% docs eMERGEseq_stg_phecode_phe_272_11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_278.1 %}
+{% docs eMERGEseq_stg_phecode_phe_278_1 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_174.11 %}
+{% docs eMERGEseq_stg_phecode_phe_174_11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_296.2 %}
+{% docs eMERGEseq_stg_phecode_phe_296_2 %}
 None
 {% enddocs %}
 
@@ -313,27 +273,67 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_327.32 %}
+{% docs eMERGEseq_stg_phecode_phe_327_32 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_313.3 %}
+{% docs eMERGEseq_stg_phecode_phe_313_3 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_278.11 %}
+{% docs eMERGEseq_stg_phecode_phe_278_11 %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_phecode_phe_272.13 %}
+{% docs eMERGEseq_stg_phecode_phe_272_13 %}
 None
 {% enddocs %}
 
 
 {% docs eMERGEseq_stg_phecode_phe_587 %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_SampleAttributes_DS_20200925_description %}
+Model for eMERGEseq_SampleAttributes_DS_20200925.
+{% enddocs %}
+
+
+{% docs eMERGEseq_SampleAttributes_DS_20200925_sample_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_SampleAttributes_DS_20200925_analyte_type %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_SampleAttributes_DS_20200925_sequencing_center %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_sampleattributes_description %}
+Model for eMERGEseq_stg_sampleattributes.
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_sampleattributes_sample_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_sampleattributes_analyte_type %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_sampleattributes_sequencing_center %}
 None
 {% enddocs %}
 
@@ -378,41 +378,41 @@ None
 {% enddocs %}
 
 
-{% docs eMERGEseq_SampleAttributes_DS_20200925_description %}
-Model for eMERGEseq_SampleAttributes_DS_20200925.
+{% docs eMERGEseq_SubjectConsent_DS_20201020_description %}
+Model for eMERGEseq_SubjectConsent_DS_20201020.
 {% enddocs %}
 
 
-{% docs eMERGEseq_SampleAttributes_DS_20200925_sample_id %}
+{% docs eMERGEseq_SubjectConsent_DS_20201020_subject_id %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_SampleAttributes_DS_20200925_analyte_type %}
+{% docs eMERGEseq_SubjectConsent_DS_20201020_consent %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_SampleAttributes_DS_20200925_sequencing_center %}
+{% docs eMERGEseq_SubjectConsent_DS_20201020_subject_source %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_sampleattributes_description %}
-Model for eMERGEseq_stg_sampleattributes.
+{% docs eMERGEseq_stg_subjectconsent_description %}
+Model for eMERGEseq_stg_subjectconsent.
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_sampleattributes_sample_id %}
+{% docs eMERGEseq_stg_subjectconsent_subject_id %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_sampleattributes_analyte_type %}
+{% docs eMERGEseq_stg_subjectconsent_consent %}
 None
 {% enddocs %}
 
 
-{% docs eMERGEseq_stg_sampleattributes_sequencing_center %}
+{% docs eMERGEseq_stg_subjectconsent_subject_source %}
 None
 {% enddocs %}

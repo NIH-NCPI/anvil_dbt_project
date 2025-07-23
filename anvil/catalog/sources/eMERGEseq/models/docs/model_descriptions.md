@@ -1,9 +1,9 @@
-### Subjectconsent Models
+### Demographics Models
 
-{% docs eMERGEseq_SubjectConsent_DS_20201020 %}
-Model for eMERGEseq_SubjectConsent_DS_20201020.
+{% docs eMERGEseq_Demographics_DS_20200925 %}
+Model for eMERGEseq_Demographics_DS_20200925.
 {% enddocs %}
 
-{% docs eMERGEseq_stg_subjectconsent %}
-Model for eMERGEseq_stg_subjectconsent.
+{% docs eMERGEseq_stg_demographics %}
+Model for eMERGEseq_stg_demographics.
 {% enddocs %}

@@ -11,7 +11,7 @@
         
     select 
         {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='eMERGEseq') }}::text as "accesspolicy_id",
-        'irb' as "access_policy_code",
+        'irb' as "access_policy_code"
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('3', '4', '5', '10')
 
@@ -19,34 +19,31 @@
         
     select 
         {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='eMERGEseq') }}::text as "accesspolicy_id",
-        'npu' as "access_policy_code",
+        'npu' as "access_policy_code"
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('4', '5', '8', '9')
-    )
 
      UNION
         
     select 
         {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='eMERGEseq') }}::text as "accesspolicy_id",
-        'pub' as "access_policy_code",
+        'pub' as "access_policy_code"
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('5', '10')
-    )
     
     UNION
         
     select 
         {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='eMERGEseq') }}::text as "accesspolicy_id",
-        'hmb' as "access_policy_code",
+        'hmb' as "access_policy_code"
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('6', '7', '8', '10')
-    )
 
     UNION
         
     select 
         {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='eMERGEseq') }}::text as "accesspolicy_id",
-        'gso' as "access_policy_code",
+        'gso' as "access_policy_code"
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('7')
     )
