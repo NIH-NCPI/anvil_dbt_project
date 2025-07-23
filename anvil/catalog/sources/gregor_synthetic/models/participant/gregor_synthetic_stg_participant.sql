@@ -2,7 +2,7 @@
 
     with source as (
         select 
-        "AnVIL_GREGoR_GSS_U07_GRU_participant_id"::text as "anvil_gregor_gss_u07_gru_participant_id",
+        "participant_id"::text as "participant_id",
        "affected_status"::text as "affected_status",
        "age_at_enrollment"::text as "age_at_enrollment",
        "age_at_last_observation"::text as "age_at_last_observation",
@@ -30,6 +30,6 @@
 
     select 
         *,
-        concat('anvil_gregor_gss_u07_gru_participant_id','-','family_id') as ftd_key
+        concat('participant_id','-','family_id') as ftd_key
     from source
     

@@ -3,9 +3,8 @@ models:
 - name: gregor_synthetic_stg_participant
   description: Model for gregor_synthetic_stg_participant.
   columns:
-  - name: anvil_gregor_gss_u07_gru_participant_id
-    description: '{{ doc("gregor_synthetic_stg_participant_anvil_gregor_gss_u07_gru_participant_id")
-      }}'
+  - name: participant_id
+    description: '{{ doc("gregor_synthetic_stg_participant_participant_id") }}'
     data_type: string
   - name: affected_status
     description: '{{ doc("gregor_synthetic_stg_participant_affected_status") }}'

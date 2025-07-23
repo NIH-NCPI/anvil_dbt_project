@@ -3,9 +3,8 @@ models:
 - name: gregor_synthetic_stg_phenotype
   description: Model for gregor_synthetic_stg_phenotype.
   columns:
-  - name: anvil_gregor_gss_u07_gru_phenotype_id
-    description: '{{ doc("gregor_synthetic_stg_phenotype_anvil_gregor_gss_u07_gru_phenotype_id")
-      }}'
+  - name: phenotype_id
+    description: '{{ doc("gregor_synthetic_stg_phenotype_phenotype_id") }}'
     data_type: string
   - name: additional_details
     description: '{{ doc("gregor_synthetic_stg_phenotype_additional_details") }}'

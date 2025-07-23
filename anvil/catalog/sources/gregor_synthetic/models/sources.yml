@@ -6,8 +6,8 @@ sources:
   - name: GREGoR_synthetic_participant_revised07Aug2024
     description: Source table for GREGoR_synthetic_participant_revised07Aug2024.
     columns:
-    - name: AnVIL_GREGoR_GSS_U07_GRU_participant_id
-      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_anvil_gregor_gss_u07_gru_participant_id")
+    - name: participant_id
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_participant_id")
         }}'
     - name: affected_status
       description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_affected_status")
@@ -77,9 +77,8 @@ sources:
   - name: GREGoR_synthetic_phenotype
     description: Source table for GREGoR_synthetic_phenotype.
     columns:
-    - name: AnVIL_GREGoR_GSS_U07_GRU_phenotype_id
-      description: '{{ doc("GREGoR_synthetic_phenotype_anvil_gregor_gss_u07_gru_phenotype_id")
-        }}'
+    - name: phenotype_id
+      description: '{{ doc("GREGoR_synthetic_phenotype_phenotype_id") }}'
     - name: additional_details
       description: '{{ doc("GREGoR_synthetic_phenotype_additional_details") }}'
     - name: additional_modifiers
