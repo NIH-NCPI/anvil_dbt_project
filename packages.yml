@@ -4,6 +4,7 @@ packages:
 
   - local: "anvil/catalog/sources/GREGoR_R03_HMB_20250612"
   - local: "anvil/catalog/sources/GREGoR_R03_GRU_20250612"
+  - local: "anvil/catalog/sources/gregor_synthetic"
 
   - local: "anvil/catalog/ftd_consensus"
-    # - local: "anvil/catalog/tgt_consensus_a"
+  # - local: "anvil/catalog/tgt_consensus_a"

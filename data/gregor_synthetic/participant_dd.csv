@@ -1,5 +1,5 @@
 variable_name,variable_description,data_type,enumerated_values,units,min,max
-AnVIL_GREGoR_GSS_U07_GRU_participant_id,Unique participant identifier,string,GSS1516,,,
+participant_id,Unique participant identifier,string,GSS1516,,,
 affected_status,Affected status of the participant,string,Affected / Unknown,,,
 age_at_enrollment,Age at enrollment in years,integer or float,14 / 17,,,
 age_at_last_observation,Age at the last known observation,integer or float,,,,

@@ -23,7 +23,7 @@ data_files:
     identifier: GREGoR_synthetic_participant_revised07Aug2024.csv 
     import_type: duckdb
     src_file_id: None
-    join_cols: {phenotype: anvil_gregor_gss_u07_gru_participant_id}
+    join_cols: {phenotype: participant_id}
   phenotype:
     identifier: GREGoR_synthetic_phenotype.csv
     import_type: duckdb
