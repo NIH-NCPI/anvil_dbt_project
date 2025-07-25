@@ -1,4 +1,4 @@
-AnVIL_GREGoR_GSS_U07_GRU_phenotype_id,additional_details,additional_modifiers,onset_age_range,ontology,participant_id,presence,term_id
+phenotype_id,additional_details,additional_modifiers,onset_age_range,ontology,participant_id,presence,term_id
 bgqlz3917n,NA,NA,NA,HPO,GSS1704,Present,HP:0010782
 tfljr6430e,NA,NA,NA,HPO,GSS1310,Present,HP:0004876
 rtnbe0537a,NA,NA,NA,HPO,GSS1704,Present,HP:0007030
