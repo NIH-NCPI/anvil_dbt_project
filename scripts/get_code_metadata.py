@@ -25,9 +25,10 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # Cleans code columns. 
-    clean_code_df=clean_codes(df=args.data_file,
-                  column=args.column)
+    # Cleans code columns.
+    clean_code_df = clean_codes(
+        df=args.data_file, column=args.column, curies=args.ontologies
+    )
 
     # Join all unique, clean codes, into a single string to use as the api search input.
     unique_codes=set()
