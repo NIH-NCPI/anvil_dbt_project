@@ -3,11 +3,14 @@
 set -e  # Exit on error
 dbt clean
 dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
+dbt seed --full-refresh
 
 dbt run --select  cmg_bh_stg_subject
-dbt run --select cmg_bh_stg_sample
+dbt run --select  cmg_bh_stg_sample
 
-# dbt run --select  gregor_synthetic_ftd_demographics
+dbt run --select  cmg_bh_ftd_subject
+dbt run --select  cmg_bh_ftd_subjectdemographics
+dbt run --select  cmg_bh_ftd_subjectassertion
 
 
 # Run Target tables

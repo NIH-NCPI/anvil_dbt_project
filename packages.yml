@@ -7,5 +7,6 @@ packages:
 #   - local: "anvil/catalog/sources/gregor_synthetic"
   - local: "anvil/catalog/sources/cmg_bh"
 
-#   - local: "anvil/catalog/ftd_consensus"
-    # - local: "anvil/catalog/tgt_consensus_a"
+  - local: "anvil/catalog/ftd_consensus"
+#   - local: "anvil/catalog/tgt_consensus_a"
+
