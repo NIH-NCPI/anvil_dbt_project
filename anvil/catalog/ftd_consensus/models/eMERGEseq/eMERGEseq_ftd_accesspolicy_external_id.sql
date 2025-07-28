@@ -2,7 +2,7 @@
 
     with source as (
         select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "accesspolicy_id",
+        {{ generate_global_id(prefix='',descriptor=[''], study_id='phs001616') }}::text as "accesspolicy_id",
        GEN_UNKNOWN.external_id::text as "external_id"
         from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
         join {{ ref('eMERGEseq_stg_demographics') }} as demographics

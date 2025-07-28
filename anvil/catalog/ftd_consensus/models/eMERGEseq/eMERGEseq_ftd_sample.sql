@@ -8,7 +8,7 @@
 --        GEN_UNKNOWN.quantity_number::text as "quantity_number",
 --        GEN_UNKNOWN.quantity_units::text as "quantity_units",
        {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='eMERGEseq') }}::text as "has_access_policy",
-       {{ generate_global_id(prefix='sm',descriptor=['samplesubjectmapping.sample_id'], study_id='eMERGEseq') }}::text as "id",
+       {{ generate_global_id(prefix='sm',descriptor=['sampleattributes.sample_id'], study_id='eMERGEseq') }}::text as "id",
        {{ generate_global_id(prefix='sb',descriptor=['samplesubjectmapping.subject_id'], study_id='eMERGEseq') }}::text as "subject_id",
 --        { { generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "biospecimen_collection_id"
         from {{ ref('eMERGEseq_stg_sampleattributes') }} as sampleattributes
