@@ -23,10 +23,8 @@ unpivot_df as (
 source as (
     select
     {{ generate_global_id(prefix='sa',descriptor=['up.code'], study_id='phs001616') }}::text as "subjectassertion_id",
---        GEN_UNKNOWN.external_id::text as "external_id"
+       up.code::text as "external_id"
         from unpivot_df as up 
---         join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
---         on up.subject_id = subjectconsent.subject_id
     )
 
     select 

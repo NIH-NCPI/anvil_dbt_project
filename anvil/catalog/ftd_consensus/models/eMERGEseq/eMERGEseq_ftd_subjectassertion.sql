@@ -37,7 +37,7 @@ unpivoted_with_display as (
 ),
 
 source as (
-    select uwd.*,
+    select uwd.code, uwd.value_code, uwd.value_display, uwd.display,
         'ehr_billing_code'::text as "assertion_type",
         -- GEN_UNKNOWN.age_at_assertion::text as "age_at_assertion",
         -- GEN_UNKNOWN.age_at_event::text as "age_at_event", 

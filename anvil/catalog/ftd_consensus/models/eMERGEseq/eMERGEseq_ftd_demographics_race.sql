@@ -2,7 +2,7 @@
 
     with source as (
         select 
-        {{ generate_global_id(prefix='dm',descriptor=['demographics.subject_id'], study_id='eMERGEseq') }}::text as "demographics_id",
+        {{ generate_global_id(prefix='dm',descriptor=['demographics.subject_id'], study_id='phs001616') }}::text as "demographics_id",
        CASE demographics.race
             WHEN 'C41259' THEN 'american_indian_or_alaskan_native'
             WHEN 'C41260' THEN 'asian'

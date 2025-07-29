@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='eMERGEseq_data') }}
 
     with source as (
-     select 
+     select DISTINCT
      --     GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
          'General Research Use' as "description",
      --    GEN_UNKNOWN.website::text as "website",
@@ -11,7 +11,7 @@
 
     UNION
         
-    select 
+    select DISTINCT
      --     GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
         'IRB Approval Required' as "description",
      --    GEN_UNKNOWN.website::text as "website",
@@ -21,7 +21,7 @@
 
     UNION
         
-    select 
+    select DISTINCT
      --     GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
         'Not-for-profit use only' as "description",
      --    GEN_UNKNOWN.website::text as "website",
@@ -31,7 +31,7 @@
 
      UNION
         
-    select 
+    select DISTINCT
      --     GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
         'Publication Required' as "description",
      --    GEN_UNKNOWN.website::text as "website",
@@ -41,7 +41,7 @@
     
     UNION
         
-    select 
+    select DISTINCT
      --     GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
         'Health/Medical/Biomedical' as "description",
      --    GEN_UNKNOWN.website::text as "website",
@@ -51,7 +51,7 @@
 
     UNION
         
-    select 
+    select DISTINCT
      --     GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
         'Genetic Studies only' as "description",
      --    GEN_UNKNOWN.website::text as "website",
