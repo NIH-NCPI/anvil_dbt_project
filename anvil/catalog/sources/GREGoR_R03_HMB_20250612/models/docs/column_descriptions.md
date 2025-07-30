@@ -396,3 +396,12 @@ nan
 {% docs GREGoR_R03_HMB_20250612_stg_experiment_participant_id %}
 participant.participant_id
 {% enddocs %}
+
+{% docs GREGoR_R03_HMB_20250612_experiment_ingest_provenance %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_experiment_ingest_provenance %}
+nan
+{% enddocs %}

@@ -2,7 +2,7 @@
 
     with source as (
         select 
-        {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id'], study_id='GREGoR_R03_HMB_20250612') }}::text as "Demographics_id",
+        {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id'], study_id='phs003047') }}::text as "Demographics_id",
         CASE 
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'American Indian or Alaska Native' THEN 'american_indian_or_alaskan_native'
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'Asian' THEN 'asian'

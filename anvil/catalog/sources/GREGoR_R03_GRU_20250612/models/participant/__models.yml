@@ -39,14 +39,14 @@ models:
     data_type: string
   - name: maternal_id
     description: '{{ doc("GREGoR_R03_GRU_20250612_stg_participant_maternal_id") }}'
-    data_type: string
+    data_type: integer
   - name: missing_variant_case
     description: '{{ doc("GREGoR_R03_GRU_20250612_stg_participant_missing_variant_case")
       }}'
     data_type: string
   - name: paternal_id
     description: '{{ doc("GREGoR_R03_GRU_20250612_stg_participant_paternal_id") }}'
-    data_type: string
+    data_type: integer
   - name: phenotype_description
     description: '{{ doc("GREGoR_R03_GRU_20250612_stg_participant_phenotype_description")
       }}'
@@ -85,8 +85,4 @@ models:
     data_type: string
   - name: twin_id
     description: '{{ doc("GREGoR_R03_GRU_20250612_stg_participant_twin_id") }}'
-    data_type: string
-  - name: ingest_provenance
-    description: '{{ doc("GREGoR_R03_GRU_20250612_stg_participant_ingest_provenance")
-      }}'
     data_type: string

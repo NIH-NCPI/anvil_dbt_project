@@ -27,9 +27,6 @@ models:
   - name: presence
     description: '{{ doc("GREGoR_R03_HMB_20250612_stg_phenotype_presence") }}'
     data_type: string
-  - name: syndromic
-    description: '{{ doc("GREGoR_R03_HMB_20250612_stg_phenotype_syndromic") }}'
-    data_type: string
   - name: term_id
     description: '{{ doc("GREGoR_R03_HMB_20250612_stg_phenotype_term_id") }}'
     data_type: string

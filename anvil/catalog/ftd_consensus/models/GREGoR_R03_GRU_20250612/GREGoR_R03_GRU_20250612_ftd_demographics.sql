@@ -29,10 +29,10 @@
         -- NOTE! Currently, For the model to run successfully, the global_id rows must be able to create SQL, the args cannot be invalid, even when commented out. Use placeholders for now.
 -- To see the generated sql, run `dbt compile --select {model}`
 -- Brenda plans to make these run easier later.
-       {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='GREGoR_R03_GRU_20250612') }}::text as "has_access_policy",
-       {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id'], study_id='GREGoR_R03_GRU_20250612') }}::text as "id"
-        from {{ ref('GREGoR_R03_GRU_20250612_stg_participant') }} as participant
-        join {{ ref('GREGoR_R03_GRU_20250612_stg_phenotype') }} as phenotype
+       {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='phs003047') }}::text as "has_access_policy",
+       {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id'], study_id='phs003047') }}::text as "id"
+        from {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as participant
+        join {{ ref('GREGoR_R03_HMB_20250612_stg_phenotype') }} as phenotype
         on participant.participant_id = phenotype.participant_id 
     )
 
