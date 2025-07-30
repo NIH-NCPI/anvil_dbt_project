@@ -45,7 +45,7 @@ source as (
         -- GEN_UNKNOWN.value_number::text as "value_number",
         -- GEN_UNKNOWN.value_units::text as "value_units",
         -- GEN_UNKNOWN.value_units_display::text as "value_units_display",
-        {{ generate_global_id(prefix='sa', descriptor=['uwd.code'], study_id='phs001616') }}::text as "id",
+        {{ generate_global_id(prefix='sa', descriptor=['uwd.subject_id', 'uwd.code'], study_id='phs001616') }}::text as "id",
         {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy",
         {{ generate_global_id(prefix='sb', descriptor=['uwd.subject_id'], study_id='phs001616') }}::text as "subject_id"
         

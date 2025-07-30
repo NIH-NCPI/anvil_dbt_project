@@ -55,6 +55,7 @@
         from {{ ref('eMERGEseq_stg_demographics') }} as demographics
         join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
         on demographics.subject_id = subjectconsent.subject_id
+        WHERE demographics.race != 'C13652'
         
     )
 

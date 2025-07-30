@@ -22,7 +22,7 @@ unpivot_df as (
 
 source as (
     select
-    {{ generate_global_id(prefix='sa',descriptor=['up.code'], study_id='phs001616') }}::text as "subjectassertion_id",
+    {{ generate_global_id(prefix='sa',descriptor=['up.subject_id', 'up.code'], study_id='phs001616') }}::text as "subjectassertion_id",
        up.code::text as "external_id"
         from unpivot_df as up 
     )
