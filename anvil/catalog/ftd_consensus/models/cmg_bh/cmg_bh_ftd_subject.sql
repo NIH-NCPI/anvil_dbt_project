@@ -17,4 +17,3 @@
      source.id,-- TODO
      source.has_demographics_id -- TODO
     from source
-    
