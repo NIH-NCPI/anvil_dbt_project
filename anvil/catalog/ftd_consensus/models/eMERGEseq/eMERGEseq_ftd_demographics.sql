@@ -32,19 +32,20 @@
             WHEN 'C43234' THEN 'unknown'
             WHEN '.' THEN 'unknown'
             WHEN 'NA' THEN 'unknown'
+            WHEN 'OTHER' THEN 'other race'
        END::text as "race_display",
        CASE demographics.ethnicity
             WHEN 'C17459' THEN 'hispanic_or_latino'
             WHEN 'C41222' THEN 'not_hispanic_or_latino'
             WHEN 'C41221' THEN 'unknown'
-            WHEN '.' THEN 'asked_but_unknown'
+            WHEN '.' THEN 'unknown'
             WHEN 'NA' THEN 'unknown'
         END::text as "ethnicity",
         CASE demographics.ethnicity
             WHEN 'C17459' THEN 'Hispanic or Latino'
             WHEN 'C41222' THEN 'Not Hispanic or Latino'
             WHEN 'C41221' THEN 'unknown'
-            WHEN '.' THEN 'asked but unknown'
+            WHEN '.' THEN 'unknown'
             WHEN 'NA' THEN 'unknown'
         END::text as "ethnicity_display",
 --        GEN_UNKNOWN.age_at_last_vital_status::integer as "age_at_last_vital_status",

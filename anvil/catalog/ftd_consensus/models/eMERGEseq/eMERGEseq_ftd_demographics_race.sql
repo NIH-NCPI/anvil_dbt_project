@@ -13,6 +13,7 @@
             WHEN 'C43234' THEN 'unknown'
             WHEN '.' THEN 'unknown'
             WHEN 'NA' THEN 'unknown'
+            WHEN 'OTHER' THEN 'other_race'
        END::text as "race"
         from {{ ref('eMERGEseq_stg_demographics') }} as demographics
     )
