@@ -2,17 +2,19 @@
 
     with source as (
         select 
-        GEN_UNKNOWN.subject_type::text as "subject_type",
-       GEN_UNKNOWN.organism_type::text as "organism_type",
-       {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "has_access_policy",
-       {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "id",
-       {{ generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "has_demographics_id"
-        from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
-        join {{ ref('eMERGEseq_stg_demographics') }} as demographics
-on subjectconsent.subject_id = demographics.subject_id  join {{ ref('eMERGEseq_stg_phecode') }} as phecode
-on   join {{ ref('eMERGEseq_stg_samplesubjectmapping') }} as samplesubjectmapping
-on   join {{ ref('eMERGEseq_stg_sampleattributes') }} as sampleattributes
-on  
+         CASE 
+            WHEN sample.subject_id IS NOT NULL THEN 'participant'
+            ELSE 'non_participant'
+        END::text as subject_type,
+        --        GEN_UNKNOWN.organism_type::text as "organism_type",
+       {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy",
+       {{ generate_global_id(prefix='sb',descriptor=['demographics.subject_id'], study_id='phs001616') }}::text as "id"
+--        { { generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "has_demographics_id"
+        from {{ ref('eMERGEseq_stg_demographics') }} as demographics
+        left join {{ ref('eMERGEseq_stg_samplesubjectmapping') }} as sample
+        on demographics.subject_id = sample.subject_id
+        left join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
+        on demographics.subject_id = subjectconsent.subject_id
     )
 
     select 
