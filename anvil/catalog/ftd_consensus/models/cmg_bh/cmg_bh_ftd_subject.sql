@@ -14,6 +14,6 @@
      source.subject_type,
      source.organism_type,
      source.has_access_policy,  -- TODO
-     source.id,-- TODO
-     source.has_demographics_id -- TODO
+     source.id,
+     source.has_demographics_id -- TODO set to 1 if subject id exists in other table.
     from source

@@ -1,15 +1,15 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
-    with source as (
-        select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "family_id",
-       GEN_UNKNOWN.external_id::text as "external_id"
-        from {{ ref('cmg_bh_stg_sample') }} as sample
-        join {{ ref('cmg_bh_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-    )
-
+with 
+source as (
     select 
-        * 
-    from source
+      {{ generate_global_id(prefix='fy',descriptor=['s.family_id'], study_id='cmg_bh') }}::text as "family_id",
+      s.family_id::text as "external_id"
+    from {{ ref('cmg_bh_stg_subject') }} as s
+)
+
+select 
+  source.family_id,
+  source.external_id
+from source
     

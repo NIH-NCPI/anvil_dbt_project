@@ -3,15 +3,17 @@
 set -e  # Exit on error
 dbt clean
 dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
-dbt seed --full-refresh
+# dbt seed --full-refresh
 
-dbt run --select  cmg_bh_stg_subject
-dbt run --select  cmg_bh_stg_sample
+# dbt run --select  cmg_bh_stg_subject
+# dbt run --select  cmg_bh_stg_sample
 
-dbt run --select  cmg_bh_ftd_subject
-dbt run --select  cmg_bh_ftd_subjectdemographics
-dbt run --select  cmg_bh_ftd_subjectassertion
-
+# dbt run --select  cmg_bh_ftd_subject
+# dbt run --select  cmg_bh_ftd_subjectdemographics
+# dbt run --select  cmg_bh_ftd_subjectassertion
+dbt run --select  cmg_bh_ftd_family
+dbt run --select  cmg_bh_ftd_family_external_id
+dbt run --select  cmg_bh_ftd_family_member
 
 # Run Target tables
 # dbt run --select +tgt_file_subject --vars '{"source_table": "cmg_bh_ftd_file_subject", "target_schema": "cmg_bh_tgt_data"}'

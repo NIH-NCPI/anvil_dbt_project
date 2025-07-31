@@ -1,16 +1,21 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 {%- set relation = ref('cmg_bh_stg_subject') -%}
-{%- set constant_columns = ['subject_id','submission_batch','affected_status',
- 'ancestry','dbgap_study_id','dbgap_submission','family_id','family_relationship',
- 'hpo_present','maternal_id','multiple_datasets','paternal_id','phenotype_description',
- 'phenotype_group','project_investigator','sex','solve_state','disease_id','ancestry_detail','hpo_absent',
- 'twin_id','ingest_provenance'] -%}
+{% set constant_columns = get_columns(relation=relation, exclude=[]) %}
 with
 lookup as (
     select
+      "searched_code" as join_code,
       "searched_code" as code,
-      "display"
-    from {{ ref('cmg_bh_annotations') }}
+      "display" as display
+    from {{ ref('cmg_bh_annotations_code') }}
+    
+    union all
+    
+    select
+      "local code" as join_code,
+      "code" as code,
+      "display" as display
+    from {{ ref('subject_mappings') }}
 )
 ,clean_codes as (
     select
@@ -24,7 +29,7 @@ lookup as (
     from (
         select
           {{ constant_columns | join(', ') }},
-          'hpo_present' as hpo_presence,
+          'Affected' as presence,
            unnest(str_split(cc.clean_hpo_present, '|')) as code
         from clean_codes as cc
 
@@ -32,25 +37,42 @@ lookup as (
 
         select
           {{ constant_columns | join(', ') }},
-          'hpo_absent' as hpo_presence,
+          'Unaffected' as presence,
           unnest(str_split(cc.clean_hpo_absent, '|')) as code
+        from  clean_codes as cc
+         
+        union all
+
+        select
+          {{ constant_columns | join(', ') }},
+          cc.affected_status as presence,
+          cc.disease_id as code
+        from  clean_codes as cc
+        
+        union all
+
+        select
+          {{ constant_columns | join(', ') }},
+          cc.affected_status as presence,
+          cc.phenotype_description as code
         from  clean_codes as cc
           )
     where code is not null
 )
 ,source as (
     select 
-      up.code as "code",
+      lookup.code as "code",
       lookup.display as "display",
-      up.hpo_presence,
         case
-        when up.hpo_presence = 'hpo_present' then 'Yes'
-        when up.hpo_presence = 'hpo_absent' then 'No'
+        when up.presence = 'Affected' then 'affected'
+        when up.presence = 'Unaffected' then 'unaffected'
+        when up.presence = 'Unknown' then 'unknown'
         else null
       end::text as "value_code",
         case
-        when up.hpo_presence = 'hpo_present' then 'Present'
-        when up.hpo_presence = 'hpo_absent' then 'Absent'
+        when up.presence = 'Affected' then 'Affected'
+        when up.presence = 'Unaffected' then 'Unaffected'
+        when up.presence = 'Unknown' then 'Unknown'
         else null
       end::text as "value_display",
       {{ generate_global_id(prefix='ap',descriptor=['up.subject_id'], study_id='cmg_bh') }}::text as "has_access_policy",
@@ -58,7 +80,7 @@ lookup as (
       {{ generate_global_id(prefix='sb',descriptor=['up.subject_id'], study_id='cmg_bh') }}::text as "subject_id"
     from unpivot_df as up
     join lookup
-    on up.code = lookup.code
+    on up.code = lookup.join_code
     )
 
 select 
@@ -76,5 +98,4 @@ select
    source.has_access_policy,
    source.id,
    source.subject_id
-from source
-    
+from source    

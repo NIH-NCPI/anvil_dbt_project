@@ -2,7 +2,6 @@
   {%- set ns = namespace(expr=column_name) -%}
   {%- for prefix in expected_prefixes -%}
     {%- set ns.expr = "replace(" ~ ns.expr ~ ", '" ~ prefix ~ "', '|" ~ prefix ~ "')" -%}
---     {%- do log("expr: " ~ ns.expr, info=True) -%}
   {%- endfor -%}
   {%- set chars_to_remove = sp_chars | join('') -%}
 (
