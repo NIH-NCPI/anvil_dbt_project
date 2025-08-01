@@ -1,15 +1,18 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
-    with source as (
-        select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "accesspolicy_id",
-       GEN_UNKNOWN.data_access_type::text as "data_access_type"
-        from {{ ref('cmg_bh_stg_sample') }} as sample
-        join {{ ref('cmg_bh_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-    )
-
+with 
+sub_slice as (
     select 
-        * 
-    from source
-    
+      distinct ingest_provenance
+    from {{ ref('cmg_bh_stg_subject') }}  
+)
+,source as (
+    select 
+    {{ generate_global_id(prefix='sa',descriptor=['s.ingest_provenance'], study_id='cmg_bh') }}::text as "accesspolicy_id",
+    'controlled'::text as "data_access_type"
+    from sub_slice as s
+)
+
+select 
+    * 
+from source

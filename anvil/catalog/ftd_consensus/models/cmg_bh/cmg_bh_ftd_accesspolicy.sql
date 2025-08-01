@@ -1,17 +1,28 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
-    with source as (
-        select 
-        GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
-       GEN_UNKNOWN.description::text as "description",
-       GEN_UNKNOWN.website::text as "website",
-       {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "id"
-        from {{ ref('cmg_bh_stg_sample') }} as sample
-        join {{ ref('cmg_bh_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-    )
-
+with
+sub_slice as (
     select 
-        * 
-    from source
+      distinct ingest_provenance
+    from {{ ref('cmg_bh_stg_subject') }}  
+)
+,source as (
+    select 
+        case 
+        when s.ingest_provenance like '%AnVIL_CMG_BaylorHopkins_HMB-IRB-NPU_WES%'
+          then 'CMG BaylorHopkins HMB-IRB-NPU WES'
+        when s.ingest_provenance like '%AnVIL_CMG_BaylorHopkins_HMB-NPU_WES%'
+          then 'CMG BaylorHopkins HMB-NPU WES'
+        else NULL
+      end::text as "description",
+      {{ generate_global_id(prefix='ap',descriptor=['s.ingest_provenance'], study_id='cmg_bh') }}::text as "id"
+    from sub_slice as s
+)
+
+select 
+  source.description as 'description',
+  NULL::text as "disease_limitation",
+  NULL::text as "website",
+  source.id as 'id'
+from source
     

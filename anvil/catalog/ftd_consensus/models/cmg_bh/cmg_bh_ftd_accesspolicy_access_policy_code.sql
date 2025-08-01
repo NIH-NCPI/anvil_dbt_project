@@ -1,15 +1,11 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
+{%- set consent_groups = ['hmb','irb','npu'] -%}
 
-    with source as (
-        select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "accesspolicy_id",
-       GEN_UNKNOWN.access_policy_code::text as "access_policy_code"
-        from {{ ref('cmg_bh_stg_sample') }} as sample
-        join {{ ref('cmg_bh_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-    )
-
-    select 
-        * 
-    from source
-    
+{% for grp in consent_groups %}
+    select
+      {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_bh') }}::text as "id",
+      '{{ grp }}' as access_policy_code,
+    from (select distinct ingest_provenance from {{ ref('cmg_bh_stg_subject') }})
+    where s.ingest_provenance ILIKE '{{ grp }}'
+    {% if not loop.last %}union all{% endif %}
+{% endfor %}
