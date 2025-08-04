@@ -1,15 +1,6 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
-    with source as (
-        select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "sample_id",
-       GEN_UNKNOWN.storage_method::text as "storage_method"
-        from {{ ref('cmg_bh_stg_sample') }} as sample
-        join {{ ref('cmg_bh_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-    )
-
-    select 
-        * 
-    from source
-    
+select 
+  {{ generate_global_id(prefix='sm',descriptor=['sample_id'], study_id='cmg_bh') }}::text as "sample_id",
+  NULL.storage_method::text as "storage_method"
+from {{ ref('cmg_bh_stg_sample') }} as sample  

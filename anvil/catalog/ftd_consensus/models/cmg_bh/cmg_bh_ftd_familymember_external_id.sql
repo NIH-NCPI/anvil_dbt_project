@@ -1,13 +1,29 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
 with
-unique_ids as (
-    select 
-      {{ generate_global_id(prefix='fm',descriptor=['family_id','family_relationship'], study_id='cmg_bh') }}::text as "familymember_id",
-    from (select distinct family_id, family_relationship from {{ ref('cmg_bh_stg_subject') }})
+probands_only as (
+    select distinct
+      ingest_provenance,
+      family_id,
+      subject_id,
+      family_relationship as "proband_rel_code",
+    from {{ ref('cmg_bh_stg_subject') }}
+    where family_relationship = 'Proband'
 )
-
+,others_only as (
+    select distinct
+      ingest_provenance,
+      family_id,
+      subject_id,
+      family_relationship as "other_rel_code",
+    from {{ ref('cmg_bh_stg_subject') }}
+    where family_relationship != 'Proband'
+)
 select
-  familymember_id,
+  distinct
+  {{ generate_global_id(prefix='fm',descriptor=['p.subject_id','o.subject_id'], study_id='cmg_bh') }}::text as "id",
   NULL::text as "external_id"
-from unique_ids
+from probands_only p
+join others_only o
+on p.family_id = o.family_id
+  and p.ingest_provenance = o.ingest_provenance

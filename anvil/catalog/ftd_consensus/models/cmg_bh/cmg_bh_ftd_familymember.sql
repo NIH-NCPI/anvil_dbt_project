@@ -1,36 +1,81 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
-select 
-  {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='cmg_bh') }}::text as "family_member",
-  case
-    --            when 'Mother' then 'MTH'
-    --             when 'Father' then 'FTH'
-    --             when 'Brother' or 'Sister' then 'SIB'
-    --             when 'Child' then 'CHILD'
-    when family_relationship = 'Maternal Half Sibling' then 'HSIB'
-    when family_relationship = 'Paternal Half Sibling' then 'HSIB'
-    --             when 'Maternal Grandmother' then 'MGRMTH'
-    when family_relationship = 'Maternal Grandfather' then 'MGRFTH'
-    when family_relationship = 'Paternal Grandmother' then 'PGRMTH'
-    when family_relationship = 'Paternal Grandfather' then 'PGRFTH'
-    --             when 'Maternal Aunt' then 'MAUNT'
-    when family_relationship = 'Paternal Aunt' then 'PAUNT'
-    --             when 'Maternal Uncle' then 'MUNCLE'
-    --             when 'Paternal Uncle' then 'PUNCLE'
-    --             when 'Niece' then 'NIECE'
-    --             when 'Nephew' then 'NEPHEW'
-    when family_relationship = 'Maternal 1st Cousin' then 'MCOUSN'
-    when family_relationship = 'Paternal 1st Cousin' then 'PCOUSN'
-    --             when 'Proband' then 'SNOMED:85900004'
-    when family_relationship = 'Grandchild' then '' --TODO
-    when family_relationship = 'Maternal Cousin' then '' --TODO
-    when family_relationship = 'Maternal Half Brother' then '' --TODO
-    when family_relationship = 'Monozygous Twin' then '' --TODO
-    when family_relationship = 'Niece\'s Child' then '' --TODO
-    when family_relationship = 'Paternal Cousin' then '' --TODO
-    else CONCAT('FTD_FLAG:unhandled family_role: ',family_relationship)
-  end::text as "family_role", 
-  {{ generate_global_id(prefix='',descriptor=['ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
-  {{ generate_global_id(prefix='fm',descriptor=['family_id','family_member'], study_id='cmg_bh') }}::text as "id",
-  {{ generate_global_id(prefix='fy',descriptor=['family_id'], study_id='cmg_bh') }}::text as "family_id"
-from (select subject_id, family_relationship, ingest_provenance{{ ref('cmg_bh_stg_subject') }}
+with
+probands_only as (
+    select distinct
+      ingest_provenance,
+      family_id,
+      subject_id,
+      family_relationship as "proband_rel_code",
+    from {{ ref('cmg_bh_stg_subject') }}
+    where family_relationship = 'Proband'
+)
+,others_only as (
+    select distinct
+      ingest_provenance,
+      family_id,
+      subject_id,
+      family_relationship as "other_rel_code",
+    from {{ ref('cmg_bh_stg_subject') }}
+    where family_relationship != 'Proband'
+)
+,fr_base as (
+    select
+      distinct
+      p.family_id,
+      {{ generate_global_id(prefix='sb',descriptor=['p.subject_id'], study_id='cmg_bh') }}::text as "family_member",
+      proband_rel_code,
+      {{ generate_global_id(prefix='sb',descriptor=['o.subject_id'], study_id='cmg_bh') }}::text as "other_family_member",
+      other_rel_code,
+      {{ generate_global_id(prefix='ap',descriptor=['p.ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
+      {{ generate_global_id(prefix='fm',descriptor=['p.subject_id','o.subject_id'], study_id='cmg_bh') }}::text as "id"
+    from probands_only p
+    join others_only o
+    on p.family_id = o.family_id
+      and p.ingest_provenance = o.ingest_provenance
+)
+select
+  family_id,
+  family_member,
+  other_family_member,
+  has_access_policy,
+  id,
+    case 
+    when proband_rel_code = 'Brother'
+    then 'SIB'
+    when proband_rel_code = 'Child'
+    then 'PRN'
+    when proband_rel_code = 'Father'
+    then 'CHILD'
+    when proband_rel_code = 'Grandchild'
+    then 'GRPRN'
+    when proband_rel_code = 'Maternal Aunt'
+    then 'NIENEPH'
+    when proband_rel_code = 'Maternal Cousin'
+    then 'COUSN'
+    when proband_rel_code = 'Maternal Grandmother'
+    then 'GRNDCHILD'
+    when proband_rel_code = 'Maternal Half Brother'
+    then 'HBRO'
+    when proband_rel_code = 'Maternal Uncle'
+    then 'NIENEPH'
+    when proband_rel_code = 'Monozygous Twin'
+    then 'ITWIN'
+    when proband_rel_code = 'Mother'
+    then 'CHILD'
+    when proband_rel_code = 'Nephew'
+    then 'EXT'
+    when proband_rel_code = 'Niece'
+    then 'EXT'
+    when proband_rel_code = 'Niece''s Child'
+    then 'EXT'
+    when proband_rel_code = 'Paternal Cousin'
+    then 'COUSN'
+    when proband_rel_code = 'Paternal Uncle'
+    then 'NIENEPH'
+    when proband_rel_code = 'Sister'
+    then 'SIB'
+    when proband_rel_code is null then null
+    else CONCAT('FTD_FLAG:unhandled family_relationship_code: ',proband_rel_code)
+  end as "family_relationship_code"
+from fr_base

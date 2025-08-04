@@ -17,5 +17,3 @@ select
     else null
    end as "race",
 from {{ ref('cmg_bh_stg_subject') }} as s
-
-    

@@ -1,15 +1,24 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
-    with source as (
-        select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "file_id",
-       GEN_UNKNOWN.external_id::text as "external_id"
-        from {{ ref('cmg_bh_stg_sample') }} as sample
-        join {{ ref('cmg_bh_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-    )
+{%- set relation = ref('cmg_bh_stg_sample') -%}
+{%- set constant_columns = ['ftd_index','sample_id','subject_id','ingest_provenance','Submission_Batch','dbgap_sample_id','sample_provider','sample_source','tissue_affected_status'] -%}
+{%- set sample_columns = get_columns(relation=relation, exclude=constant_columns) -%}
 
-    select 
-        * 
-    from source
+with 
+unpivot_df as (
+    {%- for col in sample_columns -%}
+        select
+            {{ constant_columns | join(', ') }},
+            '{{ col }}' as "file_type",
+            cast({{ col }} as varchar) as "drs_uri"
+        from {{ ref('cmg_bh_stg_sample') }}
+        where {{ col }} IS NOT NULL
+        {% if not loop.last %}union all{% endif %}
+    {% endfor %}
+)
+select 
+  {{ generate_global_id(prefix='fl',descriptor=['drs_uri'], study_id='cmg_bh') }}::text as "file_id",
+  NULL::text as "external_id"
+from unpivot_df
+
     

@@ -1,6 +1,6 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 {%- set relation = ref('cmg_bh_stg_subject') -%}
-{% set constant_columns = get_columns(relation=relation, exclude=[]) %}
+{%- set constant_columns = get_columns(relation=relation, exclude=[]) -%}
 with
 lookup as (
     select
@@ -76,7 +76,7 @@ lookup as (
         else null
       end::text as "value_display",
       {{ generate_global_id(prefix='ap',descriptor=['up.subject_id'], study_id='cmg_bh') }}::text as "has_access_policy",
-      {{ generate_global_id(prefix='sa',descriptor=['up.subject_id'], study_id='cmg_bh') }}::text as "id",
+      {{ generate_global_id(prefix='sa',descriptor=['up.code'], study_id='cmg_bh') }}::text as "id",
       {{ generate_global_id(prefix='sb',descriptor=['up.subject_id'], study_id='cmg_bh') }}::text as "subject_id"
     from unpivot_df as up
     join lookup
