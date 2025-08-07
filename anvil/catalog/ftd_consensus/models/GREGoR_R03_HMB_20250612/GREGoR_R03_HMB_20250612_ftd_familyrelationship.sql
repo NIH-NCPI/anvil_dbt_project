@@ -51,6 +51,8 @@
            WHEN participant.proband_relationship =  'Paternal Uncle' THEN 'KIN:059'           
            WHEN participant.proband_relationship =  'Maternal 1st Cousin' THEN 'KIN:015'
            WHEN participant.proband_relationship =  'Paternal 1st Cousin' THEN 'KIN:016'
+           WHEN participant.proband_relationship =  'Nephew' THEN 'KIN:046'
+           WHEN participant.proband_relationship =  'Niece' THEN 'KIN:046'
            WHEN participant.proband_relationship =  'Other' OR participant.proband_relationship =  'Unknown' THEN 'KIN:001'
         END::text as "relationship_code", 
         {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='phs003047') }}::text as "has_access_policy",
@@ -60,21 +62,6 @@
         ON proband.family_id = participant.family_id  -- If multiple probands per family, assuming siblings
         AND proband.proband_relationship = 'Self'
         where participant.proband_relationship != 'Self'
-          and participant.proband_relationship NOT IN ('Self', 'Niece', 'Nephew')
-
-        UNION 
-        -- Flipped Direction of family relationship
-        SELECT 
-        {{ generate_global_id(prefix='sb',descriptor=['participant.participant_id'], study_id='phs003047') }}::text as "other_family_member", -- not proband (niece or nephew's ID)
-        (   select DISTINCT CAST(participant_id as STRING) FROM {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as stg 
-            WHERE CAST(stg.family_id as STRING) = CAST(participant.family_id as STRING) 
-                AND CAST(stg.proband_relationship AS STRING) = 'Self'
-        ) AS participant_id, -- proband's participant ID
-        'KIN:013' AS "relationship_code", -- isParentalSibling   
-        {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='phs003047') }}::text as "has_access_policy",
-        participant.family_id::text AS "family_id",
-        from {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as participant
-        where participant.proband_relationship IN ('Niece', 'Nephew')
     )
 
     select DISTINCT
