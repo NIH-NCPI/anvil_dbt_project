@@ -416,3 +416,143 @@ None
 {% docs eMERGEseq_stg_subjectconsent_subject_source %}
 None
 {% enddocs %}
+
+
+{% docs eMERGEseq_BMI_DS_20200925_description %}
+Model for eMERGEseq_BMI_DS_20200925.
+{% enddocs %}
+
+
+{% docs eMERGEseq_BMI_DS_20200925_subject_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_BMI_DS_20200925_age_at_observation %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_BMI_DS_20200925_weight %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_BMI_DS_20200925_height %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_BMI_DS_20200925_body_mass_index %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_BMI_DS_20200925_visit_number %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_bmi_description %}
+Model for eMERGEseq_stg_bmi.
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_bmi_subject_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_bmi_age_at_observation %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_bmi_weight %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_bmi_height %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_bmi_body_mass_index %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_bmi_visit_number %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_Pedigree_DS_20200925_description %}
+Model for eMERGEseq_Pedigree_DS_20200925.
+{% enddocs %}
+
+
+{% docs eMERGEseq_Pedigree_DS_20200925_family_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_Pedigree_DS_20200925_subject_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_Pedigree_DS_20200925_mother %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_Pedigree_DS_20200925_father %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_Pedigree_DS_20200925_sex %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_Pedigree_DS_20200925_mz_twin_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_pedigree_description %}
+Model for eMERGEseq_stg_pedigree.
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_pedigree_family_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_pedigree_subject_id %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_pedigree_mother %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_pedigree_father %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_pedigree_sex %}
+None
+{% enddocs %}
+
+
+{% docs eMERGEseq_stg_pedigree_mz_twin_id %}
+None
+{% enddocs %}
