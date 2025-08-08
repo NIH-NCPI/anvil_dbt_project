@@ -61,6 +61,8 @@ lookup as (
 )
 
 select 
-   {{ generate_global_id(prefix='sa',descriptor=['code'], study_id='cmg_bh') }}::text as "id",
-   NULL::text as "external_id"
+   distinct
+   {{ generate_global_id(prefix='sa',descriptor=['subject_id','code'], study_id='cmg_bh') }}::text as "id",
+   {{ generate_global_id(prefix='sd',descriptor=['dbgap_study_id'], study_id='cmg_bh') }}::text as "source_data_id"
+  CONCAT(subject_id '|' code)::text as "external_id"
 from unpivot_df    

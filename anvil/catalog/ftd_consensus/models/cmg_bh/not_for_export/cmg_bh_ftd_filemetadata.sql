@@ -1,25 +1,18 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
-{%- set relation = ref('cmg_bh_stg_sample') -%}
-{%- set constant_columns = ['ftd_index','sample_id','subject_id','ingest_provenance','Submission_Batch','dbgap_sample_id','sample_provider','sample_source','tissue_affected_status'] -%}
-{%- set sample_columns = get_columns(relation=relation, exclude=constant_columns) -%}
 
-with 
-unpivot_df as (
-    {%- for col in sample_columns -%}
-        select
-            {{ constant_columns | join(', ') }},
-            '{{ col }}' as "file_type",
-            cast({{ col }} as varchar) as "drs_uri"
-        from {{ ref('cmg_bh_stg_sample') }}
-        where {{ col }} IS NOT NULL
-        {% if not loop.last %}union all{% endif %}
-    {% endfor %}
-)
- 
-select 
-  NULL::text as "code",
-  NULL::text as "display",
-  NULL::text as "value_code",
-  NULL::text as "value_display",
-  {{ generate_global_id(prefix='fm',descriptor=['drs_uri'], study_id='cmg_bh') }}::text as "id"
-from unpivot_df
+    with source as (
+        select 
+        GEN_UNKNOWN.code::text as "code",
+       GEN_UNKNOWN.display::text as "display",
+       GEN_UNKNOWN.value_code::text as "value_code",
+       GEN_UNKNOWN.value_display::text as "value_display",
+       {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "id"
+        from {{ ref('cmg_bh_stg_sample') }} as sample
+        join {{ ref('cmg_bh_stg_subject') }} as subject
+on sample.subject_id = subject.subject_id 
+    )
+
+    select 
+        * 
+    from source
+    

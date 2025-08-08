@@ -437,10 +437,13 @@ models:
     cmg_bh_ftd_sample_storage_method:
       +schema: main
       +materialized: table
-    cmg_bh_ftd_study_external_study_id:
+    cmg_bh_ftd_sourcedata_query_parameter:
       +schema: main
       +materialized: table
     cmg_bh_ftd_biospecimencollection_external_id:
+      +schema: main
+      +materialized: table
+    cmg_bh_ftd_datasource_external_id:
       +schema: main
       +materialized: table
     cmg_bh_ftd_sample_processing:
@@ -477,6 +480,9 @@ models:
       +schema: main
       +materialized: table
     cmg_bh_ftd_file_subject:
+      +schema: main
+      +materialized: table
+    cmg_bh_ftd_datasource:
       +schema: main
       +materialized: table
     cmg_bh_ftd_accesscontrolledrecord:
@@ -534,8 +540,5 @@ models:
       +schema: main
       +materialized: table
     cmg_bh_ftd_biospecimencollection:
-      +schema: main
-      +materialized: table
-    cmg_bh_ftd_thing_external_id:
       +schema: main
       +materialized: table
