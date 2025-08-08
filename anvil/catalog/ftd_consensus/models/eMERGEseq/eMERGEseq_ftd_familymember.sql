@@ -9,8 +9,8 @@
         {% for col in pivot_columns %}
             select
                 ftd_index, family_id,
-                {{ col }} as "subject_id",
-                subject_id as "orig_subject_id",
+                {{ col }} as "other_family_memb_id",
+                subject_id as "proband_id",
                 NULL as "sex",
                 '{{ col }}' as "family_role",
             from {{ ref('eMERGEseq_stg_pedigree') }} as p
@@ -20,41 +20,53 @@
     ),
     
    all_pedigree as (
-   select
+   select distinct -- probands only
         ftd_index,
         family_id,
+        subject_id as "proband_id",
         subject_id,
-        orig_subject_id,
+        null as "other_family_memb_id",
+        mother,
+        father,
+        mz_twin_id,
         p.sex,
-        family_role,
-    from  unpivot_df as u
-    join {{ ref('eMERGEseq_stg_pedigree') }} as p
-    on u.subject_id = p.subject_id
- union all
-    select
-        ftd_index,
-        family_id,
-        subject_id,
-        NULL as "orig_subject_id",
-        sex,
-        'proband' as "family_role",
+        'CHILD' as "family_role",
+--     from  unpivot_df as u
     from {{ ref('eMERGEseq_stg_pedigree') }} as p
-    where mother_id is null
-    and father_id is null
+--     on u.subject_id = p.subject_id
+    where mother is not null
+    and father is not null
+    and mz_twin_id is not null
+ union all
+    select distinct -- mothers/fathers only
+        p.ftd_index,
+        p.family_id,
+        proband_id,
+        other_family_memb_id AS "subject_id",
+        other_family_memb_id,
+        NULL AS mother,
+        NULL AS father,
+        NULL AS mz_twin_id,
+        p.sex,
+        CASE p.sex
+           WHEN 2 then 'MTH' 
+           WHEN 1 THEN 'FTH'
+        END::text as "family_role"
+    from {{ ref('eMERGEseq_stg_pedigree') }} as p
+    left join unpivot_df as u on u.proband_id = p.subject_id
+              and u.family_id = p.family_id
+    where mother is null
+    and father is null
     and mz_twin_id is null
 ),
         source as(
-        select 
+        select distinct
         {{ generate_global_id(prefix='fm',descriptor=['pedigree.subject_id'], study_id='phs001616') }}::text as "family_member",
-       CASE 
-            WHEN pedigree.subject_id = pedigree.mother THEN 'MTH'
-            WHEN pedigree.subject_id = pedigree.father THEN 'FTH'
-            ELSE 'CHILD'
-       END::text as "family_role",
+       family_role,
        {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy",
        {{ generate_global_id(prefix='fm',descriptor=['pedigree.subject_id', 'pedigree.family_id'], study_id='phs001616') }}::text as "id",
-       {{ generate_global_id(prefix='fm',descriptor=['pedigree.family_id'], study_id='phs001616') }}::text as "family_id"
-       from {{ ref('eMERGEseq_stg_pedigree') }} as pedigree
+       {{ generate_global_id(prefix='fy',descriptor=['pedigree.family_id'], study_id='phs001616') }}::text as "family_id"
+       from all_pedigree as pedigree
        left join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
         on pedigree.subject_id = subjectconsent.subject_id
     )

@@ -1,45 +1,62 @@
-{{ config(materialized='table', schema='eMERGEseq') }}
+{{ config(materialized='table', schema='eMERGEseq_data') }}
+    {% set relation = ref('eMERGEseq_stg_pedigree') %}
+    {% set constant_columns = ['ftd_index', 'sex', 'subject_id', 'family_id'] %}
+    {% set pivot_columns = get_columns(relation=relation, exclude=constant_columns) %}  
+    
+    with 
+    unpivot_df as (
 
-    with source as (
-        select 
-        subject_id AS other_family_member,
-        twin_id AS subject_id,
-        'KIN:009' AS relationship_code,
-        {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text AS "has_access_policy",
-        from {{ ref('eMERGEseq_stg_pedigree') }} as pedigree
-        join {{ ref('eMERGEseq_stg_subjectconsent') }}  as subjectconsent 
-        on pedigree.subject_id = subjectconsent.subject_id
-        WHERE twin_id != 'NA'
-
-        UNION 
-
-        select 
-        subject_id AS other_family_member, 
-        father AS subject_id,
-        'KIN:028' AS relationship_code,
-        {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text AS "has_access_policy",
-        from {{ ref('eMERGEseq_stg_pedigree') }} as pedigree
-        join {{ ref('eMERGEseq_stg_subjectconsent') }}  as subjectconsent 
-        on pedigree.subject_id = subjectconsent.subject_id
-        WHERE father != 'NA'
-
-        UNION 
-
-        select 
-        subject_id AS other_family_member, 
-        mother AS subject_id,
-        'KIN:027' AS relationship_code,
-        {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text AS "has_access_policy",
-        from {{ ref('eMERGEseq_stg_pedigree') }} as pedigree
-        join {{ ref('eMERGEseq_stg_subjectconsent') }}  as subjectconsent 
-        on pedigree.subject_id = subjectconsent.subject_id
-        WHERE mother != 'NA'
+        {% for col in pivot_columns %}
+            select
+                ftd_index, family_id,
+                {{ col }} as "other_family_memb_id",
+                subject_id as "proband_id",
+                NULL as "sex",
+                '{{ col }}' as "relationship",
+            from {{ ref('eMERGEseq_stg_pedigree') }} as p
+            WHERE {{ col }} IS NOT NULL 
+            {% if not loop.last %}union all{% endif %}
+        {% endfor %}
+    ),
+    
+   direct_relationship as (
+   select -- probands on the left, others on the right
+       p.ftd_index,
+       p.family_id,
+       proband_id as "family_member",
+       other_family_memb_id as "other_family_member",
+       CASE  
+           WHEN relationship = 'mother' THEN 'KIN:032'
+           WHEN relationship = 'father' THEN 'KIN:032'
+           WHEN relationship = 'mz_twin_id' THEN 'KIN:010'
+       END::text AS relationship_code
+       from {{ ref('eMERGEseq_stg_pedigree') }} as p
+    left join unpivot_df as u on u.proband_id = p.subject_id
+       and u.family_id = p.family_id
+    where mother is not null
+    and father is not null
+    and mz_twin_id is not null
+),
+    
+   reverse_twin_relationship as (
+   select -- reverse relationship for twins
+       dr.ftd_index,
+       dr.family_id,
+       dr.other_family_member as "family_member",
+       dr.family_member as "other_family_member",
+       dr.relationship_code
+    from direct_relationship as dr
+    where relationship_code = 'KIN:010'
     )
 
     select DISTINCT
-        {{ generate_global_id(prefix='fm',descriptor=['subject_id','source.other_family_member'],study_id='phs001616') }}::text as "id",
+        {{ generate_global_id(prefix='fm',descriptor=['family_member','other_family_member'],study_id='phs001616') }}::text as "id",
         relationship_code, 
-        {{ generate_global_id(prefix='sb',descriptor=['source.subject_id'], study_id='phs001616') }}::text AS "family_member",
-        {{ generate_global_id(prefix='sb',descriptor=['source.other_family_member'], study_id='phs001616') }}::text as "other_family_member"
-    from source
- 
+        {{ generate_global_id(prefix='sb',descriptor=['family_member'], study_id='phs001616') }}::text AS "family_member",
+        {{ generate_global_id(prefix='sb',descriptor=['other_family_member'], study_id='phs001616') }}::text as "other_family_member"
+    from (
+        select distinct * from direct_relationship 
+    
+    union all
+    
+        select distinct * from reverse_twin_relationship) as combined_relationship

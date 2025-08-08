@@ -1,5 +1,5 @@
 {{ config(materialized='table', schema='eMERGEseq_data') }}
-
+-- THIS IS THE WRONG DATA. BRENDA WILL CHANGE IT
     with source as (
         select 
         GEN_UNKNOWN.code::text as "code",
