@@ -657,12 +657,17 @@ models:
   - name: parent_study_id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_study_parent_study_id") }}'
     data_type: string
+    tests: []
   - name: study_title
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_study_study_title") }}'
     data_type: string
+    tests:
+    - not_null
   - name: id
     description: '{{ doc("GREGoR_R03_HMB_20250612_ftd_study_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: GREGoR_R03_HMB_20250612_ftd_family_family_relationships
   description: Model for GREGoR_R03_HMB_20250612_ftd_family_family_relationships.
   columns:

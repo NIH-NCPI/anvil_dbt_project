@@ -97,3 +97,24 @@ sources:
     - name: ingest_provenance
       description: '{{ doc("GREGoR_R03_HMB_20250612_experiment_ingest_provenance")
         }}'
+  - name: GREGoR_R03_HMB_20250612_anvil_project
+    description: Source table for GREGoR_R03_HMB_20250612_anvil_project.
+    columns:
+    - name: project_id
+      description: '{{ doc("GREGoR_R03_HMB_20250612_anvil_project_project_id") }}'
+    - name: funded_by
+      description: '{{ doc("GREGoR_R03_HMB_20250612_anvil_project_funded_by") }}'
+    - name: generated_dataset_id
+      description: '{{ doc("GREGoR_R03_HMB_20250612_anvil_project_generated_dataset_id")
+        }}'
+    - name: principal_investigator
+      description: '{{ doc("GREGoR_R03_HMB_20250612_anvil_project_principal_investigator")
+        }}'
+    - name: title
+      description: '{{ doc("GREGoR_R03_HMB_20250612_anvil_project_title") }}'
+    - name: registered_identifier
+      description: '{{ doc("GREGoR_R03_HMB_20250612_anvil_project_registered_identifier")
+        }}'
+    - name: source_datarepo_row_ids
+      description: '{{ doc("GREGoR_R03_HMB_20250612_anvil_project_source_datarepo_row_ids")
+        }}'

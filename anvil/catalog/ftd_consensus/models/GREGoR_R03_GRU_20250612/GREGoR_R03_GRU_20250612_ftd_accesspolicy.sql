@@ -5,7 +5,7 @@
     --     GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
         CASE participant.consent_code
             WHEN 'GRU' THEN 'General Research Use'
-            WHEN 'HMB' THEN 'Health/Medical/Biomedical'
+            WHEN 'gru' THEN 'Health/Medical/Biomedical'
             WHEN 'DS' THEN 'Disease-Specific (Disease/Trait/Exposure)'
             WHEN 'IRB' THEN 'IRB Approval Required'
             WHEN 'PUB' THEN 'Publication Required'
@@ -17,8 +17,8 @@
         END::text as "description",    
         --    GEN_UNKNOWN.website::text as "website",
       {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='phs003047') }}::text as "id"
-        from {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as participant
-        join {{ ref('GREGoR_R03_HMB_20250612_stg_phenotype') }} as phenotype
+        from {{ ref('GREGoR_R03_GRU_20250612_stg_participant') }} as participant
+        join {{ ref('GREGoR_R03_GRU_20250612_stg_phenotype') }} as phenotype
 on participant.participant_id = phenotype.participant_id 
     )
 

@@ -405,3 +405,82 @@ nan
 {% docs GREGoR_R03_HMB_20250612_stg_experiment_ingest_provenance %}
 nan
 {% enddocs %}
+
+{% docs GREGoR_R03_HMB_20250612_anvil_project_description %}
+Model for GREGoR_R03_HMB_20250612_anvil_project.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_anvil_project_project_id %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_anvil_project_funded_by %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_anvil_project_generated_dataset_id %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_anvil_project_principal_investigator %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_anvil_project_title %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_anvil_project_registered_identifier %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_anvil_project_source_datarepo_row_ids %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_anvil_project_description %}
+Model for GREGoR_R03_HMB_20250612_stg_anvil_project.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_anvil_project_project_id %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_anvil_project_funded_by %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_anvil_project_generated_dataset_id %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_anvil_project_principal_investigator %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_anvil_project_title %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_anvil_project_registered_identifier %}
+nan
+{% enddocs %}
+
+
+{% docs GREGoR_R03_HMB_20250612_stg_anvil_project_source_datarepo_row_ids %}
+nan
+{% enddocs %}

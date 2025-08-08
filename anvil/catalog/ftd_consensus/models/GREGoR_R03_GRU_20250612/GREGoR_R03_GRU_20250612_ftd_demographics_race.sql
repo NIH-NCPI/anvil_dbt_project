@@ -15,7 +15,7 @@
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'asked but unknown' THEN 'asked_but_unknown'
             WHEN STRING_SPLIT(participant.reported_race, '|') IS NULL THEN 'unknown'
         END::text as "race"
-        from {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as participant
+        from {{ ref('GREGoR_R03_GRU_20250612_stg_participant') }} as participant
     )
 
     select 

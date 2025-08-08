@@ -31,8 +31,8 @@
 -- Brenda plans to make these run easier later.
        {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='phs003047') }}::text as "has_access_policy",
        {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id'], study_id='phs003047') }}::text as "id"
-        from {{ ref('GREGoR_R03_HMB_20250612_stg_participant') }} as participant
-        join {{ ref('GREGoR_R03_HMB_20250612_stg_phenotype') }} as phenotype
+        from {{ ref('GREGoR_R03_GRU_20250612_stg_participant') }} as participant
+        join {{ ref('GREGoR_R03_GRU_20250612_stg_phenotype') }} as phenotype
         on participant.participant_id = phenotype.participant_id 
     )
 
