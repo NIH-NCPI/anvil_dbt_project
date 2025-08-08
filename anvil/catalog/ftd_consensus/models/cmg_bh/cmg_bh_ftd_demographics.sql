@@ -4,39 +4,40 @@
  source as (
     select 
         case
-          when s.sex = 'Female' then 'female'
-          when s.sex = 'Male' then 'male'
-          when s.sex = 'Unknown' then 'unknown'
-          when s.sex = 'Intersex' then 'intersex'
-          when s.sex is null then 'unknown'
-        else CONCAT('FTD_FLAG:unhandled sex: ',s.sex)
+          when sex = 'Female' then 'female'
+          when sex = 'Male' then 'male'
+          when sex = 'Unknown' then 'unknown'
+          when sex = 'Intersex' then 'intersex'
+          when sex is null then 'unknown'
+        else CONCAT('FTD_FLAG:unhandled sex: ',sex)
       end::text as "sex",
         case 
-          when s.sex in ('Female',
+          when sex in ('Female',
                          'Male',
                          'Unknown',
-                         'Intersex') then s.sex
-          when s.sex is null then 'Unknown'
-        else CONCAT('FTD_FLAG:unhandled sex_display: ',s.sex)
+                         'Intersex') then sex
+          when sex is null then 'Unknown'
+        else CONCAT('FTD_FLAG:unhandled sex_display: ',sex)
       end as "sex_display",
         case
-          when s.ancestry in ('American Indian or Alaskan Native',
+          when ancestry in ('American Indian or Alaskan Native',
                               'Asian',
                               'Black or African American',
                               'Native Hawaiian or Pacific Islander',
                               'White',
                               'Other',
                               'Unknown',
-                              'Asked but Unknown') then s.ancestry
-          when s.ancestry is null then null
-        else CONCAT('FTD_FLAG:unhandled race_display: ',s.ancestry)
+                              'Asked but Unknown') then ancestry
+          when ancestry is null then null
+        else CONCAT('FTD_FLAG:unhandled race_display: ',ancestry)
       end as "race_display",
       {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
-      {{ generate_global_id(prefix='dm',descriptor=['s.subject_id'], study_id='cmg_bh') }}::text as "id"
+      {{ generate_global_id(prefix='dm',descriptor=['subject_id'], study_id='cmg_bh') }}::text as "id"
     from (select distinct sex, ancestry, subject_id, ingest_provenance from {{ ref('cmg_bh_stg_subject') }}) as s
 )
 
 select 
+   distinct
    NULL::integer as "date_of_birth",
    NULL::text as "date_of_birth_type",
    source.sex as "sex",
@@ -49,4 +50,3 @@ select
    source.has_access_policy,
    source.id
 from source
-    

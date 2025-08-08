@@ -24,7 +24,7 @@ lookup as (
       {{ clean_codes('hpo_present',['HP:','HPO:'], ['Ê', '"', "''"]) }} as "clean_hpo_present"
     from {{ ref('cmg_bh_stg_subject') }} as s
 )
-,unpivot_df as (
+,unpivot_df as ( -- Explode all fields that contain an asserted condition or disease.
     select distinct *
     from (
         select

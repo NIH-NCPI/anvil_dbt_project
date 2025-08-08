@@ -1,11 +1,11 @@
 #!/bin/bash
 # +
-set -e  # Exit on error
+# set -e  # Exit on error
 dbt clean
 dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
-# dbt seed --full-refresh
+# dbt seed #--full-refresh
 
-# dbt run --select  cmg_bh_stg_subject
+dbt run --select  cmg_bh_stg_subject
 # dbt run --select  cmg_bh_stg_sample
 
 # dbt run --select  cmg_bh_ftd_accesspolicy
@@ -14,7 +14,6 @@ dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # dbt run --select  cmg_bh_ftd_accesspolicy_external_id
 # dbt run --select  cmg_bh_ftd_aliquot
 # dbt run --select  cmg_bh_ftd_aliquoty_external_id
-
 # dbt run --select  cmg_bh_ftd_biospecimencollection
 # dbt run --select  cmg_bh_ftd_biospecimencollection_external_id
 # dbt run --select  cmg_bh_ftd_demographics
@@ -30,28 +29,29 @@ dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # dbt run --select  cmg_bh_ftd_familyrelationship_external_id
 # dbt run --select  cmg_bh_ftd_file
 # dbt run --select  cmg_bh_ftd_file_external_id
-dbt run --select  cmg_bh_ftd_file_sample
-dbt run --select  cmg_bh_ftd_file_subject
-dbt run --select  cmg_bh_ftd_filemetadata
-dbt run --select  cmg_bh_ftd_filemetadata_external_id
-dbt run --select  cmg_bh_ftd_sample
-dbt run --select  cmg_bh_ftd_sample_external_id
-dbt run --select  cmg_bh_ftd_sample_processing
-dbt run --select  cmg_bh_ftd_sample_storage_method
-dbt run --select  cmg_bh_ftd_sourcedata
-dbt run --select  cmg_bh_ftd_sourcedata_external_id
-dbt run --select  cmg_bh_ftd_study
-dbt run --select  cmg_bh_ftd_study_external_id
-dbt run --select  cmg_bh_ftd_study_funding_source
-dbt run --select  cmg_bh_ftd_principal_investigator
-dbt run --select  cmg_bh_ftd_study_funding_source
-dbt run --select  cmg_bh_ftd_subject
-dbt run --select  cmg_bh_ftd_subject_external_id
-dbt run --select  cmg_bh_ftd_subjectassertion
-dbt run --select  cmg_bh_ftd_subjectassertion_external_id
+# dbt run --select  cmg_bh_ftd_file_sample
+# dbt run --select  cmg_bh_ftd_file_subject
+# dbt run --select  cmg_bh_ftd_filemetadata
+# dbt run --select  cmg_bh_ftd_filemetadata_external_id
+# dbt run --select  cmg_bh_ftd_sample
+# dbt run --select  cmg_bh_ftd_sample_external_id
+# dbt run --select  cmg_bh_ftd_sample_processing
+# dbt run --select  cmg_bh_ftd_sample_storage_method
+# dbt run --select  cmg_bh_ftd_sourcedata
+# dbt run --select  cmg_bh_ftd_sourcedata_external_id
+# dbt run --select  cmg_bh_ftd_study
+# dbt run --select  cmg_bh_ftd_study_external_study_id
+# dbt run --select  cmg_bh_ftd_study_external_id
+# dbt run --select  cmg_bh_ftd_study_funding_source
+# dbt run --select  cmg_bh_ftd_study_principal_investigator
+# dbt run --select  cmg_bh_ftd_study_funding_source
+# dbt run --select  cmg_bh_ftd_subject
+# dbt run --select  cmg_bh_ftd_subject_external_id
+# dbt run --select  cmg_bh_ftd_subjectassertion
+# dbt run --select  cmg_bh_ftd_subjectassertion_external_id
 
 
-# Run Target tables
+# # Run Target tables
 # dbt run --select +tgt_file_subject --vars '{"source_table": "cmg_bh_ftd_file_subject", "target_schema": "cmg_bh_tgt_data"}'
 # dbt run --select +tgt_familyrelationship --vars '{"source_table": "cmg_bh_ftd_familyrelationship", "target_schema": "cmg_bh_tgt_data"}'
 # dbt run --select +tgt_family_external_id --vars '{"source_table": "cmg_bh_ftd_family_external_id", "target_schema": "cmg_bh_tgt_data"}'
@@ -140,3 +140,6 @@ dbt run --select  cmg_bh_ftd_subjectassertion_external_id
 # dbt test --select cmg_bh_ftd_aliquot
 # dbt test --select cmg_bh_ftd_demographics_external_id
 # dbt test --select cmg_bh_ftd_sourcedata
+# -
+
+

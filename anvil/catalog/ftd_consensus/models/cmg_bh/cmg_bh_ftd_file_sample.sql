@@ -7,7 +7,9 @@ with
 unpivot_df as (
     {%- for col in sample_columns -%}
         select
-            {{ constant_columns | join(', ') }},
+            distinct
+            sample_id,
+            ingest_provenance,
             '{{ col }}' as "file_type",
             cast({{ col }} as varchar) as "drs_uri"
         from {{ ref('cmg_bh_stg_sample') }}
@@ -19,4 +21,3 @@ select
   {{ generate_global_id(prefix='fl',descriptor=['drs_uri'], study_id='cmg_bh') }}::text as "file_id",
   {{ generate_global_id(prefix='sm',descriptor=['sample_id'], study_id='cmg_bh') }}::text as "sample_id"
 from unpivot_df
-s

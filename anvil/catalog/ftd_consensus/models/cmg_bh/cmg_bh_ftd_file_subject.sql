@@ -7,7 +7,9 @@ with
 unpivot_df as (
     {%- for col in sample_columns -%}
         select
-            {{ constant_columns | join(', ') }},
+            distinct
+            subject_id,
+            ingest_provenance,
             '{{ col }}' as "file_type",
             cast({{ col }} as varchar) as "drs_uri"
         from {{ ref('cmg_bh_stg_sample') }}

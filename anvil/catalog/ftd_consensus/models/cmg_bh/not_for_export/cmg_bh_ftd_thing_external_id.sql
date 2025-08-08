@@ -2,7 +2,7 @@
 
     with source as (
         select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "accesscontrolledrecord_id",
+        {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "thing_id",
        GEN_UNKNOWN.external_id::text as "external_id"
         from {{ ref('cmg_bh_stg_sample') }} as sample
         join {{ ref('cmg_bh_stg_subject') }} as subject

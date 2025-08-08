@@ -491,9 +491,6 @@ models:
     cmg_bh_ftd_demographics:
       +schema: main
       +materialized: table
-    cmg_bh_ftd_thing_external_id:
-      +schema: main
-      +materialized: table
     cmg_bh_ftd_subjectassertion_external_id:
       +schema: main
       +materialized: table
@@ -537,5 +534,8 @@ models:
       +schema: main
       +materialized: table
     cmg_bh_ftd_biospecimencollection:
+      +schema: main
+      +materialized: table
+    cmg_bh_ftd_thing_external_id:
       +schema: main
       +materialized: table
