@@ -1,6 +1,7 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
 select 
+  distinct
   'participant'::text as "subject_type",
   'human'::text as "organism_type",
   {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",

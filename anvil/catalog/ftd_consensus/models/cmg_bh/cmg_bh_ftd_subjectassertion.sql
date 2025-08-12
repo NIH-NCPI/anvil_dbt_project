@@ -18,6 +18,7 @@ lookup as (
 )
 
 select 
+  distinct
   'phenotypic_feature'::text as "assertion_type",
   NULL::text as "age_at_assertion",
   NULL::text as "age_at_event",
@@ -28,20 +29,20 @@ select
     when presence = 'Affected' then 'affected'
     when presence = 'Unaffected' then 'unaffected'
     when presence = 'Unknown' then 'unknown'
-    else null
+    else CONCAT('FTD_FLAG:unhandled value_code: ',presence)
   end::text as "value_code",
     case
     when presence = 'Affected' then 'Affected'
     when presence = 'Unaffected' then 'Unaffected'
     when presence = 'Unknown' then 'Unknown'
-    else null
+    else CONCAT('FTD_FLAG:unhandled value_display: ',presence)
   end::text as "value_display",  
   NULL::text as "value_number",
   NULL::text as "value_units",
   NULL::text as "value_units_display",
-  {{ generate_global_id(prefix='ap',descriptor=['subject_id'], study_id='cmg_bh') }}::text as "has_access_policy",
-  {{ generate_global_id(prefix='sa',descriptor=['subject_id','code'], study_id='cmg_bh') }}::text as "id",
+  {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
+  {{ generate_global_id(prefix='sa',descriptor=['subject_id','condition_or_disease_code'], study_id='cmg_bh') }}::text as "id",
   {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='cmg_bh') }}::text as "subject_id"
-from {{ ref('cmg_bh_stg_subject') }}
+from (select distinct ingest_provenance, subject_id, condition_or_disease_code, presence from {{ ref('cmg_bh_stg_subject') }}) as s
 join lookup
-on code = lookup.join_code
+on s.condition_or_disease_code = lookup.join_code

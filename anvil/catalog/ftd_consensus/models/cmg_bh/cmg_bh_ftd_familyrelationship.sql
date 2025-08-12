@@ -29,10 +29,11 @@ probands_only as (
       other_rel_code,
       {{ generate_global_id(prefix='ap',descriptor=['p.ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
       {{ generate_global_id(prefix='fr',descriptor=['p.subject_id','o.subject_id'], study_id='cmg_bh') }}::text as "id"
-    from probands_only p
-    left join others_only o
+    from probands_only as p
+    left join others_only as o
     on p.family_id = o.family_id
       and p.ingest_provenance = o.ingest_provenance
+    where o.subject_id is not null
 )
 select
   distinct

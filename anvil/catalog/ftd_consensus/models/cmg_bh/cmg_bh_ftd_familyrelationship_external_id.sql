@@ -1,15 +1,31 @@
 {{ config(materialized='table', schema='cmg_bh_data') }}
 
-    with source as (
-        select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "familyrelationship_id",
-       GEN_UNKNOWN.external_id::text as "external_id"
-        from {{ ref('cmg_bh_stg_sample') }} as sample
-        join {{ ref('cmg_bh_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-    )
+with
+probands_only as (
+    select distinct
+      ingest_provenance,
+      family_id,
+      subject_id,
+      family_relationship as "proband_rel_code",
+    from {{ ref('cmg_bh_stg_subject') }}
+    where family_relationship = 'Proband'
+)
+,others_only as (
+    select distinct
+      ingest_provenance,
+      family_id,
+      subject_id,
+      family_relationship as "other_rel_code",
+    from {{ ref('cmg_bh_stg_subject') }}
+    where family_relationship != 'Proband'
+)
 
-    select 
-        * 
-    from source
-    
+select
+  distinct
+  CONCAT(p.subject_id, '|', o.subject_id) as "external_id",
+  {{ generate_global_id(prefix='fr',descriptor=['p.subject_id','o.subject_id'], study_id='cmg_bh') }}::text as "familyrelationship_id"
+from probands_only as p
+left join others_only as o
+on p.family_id = o.family_id
+  and p.ingest_provenance = o.ingest_provenance
+where o.subject_id is not null
