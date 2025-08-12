@@ -2,7 +2,11 @@
 
 {% set relation = ref('eMERGEseq_stg_phecode') %}
 {% set constant_columns = ['subject_id', 'ftd_index'] %}
-{% set condition_columns = get_columns(relation=relation, exclude=constant_columns) %}  
+{% set condition_columns = get_columns(relation=relation, exclude=constant_columns) %} 
+
+{% set relation_bmi = ref('eMERGEseq_stg_bmi') %}
+{% set constant_bmi_columns = ['ftd_index', 'subject_id', 'age_at_observation', 'visit_number'] %}
+{% set pivot_bmi_columns = get_columns(relation=relation_bmi, exclude=constant_bmi_columns) %}
 with lookup as(
     select 
         LOWER(variable_name) as code, 
@@ -28,7 +32,7 @@ unpivot_df as (
 ),
 
 unpivoted_with_display as (
-    select
+    select distinct
         up.*,
         lookup.display as 'display'
     from unpivot_df as up
@@ -36,36 +40,12 @@ unpivoted_with_display as (
         on up.code = lookup.code
 ),
 
-source as (
-    select uwd.code, uwd.value_code, uwd.value_display, uwd.display,
-        'ehr_billing_code'::text as "assertion_type",
-        null as "age_at_assertion",
-        -- GEN_UNKNOWN.age_at_event::text as "age_at_event", 
-        -- GEN_UNKNOWN.age_at_resolution::text as "age_at_resolution",
-        null as "value_number",
-        null as "value_units",
-        null as "value_units_display",
-        {{ generate_global_id(prefix='sa', descriptor=['uwd.subject_id', 'uwd.code'], study_id='phs001616') }}::text as "id",
-        {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy",
-        {{ generate_global_id(prefix='sb', descriptor=['uwd.subject_id'], study_id='phs001616') }}::text as "subject_id"
-        
-    from unpivoted_with_display as uwd
-    left join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
-        on uwd.subject_id = subjectconsent.subject_id
-    
-    union
-    
-    {% set relation_bmi = ref('eMERGEseq_stg_bmi') %}
-    {% set constant_bmi_columns = ['ftd_index', 'subject_id', 'age_at_observation', 'visit_number'] %}
-    {% set pivot_bmi_columns = get_columns(relation=relation, exclude=constant_columns) %}   
-    
-    with 
-    unpivot_bmi as (
+unpivot_bmi as (
 
         {% for col in pivot_bmi_columns %}
-            select
+            select distinct
             {{ constant_bmi_columns | join(', ') }},
-            'clinical_finding	'::text as "assertion_type",
+            'clinical_finding'::text as "assertion_type",
             bmi.age_at_observation::text as "age_at_assertion",
             CASE 
                 WHEN '{{ col }}' = 'weight' THEN 'LOINC:29463-7'
@@ -99,15 +79,38 @@ source as (
             from {{ ref('eMERGEseq_stg_bmi') }} as bmi
             {% if not loop.last %}union all{% endif %}
         {% endfor %}
-   
-        {{ generate_global_id(prefix='sa', descriptor=['bmi.su bject_id', 'bmi.code'], study_id='phs001616') }}::text as "id",
+    ),
+
+source as (
+    select distinct uwd.code, uwd.value_code, uwd.value_display, uwd.display,
+        'ehr_billing_code'::text as "assertion_type",
+        null as "age_at_assertion",
+        -- GEN_UNKNOWN.age_at_event::text as "age_at_event", 
+        -- GEN_UNKNOWN.age_at_resolution::text as "age_at_resolution",
+        null as "value_number",
+        null as "value_units",
+        null as "value_units_display",
+        {{ generate_global_id(prefix='sa', descriptor=['uwd.subject_id', 'uwd.code'], study_id='phs001616') }}::text as "id",
+        {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy",
+        {{ generate_global_id(prefix='sb', descriptor=['uwd.subject_id'], study_id='phs001616') }}::text as "subject_id"
+        
+    from unpivoted_with_display as uwd
+    left join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
+        on uwd.subject_id = subjectconsent.subject_id
+    
+    union all
+    select distinct
+       ub.code, ub.value_code, ub.value_display, ub.display, ub.assertion_type, ub.age_at_assertion, ub.value_number, ub.value_units, ub.value_units_display,   
+        {{ generate_global_id(prefix='sa', descriptor=['bmi.subject_id', 'ub.code'], study_id='phs001616') }}::text as "id",
         {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy",
         {{ generate_global_id(prefix='sb', descriptor=['bmi.subject_id'], study_id='phs001616') }}::text as "subject_id"
         
-    from {{ ref('eMERGEseq_stg_bmi') }} as bmi
+    from unpivot_bmi as ub
+    left join {{ relation_bmi }} as bmi 
+        on ub.subject_id = bmi.subject_id
     left join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
         on bmi.subject_id = subjectconsent.subject_id
-        )
+        
 )
 
 select *

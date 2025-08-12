@@ -3,7 +3,8 @@
     with source as (
         select 
 --         { { generate_global_id(prefix='',descriptor=[''], study_id='eMERGEseq') }}::text as "parent_sample",
-       sampleattributes.analyte_type::text as "sample_type",
+       CASE WHEN sampleattributes.analyte_type = 'DNA' THEN 'LNC:LP18329-0'
+       END::text as "sample_type",
 --        GEN_UNKNOWN.availablity_status::text as "availablity_status",
 --        GEN_UNKNOWN.quantity_number::text as "quantity_number",
 --        GEN_UNKNOWN.quantity_units::text as "quantity_units",
