@@ -65,7 +65,7 @@
     )
 
     select DISTINCT
-        {{ generate_global_id(prefix='fm',descriptor=['source.family_id','participant_id','source.other_family_member', 'relationship_code'],study_id='phs003047') }}::text as "id",
+        {{ generate_global_id(prefix='fr',descriptor=['source.family_id','participant_id','source.other_family_member', 'relationship_code'],study_id='phs003047') }}::text as "id",
         relationship_code, 
         {{ generate_global_id(prefix='sb',descriptor=['source.participant_id'], study_id='phs003047') }}::text AS "family_member",
         {{ generate_global_id(prefix='sb',descriptor=['source.other_family_member'], study_id='phs003047') }}::text as "other_family_member"
