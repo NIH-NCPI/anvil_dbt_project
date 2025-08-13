@@ -22,21 +22,20 @@
         ),
         source as (
         select 
-        -- GEN_UNKNOWN.assertion_type::text as "assertion_type",
-        -- GEN_UNKNOWN.age_at_assertion::text as "age_at_assertion",
+        NULL as "assertion_type",
+        NULL as "age_at_assertion",
         phenotype.onset_age_range::text as "age_at_event",
-        -- GEN_UNKNOWN.age_at_resolution::text as "age_at_resolution",
+        NULL as "age_at_resolution",
        code_cte.code,
-        -- GEN_UNKNOWN.display::text as "display",
+        NULL as "display",
         CASE participant.affected_status
             WHEN 'Affected' THEN 'SCTID:782964007'
             ELSE null
         END::text as "value_code",
         phenotype.presence::text as "value_display",
         participant.age_at_enrollment::text as "value_number",
-        -- GEN_UNKNOWN.value_units::text as "value_units",
-        -- GEN_UNKNOWN.value_units_display ::text as "value_units_display",
-        -- GEN_UNKNOWN.has_access_policy::text as "has_access_policy",
+        NULL as "value_units",
+        NULL as "value_units_display",
         {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='phs003047') }}::text as "has_access_policy",
        {{ generate_global_id(prefix='sa',descriptor=['participant.participant_id', 'code_cte.code'], study_id='phs003047') }}::text as "id",
        {{ generate_global_id(prefix='sb',descriptor=['phenotype.participant_id'], study_id='phs003047') }}::text as "Subject_id"

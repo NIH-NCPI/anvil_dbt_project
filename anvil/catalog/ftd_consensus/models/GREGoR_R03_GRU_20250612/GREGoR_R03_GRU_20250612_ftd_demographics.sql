@@ -2,13 +2,15 @@
 
     with source as (
         select DISTINCT
-        -- GEN_UNKNOWN.date_of_birth::integer as "date_of_birth",
-        -- GEN_UNKNOWN.date_of_birth_type::text as "date_of_birth_type",
-        CASE participant.sex
-            WHEN 'Female' THEN 'female'
-            WHEN 'Male' THEN 'male'
-            WHEN 'Unknown' THEN 'unknown'
-            WHEN 'Intersex' THEN 'intersex'
+        NULL as "date_of_birth",
+        NULL as "date_of_birth_type",
+        CASE 
+            WHEN participant.sex = 'Female' THEN 'female'
+            WHEN participant.sex = 'Male' THEN 'male'
+            WHEN participant.sex = 'Unknown' THEN 'unknown'
+            WHEN participant.sex = 'Intersex' THEN 'intersex'
+            WHEN participant.sex IS NULL THEN 'unknown'
+            ELSE CONCAT('FTD_FLAG: unhandled sex: ',sex)
         END::text as "sex",
         participant.sex::text as "sex_display",
         CASE
@@ -25,7 +27,7 @@
             ELSE participant.reported_ethnicity
         END::text as "ethnicity_display",
         participant.age_at_last_observation::integer as "age_at_last_vital_status",
-        -- GEN_UNKNOWN.vital_status::text as "vital_status",
+        NULL as "vital_status",
         -- NOTE! Currently, For the model to run successfully, the global_id rows must be able to create SQL, the args cannot be invalid, even when commented out. Use placeholders for now.
 -- To see the generated sql, run `dbt compile --select {model}`
 -- Brenda plans to make these run easier later.
