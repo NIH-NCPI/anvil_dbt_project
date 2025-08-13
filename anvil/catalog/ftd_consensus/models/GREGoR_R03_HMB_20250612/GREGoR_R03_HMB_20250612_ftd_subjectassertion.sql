@@ -28,10 +28,6 @@
         NULL as "age_at_resolution",
         code_cte.code,
         NULL as "display",
-        CASE participant.affected_status
-            WHEN 'Affected' THEN 'SCTID:782964007'
-            ELSE null
-        END::text as "value_code",
         CASE LOWER(participant.affected_status)
             WHEN 'affected' THEN 'LA9633-4'
             WHEN 'unaffected' THEN 'LA9634-2'
