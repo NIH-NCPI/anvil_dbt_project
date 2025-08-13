@@ -27,12 +27,11 @@ probands_only as (
       proband_rel_code,
       {{ generate_global_id(prefix='sb',descriptor=['o.subject_id'], study_id='cmg_bh') }}::text as "other_family_member",
       other_rel_code,
-      {{ generate_global_id(prefix='ap',descriptor=['p.ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
-      {{ generate_global_id(prefix='fr',descriptor=['p.subject_id','o.subject_id'], study_id='cmg_bh') }}::text as "id"
+      {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
+      {{ generate_global_id(prefix='fr',descriptor=['family_id','p.subject_id','o.subject_id','other_rel_code'], study_id='cmg_bh') }}::text as "id"
     from probands_only as p
     left join others_only as o
-    on p.family_id = o.family_id
-      and p.ingest_provenance = o.ingest_provenance
+    using (family_id, ingest_provenance)
     where o.subject_id is not null
 )
 select

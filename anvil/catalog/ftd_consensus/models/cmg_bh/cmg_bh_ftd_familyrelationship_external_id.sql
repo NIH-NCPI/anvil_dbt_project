@@ -22,10 +22,9 @@ probands_only as (
 
 select
   distinct
-  CONCAT(p.subject_id, '|', o.subject_id) as "external_id",
-  {{ generate_global_id(prefix='fr',descriptor=['p.subject_id','o.subject_id'], study_id='cmg_bh') }}::text as "familyrelationship_id"
+  p.subject_id as "external_id",
+  {{ generate_global_id(prefix='fr',descriptor=['family_id','p.subject_id','o.subject_id','other_rel_code'], study_id='cmg_bh') }}::text as "familyrelationship_id"
 from probands_only as p
 left join others_only as o
-on p.family_id = o.family_id
-  and p.ingest_provenance = o.ingest_provenance
+using (family_id, ingest_provenance)
 where o.subject_id is not null

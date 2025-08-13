@@ -25,16 +25,18 @@ select
   NULL::text as "age_at_resolution",
   lookup.code as "code",
   lookup.display as "display",
-    case
-    when presence = 'Affected' then 'affected'
-    when presence = 'Unaffected' then 'unaffected'
-    when presence = 'Unknown' then 'unknown'
+    case lower(presence)
+    when 'affected' then 'LA9633-4'
+    when 'unaffected' then 'LA9634-2'
+    when 'unknown' then 'LA4489-6'
+    when presence is null then 'LA4489-6'
     else CONCAT('FTD_FLAG:unhandled value_code: ',presence)
   end::text as "value_code",
-    case
-    when presence = 'Affected' then 'Affected'
-    when presence = 'Unaffected' then 'Unaffected'
-    when presence = 'Unknown' then 'Unknown'
+    case lower(presence)
+    when 'affected' then 'Affected'
+    when 'unaffected' then 'Unaffected'
+    when 'unknown' then 'Unknown'
+    when presence is null then 'Unknown'
     else CONCAT('FTD_FLAG:unhandled value_display: ',presence)
   end::text as "value_display",  
   NULL::text as "value_number",
