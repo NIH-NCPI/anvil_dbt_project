@@ -1,6 +1,6 @@
 {{ config(materialized='table', schema='GREGoR_R03_GRU_20250612_data') }}
     with source as (
-        select 
+        select DISTINCT
        CASE 
             WHEN experiment.participant_id IS NOT NULL then 'participant'
             ELSE 'non_participant'

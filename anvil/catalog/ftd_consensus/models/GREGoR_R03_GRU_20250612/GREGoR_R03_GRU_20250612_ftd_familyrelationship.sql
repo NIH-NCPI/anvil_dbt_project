@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='GREGoR_R03_GRU_20250612_data') }}
 
     with source as (
-        select 
+        select DISTINCT
         participant_id AS other_family_member,
         twin_id AS participant_id,
         'KIN:009' AS relationship_code,
@@ -11,7 +11,7 @@
 
         UNION 
 
-        select 
+        select DISTINCT
         participant_id AS other_family_member, 
         paternal_id AS participant_id,
         'KIN:028' AS relationship_code,
@@ -21,7 +21,7 @@
 
         UNION 
 
-        select 
+        select DISTINCT
         participant_id AS other_family_member, 
         maternal_id AS participant_id,
         'KIN:027' AS relationship_code,
@@ -31,7 +31,7 @@
 
         UNION 
         -- Normal Direction of family relationship
-        SELECT
+        SELECT DISTINCT
         proband.participant_id as other_family_member, -- is proband's participant ID. -- Josh changed this as other_family_member, -- is proband's participant ID
         participant.participant_id AS participant_id, -- is not proband's participant ID
        CASE 
@@ -67,7 +67,7 @@
     select DISTINCT
         {{ generate_global_id(prefix='fm',descriptor=['source.family_id','participant_id','source.other_family_member', 'relationship_code'],study_id='phs003047') }}::text as "id",
         relationship_code, 
-        {{ generate_global_id(prefix='sb',descriptor=['family_id', 'source.participant_id'], study_id='phs003047') }}::text AS "family_member",
+        {{ generate_global_id(prefix='sb',descriptor=['source.participant_id'], study_id='phs003047') }}::text AS "family_member",
         {{ generate_global_id(prefix='sb',descriptor=['source.other_family_member'], study_id='phs003047') }}::text as "other_family_member"
     from source
  

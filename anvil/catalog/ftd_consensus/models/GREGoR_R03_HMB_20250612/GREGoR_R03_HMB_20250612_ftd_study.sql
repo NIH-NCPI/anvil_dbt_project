@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='GREGoR_R03_HMB_20250612_data') }}
 
     with source as (
-        select 
+        select DISTINCT
         NULL as "parent_study_id",
        anvil_project.title::text as "study_title",
        {{ generate_global_id(prefix='st',descriptor=['anvil_project.registered_identifier'], study_id='phs003047') }}::text as "id"

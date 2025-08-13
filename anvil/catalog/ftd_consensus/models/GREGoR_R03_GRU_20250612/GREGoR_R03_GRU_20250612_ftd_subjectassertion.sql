@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='GREGoR_R03_GRU_20250612_data') }}
 
     with code_cte as (
-        select
+        select DISTINCT
         phenotype.participant_id,
          CASE 
             WHEN UPPER(phenotype.ontology) = 'HPO' THEN 'HP'
@@ -21,16 +21,24 @@
         END || ':' || SPLIT_PART(phenotype.term_id, ':', 2)::text as "code",
         ),
         source as (
-        select 
+        select DISTINCT
         NULL as "assertion_type",
         NULL as "age_at_assertion",
         phenotype.onset_age_range::text as "age_at_event",
         NULL as "age_at_resolution",
-       code_cte.code,
+        code_cte.code,
         NULL as "display",
         CASE participant.affected_status
             WHEN 'Affected' THEN 'SCTID:782964007'
             ELSE null
+        END::text as "value_code",
+        CASE LOWER(participant.affected_status)
+            WHEN 'affected' THEN 'LA9633-4'
+            WHEN 'unaffected' THEN 'LA9634-2'
+            WHEN 'unknown' THEN 'LA4489-6'
+            WHEN 'possibly affected' THEN 'LA4489-6'
+            WHEN affected_status is null THEN 'LA4489-6'
+            ELSE CONCAT('FTD_FLAG: unhandled value_code: ', affected_status)
         END::text as "value_code",
         phenotype.presence::text as "value_display",
         participant.age_at_enrollment::text as "value_number",
@@ -40,9 +48,9 @@
        {{ generate_global_id(prefix='sa',descriptor=['participant.participant_id', 'code_cte.code'], study_id='phs003047') }}::text as "id",
        {{ generate_global_id(prefix='sb',descriptor=['phenotype.participant_id'], study_id='phs003047') }}::text as "Subject_id"
         from {{ ref('GREGoR_R03_GRU_20250612_stg_participant') }} as participant
-        join {{ ref('GREGoR_R03_GRU_20250612_stg_phenotype') }} as phenotype
+        left join {{ ref('GREGoR_R03_GRU_20250612_stg_phenotype') }} as phenotype
 on participant.participant_id = phenotype.participant_id 
-        join code_cte
+        left join code_cte
          on phenotype.participant_id = code_cte.participant_id
     )
     select 
