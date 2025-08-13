@@ -48,12 +48,12 @@
             WHEN '.' THEN 'unknown'
             WHEN 'NA' THEN 'unknown'
         END::text as "ethnicity_display",
---        GEN_UNKNOWN.age_at_last_vital_status::integer as "age_at_last_vital_status",
---        GEN_UNKNOWN.vital_status::text as "vital_status",
+        NULL as "age_at_last_vital_status",
+        NULL as "vital_status",
        {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy",
        {{ generate_global_id(prefix='dm',descriptor=['demographics.subject_id'], study_id='phs001616') }}::text as "id"
         from {{ ref('eMERGEseq_stg_demographics') }} as demographics
-        join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
+        left join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
         on demographics.subject_id = subjectconsent.subject_id
         WHERE demographics.race != 'C13652'
         
