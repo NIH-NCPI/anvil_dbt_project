@@ -103,6 +103,21 @@ Other identifiers for this entity, eg, from the submitting study or in systems l
 {% enddocs %}
 
 
+{% docs GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter_description %}
+Model for GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter_sourcedata_id %}
+Autocreated FK slot
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter_query_parameter %}
+One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, "<parameter name>:<data type>:<value>".
+{% enddocs %}
+
+
 {% docs GREGoR_R03_GRU_20250612_ftd_filemetadata_description %}
 Model for GREGoR_R03_GRU_20250612_ftd_filemetadata.
 {% enddocs %}
@@ -654,21 +669,6 @@ Sample storage method, eg, Frozen or with additives
 {% enddocs %}
 
 
-{% docs GREGoR_R03_GRU_20250612_ftd_study_external_study_id_description %}
-Model for GREGoR_R03_GRU_20250612_ftd_study_external_study_id.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_study_external_study_id_study_id %}
-Autocreated FK slot
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_study_external_study_id_external_study_id %}
-External Study ID
-{% enddocs %}
-
-
 {% docs GREGoR_R03_GRU_20250612_ftd_accesscontrolledrecord_description %}
 Model for GREGoR_R03_GRU_20250612_ftd_accesscontrolledrecord.
 {% enddocs %}
@@ -736,6 +736,41 @@ Autocreated FK slot
 
 {% docs GREGoR_R03_GRU_20250612_ftd_demographics_source_data_source_data_id %}
 The sources from which this assertion was derived
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_description %}
+Model for GREGoR_R03_GRU_20250612_ftd_datasource.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_snapshot_id %}
+The Terra Data Repository Snapshot ID.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_google_data_project %}
+The Google Data Project needed to query this snapshot in BigQuery.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_snapshot_dataset %}
+The Dataset within BigQuery where the table can be queried.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_table %}
+The table in the dataset that contains the row of interest.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_parameterized_query %}
+A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_id %}
+ID associated with a class
 {% enddocs %}
 
 
@@ -856,6 +891,21 @@ Autocreated FK slot
 
 {% docs GREGoR_R03_GRU_20250612_ftd_family_family_relationships_family_relationships_id %}
 Family relationships associated with this family.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_external_id_description %}
+Model for GREGoR_R03_GRU_20250612_ftd_datasource_external_id.
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_external_id_datasource_id %}
+Autocreated FK slot
+{% enddocs %}
+
+
+{% docs GREGoR_R03_GRU_20250612_ftd_datasource_external_id_external_id %}
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
@@ -1005,69 +1055,5 @@ Autocreated FK slot
 
 
 {% docs GREGoR_R03_GRU_20250612_ftd_aliquot_external_id_external_id %}
-Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
-{% enddocs %}
-
-{% docs GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter_description %}
-Model for GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter_sourcedata_id %}
-Autocreated FK slot
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter_query_parameter %}
-One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, "<parameter name>:<data type>:<value>".
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_description %}
-Model for GREGoR_R03_GRU_20250612_ftd_datasource.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_snapshot_id %}
-The Terra Data Repository Snapshot ID.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_google_data_project %}
-The Google Data Project needed to query this snapshot in BigQuery.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_snapshot_dataset %}
-The Dataset within BigQuery where the table can be queried.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_table %}
-The table in the dataset that contains the row of interest.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_parameterized_query %}
-A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_id %}
-ID associated with a class
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_external_id_description %}
-Model for GREGoR_R03_GRU_20250612_ftd_datasource_external_id.
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_external_id_datasource_id %}
-Autocreated FK slot
-{% enddocs %}
-
-
-{% docs GREGoR_R03_GRU_20250612_ftd_datasource_external_id_external_id %}
 Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
