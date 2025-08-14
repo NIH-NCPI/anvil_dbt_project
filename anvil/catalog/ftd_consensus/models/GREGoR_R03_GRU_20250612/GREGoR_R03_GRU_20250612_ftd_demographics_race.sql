@@ -1,8 +1,8 @@
 {{ config(materialized='table', schema='GREGoR_R03_GRU_20250612_data') }}
 
     with source as (
-        select 
-        {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id'], study_id='GREGoR_R03_GRU_20250612') }}::text as "Demographics_id",
+        select DISTINCT
+        {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id'], study_id='phs003047') }}::text as "Demographics_id",
         CASE 
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'American Indian or Alaska Native' THEN 'american_indian_or_alaskan_native'
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'Asian' THEN 'asian'
@@ -15,7 +15,7 @@
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'asked but unknown' THEN 'asked_but_unknown'
             WHEN STRING_SPLIT(participant.reported_race, '|') IS NULL THEN 'unknown'
         END::text as "race"
-        from {{ ref('GREGoR_R03_GRU_20250612_stg_participant') }} as participant 
+        from {{ ref('GREGoR_R03_GRU_20250612_stg_participant') }} as participant
     )
 
     select 

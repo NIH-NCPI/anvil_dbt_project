@@ -62,9 +62,6 @@ sources:
       description: '{{ doc("GREGoR_R03_GRU_20250612_participant_solve_status") }}'
     - name: twin_id
       description: '{{ doc("GREGoR_R03_GRU_20250612_participant_twin_id") }}'
-    - name: ingest_provenance
-      description: '{{ doc("GREGoR_R03_GRU_20250612_participant_ingest_provenance")
-        }}'
   - name: GREGoR_R03_GRU_20250612_phenotype
     description: Source table for GREGoR_R03_GRU_20250612_phenotype.
     columns:
@@ -84,8 +81,6 @@ sources:
       description: '{{ doc("GREGoR_R03_GRU_20250612_phenotype_participant_id") }}'
     - name: presence
       description: '{{ doc("GREGoR_R03_GRU_20250612_phenotype_presence") }}'
-    - name: syndromic
-      description: '{{ doc("GREGoR_R03_GRU_20250612_phenotype_syndromic") }}'
     - name: term_id
       description: '{{ doc("GREGoR_R03_GRU_20250612_phenotype_term_id") }}'
   - name: GREGoR_R03_GRU_20250612_experiment
@@ -93,9 +88,33 @@ sources:
     columns:
     - name: experiment_id
       description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_experiment_id") }}'
-    - name: table_name
-      description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_table_name") }}'
     - name: id_in_table
       description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_id_in_table") }}'
     - name: participant_id
       description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_participant_id") }}'
+    - name: table_name
+      description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_table_name") }}'
+    - name: ingest_provenance
+      description: '{{ doc("GREGoR_R03_GRU_20250612_experiment_ingest_provenance")
+        }}'
+  - name: GREGoR_R03_GRU_20250612_anvil_project
+    description: Source table for GREGoR_R03_GRU_20250612_anvil_project.
+    columns:
+    - name: project_id
+      description: '{{ doc("GREGoR_R03_GRU_20250612_anvil_project_project_id") }}'
+    - name: funded_by
+      description: '{{ doc("GREGoR_R03_GRU_20250612_anvil_project_funded_by") }}'
+    - name: generated_dataset_id
+      description: '{{ doc("GREGoR_R03_GRU_20250612_anvil_project_generated_dataset_id")
+        }}'
+    - name: principal_investigator
+      description: '{{ doc("GREGoR_R03_GRU_20250612_anvil_project_principal_investigator")
+        }}'
+    - name: title
+      description: '{{ doc("GREGoR_R03_GRU_20250612_anvil_project_title") }}'
+    - name: registered_identifier
+      description: '{{ doc("GREGoR_R03_GRU_20250612_anvil_project_registered_identifier")
+        }}'
+    - name: source_datarepo_row_ids
+      description: '{{ doc("GREGoR_R03_GRU_20250612_anvil_project_source_datarepo_row_ids")
+        }}'
