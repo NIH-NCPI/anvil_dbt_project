@@ -92,6 +92,17 @@ models:
     description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_familymember_external_id_external_id")
       }}'
     data_type: string
+- name: GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter
+  description: Model for GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter.
+  columns:
+  - name: sourcedata_id
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter_sourcedata_id")
+      }}'
+    data_type: string
+  - name: query_parameter
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter_query_parameter")
+      }}'
+    data_type: string
 - name: GREGoR_R03_GRU_20250612_ftd_filemetadata
   description: Model for GREGoR_R03_GRU_20250612_ftd_filemetadata.
   columns:
@@ -525,17 +536,6 @@ models:
     description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_sample_storage_method_storage_method")
       }}'
     data_type: string
-- name: GREGoR_R03_GRU_20250612_ftd_study_external_study_id
-  description: Model for GREGoR_R03_GRU_20250612_ftd_study_external_study_id.
-  columns:
-  - name: study_id
-    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_study_external_study_id_study_id")
-      }}'
-    data_type: string
-  - name: external_study_id
-    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_study_external_study_id_external_study_id")
-      }}'
-    data_type: string
 - name: GREGoR_R03_GRU_20250612_ftd_accesscontrolledrecord
   description: Model for GREGoR_R03_GRU_20250612_ftd_accesscontrolledrecord.
   columns:
@@ -587,6 +587,30 @@ models:
   - name: source_data_id
     description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_demographics_source_data_source_data_id")
       }}'
+    data_type: string
+- name: GREGoR_R03_GRU_20250612_ftd_datasource
+  description: Model for GREGoR_R03_GRU_20250612_ftd_datasource.
+  columns:
+  - name: snapshot_id
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_datasource_snapshot_id") }}'
+    data_type: string
+  - name: google_data_project
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_datasource_google_data_project")
+      }}'
+    data_type: string
+  - name: snapshot_dataset
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_datasource_snapshot_dataset")
+      }}'
+    data_type: string
+  - name: table
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_datasource_table") }}'
+    data_type: string
+  - name: parameterized_query
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_datasource_parameterized_query")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_datasource_id") }}'
     data_type: string
 - name: GREGoR_R03_GRU_20250612_ftd_sample
   description: Model for GREGoR_R03_GRU_20250612_ftd_sample.
@@ -677,6 +701,17 @@ models:
     data_type: string
   - name: family_relationships_id
     description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_family_family_relationships_family_relationships_id")
+      }}'
+    data_type: string
+- name: GREGoR_R03_GRU_20250612_ftd_datasource_external_id
+  description: Model for GREGoR_R03_GRU_20250612_ftd_datasource_external_id.
+  columns:
+  - name: datasource_id
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_datasource_external_id_datasource_id")
+      }}'
+    data_type: string
+  - name: external_id
+    description: '{{ doc("GREGoR_R03_GRU_20250612_ftd_datasource_external_id_external_id")
       }}'
     data_type: string
 - name: GREGoR_R03_GRU_20250612_ftd_familymember

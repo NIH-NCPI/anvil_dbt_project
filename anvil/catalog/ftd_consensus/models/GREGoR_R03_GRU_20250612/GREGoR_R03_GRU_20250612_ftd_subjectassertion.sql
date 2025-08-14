@@ -28,15 +28,22 @@
         NULL as "age_at_resolution",
         code_cte.code,
         NULL as "display",
-        CASE LOWER(participant.affected_status)
-            WHEN 'affected' THEN 'LA9633-4'
-            WHEN 'unaffected' THEN 'LA9634-2'
-            WHEN 'unknown' THEN 'LA4489-6'
-            WHEN 'possibly affected' THEN 'LA4489-6'
-            WHEN affected_status is null THEN 'LA4489-6'
+        CASE 
+            WHEN LOWER(participant.affected_status) = 'affected' THEN 'LA9633-4'
+            WHEN LOWER(participant.affected_status) = 'unaffected' THEN 'LA9634-2'
+            WHEN LOWER(participant.affected_status) = 'unknown' THEN 'LA4489-6'
+            WHEN LOWER(participant.affected_status) = 'possibly affected' THEN 'LA15097-1'
+            WHEN participant.affected_status is null THEN 'LA4489-6'
             ELSE CONCAT('FTD_FLAG: unhandled value_code: ', affected_status)
         END::text as "value_code",
-        phenotype.presence::text as "value_display",
+        CASE 
+            WHEN LOWER(participant.affected_status) = 'unaffected' THEN 'Absent'
+            WHEN LOWER(participant.affected_status) = 'affected' THEN 'Present'
+            WHEN LOWER(participant.affected_status) = 'unknown' THEN 'Unknown'
+            WHEN LOWER(participant.affected_status) = 'possibly affected' THEN 'Possible'
+            WHEN participant.affected_status IS NULL THEN 'Unknown'
+            ELSE CONCAT('FTD_FLAG: unhandled value_display: ', presence)
+        END::text as "value_display",
         participant.age_at_enrollment::text as "value_number",
         NULL as "value_units",
         NULL as "value_units_display",
