@@ -142,6 +142,15 @@ models:
     GREGoR_R03_GRU_20250612_ftd_subjectassertion_external_id:
       +schema: main
       +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_sourcedata_query_parameter:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_datasource:
+      +schema: main
+      +materialized: table
+    GREGoR_R03_GRU_20250612_ftd_datasource_external_id:
+      +schema: main
+      +materialized: table
   GREGoR_R03_HMB_20250612:
     GREGoR_R03_HMB_20250612_ftd_accesscontrolledrecord_external_id:
       +schema: main
