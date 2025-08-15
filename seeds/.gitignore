@@ -1,2 +1,5 @@
 *
 !.gitignore
+
+!subject_mappings
+!cmg_bh_annotations_code
