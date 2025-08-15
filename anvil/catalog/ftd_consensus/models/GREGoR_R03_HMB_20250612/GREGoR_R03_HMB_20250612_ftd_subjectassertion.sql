@@ -28,19 +28,33 @@
         NULL as "age_at_resolution",
         code_cte.code,
         NULL as "display",
-        CASE 
-            WHEN LOWER(participant.affected_status) = 'affected' THEN 'LA9633-4'
-            WHEN LOWER(participant.affected_status) = 'unaffected' THEN 'LA9634-2'
-            WHEN LOWER(participant.affected_status) = 'unknown' THEN 'LA4489-6'
-            WHEN LOWER(participant.affected_status) = 'possibly affected' THEN 'LA15097-1'
+--         CASE 
+--             WHEN LOWER(participant.affected_status) = 'affected' THEN 'LA9633-4'
+--             WHEN LOWER(participant.affected_status) = 'unaffected' THEN 'LA9634-2'
+--             WHEN LOWER(participant.affected_status) = 'unknown' THEN 'LA4489-6'
+--             WHEN LOWER(participant.affected_status) = 'possibly affected' THEN 'LA15097-1'
+--             WHEN participant.affected_status is null THEN 'LA4489-6'
+--             ELSE CONCAT('FTD_FLAG: unhandled value_code: ', affected_status)
+--         END::text as "value_code",
+--         CASE 
+--             WHEN LOWER(participant.affected_status) = 'unaffected' THEN 'Absent'
+--             WHEN LOWER(participant.affected_status) = 'affected' THEN 'Present'
+--             WHEN LOWER(participant.affected_status) = 'unknown' THEN 'Unknown'
+--             WHEN LOWER(participant.affected_status) = 'possibly affected' THEN 'Possible'
+--             WHEN participant.affected_status IS NULL THEN 'Unknown'
+--             ELSE CONCAT('FTD_FLAG: unhandled value_display: ', presence)
+--         END::text as "value_display",
+         CASE 
+            WHEN LOWER(phenotype.presence) = 'present' THEN 'LA9633-4'
+            WHEN LOWER(phenotype.presence) = 'absent' THEN 'LA9634-2'
+            WHEN LOWER(phenotype.presence) = 'unknown' THEN 'LA4489-6'
             WHEN participant.affected_status is null THEN 'LA4489-6'
-            ELSE CONCAT('FTD_FLAG: unhandled value_code: ', affected_status)
+            ELSE CONCAT('FTD_FLAG: unhandled value_code: ', presence)
         END::text as "value_code",
         CASE 
-            WHEN LOWER(participant.affected_status) = 'unaffected' THEN 'Absent'
-            WHEN LOWER(participant.affected_status) = 'affected' THEN 'Present'
-            WHEN LOWER(participant.affected_status) = 'unknown' THEN 'Unknown'
-            WHEN LOWER(participant.affected_status) = 'possibly affected' THEN 'Possible'
+            WHEN LOWER(phenotype.presence) = 'present'  THEN 'Present'
+            WHEN LOWER(phenotype.presence) = 'absent'  THEN 'Absent'
+            WHEN LOWER(phenotype.presence) = 'unknown' THEN 'Unknown'
             WHEN participant.affected_status IS NULL THEN 'Unknown'
             ELSE CONCAT('FTD_FLAG: unhandled value_display: ', presence)
         END::text as "value_display",
