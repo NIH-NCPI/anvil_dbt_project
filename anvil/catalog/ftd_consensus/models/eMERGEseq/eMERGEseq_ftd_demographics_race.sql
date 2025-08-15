@@ -11,12 +11,12 @@
             WHEN 'C41261' THEN 'white'
             WHEN 'C17998' THEN 'unknown'
             WHEN 'C43234' THEN 'unknown'
+            WHEN 'C13652' THEN 'unknown'
             WHEN '.' THEN 'unknown'
             WHEN 'NA' THEN 'unknown'
             WHEN 'OTHER' THEN 'other_race'
        END::text as "race"
         from {{ ref('eMERGEseq_stg_demographics') }} as demographics
-        WHERE demographics.race != 'C13652'
     )
 
     select 
