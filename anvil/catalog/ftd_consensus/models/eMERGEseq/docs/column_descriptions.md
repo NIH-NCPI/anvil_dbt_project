@@ -1,3 +1,18 @@
+{% docs eMERGEseq_ftd_datasource_external_id_description %}
+Model for eMERGEseq_ftd_datasource_external_id.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_external_id_datasource_id %}
+Autocreated FK slot
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_external_id_external_id %}
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+{% enddocs %}
+
+
 {% docs eMERGEseq_ftd_sample_description %}
 Model for eMERGEseq_ftd_sample.
 {% enddocs %}
@@ -126,6 +141,41 @@ Autocreated FK slot
 
 {% docs eMERGEseq_ftd_biospecimencollection_external_id_external_id %}
 Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_description %}
+Model for eMERGEseq_ftd_datasource.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_snapshot_id %}
+The Terra Data Repository Snapshot ID.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_google_data_project %}
+The Google Data Project needed to query this snapshot in BigQuery.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_snapshot_dataset %}
+The Dataset within BigQuery where the table can be queried.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_table %}
+The table in the dataset that contains the row of interest.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_parameterized_query %}
+A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_datasource_id %}
+ID associated with a class
 {% enddocs %}
 
 
@@ -371,6 +421,21 @@ ID associated with a class
 
 {% docs eMERGEseq_ftd_subject_has_demographics_id %}
 A demographic summary of the participant.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_sourcedata_query_parameter_description %}
+Model for eMERGEseq_ftd_sourcedata_query_parameter.
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_sourcedata_query_parameter_sourcedata_id %}
+Autocreated FK slot
+{% enddocs %}
+
+
+{% docs eMERGEseq_ftd_sourcedata_query_parameter_query_parameter %}
+One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, "<parameter name>:<data type>:<value>".
 {% enddocs %}
 
 
@@ -851,21 +916,6 @@ Autocreated FK slot
 
 {% docs eMERGEseq_ftd_subjectassertion_source_data_source_data_id %}
 The sources from which this assertion was derived
-{% enddocs %}
-
-
-{% docs eMERGEseq_ftd_study_external_study_id_description %}
-Model for eMERGEseq_ftd_study_external_study_id.
-{% enddocs %}
-
-
-{% docs eMERGEseq_ftd_study_external_study_id_study_id %}
-Autocreated FK slot
-{% enddocs %}
-
-
-{% docs eMERGEseq_ftd_study_external_study_id_external_study_id %}
-External Study ID
 {% enddocs %}
 
 

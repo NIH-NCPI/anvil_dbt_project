@@ -45,7 +45,7 @@ unpivot_bmi as (
         {% for col in pivot_bmi_columns %}
             select distinct
             {{ constant_bmi_columns | join(', ') }},
-            'clinical_finding'::text as "assertion_type",
+            'measurement'::text as "assertion_type",
             bmi.age_at_observation::text as "age_at_assertion",
             null as "age_at_event", 
             null as "age_at_resolution",

@@ -541,3 +541,12 @@ models:
     eMERGEseq_ftd_study_external_id:
       +schema: main
       +materialized: table
+    eMERGEseq_ftd_datasource_external_id:
+      +schema: main
+      +materialized: table
+    eMERGEseq_ftd_datasource:
+      +schema: main
+      +materialized: table
+    eMERGEseq_ftd_sourcedata_query_parameter:
+      +schema: main
+      +materialized: table
