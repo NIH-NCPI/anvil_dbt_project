@@ -1,0 +1,7 @@
+{{% macro transform_participant(source_table) %}}
+
+select 
+  file_id::text as "File_id",
+  subject_id::text as "subject_id"
+from {{ ref(source_table) }}
+{%- endmacro -%}
