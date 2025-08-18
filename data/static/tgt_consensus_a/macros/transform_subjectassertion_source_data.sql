@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_subjectassertion_source_data(source_table) %}}
 
 select 
   subjectassertion_id::text as "SubjectAssertion_id",

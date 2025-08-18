@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_study(source_table) %}}
 
 select 
   parent_study_id::text as "parent_study_id",

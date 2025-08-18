@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_biospecimencollection(source_table) %}}
 
 select 
   age_at_collection::integer as "age_at_collection",

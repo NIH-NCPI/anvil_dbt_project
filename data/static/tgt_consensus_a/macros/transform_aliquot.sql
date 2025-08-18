@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_aliquot(source_table) %}}
 
 select 
   availablity_status::text as "availablity_status",

@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_study_funding_source(source_table) %}}
 
 select 
   study_id::text as "Study_id",

@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_subject(source_table) %}}
 
 select 
   subject_type::text as "subject_type",
