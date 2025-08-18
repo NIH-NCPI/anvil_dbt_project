@@ -53,10 +53,14 @@
         {{ generate_global_id(prefix='fm',descriptor=['family_member','other_family_member'],study_id='phs001616') }}::text as "id",
         relationship_code, 
         {{ generate_global_id(prefix='sb',descriptor=['family_member'], study_id='phs001616') }}::text AS "family_member",
-        {{ generate_global_id(prefix='sb',descriptor=['other_family_member'], study_id='phs001616') }}::text as "other_family_member"
+        {{ generate_global_id(prefix='sb',descriptor=['other_family_member'], study_id='phs001616') }}::text as "other_family_member",
+        {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy"
+
     from (
         select distinct * from direct_relationship 
     
     union all
     
         select distinct * from reverse_twin_relationship) as combined_relationship
+    left join {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
+    on subjectconsent.subject_id = combined_relationship.family_member
