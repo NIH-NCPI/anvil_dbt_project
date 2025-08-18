@@ -1,4 +1,4 @@
-{{% macro transform_demographics_external_id(source_table) %}}
+{% macro transform_demographics_external_id(source_table) %}
 
 select 
   demographics_id::text as "Demographics_id",

@@ -1,4 +1,4 @@
-{{% macro transform_sourcedata_query_parameter(source_table) %}}
+{% macro transform_sourcedata_query_parameter(source_table) %}
 
 select 
   sourcedata_id::text as "SourceData_id",

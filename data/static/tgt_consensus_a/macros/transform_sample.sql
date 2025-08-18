@@ -1,4 +1,4 @@
-{{% macro transform_sample(source_table) %}}
+{% macro transform_sample(source_table) %}
 
 select 
   parent_sample::text as "parent_sample",

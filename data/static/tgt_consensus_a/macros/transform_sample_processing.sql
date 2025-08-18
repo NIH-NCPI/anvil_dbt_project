@@ -1,4 +1,4 @@
-{{% macro transform_sample_processing(source_table) %}}
+{% macro transform_sample_processing(source_table) %}
 
 select 
   sample_id::text as "Sample_id",

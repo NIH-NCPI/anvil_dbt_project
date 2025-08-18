@@ -1,4 +1,4 @@
-{{% macro transform_accesscontrolledrecord(source_table) %}}
+{% macro transform_accesscontrolledrecord(source_table) %}
 
 select 
   has_access_policy::text as "has_access_policy",

@@ -1,4 +1,4 @@
-{{% macro transform_family(source_table) %}}
+{% macro transform_family(source_table) %}
 
 select 
   family_type::text as "family_type",

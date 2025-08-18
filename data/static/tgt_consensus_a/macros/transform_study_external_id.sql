@@ -1,4 +1,4 @@
-{{% macro transform_study_external_id(source_table) %}}
+{% macro transform_study_external_id(source_table) %}
 
 select 
   study_id::text as "Study_id",

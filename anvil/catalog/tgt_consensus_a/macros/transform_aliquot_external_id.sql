@@ -1,4 +1,4 @@
-{{% macro transform_aliquot_external_id(source_table) %}}
+{% macro transform_aliquot_external_id(source_table) %}
 
 select 
   aliquot_id::text as "Aliquot_id",

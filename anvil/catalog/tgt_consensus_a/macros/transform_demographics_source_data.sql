@@ -1,4 +1,4 @@
-{{% macro transform_demographics_source_data(source_table) %}}
+{% macro transform_demographics_source_data(source_table) %}
 
 select 
   demographics_id::text as "Demographics_id",

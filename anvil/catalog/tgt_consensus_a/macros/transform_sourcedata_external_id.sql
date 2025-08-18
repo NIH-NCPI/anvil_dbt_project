@@ -1,4 +1,4 @@
-{{% macro transform_sourcedata_external_id(source_table) %}}
+{% macro transform_sourcedata_external_id(source_table) %}
 
 select 
   sourcedata_id::text as "SourceData_id",
