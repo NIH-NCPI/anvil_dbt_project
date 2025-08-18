@@ -1,4 +1,4 @@
-{{% macro transform_filemetadata_external_id(source_table) %}}
+{% macro transform_filemetadata_external_id(source_table) %}
 
 select 
   filemetadata_id::text as "FileMetadata_id",

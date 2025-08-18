@@ -1,4 +1,4 @@
-{{% macro transform_filemetadata(source_table) %}}
+{% macro transform_filemetadata(source_table) %}
 
 select 
   code::text as "code",

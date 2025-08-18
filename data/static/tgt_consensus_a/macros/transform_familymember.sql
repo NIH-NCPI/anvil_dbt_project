@@ -1,4 +1,4 @@
-{{% macro transform_familymember(source_table) %}}
+{% macro transform_familymember(source_table) %}
 
 select 
   family_member::text as "family_member",

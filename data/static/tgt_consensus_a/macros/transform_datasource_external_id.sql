@@ -1,4 +1,4 @@
-{{% macro transform_datasource_external_id(source_table) %}}
+{% macro transform_datasource_external_id(source_table) %}
 
 select 
   datasource_id::text as "DataSource_id",

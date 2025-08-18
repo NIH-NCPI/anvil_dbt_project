@@ -1,4 +1,4 @@
-{{% macro transform_datasource(source_table) %}}
+{% macro transform_datasource(source_table) %}
 
 select 
   snapshot_id::text as "snapshot_id",

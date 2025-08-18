@@ -1,4 +1,4 @@
-{{% macro transform_file_sample(source_table) %}}
+{% macro transform_file_sample(source_table) %}
 
 select 
   file_id::text as "File_id",

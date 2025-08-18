@@ -1,4 +1,4 @@
-{{% macro transform_demographics(source_table) %}}
+{% macro transform_demographics(source_table) %}
 
 select 
   date_of_birth::integer as "date_of_birth",

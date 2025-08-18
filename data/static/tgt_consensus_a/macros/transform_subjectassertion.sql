@@ -1,4 +1,4 @@
-{{% macro transform_subjectassertion(source_table) %}}
+{% macro transform_subjectassertion(source_table) %}
 
 select 
   assertion_type::text as "assertion_type",
