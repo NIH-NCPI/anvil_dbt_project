@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_subject_external_id(source_table) %}}
 
 select 
   subject_id::text as "Subject_id",

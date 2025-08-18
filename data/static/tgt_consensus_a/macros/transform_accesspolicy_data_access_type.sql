@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_accesspolicy_data_access_type(source_table) %}}
 
 select 
   accesspolicy_id::text as "AccessPolicy_id",

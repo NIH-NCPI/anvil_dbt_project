@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_familyrelationship_external_id(source_table) %}}
 
 select 
   familyrelationship_id::text as "FamilyRelationship_id",

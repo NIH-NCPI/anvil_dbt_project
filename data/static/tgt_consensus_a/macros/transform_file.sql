@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_file(source_table) %}}
 
 select 
   filename::text as "filename",

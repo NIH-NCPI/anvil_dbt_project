@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_accesspolicy(source_table) %}}
 
 select 
   disease_limitation::text as "disease_limitation",

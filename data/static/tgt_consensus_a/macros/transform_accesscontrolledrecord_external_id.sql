@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_accesscontrolledrecord_external_id(source_table) %}}
 
 select 
   accesscontrolledrecord_id::text as "AccessControlledRecord_id",

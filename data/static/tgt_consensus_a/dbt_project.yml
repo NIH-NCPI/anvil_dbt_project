@@ -78,8 +78,6 @@ models:
       +materialized: table
     tgt_aliquot:
       +materialized: table
-    tgt_thing_external_id:
-      +materialized: table
     tgt_demographics_race:
       +materialized: table
     tgt_study:

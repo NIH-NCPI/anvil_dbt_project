@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_sourcedata(source_table) %}}
 
 select 
   data_source::text as "data_source",

@@ -1,4 +1,4 @@
-{{% macro transform_participant(source_table) %}}
+{{% macro transform_biospecimencollection_external_id(source_table) %}}
 
 select 
   biospecimencollection_id::text as "BiospecimenCollection_id",
