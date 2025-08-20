@@ -9,7 +9,7 @@
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
   WHERE subjectconsent.consent IN ('1', '3', '4', '5', '9')
 
-    UNION
+    UNION ALL
         
     select DISTINCT
          NULL as "disease_limitation",
@@ -19,7 +19,7 @@
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('3', '4', '5', '10')
 
-    UNION
+    UNION ALL
         
     select DISTINCT
          NULL as "disease_limitation",
@@ -29,7 +29,7 @@
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('4', '5', '8', '9')
 
-     UNION
+     UNION ALL
         
     select DISTINCT
          NULL as "disease_limitation",
@@ -39,7 +39,7 @@
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('5', '10')
     
-    UNION
+    UNION ALL
         
     select DISTINCT
          NULL as "disease_limitation",
@@ -49,7 +49,7 @@
     from {{ ref('eMERGEseq_stg_subjectconsent') }} as subjectconsent
     WHERE subjectconsent.consent IN ('6', '7', '8', '10')
 
-    UNION
+    UNION ALL
         
     select DISTINCT
         NULL as "disease_limitation",
