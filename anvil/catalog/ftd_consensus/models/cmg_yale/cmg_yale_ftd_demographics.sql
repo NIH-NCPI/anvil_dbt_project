@@ -33,7 +33,7 @@ select
       then 'Native Hawaiian or Pacific Islander'
     when ancestry = 'Hispanic or Latino'
       then 'Unknown'
-    when ancestry is null then 'Unknown'
+    when ancestry is null then null -- Cannot assume the question was not asked
     else CONCAT('FTD_FLAG:unhandled race_display: ',ancestry)
   end as "race_display",
   'unknown'::text as "ethnicity",

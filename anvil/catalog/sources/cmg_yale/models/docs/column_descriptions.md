@@ -280,3 +280,297 @@ nan
 {% docs cmg_yale_stg_subject_ftd_key %}
 Unique key for the FTD record
 {% enddocs %}
+
+{% docs anvil_dataset_description %}
+Model for anvil_dataset.
+{% enddocs %}
+
+
+{% docs anvil_dataset_consent_group %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_data_use_permission %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_owner %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_principal_investigator %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_registered_identifier %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_title %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_data_modality %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_source_datarepo_row_ids %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_description %}
+Model for cmg_yale_stg_anvil_dataset.
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_consent_group %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_data_use_permission %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_owner %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_principal_investigator %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_registered_identifier %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_title %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_data_modality %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_anvil_dataset_source_datarepo_row_ids %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_description %}
+Model for sequencing.
+{% enddocs %}
+
+
+{% docs sequencing_sequencing_id %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_alignment_method %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_analyte_type %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_data_processing_pipeline %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_date_data_generation %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_functional_equivalence_standard %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_library_prep_kit_method %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_reference_genome_build %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_sample_id %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_seq_filename %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_sequencing_assay %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_sequencing_id_fileref %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_capture_region_bed_file %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_exome_capture_platform %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_description %}
+Model for cmg_yale_stg_sequencing.
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_sequencing_id %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_alignment_method %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_analyte_type %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_data_processing_pipeline %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_date_data_generation %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_functional_equivalence_standard %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_library_prep_kit_method %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_reference_genome_build %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_sample_id %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_seq_filename %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_sequencing_assay %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_sequencing_id_fileref %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_capture_region_bed_file %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_sequencing_exome_capture_platform %}
+None
+{% enddocs %}
+
+
+{% docs family_description %}
+Model for family.
+{% enddocs %}
+
+
+{% docs family_family_id %}
+None
+{% enddocs %}
+
+
+{% docs family_consanguinity %}
+None
+{% enddocs %}
+
+
+{% docs family_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_family_description %}
+Model for cmg_yale_stg_family.
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_family_family_id %}
+nan
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_family_consanguinity %}
+nan
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_family_ingest_provenance %}
+nan
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_family_ftd_key %}
+Unique key for the FTD record
+{% enddocs %}
