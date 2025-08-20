@@ -50,7 +50,7 @@
     )
 
     select DISTINCT
-        {{ generate_global_id(prefix='fr',descriptor=['family_member','other_family_member'],study_id='phs001616') }}::text as "id",
+        {{ generate_global_id(prefix='fr',descriptor=['family_id','family_member','other_family_member','relationship_code'],study_id='phs001616') }}::text as "id",
         relationship_code, 
         {{ generate_global_id(prefix='sb',descriptor=['family_member'], study_id='phs001616') }}::text AS "family_member",
         {{ generate_global_id(prefix='sb',descriptor=['other_family_member'], study_id='phs001616') }}::text as "other_family_member",

@@ -59,7 +59,7 @@
 ),
         source as(
         select distinct
-        {{ generate_global_id(prefix='fm',descriptor=['subjectconsent.subject_id'], study_id='phs001616') }}::text as "family_member",
+        {{ generate_global_id(prefix='sb',descriptor=['subjectconsent.subject_id'], study_id='phs001616') }}::text as "family_member",
        family_role,
        {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "has_access_policy",
        {{ generate_global_id(prefix='fm',descriptor=['pedigree.subject_id', 'pedigree.family_id'], study_id='phs001616') }}::text as "id",
