@@ -2,7 +2,7 @@
 # +
 dbt clean
 dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
-# dbt seed #--full-refresh
+dbt seed #--full-refresh
 
 # dbt run --select +cmg_yale_stg_subject
 # dbt run --select +cmg_yale_stg_sample
