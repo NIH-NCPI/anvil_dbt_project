@@ -1,12 +1,41 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_yale') }}::text as "familyrelationship_id",
-  GEN_UNKNOWN.external_id::text as "external_id"
-from {{ ref('cmg_yale_stg_sample') }} as sample
-join {{ ref('cmg_yale_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id  join {{ ref('cmg_yale_stg_anvil_dataset') }} as anvil_dataset
-on   join {{ ref('cmg_yale_stg_sequencing') }} as sequencing
-on   join {{ ref('cmg_yale_stg_family') }} as family
-on  
+with
+probands_only as (
+    select distinct
+      ingest_provenance,
+      family_id,
+      subject_id,
+      proband_relationship as "proband_rel_code",
+    from {{ ref('cmg_yale_stg_subject') }}
+    where proband_relationship = 'Proband'
+)
+,others_only as (
+    select distinct
+      ingest_provenance,
+      family_id,
+      subject_id,
+      proband_relationship as "other_rel_code",
+    from {{ ref('cmg_yale_stg_subject') }}
+    where proband_relationship != 'Proband'
+)
+,fr_base as (
+    select
+      distinct
+      {{ generate_global_id(prefix='sb',descriptor=['p.subject_id'], study_id='cmg_yale') }}::text as "family_member",
+      proband_rel_code,
+      {{ generate_global_id(prefix='sb',descriptor=['o.subject_id'], study_id='cmg_yale') }}::text as "other_family_member",
+      other_rel_code,
+      {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_yale') }}::text as "has_access_policy",
+      {{ generate_global_id(prefix='fr',descriptor=['family_id','p.subject_id','o.subject_id','other_rel_code'], study_id='cmg_yale') }}::text as "id"
+    from probands_only as p
+    left join others_only as o
+    using (family_id, ingest_provenance)
+    where o.subject_id is not null
+)
 
+select 
+  distinct
+  family_member::text as "external_id",
+  id as "familyrelationship_id",
+from fr_base

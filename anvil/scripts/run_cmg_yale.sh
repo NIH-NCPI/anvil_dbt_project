@@ -10,7 +10,7 @@ dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # dbt run --select +cmg_yale_stg_family
 
 # dbt run --select cmg_yale_ftd_subjectassertion 
-dbt run --select cmg_yale_ftd_external_id 
+dbt run --select cmg_yale_ftd_subjectassertion_external_id 
 # dbt run --select cmg_yale_ftd_demographics
 # dbt run --select cmg_yale_ftd_demographics_race
 # dbt run --select cmg_yale_ftd_demographics_external_id
@@ -19,11 +19,9 @@ dbt run --select cmg_yale_ftd_external_id
 dbt run --select +cmg_yale_ftd_family
 dbt run --select +cmg_yale_ftd_family_external_id
 dbt run --select +cmg_yale_ftd_familymember
-# dbt run --select +cmg_yale_ftd_familymember_external_id
-# dbt run --select +cmg_yale_ftd_familyrelationship_external_id
-# dbt run --select +cmg_yale_ftd_familyrelationship
-
-
+dbt run --select +cmg_yale_ftd_familymember_external_id
+dbt run --select +cmg_yale_ftd_familyrelationship_external_id
+dbt run --select +cmg_yale_ftd_familyrelationship
 
 # Run Target tables
 # dbt run --select +cmg_yale_ftd_biospecimencollection
