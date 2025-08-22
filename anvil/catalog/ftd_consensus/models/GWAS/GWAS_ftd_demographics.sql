@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
 select 
- CASE
+CASE
     WHEN demographics.year_birth = 'NA' THEN null
     WHEN demographics.year_birth = '.' THEN null
     ELSE demographics.year_birth
@@ -14,7 +14,7 @@ CASE demographics.sex
     WHEN '.' THEN 'unknown'
     WHEN 'NA' THEN 'unknown'
 END::text as "sex",       
- CASE demographics.sex
+CASE demographics.sex
     WHEN 'C46110' THEN 'Female'
     WHEN 'C46109' THEN 'Male'
     WHEN 'U' THEN 'Unknown'
