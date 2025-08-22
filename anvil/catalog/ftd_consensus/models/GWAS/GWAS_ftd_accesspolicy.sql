@@ -16,10 +16,14 @@ with source as (
     {%- for group in consent_groups -%}
     (
     select DISTINCT
-        NULL as "disease_limitation",
+        CASE consent
+            WHEN '6' THEN 'Childhood Diseases'
+            WHEN '7' THEN 'Dementia'
+            ELSE NULL 
+        END as "disease_limitation",
         '{{ group.description }}' as "description",
         NULL as "website",
-        {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001616') }}::text as "id"
+        {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001584') }}::text as "id"
     from {{ ref('GWAS_stg_subjectconsent') }} as subjectconsent
       where subjectconsent.consent in (
         {%- for c in group.consents -%}
