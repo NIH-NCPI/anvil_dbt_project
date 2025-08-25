@@ -1,26 +1,29 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
-{%- set pivot_columns = ['crai','cram','seq_filename','sequencing_id_fileref']
+{%- set pivot_columns = ['crai','cram','seq_filename','sequencing_id_fileref'] -%}
 
 with
 combo_df as (
   select 
     distinct
     subject_id,
+    consent_id,
     crai,
     cram,
     seq_filename,
     sequencing_id_fileref
   from 
-    (select distinct crai, cram from {{ ref('cmg_yale_stg_sample') }}
+    ((select distinct sample_id, consent_id, subject_id, crai, cram from {{ ref('cmg_yale_stg_sample') }}) as s
      full join
-     select distinct seq_filename, sequencing_id_fileref from {{ ref('cmg_yale_stg_sequencing') }}
-     using (subject_id, consent_id)
+     (select distinct sample_id, consent_id, seq_filename, sequencing_id_fileref from {{ ref('cmg_yale_stg_sequencing') }}) as seq
+     using (sample_id, consent_id)
+    ) as s
 )
 ,unpivot_df as (
     {%- for col in pivot_columns -%}
         select
             distinct 
             consent_id,
+            subject_id,
             '{{ col }}' as "file_type",
             cast({{ col }} as varchar) as "drs_uri"
         from combo_df

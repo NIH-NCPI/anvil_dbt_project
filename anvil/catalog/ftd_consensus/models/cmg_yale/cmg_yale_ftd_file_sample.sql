@@ -1,5 +1,5 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
-{%- set pivot_columns = ['crai','cram']
+{%- set pivot_columns = ['crai','cram'] -%}
 
 with
 combo_df as (
@@ -9,7 +9,8 @@ combo_df as (
     crai,
     cram
   from 
-    (select distinct crai, cram from {{ ref('cmg_yale_stg_sample') }}) as s
+    (select distinct sample_id, crai, cram from {{ ref('cmg_yale_stg_sample') }}) as s
+)
 ,unpivot_df as (
     {%- for col in pivot_columns -%}
         select

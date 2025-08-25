@@ -10,8 +10,4 @@ packages:
   - local: "anvil/catalog/sources/cmg_yale"
 
   - local: "anvil/catalog/ftd_consensus"
-<<<<<<< Updated upstream
-#   - local: "anvil/catalog/tgt_consensus_a"
-=======
   - local: "anvil/catalog/tgt_consensus_a"
->>>>>>> Stashed changes

@@ -4,11 +4,11 @@ dbt clean
 dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # dbt seed #--full-refresh
 
-dbt run --select +cmg_yale_stg_subject
-dbt run --select +cmg_yale_stg_sample
-dbt run --select +cmg_yale_stg_sequencing
-dbt run --select +cmg_yale_stg_family
-dbt run --select +cmg_yale_stg_anvil_dataset
+# dbt run --select +cmg_yale_stg_subject
+# dbt run --select +cmg_yale_stg_sample
+# dbt run --select +cmg_yale_stg_sequencing
+# dbt run --select +cmg_yale_stg_family
+# dbt run --select +cmg_yale_stg_anvil_dataset
 
 
 # dbt run --select cmg_yale_ftd_subjectassertion 
@@ -30,6 +30,13 @@ dbt run --select +cmg_yale_stg_anvil_dataset
 # dbt run --select +cmg_yale_ftd_accesspolicy_data_access_type
 # dbt run --select +cmg_yale_ftd_accesspolicy_access_policy_code
 
+# dbt run --select +cmg_yale_ftd_file
+# dbt run --select +cmg_yale_ftd_file_external_id
+# dbt run --select +cmg_yale_ftd_file_sample
+# dbt run --select +cmg_yale_ftd_file_subject
+# dbt run --select +cmg_yale_ftd_sample
+dbt run --select +cmg_yale_ftd_sample_external_id
+
 
 # Run Target tables
 # dbt run --select +cmg_yale_ftd_biospecimencollection
@@ -37,24 +44,18 @@ dbt run --select +cmg_yale_stg_anvil_dataset
 # dbt run --select +cmg_yale_ftd_study_external_id
 # dbt run --select +cmg_yale_ftd_aliquot
 # dbt run --select +cmg_yale_ftd_sourcedata_query_parameter
-# dbt run --select +cmg_yale_ftd_file_sample
 # dbt run --select +cmg_yale_ftd_study_principal_investigator
 # dbt run --select +cmg_yale_ftd_sample_storage_method
 # dbt run --select +cmg_yale_ftd_filemetadata_external_id
 # dbt run --select +cmg_yale_ftd_sample_processing
-# dbt run --select +cmg_yale_ftd_file_external_id
 # dbt run --select +cmg_yale_ftd_filemetadata
 # dbt run --select +cmg_yale_ftd_study
-# dbt run --select +cmg_yale_ftd_file
 # dbt run --select +cmg_yale_ftd_study_funding_source
-# dbt run --select +cmg_yale_ftd_sample
 # dbt run --select +cmg_yale_ftd_datasource_external_id
 # dbt run --select +cmg_yale_ftd_demographics_source_data
 # dbt run --select +cmg_yale_ftd_aliquot_external_id
 # dbt run --select +cmg_yale_ftd_sourcedata_external_id
-# dbt run --select +cmg_yale_ftd_file_subject
 # dbt run --select +cmg_yale_ftd_sourcedata
-# dbt run --select +cmg_yale_ftd_sample_external_id
 
 
 # dbt run --select +cmg_yale_ftd_subjectassertion_source_data
