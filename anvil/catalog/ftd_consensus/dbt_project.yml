@@ -685,6 +685,8 @@ models:
       +schema: main
       +materialized: table
     GWAS_ftd_study_external_id:
+      +schema: main
+      +materialized: table
   eMERGEseq:
     eMERGEseq_ftd_datasource_external_id:
       +schema: main
