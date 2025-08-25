@@ -22,5 +22,6 @@ with source as (
 
 select 
   ROW_NUMBER() OVER () AS ftd_index,
-  source.*
+  source.*,
+  REPLACE(ingest_provenance, 'sequencing_', '') AS "consent_id",
 from source

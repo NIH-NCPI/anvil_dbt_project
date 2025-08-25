@@ -24,4 +24,4 @@ select
     when ancestry is null then null -- Cannot assume the question was not asked
     else CONCAT('FTD_FLAG:unhandled race: ',ancestry)
   end as "race",
-from (select distinct sex, ancestry, subject_id, ingest_provenance from {{ ref('cmg_yale_stg_subject') }}) as s
+from (select distinct sex, ancestry, subject_id, consent_id from {{ ref('cmg_yale_stg_subject') }}) as s

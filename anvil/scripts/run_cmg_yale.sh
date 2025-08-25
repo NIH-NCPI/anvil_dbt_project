@@ -2,32 +2,39 @@
 # +
 dbt clean
 dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
-dbt seed #--full-refresh
+# dbt seed #--full-refresh
 
-# dbt run --select +cmg_yale_stg_subject
-# dbt run --select +cmg_yale_stg_sample
-# dbt run --select +cmg_yale_stg_sequencing
-# dbt run --select +cmg_yale_stg_family
+dbt run --select +cmg_yale_stg_subject
+dbt run --select +cmg_yale_stg_sample
+dbt run --select +cmg_yale_stg_sequencing
+dbt run --select +cmg_yale_stg_family
+dbt run --select +cmg_yale_stg_anvil_dataset
+
 
 # dbt run --select cmg_yale_ftd_subjectassertion 
-dbt run --select cmg_yale_ftd_subjectassertion_external_id 
+# dbt run --select cmg_yale_ftd_subjectassertion_external_id 
 # dbt run --select cmg_yale_ftd_demographics
 # dbt run --select cmg_yale_ftd_demographics_race
 # dbt run --select cmg_yale_ftd_demographics_external_id
 # dbt run --select cmg_yale_ftd_subject
 # dbt run --select cmg_yale_ftd_subject_external_id
-dbt run --select +cmg_yale_ftd_family
-dbt run --select +cmg_yale_ftd_family_external_id
-dbt run --select +cmg_yale_ftd_familymember
-dbt run --select +cmg_yale_ftd_familymember_external_id
-dbt run --select +cmg_yale_ftd_familyrelationship_external_id
-dbt run --select +cmg_yale_ftd_familyrelationship
+# dbt run --select +cmg_yale_ftd_family
+# dbt run --select +cmg_yale_ftd_family_external_id
+# dbt run --select +cmg_yale_ftd_familymember
+# dbt run --select +cmg_yale_ftd_familymember_external_id
+# dbt run --select +cmg_yale_ftd_familyrelationship_external_id
+# dbt run --select +cmg_yale_ftd_familyrelationship
+
+# dbt run --select +cmg_yale_ftd_accesspolicy
+# dbt run --select +cmg_yale_ftd_accesspolicy_external_id
+# dbt run --select +cmg_yale_ftd_accesspolicy_data_access_type
+# dbt run --select +cmg_yale_ftd_accesspolicy_access_policy_code
+
 
 # Run Target tables
 # dbt run --select +cmg_yale_ftd_biospecimencollection
 # dbt run --select +cmg_yale_ftd_biospecimencollection_external_id
 # dbt run --select +cmg_yale_ftd_study_external_id
-# dbt run --select +cmg_yale_ftd_accesspolicy
 # dbt run --select +cmg_yale_ftd_aliquot
 # dbt run --select +cmg_yale_ftd_sourcedata_query_parameter
 # dbt run --select +cmg_yale_ftd_file_sample
@@ -36,19 +43,16 @@ dbt run --select +cmg_yale_ftd_familyrelationship
 # dbt run --select +cmg_yale_ftd_filemetadata_external_id
 # dbt run --select +cmg_yale_ftd_sample_processing
 # dbt run --select +cmg_yale_ftd_file_external_id
-# dbt run --select +cmg_yale_ftd_accesspolicy_external_id
 # dbt run --select +cmg_yale_ftd_filemetadata
 # dbt run --select +cmg_yale_ftd_study
 # dbt run --select +cmg_yale_ftd_file
 # dbt run --select +cmg_yale_ftd_study_funding_source
-# dbt run --select +cmg_yale_ftd_accesspolicy_data_access_type
 # dbt run --select +cmg_yale_ftd_sample
 # dbt run --select +cmg_yale_ftd_datasource_external_id
 # dbt run --select +cmg_yale_ftd_demographics_source_data
 # dbt run --select +cmg_yale_ftd_aliquot_external_id
 # dbt run --select +cmg_yale_ftd_sourcedata_external_id
 # dbt run --select +cmg_yale_ftd_file_subject
-# dbt run --select +cmg_yale_ftd_accesspolicy_access_policy_code
 # dbt run --select +cmg_yale_ftd_sourcedata
 # dbt run --select +cmg_yale_ftd_sample_external_id
 

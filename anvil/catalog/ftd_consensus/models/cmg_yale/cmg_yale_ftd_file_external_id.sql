@@ -1,12 +1,34 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
+{%- set pivot_columns = ['crai','cram','seq_filename','sequencing_id_fileref']
 
+with
+combo_df as (
+  select 
+    distinct
+    consent_id,
+    crai,
+    cram,
+    seq_filename,
+    sequencing_id_fileref
+  from 
+    (select distinct crai, cram from {{ ref('cmg_yale_stg_sample') }}
+     full join
+     select distinct seq_filename, sequencing_id_fileref from {{ ref('cmg_yale_stg_sequencing') }}
+     using (subject_id, consent_id)
+)
+,unpivot_df as (
+    {%- for col in pivot_columns -%}
+        select
+            distinct 
+            consent_id,
+            '{{ col }}' as "file_type",
+            cast({{ col }} as varchar) as "drs_uri"
+        from combo_df
+        where {{ col }} IS NOT NULL
+        {% if not loop.last %}union all{% endif %}
+    {% endfor %}
+)
 select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_yale') }}::text as "file_id",
-  GEN_UNKNOWN.external_id::text as "external_id"
-from {{ ref('cmg_yale_stg_sample') }} as sample
-join {{ ref('cmg_yale_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id  join {{ ref('cmg_yale_stg_anvil_dataset') }} as anvil_dataset
-on   join {{ ref('cmg_yale_stg_sequencing') }} as sequencing
-on   join {{ ref('cmg_yale_stg_family') }} as family
-on  
-
+  {{ generate_global_id(prefix='fl',descriptor=['drs_uri'], study_id='cmg_yale') }}::text as "file_id",
+  drs_uri::text as "external_id"
+unpivot_df

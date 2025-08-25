@@ -551,6 +551,7 @@ models:
     cmg_bh_ftd_biospecimencollection:
       +schema: main
       +materialized: table
+<<<<<<< Updated upstream
   eMERGEseq:
     eMERGEseq_ftd_datasource_external_id:
       +schema: main
@@ -685,6 +686,8 @@ models:
       +schema: main
       +materialized: table
     eMERGEseq_ftd_study_external_id:   
+=======
+>>>>>>> Stashed changes
   cmg_yale:
     cmg_yale_ftd_biospecimencollection:
       +schema: main

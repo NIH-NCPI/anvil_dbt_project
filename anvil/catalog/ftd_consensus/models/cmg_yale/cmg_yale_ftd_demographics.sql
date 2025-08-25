@@ -40,6 +40,6 @@ select
   'Unknown'::text as "ethnicity_display",
   NULL::integer as "age_at_last_vital_status",
   'unspecified'::text as "vital_status",
-   {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_yale') }}::text as "has_access_policy",
+   {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='cmg_yale') }}::text as "has_access_policy",
    {{ generate_global_id(prefix='dm',descriptor=['subject_id'], study_id='cmg_yale') }}::text as "id"
-from (select distinct sex, ancestry, subject_id, ingest_provenance from {{ ref('cmg_yale_stg_subject') }}) as s
+from (select distinct sex, ancestry, subject_id, consent_id from {{ ref('cmg_yale_stg_subject') }}) as s

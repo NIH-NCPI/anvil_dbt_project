@@ -99,6 +99,7 @@ select
    dbgap_study_id,
    sex,
    ingest_provenance,
+   REPLACE(REPLACE(ingest_provenance, 'subject_', ''), 'participant_', '') AS "consent_id",
    disease_id,
    sample_id,
    presence,
