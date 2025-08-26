@@ -3,7 +3,7 @@
 with source as (
     select 
       "subject_id"::text as "subject_id",
-       "age_at_observation"::text as "age_at_observation",
+        REPLACE(CAST("age_at_observation" AS VARCHAR(50)), 'NA', NULL)::text as "age_at_observation",
        "icd_code"::text as "icd_code",
        "icd_flag"::text as "icd_flag",
        "phecode"::text as "phecode"

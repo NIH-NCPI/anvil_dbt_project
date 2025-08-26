@@ -5,8 +5,8 @@
 {% set pivot_bmi_columns = get_columns(relation=relation_bmi, exclude=constant_bmi_columns) %}
 
 with phecode_cte as (
-    select 
-    'ehr_billing_code' as "assertion_type",
+    select distinct
+      phecode.subject_id,
       NULL as "age_at_assertion",
       phecode.age_at_observation as "age_at_event",
       NULL as "age_at_resolution",
@@ -24,9 +24,10 @@ unpivot_bmi as (
 
         {% for col in pivot_bmi_columns %}
             select distinct
-            {{ constant_bmi_columns | join(', ') }},
+            bmi.subject_id,
             bmi.bmi_observation_age::text as "age_at_assertion",
             NULL as "age_at_event",
+            NULL as "age_at_resolution",
             '{{ col }}' AS "code",
             NULL as "display",
             NULL AS "value_code",
@@ -49,7 +50,7 @@ unpivot_bmi as (
 
     select distinct 
         CASE WHEN code IN ('weight', 'height', 'body_mass_index') THEN 'measurement' 
-             WHEN ISNUMERIC(code) THEN 'ehr_billing_code'
+             WHEN TRY_CAST(code AS DOUBLE) IS NOT NULL THEN 'ehr_billing_code'
              ELSE CONCAT('FTD_FLAG: unhandled assertion_type: ',code)
         END::text as "assertion_type",
         age_at_assertion,
