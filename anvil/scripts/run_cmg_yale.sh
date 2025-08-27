@@ -18,24 +18,28 @@ dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # dbt run --select cmg_yale_ftd_demographics_external_id
 # dbt run --select cmg_yale_ftd_subject
 # dbt run --select cmg_yale_ftd_subject_external_id
-# dbt run --select +cmg_yale_ftd_family
-# dbt run --select +cmg_yale_ftd_family_external_id
+dbt run --select +cmg_yale_ftd_family
+dbt run --select +cmg_yale_ftd_family_external_id
 # dbt run --select +cmg_yale_ftd_familymember
 # dbt run --select +cmg_yale_ftd_familymember_external_id
 # dbt run --select +cmg_yale_ftd_familyrelationship_external_id
 # dbt run --select +cmg_yale_ftd_familyrelationship
+
+
 
 # dbt run --select +cmg_yale_ftd_accesspolicy
 # dbt run --select +cmg_yale_ftd_accesspolicy_external_id
 # dbt run --select +cmg_yale_ftd_accesspolicy_data_access_type
 # dbt run --select +cmg_yale_ftd_accesspolicy_access_policy_code
 
+
+
 # dbt run --select +cmg_yale_ftd_file
 # dbt run --select +cmg_yale_ftd_file_external_id
 # dbt run --select +cmg_yale_ftd_file_sample
 # dbt run --select +cmg_yale_ftd_file_subject
 # dbt run --select +cmg_yale_ftd_sample
-dbt run --select +cmg_yale_ftd_sample_external_id
+
 
 
 # Run Target tables
@@ -107,3 +111,6 @@ dbt run --select +cmg_yale_ftd_sample_external_id
 # dbt run --select +tgt_sourcedata --vars '{"source_table": "cmg_yale_ftd_sourcedata", "target_schema": "cmg_yale_tgt_data"}'
 # dbt run --select +tgt_sample_external_id --vars '{"source_table": "cmg_yale_ftd_sample_external_id", "target_schema": "cmg_yale_tgt_data"}'
 # dbt run --select +tgt_demographics_race --vars '{"source_table": "cmg_yale_ftd_demographics_race", "target_schema": "cmg_yale_tgt_data"}'
+# -
+
+

@@ -15,5 +15,5 @@ with source as (
 
 select 
   ROW_NUMBER() OVER () AS ftd_index,
-  source.*
+  source.*,
 from source

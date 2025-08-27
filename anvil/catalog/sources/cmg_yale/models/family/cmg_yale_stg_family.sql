@@ -11,5 +11,5 @@ with source as (
 select 
   ROW_NUMBER() OVER () AS ftd_index,
   source.*,
-  REPLACE(ingest_provenance, 'family_', '') AS "consent_id",
+  REPLACE(REPLACE(UPPER(ingest_provenance), 'FAMILY_ANVIL_CMG_YALE_', ''),'.TSV','') AS "consent_id",
 from source

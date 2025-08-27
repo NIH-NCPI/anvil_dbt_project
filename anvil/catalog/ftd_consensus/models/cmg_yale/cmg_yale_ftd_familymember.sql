@@ -24,7 +24,7 @@ select
     when tgt_role_code is null
     then concat('FTD_FLAG:unhandled family_role: ',proband_relationship)
   END::text as "family_role",
-  {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
+  {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_yale') }}::text as "has_access_policy",
   {{ generate_global_id(prefix='fm',descriptor=['family_id','subject_id'], study_id='cmg_yale') }}::text as "id",
-  {{ generate_global_id(prefix='fy',descriptor=['family_id'], study_id='cmg_bh') }}::text as "family_id"
+  {{ generate_global_id(prefix='fy',descriptor=['family_id'], study_id='cmg_yale') }}::text as "family_id"
 from lookup

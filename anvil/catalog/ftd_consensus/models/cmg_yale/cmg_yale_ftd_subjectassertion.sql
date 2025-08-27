@@ -50,12 +50,12 @@ select
   NULL::text as "value_number",
   NULL::text as "value_units",
   NULL::text as "value_units_display",
-  {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_yale') }}::text as "has_access_policy",
+  {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='cmg_yale') }}::text as "has_access_policy",
   {{ generate_global_id(prefix='sa',descriptor=['subject_id','condition_or_disease_code'], study_id='cmg_yale') }}::text as "id",
   {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='cmg_yale') }}::text as "subject_id"
 from (select 
         distinct 
-        ingest_provenance,
+        consent_id,
         subject_id,
         c_or_d,
         condition_or_disease_code,

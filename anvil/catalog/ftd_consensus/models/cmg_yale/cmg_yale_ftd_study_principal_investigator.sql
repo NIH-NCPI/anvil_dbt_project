@@ -1,12 +1,11 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
 
 select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_yale') }}::text as "study_id",
+  {{ generate_global_id(prefix='st',descriptor=['dbgap_study_id'], study_id='cmg_yale') }}::text as "study_id",
   anvil_dataset.principal_investigator::text as "principal_investigator"
-from {{ ref('cmg_yale_stg_sample') }} as sample
-join {{ ref('cmg_yale_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id  join {{ ref('cmg_yale_stg_anvil_dataset') }} as anvil_dataset
-on   join {{ ref('cmg_yale_stg_sequencing') }} as sequencing
-on   join {{ ref('cmg_yale_stg_family') }} as family
-on  
-
+from (
+    (select distinct dbgap_study_id from {{ ref('cmg_yale_stg_subject') }} where dbgap_study_id is not null) as subject
+   left join 
+    (select distinct principal_investigator, registered_identifier from {{ ref('cmg_yale_stg_anvil_dataset') }}) as anvil_dataset
+   on subject.dbgap_study_id = anvil_dataset.registered_identifier
+) as s

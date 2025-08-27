@@ -1,12 +1,7 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_yale') }}::text as "subjectassertion_id",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_yale') }}::text as "source_data_id"
-from {{ ref('cmg_yale_stg_sample') }} as sample
-join {{ ref('cmg_yale_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id  join {{ ref('cmg_yale_stg_anvil_dataset') }} as anvil_dataset
-on   join {{ ref('cmg_yale_stg_sequencing') }} as sequencing
-on   join {{ ref('cmg_yale_stg_family') }} as family
-on  
-
+select
+  distinct
+  {{ generate_global_id(prefix='sa',descriptor=['subject_id','condition_or_disease_code'], study_id='cmg_yale') }}::text as "subjectassertion_id",
+  {{ generate_global_id(prefix='sd',descriptor=['dbgap_study_id'], study_id='cmg_yale') }}::text as "source_data_id"
+from (select distinct subject_id, condition_or_disease_code, dbgap_study_id from {{ ref('cmg_yale_stg_subject') }} ) as s

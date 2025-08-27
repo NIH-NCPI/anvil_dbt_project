@@ -1,5 +1,5 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
-{%- set consent_groups = ['gru','ds','bpeakd','gso','thal','rared','rd','mc','hmb','irb'] -%}
+{%- set consent_groups = ['gru','ds','gso','hmb','irb'] -%}
 
 {%- for grp in consent_groups -%}
         select
