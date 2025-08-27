@@ -11,7 +11,7 @@ lookup as (
       code as "tgt_role_code"
     from (select distinct subject_id, consent_id, family_id, proband_relationship from {{ ref('cmg_yale_stg_subject') }}) s
          left join
-         {{ ref('RoleCodeValueSet') }} as seed
+         {{ ref('fm_family_role') }} as seed
          on seed.lower_exact_match_src_relationship_to_proband = lower(s.proband_relationship)
 )
 

@@ -47,6 +47,6 @@ from fr_base
       (select 
        code as tgt_rel_code, 
        lower_exact_match_src_relationship_to_proband
-       from {{ ref('kin-to-fhir-FamilyMember') }}
+       from {{ ref('fr_relationship_code') }}
        ) as seed
      on seed.lower_exact_match_src_relationship_to_proband = lower(fr_base.other_rel_code)         
