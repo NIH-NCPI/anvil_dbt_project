@@ -4,10 +4,16 @@ with source as (
     select 
       "family_id"::integer as "family_id",
        "subject_id"::integer as "subject_id",
-       "mother"::integer as "mother",
-       "father"::integer as "father",
+        CASE WHEN mother = 'NA' THEN NULL
+            ELSE mother
+        END as "mother",
+        CASE WHEN father = 'NA' THEN NULL
+            ELSE father
+        END as "father",
        "sex"::text as "sex",
-       "mz_twin_id"::integer as "mz_twin_id"
+        CASE WHEN mz_twin_id = 'NA' THEN NULL
+            ELSE mz_twin_id
+        END as "mz_twin_id"
     from {{ source('GWAS','GWAS_Pedigree_DS_20200512') }}
 )
 
