@@ -4,10 +4,12 @@ seeds:
   - name: fr_relationship_code
     description: "Conversion table for tgt column familymember. Original source https://github.com/ga4gh/pedigree_family_history_terminology/blob/main/mappings/kin-to-fhir-FamilyMember.sssom.csv version: 4a291ac"
     columns:
-      - name: studies_requiring_additional_row
+      - name: study_id
         description: "Flags a row as a required addition to the lookup table, and for which study(ies), it was added. Ex: cmg_yale"
-      - name: lower_exact_match_src_relationship_to_proband
+      - name: relationship_to_proband
         description: "UNIQUE VALUES - join column. Should always be lower case, join on the entire string, and represents only the relationship of the family member to the proband. NOT probands to family members."
+      - name: code
+        description: "Expected tgt enumeration. Dup of subject_id. Ex: KIN:032"
       - name: subject_id
         description: "Expected tgt enumeration. Ex: KIN:032"
       - name: subject_label
@@ -21,9 +23,9 @@ seeds:
   - name: fm_family_role
     description: "Conversion table for tgt column familyrole. Original source https://terminology.hl7.org/6.2.0/ValueSet-v3-FamilyMember.html"
     columns:
-      - name: studies_requiring_additional_row
+      - name: study_id
         description: "Flags a row as a required addition to the lookup table, and for which study(ies), it was added."
-      - name: lower_exact_match_src_relationship_to_proband
+      - name: relationship_to_proband
         description: "UNIQUE VALUES - join column. Should always be lower case, join on the entire string, and represents only the relationship of the family member to the proband. NOT probands to family members."
       - name: code
         description: "Expected tgt enumerations"
@@ -33,7 +35,7 @@ seeds:
         description: "Code display"
       - name: inactive
         description: "Flags inactive codes. The join column should have a prefix added to the join code to reduce usage."
-      - name: definition
+      - name: description
         description: "Code description"
   - name: consent_codes
     description: "Consents and their definition. Original sources: https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000744.v5.p2"
