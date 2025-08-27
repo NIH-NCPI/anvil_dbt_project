@@ -1,4 +1,4 @@
-studies_requiring_additional_row,lower_exact_match_src_relationship_to_proband,code,subject_id,subject_label,predicate_id,object_id,object_label
+study_id,relationship_to_proband,code,subject_id,subject_label,predicate_id,object_id,object_label
 ,adopted child,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:narrowMatch,CHLDADOPT,adopted child
 ,adopted daughter,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:narrowMatch,DAUADOPT,adopted daughter
 ,adopted son,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:narrowMatch,SONADOPT,adopted son
