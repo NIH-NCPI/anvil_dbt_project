@@ -18,12 +18,7 @@ lookup as (
 select 
   distinct
   {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='cmg_yale') }}::text as "family_member",
-    case
-    when tgt_role_code is not null 
-    then tgt_role_code
-    when tgt_role_code is null
-    then concat('FTD_FLAG:unhandled family_role: ',proband_relationship)
-  END::text as "family_role",
+  tgt_role_code::text as "family_role",
   {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='cmg_yale') }}::text as "has_access_policy",
   {{ generate_global_id(prefix='fm',descriptor=['family_id','subject_id'], study_id='cmg_yale') }}::text as "id",
   {{ generate_global_id(prefix='fy',descriptor=['family_id'], study_id='cmg_yale') }}::text as "family_id"

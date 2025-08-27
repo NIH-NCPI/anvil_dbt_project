@@ -40,16 +40,13 @@ select
   other_family_member,
   has_access_policy,
   id,
-    case
-    when tgt_rel_code is not null
-    then tgt_rel_code
-    when tgt_rel_code is null 
-    then concat('FTD_FLAG:unhandled relationship_code: ',other_rel_code)
-  END::text as "relationship_code",
+  tgt_rel_code::text as "relationship_code",
+  lower_exact_match_src_relationship_to_proband
 from fr_base
      left join
-     (select 
+      (select 
        code as tgt_rel_code, 
-       lower_exact_match_src_relationship_to_proband 
-      from {{ ref('kin-to-fhir-FamilyMember') }}) as seed
-      on seed.lower_exact_match_src_relationship_to_proband = lower(fr_base.other_rel_code)         
+       lower_exact_match_src_relationship_to_proband
+       from {{ ref('kin-to-fhir-FamilyMember') }}
+       ) as seed
+     on seed.lower_exact_match_src_relationship_to_proband = lower(fr_base.other_rel_code)         
