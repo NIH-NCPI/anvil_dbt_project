@@ -1,4 +1,4 @@
-﻿study,consent_code,consent_group,consent_abbreviation,is_irb_required,data_access_committee,link
+﻿study_id,consent_id,consent_description,consent_code,is_irb_required,data_access_committee,link
 cmg_yale,1,General Research Use,GRU,No,National Human Genome Research Institute,(nhgridac@mail.nih.gov)
 cmg_yale,2,Health/Medical/Biomedical,HMB,No,National Human Genome Research Institute,(nhgridac@mail.nih.gov)
 cmg_yale,3,Disease-Specific (Rare Disease),DS-RARED,No,National Human Genome Research Institute,(nhgridac@mail.nih.gov)
