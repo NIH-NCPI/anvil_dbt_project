@@ -5,10 +5,10 @@ lookup as (
     select 
       distinct 
       subject_id,
-      ingest_provenance,
+      consent_id,
       family_id,
       proband_relationship
-    from (select distinct subject_id, ingest_provenance, family_id, proband_relationship from {{ ref('cmg_yale_stg_subject') }}) s
+    from (select distinct subject_id, consent_id, family_id, proband_relationship from {{ ref('cmg_yale_stg_subject') }}) s
 )
 
 select 
