@@ -17,10 +17,6 @@ models:
     GWAS_stg_bmi:
       +schema: main
       +materialized: table
-  casecontrol:
-    GWAS_stg_casecontrol:
-      +schema: main
-      +materialized: table
   demographics:
     GWAS_stg_demographics:
       +schema: main
