@@ -684,7 +684,7 @@ models:
     eMERGEseq_ftd_study_principal_investigator:
       +schema: main
       +materialized: table
-    eMERGEseq_ftd_study_external_id:   
+    eMERGEseq_ftd_study_external_id: null
   cmg_yale:
     cmg_yale_ftd_biospecimencollection:
       +schema: main

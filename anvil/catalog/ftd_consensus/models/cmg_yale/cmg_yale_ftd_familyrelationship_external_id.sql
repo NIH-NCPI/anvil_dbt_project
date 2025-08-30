@@ -22,6 +22,7 @@ probands_only as (
 ,fr_base as (
     select
       distinct
+      p.subject_id,
       {{ generate_global_id(prefix='sb',descriptor=['p.subject_id'], study_id='cmg_yale') }}::text as "family_member",
       proband_rel_code,
       {{ generate_global_id(prefix='sb',descriptor=['o.subject_id'], study_id='cmg_yale') }}::text as "other_family_member",
@@ -36,6 +37,6 @@ probands_only as (
 
 select 
   distinct
-  family_member::text as "external_id",
+  subject_id::text as "external_id",
   id as "familyrelationship_id",
 from fr_base

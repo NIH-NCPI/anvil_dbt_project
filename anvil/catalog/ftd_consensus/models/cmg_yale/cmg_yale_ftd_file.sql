@@ -1,42 +1,34 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
-{%- set pivot_columns = ['crai','cram','seq_filename','sequencing_id_fileref'] -%}
 
-with
-combo_df as (
-  select 
-    distinct
-    consent_id,
-    crai,
-    cram,
-    seq_filename,
-    sequencing_id_fileref
-  from 
-    ((select distinct sample_id, consent_id, crai, cram from {{ ref('cmg_yale_stg_sample') }}) as s
-     full join
-     (select distinct sample_id, consent_id, seq_filename, sequencing_id_fileref from {{ ref('cmg_yale_stg_sequencing') }}) as seq
-     using (sample_id, consent_id)
-     ) as s
- )
-,unpivot_df as (
-    {%- for col in pivot_columns -%}
-        select
-            distinct 
-            consent_id,
-            '{{ col }}' as "file_type",
-            cast({{ col }} as varchar) as "drs_uri"
-        from combo_df
-        where {{ col }} IS NOT NULL
-        {% if not loop.last %}union all{% endif %}
-    {% endfor %}
+with 
+get_consents as (
+  select crai as file, consent_id 
+  from {{ ref('cmg_yale_stg_sample') }}
+    union all 
+  select cram as file, consent_id 
+  from {{ ref('cmg_yale_stg_sample') }}
+    union all 
+  select seq_filename as file, consent_id 
+  from {{ ref('cmg_yale_stg_sequencing') }}
+    union all 
+  select sequencing_id_fileref as file, consent_id 
+  from {{ ref('cmg_yale_stg_sequencing') }}
 )
 
 select 
-  drs_uri::text as "filename",
-  NULL::text as "format",
-  file_type::text as "data_type",
-  NULL::integer as "size",
-  drs_uri::text as "drs_uri",
-  {{ generate_global_id(prefix='fm',descriptor=['drs_uri'], study_id='cmg_yale') }}::text as "file_metadata",
-  {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='cmg_yale') }}::text as "has_access_policy",
-  {{ generate_global_id(prefix='fl',descriptor=['drs_uri'], study_id='cmg_yale') }}::text as "id"
-from unpivot_df
+ distinct 
+ NULL as data_type,
+ size_in_bytes as "data_size",
+ consent_id,
+ code as "format",
+ name as "filename",
+ file_ref as "drs_uri",
+ {{ generate_global_id(prefix='fd',descriptor=['filename'], study_id='cmg_yale') }}::text as "file_metadata",
+ {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='cmg_yale') }}::text as "has_access_policy",
+ {{ generate_global_id(prefix='fl',descriptor=['filename'], study_id='cmg_yale') }}::text as "id"
+from 
+  {{ ref('cmg_yale_stg_file_inventory') }}
+  left join get_consents 
+    on file = file_ref
+  left join {{ ref('file_formats') }} 
+    on lower(replace(full_extension,'.','')) = src_format

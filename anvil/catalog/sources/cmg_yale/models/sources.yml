@@ -122,3 +122,28 @@ sources:
       description: '{{ doc("family_consanguinity") }}'
     - name: ingest_provenance
       description: '{{ doc("family_ingest_provenance") }}'
+  - name: file_inventory
+    description: Source table for file_inventory.
+    columns:
+    - name: file_id
+      description: '{{ doc("file_inventory_file_id") }}'
+    - name: name
+      description: '{{ doc("file_inventory_name") }}'
+    - name: path
+      description: '{{ doc("file_inventory_path") }}'
+    - name: uri
+      description: '{{ doc("file_inventory_uri") }}'
+    - name: content_type
+      description: '{{ doc("file_inventory_content_type") }}'
+    - name: full_extension
+      description: '{{ doc("file_inventory_full_extension") }}'
+    - name: size_in_bytes
+      description: '{{ doc("file_inventory_size_in_bytes") }}'
+    - name: crc32c
+      description: '{{ doc("file_inventory_crc32c") }}'
+    - name: md5_hash
+      description: '{{ doc("file_inventory_md5_hash") }}'
+    - name: file_ref
+      description: '{{ doc("file_inventory_file_ref") }}'
+    - name: ingest_provenance
+      description: '{{ doc("file_inventory_ingest_provenance") }}'

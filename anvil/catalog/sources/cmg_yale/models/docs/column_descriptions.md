@@ -574,3 +574,122 @@ nan
 {% docs cmg_yale_stg_family_ftd_key %}
 Unique key for the FTD record
 {% enddocs %}
+
+{% docs file_inventory_description %}
+Model for file_inventory.
+{% enddocs %}
+
+
+{% docs file_inventory_file_id %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_name %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_path %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_uri %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_content_type %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_full_extension %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_size_in_bytes %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_crc32c %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_md5_hash %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_file_ref %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_description %}
+Model for cmg_yale_stg_file_inventory.
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_file_id %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_name %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_path %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_uri %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_content_type %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_full_extension %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_size_in_bytes %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_crc32c %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_md5_hash %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_file_ref %}
+None
+{% enddocs %}
+
+
+{% docs cmg_yale_stg_file_inventory_ingest_provenance %}
+None
+{% enddocs %}

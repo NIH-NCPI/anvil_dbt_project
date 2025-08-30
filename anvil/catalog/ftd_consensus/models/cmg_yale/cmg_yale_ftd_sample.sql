@@ -4,7 +4,8 @@ select
   distinct
 --   { { generate_global_id(prefix='sm',descriptor=['sample_id'], study_id='cmg_yale') }}::text as "parent_sample",
   NULL::text as "parent_sample",
-  sample_source::text as "sample_type",
+  code::text as "sample_type",
+  lower(sample_source) as "ftd_sample_sources",
   NULL::text as "availablity_status",
   NULL::text as "quantity_number",
   NULL::text as "quantity_units",
@@ -13,6 +14,9 @@ select
   {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='cmg_yale') }}::text as "subject_id",
 --   {  { generate_global_id(prefix='bc',descriptor=['sample_id','{TBD}'], study_id='cmg_yale') }}::text as "biospecimen_collection_id"
   NULL::text as "biospecimen_collection_id"
-from (select distinct subject_id, consent_id, sample_source, sample_id 
+from (select distinct subject_id, consent_id, sample_source, sample_id, code 
       from {{ ref('cmg_yale_stg_sample') }}
+      left join 
+      {{ ref('sm_sample_type') }}
+      on lower(sample_source) = src_format
       ) as sam

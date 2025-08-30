@@ -22,6 +22,8 @@ probands_only as (
 ,fr_base as (
     select
       distinct
+      p.subject_id as ftd_sub_1,
+      o.subject_id as ftd_sub_2,
       {{ generate_global_id(prefix='sb',descriptor=['p.subject_id'], study_id='cmg_yale') }}::text as "family_member",
       proband_rel_code,
       {{ generate_global_id(prefix='sb',descriptor=['o.subject_id'], study_id='cmg_yale') }}::text as "other_family_member",
@@ -40,13 +42,17 @@ select
   other_family_member,
   has_access_policy,
   id,
+  ftd_sub_1,
+  ftd_sub_2,
   tgt_rel_code::text as "relationship_code",
-  lower_exact_match_src_relationship_to_proband
+  coalesce(other_rel_code, 'FTD_NULL') AS "ftd_family_rel", -- flag nulls for analysis
+  coalesce(tgt_rel_code, 'Needs Handling') AS "ftd_flag_family_rel" -- flag unhandled strings
+  
 from fr_base
      left join
       (select 
        code as tgt_rel_code, 
-       lower_exact_match_src_relationship_to_proband
+       relationship_to_proband
        from {{ ref('fr_relationship_code') }}
        ) as seed
-     on seed.lower_exact_match_src_relationship_to_proband = lower(fr_base.other_rel_code)         
+     on relationship_to_proband = lower(fr_base.other_rel_code)         
