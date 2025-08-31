@@ -1,31 +1,29 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
-{%- set fi_relation = ref('cmg_yale_stg_file_inventory') -%}
-{%- set fi_pivot_columns = ['crc32c','md5_hash'] -%}
-{%- set fi_constant_columns = get_columns(relation=fi_relation, exclude=fi_pivot_columns) -%}
-{%- set seq_relation = ref('cmg_yale_stg_sequencing') -%}
-{%- set seq_constant_columns = ['ftd_index','sequencing_id','date_data_generation','sample_id','seq_filename','ingest_provenance','sequencing_id_fileref','capture_region_bed_file','exome_capture_platform'] -%}
-{%- set seq_pivot_columns = get_columns(relation=seq_relation, exclude=seq_constant_columns) -%}
-
+{%- set fi_metadata_columns = ['crc32c','md5_hash'] -%}
+{%- set seq_metadata_columns = ['sequencing_center','alignment_method','analyte_type','functional_equivalence_standard','library_prep_kit_method',
+'reference_genome_build','sequencing_assay'] -%}
 with
 unpivot_df as (
-    {%- for col in fi_pivot_columns -%}
+    {%- for col in fi_metadata_columns -%}
         select
             distinct 
-            file_id as "filename",
+            name as "filename",
             '{{ col }}' as "code",
-            cast({{ col }} as varchar) as "value_code"
+            cast({{ col }} as varchar) as "value_code",
+            CONCAT(ftd_index,'_fi') as "ftd_index"
         from {{ ref('cmg_yale_stg_file_inventory') }}
         where {{ col }} IS NOT NULL
         {% if not loop.last %}union all{% endif %}
     {% endfor %}
         union all
    
-    {% for col in seq_pivot_columns %}
+    {% for col in seq_metadata_columns %}
         select
             distinct 
             sequencing_id as "filename",
             '{{ col }}' as "code",
             cast({{ col }} as varchar) as "value_code"
+            CONCAT(ftd_index,'_seq') as "ftd_index"
         from {{ ref('cmg_yale_stg_sequencing') }}
         where {{ col }} IS NOT NULL
         {% if not loop.last %}union all{% endif %}
@@ -34,9 +32,9 @@ unpivot_df as (
 
 select 
   distinct
-  code,
-  code::text as "display", -- TODO Join dd seed
-  value_code::text as "value_code",
+  NULL::text as "code",  -- TODO: Get code
+  code::text as "display",
+  NULL::text as "value_code",  -- TODO: Get code
   value_code::text as "value_display",
   {{ generate_global_id(prefix='fd',descriptor=['filename'], study_id='cmg_yale') }}::text as "id"
 from unpivot_df

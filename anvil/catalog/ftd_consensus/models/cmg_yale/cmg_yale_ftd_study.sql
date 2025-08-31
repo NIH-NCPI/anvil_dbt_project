@@ -5,7 +5,8 @@ clean_study_data as (
     distinct
     l_title as "clean_title",
     registered_identifier,
-    ad.title as "title_display"
+    ad.title as "title_display",
+    (select distinct dbgap_study_id from {{ ref('cmg_yale_stg_subject') }} where dbgap_study_id is not null) as "p_study"
     from (
         select 
             distinct 
@@ -21,11 +22,22 @@ clean_study_data as (
             title
         from {{ ref('cmg_yale_stg_anvil_dataset') }}
     ) as ad
-    USING (l_title)
+    using (l_title)
 )
-select 
-  dbgap_study_id::text as "parent_study_id",
+select -- child studies
+  distinct
+  p_study::text as "parent_study_id",
+  concat('Yale Center for Mendelian Genomics (Y CMG) version_',registered_identifier) as "study_title", 
+  {{ generate_global_id(prefix='st',descriptor=['registered_identifier'], study_id='cmg_yale') }}::text as "id",
+  registered_identifier as "ftd_registered_identifier"
+from clean_study_data
+     
+union all 
+
+select -- parent study
+  distinct
+  NULL::text as "parent_study_id",
   'Yale Center for Mendelian Genomics (Y CMG)' as "study_title", 
-  {{ generate_global_id(prefix='st',descriptor=['registered_identifier'], study_id='cmg_yale') }}::text as "id"
-from (select distinct dbgap_study_id from {{ ref('cmg_yale_stg_subject') }} where dbgap_study_id is not null ) as s
-     ,clean_study_data
+  {{ generate_global_id(prefix='st',descriptor=['p_study'], study_id='cmg_yale') }}::text as "id",
+  registered_identifier as "ftd_registered_identifier"
+from clean_study_data

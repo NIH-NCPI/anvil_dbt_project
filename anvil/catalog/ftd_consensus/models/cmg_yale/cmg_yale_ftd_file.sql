@@ -17,10 +17,10 @@ get_consents as (
 
 select 
  distinct 
- NULL as data_type,
+ NULL as data_type, --TODO MAP when available
  size_in_bytes as "data_size",
  consent_id,
- code as "format",
+ ff.code as "format",
  name as "filename",
  file_ref as "drs_uri",
  {{ generate_global_id(prefix='fd',descriptor=['filename'], study_id='cmg_yale') }}::text as "file_metadata",
@@ -30,5 +30,5 @@ from
   {{ ref('cmg_yale_stg_file_inventory') }}
   left join get_consents 
     on file = file_ref
-  left join {{ ref('file_formats') }} 
+  left join {{ ref('file_formats') }} as ff
     on lower(replace(full_extension,'.','')) = src_format
