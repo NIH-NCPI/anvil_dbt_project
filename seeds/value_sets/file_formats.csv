@@ -1,0 +1,5 @@
+study_id,src_format,code,uri,display,inactive,description
+cmg_yale,bai,BAI,http://edamontology.org/format_3327,BAM indexing format,,BAM indexing format
+cmg_yale,bam,BAM,http://edamontology.org/format_2572,BAM format,,"BAM format, the binary, BGZF-formatted compressed version of SAM format for alignment of nucleotide sequences (e.g. sequencing reads) to (a) reference sequence(s). May contain base-call and alignment qualities and other data."
+cmg_yale,cram,CRAM,http://edamontology.org/format_3462,Reference-based compression of alignment format,,Reference-based compression of alignment format
+cmg_yale,crai,CRAI,,,,

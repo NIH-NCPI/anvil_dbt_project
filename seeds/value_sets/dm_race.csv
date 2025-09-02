@@ -1,0 +1,11 @@
+study_id,src_format,code,uri,display,inactive,description
+cmg_yale,white,white,,White,,
+cmg_yale,other,other_race,,Other,,
+cmg_yale,black or african american,black_or_african_american,,Black or African American,,
+cmg_yale,unknown,unknown,,Unknown,,
+cmg_yale,hispanic or latino,unknown,,Unknown,,
+cmg_yale,asian,asian,,Asian,,
+cmg_yale,american indian or alaskan native,american_indian_or_alaskan_native,,American Indian or Alaskan Native,,
+cmg_yale,native hawaiian or other pacific islander,native_hawaiian_or_pacific_islander,,Native Hawaiian or Pacific Islander,,
+,native hawaiian or pacific islander,native_hawaiian_or_pacific_islander,,Native Hawaiian or Pacific Islander,,
+,asked but unknown,asked_but_unknown,,Asked but Unknown,,

@@ -1,0 +1,5 @@
+study_id,src_format,code,uri,display,inactive,description
+cmg_yale,present,known_present,,Known Present,,
+cmg_yale,unknown,unknown,,Unknown,,
+cmg_yale,suspected,suspected,,Suspected,,
+cmg_yale,none suspected,not_suspected,,Not suspected,,
