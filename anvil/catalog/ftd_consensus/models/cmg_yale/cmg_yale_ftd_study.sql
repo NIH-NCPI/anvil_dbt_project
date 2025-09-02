@@ -24,6 +24,8 @@ clean_study_data as (
     ) as ad
     using (l_title)
 )
+select distinct * 
+from (
 select -- child studies
   distinct
   p_study::text as "parent_study_id",
@@ -31,6 +33,7 @@ select -- child studies
   {{ generate_global_id(prefix='st',descriptor=['registered_identifier'], study_id='cmg_yale') }}::text as "id",
   registered_identifier as "ftd_registered_identifier"
 from clean_study_data
+where registered_identifier != p_study
      
 union all 
 
@@ -41,3 +44,4 @@ select -- parent study
   {{ generate_global_id(prefix='st',descriptor=['p_study'], study_id='cmg_yale') }}::text as "id",
   registered_identifier as "ftd_registered_identifier"
 from clean_study_data
+) as s

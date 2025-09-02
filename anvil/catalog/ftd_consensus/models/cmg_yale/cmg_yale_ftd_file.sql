@@ -18,7 +18,7 @@ get_consents as (
 select 
  distinct 
  NULL as data_type, --TODO MAP when available
- size_in_bytes as "data_size",
+ size_in_bytes as "size",
  consent_id,
  ff.code as "format",
  name as "filename",

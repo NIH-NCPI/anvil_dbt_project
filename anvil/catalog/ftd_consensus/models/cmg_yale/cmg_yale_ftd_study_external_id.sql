@@ -28,4 +28,4 @@ clean_study_data as (
 select 
     {{ generate_global_id(prefix='st',descriptor=['registered_identifier'], study_id='cmg_yale') }}::text as "study_id",
     registered_identifier::text as "external_id"
-from clean_study
+from clean_study_data

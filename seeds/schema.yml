@@ -37,7 +37,7 @@ seeds:
         description: "Flags inactive codes. The join column should have a prefix added to the join code to reduce usage."
       - name: description
         description: "Code description"
-  - name: consent_codes
+  - name: ap_access_code
     description: "Consents and their definition. Original sources: https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000744.v5.p2"
     columns:
       - name: study
@@ -54,3 +54,13 @@ seeds:
         description: "Defineds the data access committee"
       - name: link
         description: "Link to data access committee"
+  - name: dm_race
+    description: ""  
+  - name: dm_sex
+    description: ""
+  - name: file_formats
+    description: ""
+  - name: fm_consanguinity
+    description: ""
+  - name: sm_sample_type
+    description: ""

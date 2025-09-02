@@ -4,7 +4,11 @@ select
   distinct
 --   { { generate_global_id(prefix='sm',descriptor=['sample_id'], study_id='cmg_yale') }}::text as "parent_sample",
   NULL::text as "parent_sample",
-  code::text as "sample_type",
+  
+  code AS "sample_type",
+  coalesce(sample_source, 'FTD_NULL') AS "ftd_sample_type", -- flag nulls for analysis
+  coalesce(code, 'Needs Handling') AS "ftd_flag_sample_type", -- flag unhandled strings
+  
   lower(sample_source) as "ftd_sample_sources",
   NULL::text as "availablity_status",
   NULL::text as "quantity_number",

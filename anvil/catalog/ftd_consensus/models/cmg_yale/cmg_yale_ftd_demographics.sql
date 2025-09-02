@@ -6,15 +6,15 @@ select
   
   coalesce(sex_code,'unknown') AS "sex", --when null, sets sex to 'unknown'
   coalesce(sex, 'FTD_NULL') AS "ftd_sex", -- flag nulls for analysis
-  coalesce(sex_code, 'Needs Handling') AS "ftd_flag_sex" -- flag unhandled strings
+  coalesce(sex_code, 'Needs Handling') AS "ftd_flag_sex", -- flag unhandled strings
   
   coalesce(sex_display,'Unknown') AS "sex_display", --when null, sets display to 'unknown'
   coalesce(sex, 'FTD_NULL') AS "ftd_sex_display", -- flag nulls for analysis
-  coalesce(sex_display, 'Needs Handling') AS "ftd_flag_sex_display" -- flag unhandled strings
+  coalesce(sex_display, 'Needs Handling') AS "ftd_flag_sex_display", -- flag unhandled strings
   
   race_display, 
   coalesce(ancestry, 'FTD_NULL') AS "ftd_race", -- flag nulls for analysis
-  coalesce(race_display, 'Needs Handling') AS "ftd_flag_race" -- flag unhandled strings
+  coalesce(race_display, 'Needs Handling') AS "ftd_flag_race", -- flag unhandled strings
 
   'unknown'::text as "ethnicity",
   'Unknown'::text as "ethnicity_display",
@@ -33,7 +33,7 @@ from (select
         race.code as "race_code"
      from {{ ref('cmg_yale_stg_subject') }}
      left join {{ ref('dm_sex') }} as sex
-     on lower(sex) = src_format
+     on lower(sex) = sex.src_format
      left join {{ ref('dm_race') }} as race
-     on lower(ancestry) = src_format      
-     } as s
+     on lower(ancestry) = race.src_format      
+     ) as s

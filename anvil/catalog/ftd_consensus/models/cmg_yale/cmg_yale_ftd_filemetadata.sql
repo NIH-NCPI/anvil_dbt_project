@@ -1,6 +1,6 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
 {%- set fi_metadata_columns = ['crc32c','md5_hash'] -%}
-{%- set seq_metadata_columns = ['sequencing_center','alignment_method','analyte_type','functional_equivalence_standard','library_prep_kit_method',
+{%- set seq_metadata_columns = ['alignment_method','analyte_type','functional_equivalence_standard','library_prep_kit_method',
 'reference_genome_build','sequencing_assay'] -%}
 with
 unpivot_df as (
@@ -22,7 +22,7 @@ unpivot_df as (
             distinct 
             sequencing_id as "filename",
             '{{ col }}' as "code",
-            cast({{ col }} as varchar) as "value_code"
+            cast({{ col }} as varchar) as "value_code",
             CONCAT(ftd_index,'_seq') as "ftd_index"
         from {{ ref('cmg_yale_stg_sequencing') }}
         where {{ col }} IS NOT NULL

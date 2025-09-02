@@ -2,8 +2,8 @@
 
 select 
   race_code AS "race", 
-  coalesce(ancestry, 'FTD_NULL') AS "ftd_race", -- flag nulls for analysis
-  coalesce(race_code, 'Needs Handling') AS "ftd_flag_race", -- flag unhandled strings
+  coalesce(ancestry, 'FTD_NULL') as "ftd_race", -- flag nulls for analysis
+  coalesce(race_code, 'Needs Handling') as "ftd_flag_race", -- flag unhandled strings
   {{ generate_global_id(prefix='dm',descriptor=['subject_id'], study_id='cmg_yale') }}::text as "demographics_id"
 from (select 
         distinct 
@@ -14,4 +14,4 @@ from (select
      from {{ ref('cmg_yale_stg_subject') }}
      left join {{ ref('dm_race') }} as race
      on lower(ancestry) = src_format      
-     } as s
+     ) as s
