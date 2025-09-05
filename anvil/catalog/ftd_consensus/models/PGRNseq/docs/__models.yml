@@ -1,0 +1,921 @@
+version: 2
+models:
+- name: PGRNseq_ftd_datasource_external_id
+  description: Model for PGRNseq_ftd_datasource_external_id.
+  columns:
+  - name: datasource_id
+    description: '{{ doc("PGRNseq_ftd_datasource_external_id_datasource_id") }}'
+    data_type: string
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_datasource_external_id_external_id") }}'
+    data_type: string
+- name: PGRNseq_ftd_sample
+  description: Model for PGRNseq_ftd_sample.
+  columns:
+  - name: parent_sample
+    description: '{{ doc("PGRNseq_ftd_sample_parent_sample") }}'
+    data_type: string
+    tests: []
+  - name: sample_type
+    description: '{{ doc("PGRNseq_ftd_sample_sample_type") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: availablity_status
+    description: '{{ doc("PGRNseq_ftd_sample_availablity_status") }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - available
+        - unavailable
+  - name: quantity_number
+    description: '{{ doc("PGRNseq_ftd_sample_quantity_number") }}'
+    data_type: number
+    tests: []
+  - name: quantity_units
+    description: '{{ doc("PGRNseq_ftd_sample_quantity_units") }}'
+    data_type: string
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_sample_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_sample_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: subject_id
+    description: '{{ doc("PGRNseq_ftd_sample_subject_id") }}'
+    data_type: string
+    tests: []
+  - name: biospecimen_collection_id
+    description: '{{ doc("PGRNseq_ftd_sample_biospecimen_collection_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_demographics_source_data
+  description: Model for PGRNseq_ftd_demographics_source_data.
+  columns:
+  - name: demographics_id
+    description: '{{ doc("PGRNseq_ftd_demographics_source_data_demographics_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: source_data_id
+    description: '{{ doc("PGRNseq_ftd_demographics_source_data_source_data_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_family
+  description: Model for PGRNseq_ftd_family.
+  columns:
+  - name: family_type
+    description: '{{ doc("PGRNseq_ftd_family_family_type") }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - control_only
+        - duo
+        - proband_only
+        - trio
+        - trio_plus
+        - other
+  - name: family_description
+    description: '{{ doc("PGRNseq_ftd_family_family_description") }}'
+    data_type: string
+    tests: []
+  - name: consanguinity
+    description: '{{ doc("PGRNseq_ftd_family_consanguinity") }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - not_suspected
+        - suspected
+        - known_present
+        - unknown
+  - name: family_study_focus
+    description: '{{ doc("PGRNseq_ftd_family_family_study_focus") }}'
+    data_type: string
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_family_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_family_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_accesscontrolledrecord
+  description: Model for PGRNseq_ftd_accesscontrolledrecord.
+  columns:
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_accesscontrolledrecord_has_access_policy") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_accesscontrolledrecord_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_biospecimencollection_external_id
+  description: Model for PGRNseq_ftd_biospecimencollection_external_id.
+  columns:
+  - name: biospecimencollection_id
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_external_id_biospecimencollection_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_external_id_external_id")
+      }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_datasource
+  description: Model for PGRNseq_ftd_datasource.
+  columns:
+  - name: snapshot_id
+    description: '{{ doc("PGRNseq_ftd_datasource_snapshot_id") }}'
+    data_type: string
+  - name: google_data_project
+    description: '{{ doc("PGRNseq_ftd_datasource_google_data_project") }}'
+    data_type: string
+  - name: snapshot_dataset
+    description: '{{ doc("PGRNseq_ftd_datasource_snapshot_dataset") }}'
+    data_type: string
+  - name: table
+    description: '{{ doc("PGRNseq_ftd_datasource_table") }}'
+    data_type: string
+  - name: parameterized_query
+    description: '{{ doc("PGRNseq_ftd_datasource_parameterized_query") }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_datasource_id") }}'
+    data_type: string
+- name: PGRNseq_ftd_subjectassertion
+  description: Model for PGRNseq_ftd_subjectassertion.
+  columns:
+  - name: assertion_type
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_assertion_type") }}'
+    data_type: enumeration
+    tests: []
+  - name: age_at_assertion
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_age_at_assertion") }}'
+    data_type: number
+    tests: []
+  - name: age_at_event
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_age_at_event") }}'
+    data_type: number
+    tests: []
+  - name: age_at_resolution
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_age_at_resolution") }}'
+    data_type: number
+    tests: []
+  - name: code
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_code") }}'
+    data_type: string
+    tests: []
+  - name: display
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_display") }}'
+    data_type: string
+    tests: []
+  - name: value_code
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_value_code") }}'
+    data_type: string
+    tests: []
+  - name: value_display
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_value_display") }}'
+    data_type: string
+    tests: []
+  - name: value_number
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_value_number") }}'
+    data_type: number
+    tests: []
+  - name: value_units
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_value_units") }}'
+    data_type: string
+    tests: []
+  - name: value_units_display
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_value_units_display") }}'
+    data_type: string
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: subject_id
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_subject_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_accesspolicy
+  description: Model for PGRNseq_ftd_accesspolicy.
+  columns:
+  - name: disease_limitation
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_disease_limitation") }}'
+    data_type: string
+    tests: []
+  - name: description
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_description") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: website
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_website") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_filemetadata
+  description: Model for PGRNseq_ftd_filemetadata.
+  columns:
+  - name: code
+    description: '{{ doc("PGRNseq_ftd_filemetadata_code") }}'
+    data_type: string
+    tests: []
+  - name: display
+    description: '{{ doc("PGRNseq_ftd_filemetadata_display") }}'
+    data_type: string
+    tests: []
+  - name: value_code
+    description: '{{ doc("PGRNseq_ftd_filemetadata_value_code") }}'
+    data_type: string
+    tests: []
+  - name: value_display
+    description: '{{ doc("PGRNseq_ftd_filemetadata_value_display") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_filemetadata_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_file
+  description: Model for PGRNseq_ftd_file.
+  columns:
+  - name: filename
+    description: '{{ doc("PGRNseq_ftd_file_filename") }}'
+    data_type: string
+    tests: []
+  - name: format
+    description: '{{ doc("PGRNseq_ftd_file_format") }}'
+    data_type: enumeration
+    tests: []
+  - name: data_type
+    description: '{{ doc("PGRNseq_ftd_file_data_type") }}'
+    data_type: enumeration
+    tests: []
+  - name: size
+    description: '{{ doc("PGRNseq_ftd_file_size") }}'
+    data_type: integer
+    tests: []
+  - name: drs_uri
+    description: '{{ doc("PGRNseq_ftd_file_drs_uri") }}'
+    data_type: string
+    tests: []
+  - name: file_metadata
+    description: '{{ doc("PGRNseq_ftd_file_file_metadata") }}'
+    data_type: string
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_file_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_file_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_sample_processing
+  description: Model for PGRNseq_ftd_sample_processing.
+  columns:
+  - name: sample_id
+    description: '{{ doc("PGRNseq_ftd_sample_processing_sample_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: processing
+    description: '{{ doc("PGRNseq_ftd_sample_processing_processing") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_file_sample
+  description: Model for PGRNseq_ftd_file_sample.
+  columns:
+  - name: file_id
+    description: '{{ doc("PGRNseq_ftd_file_sample_file_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: sample_id
+    description: '{{ doc("PGRNseq_ftd_file_sample_sample_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_filemetadata_external_id
+  description: Model for PGRNseq_ftd_filemetadata_external_id.
+  columns:
+  - name: filemetadata_id
+    description: '{{ doc("PGRNseq_ftd_filemetadata_external_id_filemetadata_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_filemetadata_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_subject
+  description: Model for PGRNseq_ftd_subject.
+  columns:
+  - name: subject_type
+    description: '{{ doc("PGRNseq_ftd_subject_subject_type") }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - participant
+        - non_participant
+        - cell_line
+        - animal_model
+        - group
+        - other
+  - name: organism_type
+    description: '{{ doc("PGRNseq_ftd_subject_organism_type") }}'
+    data_type: string
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_subject_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_subject_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: has_demographics_id
+    description: '{{ doc("PGRNseq_ftd_subject_has_demographics_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_sourcedata_query_parameter
+  description: Model for PGRNseq_ftd_sourcedata_query_parameter.
+  columns:
+  - name: sourcedata_id
+    description: '{{ doc("PGRNseq_ftd_sourcedata_query_parameter_sourcedata_id") }}'
+    data_type: string
+  - name: query_parameter
+    description: '{{ doc("PGRNseq_ftd_sourcedata_query_parameter_query_parameter")
+      }}'
+    data_type: string
+- name: PGRNseq_ftd_sample_storage_method
+  description: Model for PGRNseq_ftd_sample_storage_method.
+  columns:
+  - name: sample_id
+    description: '{{ doc("PGRNseq_ftd_sample_storage_method_sample_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: storage_method
+    description: '{{ doc("PGRNseq_ftd_sample_storage_method_storage_method") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_sample_external_id
+  description: Model for PGRNseq_ftd_sample_external_id.
+  columns:
+  - name: sample_id
+    description: '{{ doc("PGRNseq_ftd_sample_external_id_sample_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_sample_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_familyrelationship_external_id
+  description: Model for PGRNseq_ftd_familyrelationship_external_id.
+  columns:
+  - name: familyrelationship_id
+    description: '{{ doc("PGRNseq_ftd_familyrelationship_external_id_familyrelationship_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_familyrelationship_external_id_external_id")
+      }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_family_family_relationships
+  description: Model for PGRNseq_ftd_family_family_relationships.
+  columns:
+  - name: family_id
+    description: '{{ doc("PGRNseq_ftd_family_family_relationships_family_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: family_relationships_id
+    description: '{{ doc("PGRNseq_ftd_family_family_relationships_family_relationships_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_demographics_race
+  description: Model for PGRNseq_ftd_demographics_race.
+  columns:
+  - name: demographics_id
+    description: '{{ doc("PGRNseq_ftd_demographics_race_demographics_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: race
+    description: '{{ doc("PGRNseq_ftd_demographics_race_race") }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - american_indian_or_alaskan_native
+        - asian
+        - black_or_african_american
+        - native_hawaiian_or_pacific_islander
+        - white
+        - other_race
+        - unknown
+        - asked_but_unknown
+- name: PGRNseq_ftd_study_funding_source
+  description: Model for PGRNseq_ftd_study_funding_source.
+  columns:
+  - name: study_id
+    description: '{{ doc("PGRNseq_ftd_study_funding_source_study_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: funding_source
+    description: '{{ doc("PGRNseq_ftd_study_funding_source_funding_source") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_family_external_id
+  description: Model for PGRNseq_ftd_family_external_id.
+  columns:
+  - name: family_id
+    description: '{{ doc("PGRNseq_ftd_family_external_id_family_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_family_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_accesspolicy_external_id
+  description: Model for PGRNseq_ftd_accesspolicy_external_id.
+  columns:
+  - name: accesspolicy_id
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_external_id_accesspolicy_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_aliquot
+  description: Model for PGRNseq_ftd_aliquot.
+  columns:
+  - name: availablity_status
+    description: '{{ doc("PGRNseq_ftd_aliquot_availablity_status") }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - available
+        - unavailable
+  - name: quantity_number
+    description: '{{ doc("PGRNseq_ftd_aliquot_quantity_number") }}'
+    data_type: number
+    tests: []
+  - name: quantity_units
+    description: '{{ doc("PGRNseq_ftd_aliquot_quantity_units") }}'
+    data_type: string
+    tests: []
+  - name: concentration_number
+    description: '{{ doc("PGRNseq_ftd_aliquot_concentration_number") }}'
+    data_type: number
+    tests: []
+  - name: concentration_unit
+    description: '{{ doc("PGRNseq_ftd_aliquot_concentration_unit") }}'
+    data_type: string
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_aliquot_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_aliquot_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: sample_id
+    description: '{{ doc("PGRNseq_ftd_aliquot_sample_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_demographics
+  description: Model for PGRNseq_ftd_demographics.
+  columns:
+  - name: date_of_birth
+    description: '{{ doc("PGRNseq_ftd_demographics_date_of_birth") }}'
+    data_type: integer
+    tests: []
+  - name: date_of_birth_type
+    description: '{{ doc("PGRNseq_ftd_demographics_date_of_birth_type") }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - exact
+        - year_only
+        - shifted
+        - decade_only
+        - other
+  - name: sex
+    description: '{{ doc("PGRNseq_ftd_demographics_sex") }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - female
+        - male
+        - unknown
+        - intersex
+  - name: sex_display
+    description: '{{ doc("PGRNseq_ftd_demographics_sex_display") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: race_display
+    description: '{{ doc("PGRNseq_ftd_demographics_race_display") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: ethnicity
+    description: '{{ doc("PGRNseq_ftd_demographics_ethnicity") }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - hispanic_or_latino
+        - not_hispanic_or_latino
+        - unknown
+        - asked_but_unknown
+  - name: ethnicity_display
+    description: '{{ doc("PGRNseq_ftd_demographics_ethnicity_display") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: age_at_last_vital_status
+    description: '{{ doc("PGRNseq_ftd_demographics_age_at_last_vital_status") }}'
+    data_type: integer
+    tests: []
+  - name: vital_status
+    description: '{{ doc("PGRNseq_ftd_demographics_vital_status") }}'
+    data_type: enumeration
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_demographics_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_demographics_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_familymember_external_id
+  description: Model for PGRNseq_ftd_familymember_external_id.
+  columns:
+  - name: familymember_id
+    description: '{{ doc("PGRNseq_ftd_familymember_external_id_familymember_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_familymember_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_accesspolicy_access_policy_code
+  description: Model for PGRNseq_ftd_accesspolicy_access_policy_code.
+  columns:
+  - name: accesspolicy_id
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_access_policy_code_accesspolicy_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: access_policy_code
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_access_policy_code_access_policy_code")
+      }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - gru
+        - hmb
+        - ds
+        - irb
+        - pub
+        - col
+        - npu
+        - mds
+        - gso
+        - gsr
+- name: PGRNseq_ftd_study
+  description: Model for PGRNseq_ftd_study.
+  columns:
+  - name: parent_study_id
+    description: '{{ doc("PGRNseq_ftd_study_parent_study_id") }}'
+    data_type: string
+    tests: []
+  - name: study_title
+    description: '{{ doc("PGRNseq_ftd_study_study_title") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_study_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_subjectassertion_external_id
+  description: Model for PGRNseq_ftd_subjectassertion_external_id.
+  columns:
+  - name: subjectassertion_id
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_external_id_subjectassertion_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_biospecimencollection
+  description: Model for PGRNseq_ftd_biospecimencollection.
+  columns:
+  - name: age_at_collection
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_age_at_collection") }}'
+    data_type: integer
+    tests: []
+  - name: method
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_method") }}'
+    data_type: enumeration
+    tests: []
+  - name: site
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_site") }}'
+    data_type: enumeration
+    tests: []
+  - name: spatial_qualifier
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_spatial_qualifier") }}'
+    data_type: enumeration
+    tests: []
+  - name: laterality
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_laterality") }}'
+    data_type: enumeration
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_biospecimencollection_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_familyrelationship
+  description: Model for PGRNseq_ftd_familyrelationship.
+  columns:
+  - name: family_member
+    description: '{{ doc("PGRNseq_ftd_familyrelationship_family_member") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: other_family_member
+    description: '{{ doc("PGRNseq_ftd_familyrelationship_other_family_member") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: relationship_code
+    description: '{{ doc("PGRNseq_ftd_familyrelationship_relationship_code") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_familyrelationship_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_familyrelationship_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_aliquot_external_id
+  description: Model for PGRNseq_ftd_aliquot_external_id.
+  columns:
+  - name: aliquot_id
+    description: '{{ doc("PGRNseq_ftd_aliquot_external_id_aliquot_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_aliquot_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_familymember
+  description: Model for PGRNseq_ftd_familymember.
+  columns:
+  - name: family_member
+    description: '{{ doc("PGRNseq_ftd_familymember_family_member") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: family_role
+    description: '{{ doc("PGRNseq_ftd_familymember_family_role") }}'
+    data_type: string
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_familymember_has_access_policy") }}'
+    data_type: string
+    tests: []
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_familymember_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: family_id
+    description: '{{ doc("PGRNseq_ftd_familymember_family_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_subject_external_id
+  description: Model for PGRNseq_ftd_subject_external_id.
+  columns:
+  - name: subject_id
+    description: '{{ doc("PGRNseq_ftd_subject_external_id_subject_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_subject_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_file_external_id
+  description: Model for PGRNseq_ftd_file_external_id.
+  columns:
+  - name: file_id
+    description: '{{ doc("PGRNseq_ftd_file_external_id_file_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_file_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_demographics_external_id
+  description: Model for PGRNseq_ftd_demographics_external_id.
+  columns:
+  - name: demographics_id
+    description: '{{ doc("PGRNseq_ftd_demographics_external_id_demographics_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_demographics_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_subjectassertion_source_data
+  description: Model for PGRNseq_ftd_subjectassertion_source_data.
+  columns:
+  - name: subjectassertion_id
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_source_data_subjectassertion_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: source_data_id
+    description: '{{ doc("PGRNseq_ftd_subjectassertion_source_data_source_data_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_file_subject
+  description: Model for PGRNseq_ftd_file_subject.
+  columns:
+  - name: file_id
+    description: '{{ doc("PGRNseq_ftd_file_subject_file_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: subject_id
+    description: '{{ doc("PGRNseq_ftd_file_subject_subject_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_accesspolicy_data_access_type
+  description: Model for PGRNseq_ftd_accesspolicy_data_access_type.
+  columns:
+  - name: accesspolicy_id
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_data_access_type_accesspolicy_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: data_access_type
+    description: '{{ doc("PGRNseq_ftd_accesspolicy_data_access_type_data_access_type")
+      }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - open
+        - registered
+        - controlled
+        - gsr_restricted
+        - gsr_allowed
+- name: PGRNseq_ftd_accesscontrolledrecord_external_id
+  description: Model for PGRNseq_ftd_accesscontrolledrecord_external_id.
+  columns:
+  - name: accesscontrolledrecord_id
+    description: '{{ doc("PGRNseq_ftd_accesscontrolledrecord_external_id_accesscontrolledrecord_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_accesscontrolledrecord_external_id_external_id")
+      }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_sourcedata
+  description: Model for PGRNseq_ftd_sourcedata.
+  columns:
+  - name: data_source
+    description: '{{ doc("PGRNseq_ftd_sourcedata_data_source") }}'
+    data_type: string
+    tests: []
+  - name: has_access_policy
+    description: '{{ doc("PGRNseq_ftd_sourcedata_has_access_policy") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: id
+    description: '{{ doc("PGRNseq_ftd_sourcedata_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: PGRNseq_ftd_sourcedata_external_id
+  description: Model for PGRNseq_ftd_sourcedata_external_id.
+  columns:
+  - name: sourcedata_id
+    description: '{{ doc("PGRNseq_ftd_sourcedata_external_id_sourcedata_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_sourcedata_external_id_external_id") }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_study_principal_investigator
+  description: Model for PGRNseq_ftd_study_principal_investigator.
+  columns:
+  - name: study_id
+    description: '{{ doc("PGRNseq_ftd_study_principal_investigator_study_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: principal_investigator
+    description: '{{ doc("PGRNseq_ftd_study_principal_investigator_principal_investigator")
+      }}'
+    data_type: string
+    tests: []
+- name: PGRNseq_ftd_study_external_id
+  description: Model for PGRNseq_ftd_study_external_id.
+  columns:
+  - name: study_id
+    description: '{{ doc("PGRNseq_ftd_study_external_id_study_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("PGRNseq_ftd_study_external_id_external_id") }}'
+    data_type: string
+    tests: []
