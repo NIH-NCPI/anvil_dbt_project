@@ -86,7 +86,7 @@ dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 # dbt build --select +tgt_filemetadata --vars '{"source_table": "cmg_yale_ftd_filemetadata", "target_schema": "cmg_yale_tgt_data"}' --quiet
 # dbt build --select +tgt_family_family_relationships --vars '{"source_table": "cmg_yale_ftd_family_family_relationships", "target_schema": "cmg_yale_tgt_data"}' --quiet
 # dbt build --select +tgt_accesscontrolledrecord_external_id --vars '{"source_table": "cmg_yale_ftd_accesscontrolledrecord_external_id", "target_schema": "cmg_yale_tgt_data"}' --quiet
-dbt build --select +tgt_study --vars '{"source_table": "cmg_yale_ftd_study", "target_schema": "cmg_yale_tgt_data"}' --quiet
+# dbt build --select +tgt_study --vars '{"source_table": "cmg_yale_ftd_study", "target_schema": "cmg_yale_tgt_data"}' --quiet
 # dbt build --select +tgt_subjectassertion_source_data --vars '{"source_table": "cmg_yale_ftd_subjectassertion_source_data", "target_schema": "cmg_yale_tgt_data"}' --quiet
 # dbt build --select +tgt_datasource --vars '{"source_table": "cmg_yale_ftd_datasource", "target_schema": "cmg_yale_tgt_data"}' --quiet
 # dbt build --select +tgt_accesscontrolledrecord --vars '{"source_table": "cmg_yale_ftd_accesscontrolledrecord", "target_schema": "cmg_yale_tgt_data"}' --quiet

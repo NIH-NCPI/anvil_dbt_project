@@ -20,7 +20,11 @@ select
  NULL as data_type, --TODO MAP when available
  size_in_bytes as "size",
  consent_id,
- ff.code as "format",
+ 
+ curie::text as "format",
+ coalesce(full_extension, 'FTD_NULL') AS "ftd_format", -- flag nulls for analysis
+ coalesce(uri, 'Needs Handling - nullable') AS "ftd_format", -- flag unhandled strings
+ 
  name as "filename",
  file_ref as "drs_uri",
  {{ generate_global_id(prefix='fd',descriptor=['filename'], study_id='cmg_yale') }}::text as "file_metadata",
@@ -30,5 +34,5 @@ from
   {{ ref('cmg_yale_stg_file_inventory') }}
   left join get_consents 
     on file = file_ref
-  left join {{ ref('file_formats') }} as ff
+  left join {{ ref('fl_format') }} as ff
     on lower(replace(full_extension,'.','')) = src_format

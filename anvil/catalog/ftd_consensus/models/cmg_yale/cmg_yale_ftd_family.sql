@@ -8,7 +8,6 @@ select
   coalesce(consanguinity, 'FTD_NULL') AS "ftd_consanguinity", -- flag nulls for analysis
   coalesce(code, 'Needs Handling') AS "ftd_flag_consanguinity", -- flag unhandled strings
   
-  code::text as "consanguinity",
   NULL::text as "family_study_focus",
   {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='cmg_yale') }}::text as "has_access_policy",
   {{ generate_global_id(prefix='fy',descriptor=['family_id'], study_id='cmg_yale') }}::text as "id"

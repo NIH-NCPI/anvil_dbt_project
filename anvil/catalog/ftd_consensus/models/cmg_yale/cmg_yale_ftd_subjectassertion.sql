@@ -6,7 +6,7 @@ lookup as (
       "searched_code" as join_code,
       "searched_code" as code,
       "display" as display
-    from {{ ref('conditions_annotations') }}
+    from {{ ref('cmg_yale_conditions_annotations') }}
 )
 
 select 
