@@ -1,9 +1,9 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
 select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "data_source",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "id"
+null::text as "data_source",
+null::text as "has_access_policy",
+null::text as "id"
 from {{ ref('GWAS_stg_bmi') }} as bmi
 join {{ ref('GWAS_stg_demographics') }} as demographics
 on subjectconsent.subject_id = demographics.subject_id  join {{ ref('GWAS_stg_pedigree') }} as pedigree

@@ -1,12 +1,12 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
 select 
-GEN_UNKNOWN.family_type::text as "family_type",
-  GEN_UNKNOWN.family_description::text as "family_description",
-  GEN_UNKNOWN.consanguinity::text as "consanguinity",
-  GEN_UNKNOWN.family_study_focus::text as "family_study_focus",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "id"
+null::text as "family_type",
+null::text as "family_description",
+null::text as "consanguinity",
+null::text as "family_study_focus",
+null::text as "has_access_policy",
+null::text as "id"
 from {{ ref('GWAS_stg_bmi') }} as bmi
 join {{ ref('GWAS_stg_demographics') }} as demographics
 on subjectconsent.subject_id = demographics.subject_id  join {{ ref('GWAS_stg_pedigree') }} as pedigree

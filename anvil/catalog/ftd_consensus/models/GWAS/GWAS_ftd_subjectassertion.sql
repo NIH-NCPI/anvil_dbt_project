@@ -50,7 +50,7 @@ unpivot_bmi as (
 
     select distinct 
         CASE WHEN code IN ('weight', 'height', 'body_mass_index') THEN 'measurement' 
-             WHEN TRY_CAST(code AS DOUBLE) IS NOT NULL THEN 'ehr_billing_code'
+             WHEN code IS NOT NULL THEN 'ehr_billing_code'
              ELSE CONCAT('FTD_FLAG: unhandled assertion_type: ',code)
         END::text as "assertion_type",
         age_at_assertion,

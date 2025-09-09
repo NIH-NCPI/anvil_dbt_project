@@ -1,14 +1,14 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
 select 
-GEN_UNKNOWN.filename::text as "filename",
-  GEN_UNKNOWN.format::text as "format",
-  GEN_UNKNOWN.data_type::text as "data_type",
-  GEN_UNKNOWN.size::integer as "size",
-  GEN_UNKNOWN.drs_uri::text as "drs_uri",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "file_metadata",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "id"
+null::text as "filename",
+null::text as "format",
+null::text as "data_type",
+null::integer as "size",
+null:text as "drs_uri",
+null::text as "file_metadata",
+null::text as "has_access_policy",
+null::text as "id"
 from {{ ref('GWAS_stg_bmi') }} as bmi
 join {{ ref('GWAS_stg_demographics') }} as demographics
 on subjectconsent.subject_id = demographics.subject_id  join {{ ref('GWAS_stg_pedigree') }} as pedigree

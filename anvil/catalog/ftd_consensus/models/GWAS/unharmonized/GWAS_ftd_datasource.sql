@@ -1,12 +1,12 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
 select 
-GEN_UNKNOWN.snapshot_id::text as "snapshot_id",
-  GEN_UNKNOWN.google_data_project::text as "google_data_project",
-  GEN_UNKNOWN.snapshot_dataset::text as "snapshot_dataset",
-  GEN_UNKNOWN.table::text as "table",
-  GEN_UNKNOWN.parameterized_query::text as "parameterized_query",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "id"
+null::text as "snapshot_id",
+null::text as "google_data_project",
+null::text as "snapshot_dataset",
+null::text as "table",
+null::text as "parameterized_query",
+null::text as "id"
 from {{ ref('GWAS_stg_bmi') }} as bmi
 join {{ ref('GWAS_stg_demographics') }} as demographics
 on subjectconsent.subject_id = demographics.subject_id  join {{ ref('GWAS_stg_pedigree') }} as pedigree

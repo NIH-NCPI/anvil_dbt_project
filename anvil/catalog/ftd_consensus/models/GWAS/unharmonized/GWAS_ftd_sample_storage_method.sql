@@ -1,8 +1,8 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
 select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "sample_id",
-  GEN_UNKNOWN.storage_method::text as "storage_method"
+null::text as "sample_id",
+null::text as "storage_method"
 from {{ ref('GWAS_stg_bmi') }} as bmi
 join {{ ref('GWAS_stg_demographics') }} as demographics
 on subjectconsent.subject_id = demographics.subject_id  join {{ ref('GWAS_stg_pedigree') }} as pedigree

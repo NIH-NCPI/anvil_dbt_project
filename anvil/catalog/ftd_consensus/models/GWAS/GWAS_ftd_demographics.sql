@@ -25,7 +25,7 @@ CASE demographics.race
     WHEN 'C41259' THEN 'American Indian or Alaska Native'
     WHEN 'C41260' THEN 'Asian'
     WHEN 'C16352' THEN 'Black or African American'
-    WHEN 'C41219' THEN 'Native Hawaiian or  Other Pacific Islander'
+    WHEN 'C41219' THEN 'Native Hawaiian or Other Pacific Islander'
     WHEN 'C41261' THEN 'White'
     WHEN 'C17998' THEN 'unknown'
     WHEN 'C43234' THEN 'unknown'

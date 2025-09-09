@@ -1,11 +1,11 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
 select 
-GEN_UNKNOWN.code::text as "code",
-  GEN_UNKNOWN.display::text as "display",
-  GEN_UNKNOWN.value_code::text as "value_code",
-  GEN_UNKNOWN.value_display::text as "value_display",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='GWAS') }}::text as "id"
+null::text as "code",
+null::text as "display",
+null::text as "value_code",
+null::text as "value_display",
+null::text as "id"
 from {{ ref('GWAS_stg_bmi') }} as bmi
 join {{ ref('GWAS_stg_demographics') }} as demographics
 on subjectconsent.subject_id = demographics.subject_id  join {{ ref('GWAS_stg_pedigree') }} as pedigree
