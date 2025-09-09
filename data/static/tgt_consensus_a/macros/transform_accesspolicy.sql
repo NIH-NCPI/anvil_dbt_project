@@ -1,6 +1,6 @@
 {% macro transform_accesspolicy(source_table) %}
 
-select 
+select distinct
   disease_limitation::text as "disease_limitation",
   description::text as "description",
   website::text as "website",

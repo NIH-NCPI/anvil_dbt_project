@@ -1,6 +1,6 @@
 {% macro transform_biospecimencollection(source_table) %}
 
-select 
+select distinct
   age_at_collection::integer as "age_at_collection",
   method::text as "method",
   site::text as "site",
