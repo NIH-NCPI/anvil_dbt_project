@@ -6,7 +6,6 @@
     {'description': 'General Research Use', 'consents': ['3']}
 ] -%}
 
-with source as (
     {%- for group in consent_groups -%}
     (
     select DISTINCT
@@ -27,8 +26,5 @@ with source as (
         )
     {% if not loop.last %}union all{% endif %}
     {%- endfor -%}
-
-)
-select * from source
 
     

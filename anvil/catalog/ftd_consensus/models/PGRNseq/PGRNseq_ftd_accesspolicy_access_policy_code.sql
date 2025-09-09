@@ -6,7 +6,6 @@
     {'consent': 'gru', 'consents': ['3']}
 ] -%}
 
-with source as (
     {%- for group in consent_groups -%}
     (
     select DISTINCT 
@@ -22,6 +21,3 @@ from {{ ref('PGRNseq_stg_subjectconsent') }} as subjectconsent
         )
     {% if not loop.last %}union all{% endif %}
     {%- endfor -%}
-
-)
-select * from source
