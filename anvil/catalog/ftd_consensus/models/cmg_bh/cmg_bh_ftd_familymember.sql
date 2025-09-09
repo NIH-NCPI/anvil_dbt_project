@@ -2,7 +2,7 @@
 
 select
   {{ generate_global_id(prefix='fy',descriptor=['family_id'], study_id='cmg_bh') }}::text as "family_id", 
-  {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='cmg_yale') }}::text as "family_member",
+  {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='cmg_bh') }}::text as "family_member",
   {{ generate_global_id(prefix='ap',descriptor=['ingest_provenance'], study_id='cmg_bh') }}::text as "has_access_policy",
   {{ generate_global_id(prefix='fm',descriptor=['subject_id'], study_id='cmg_bh') }}::text as "id",
     case 
