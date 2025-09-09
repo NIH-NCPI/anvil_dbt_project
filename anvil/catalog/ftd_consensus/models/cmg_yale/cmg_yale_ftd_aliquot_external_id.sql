@@ -1,6 +1,6 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
 
 select 
---   { { generate_global_id(prefix='',descriptor=[''], study_id='cmg_bh') }}::text as "aliquot_id",
+--   { { generate_global_id(prefix='',descriptor=[''], study_id='cmg_yale') }}::text as "aliquot_id",
   NULL::text as "aliquot_id",
   NULL::text as "external_id"
