@@ -1,6 +1,6 @@
 {% macro transform_filemetadata(source_table) %}
 
-select 
+select distinct
   code::text as "code",
   display::text as "display",
   value_code::text as "value_code",

@@ -1,6 +1,6 @@
 {% macro transform_subjectassertion(source_table) %}
 
-select 
+select distinct
   assertion_type::text as "assertion_type",
   age_at_assertion::text as "age_at_assertion",
   age_at_event::text as "age_at_event",

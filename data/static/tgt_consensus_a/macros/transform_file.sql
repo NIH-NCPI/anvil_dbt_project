@@ -1,6 +1,6 @@
 {% macro transform_file(source_table) %}
 
-select 
+select distinct
   filename::text as "filename",
   format::text as "format",
   data_type::text as "data_type",

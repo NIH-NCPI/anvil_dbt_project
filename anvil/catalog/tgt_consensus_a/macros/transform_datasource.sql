@@ -1,6 +1,6 @@
 {% macro transform_datasource(source_table) %}
 
-select 
+select distinct
   snapshot_id::text as "snapshot_id",
   google_data_project::text as "google_data_project",
   snapshot_dataset::text as "snapshot_dataset",

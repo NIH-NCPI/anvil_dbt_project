@@ -1,6 +1,6 @@
 {% macro transform_familyrelationship(source_table) %}
 
-select 
+select distinct
   family_member::text as "family_member",
   other_family_member::text as "other_family_member",
   relationship_code::text as "relationship_code",
