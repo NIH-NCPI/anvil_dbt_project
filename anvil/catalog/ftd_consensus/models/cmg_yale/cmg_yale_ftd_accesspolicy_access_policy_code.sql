@@ -1,5 +1,5 @@
 {{ config(materialized='table', schema='cmg_yale_data') }}
-{%- set consent_groups = ['GRU','DS','GSO','HMB','IRB','PUB','COL','NPU','MDS','GSO','GSR'] -%}
+{%- set consent_groups = ['gru','ds','gso','hmb','irb','pub','col','npu','mds','gsr'] -%}
 
 {%- for grp in consent_groups -%}
         select
@@ -7,6 +7,6 @@
       '{{ grp }}' as access_policy_code,
       consent_id as "ftd_consent_group"
     from (select distinct consent_id from {{ ref('cmg_yale_stg_subject') }}) as s
-    where s.consent_id ILIKE '{{ grp }}'
+    where s.consent_id ILIKE '%{{ grp }}%'
     {% if not loop.last %}union all{% endif %}
 {% endfor %}

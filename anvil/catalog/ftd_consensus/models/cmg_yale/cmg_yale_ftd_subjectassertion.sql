@@ -31,22 +31,12 @@ select
       then null
     else CONCAT('FTD_FLAG:unhandled display: ',condition_or_disease_code) 
   end::text as "display",
-    case 
-    when lower(presence) = 'affected'          then 'LA9633-4'
-    when lower(presence) = 'unaffected'        then 'LA9634-2'
-    when lower(presence) = 'unknown'           then 'LA4489-6'
-    when lower(presence) = 'possibly affected' then 'LA15097-1'
-    when presence is null                    then 'LA4489-6'
-    else CONCAT('FTD_FLAG:unhandled value_code: ',presence)
-  end::text as "value_code",
-    case 
-    when lower(presence) = 'affected'          then 'Affected'
-    when lower(presence) = 'unaffected'        then 'Unaffected'
-    when lower(presence) = 'unknown'           then 'Unknown'
-    when lower(presence) = 'possibly affected' then 'Possible'
-    when presence is null                    then 'Unknown'
-    else CONCAT('FTD_FLAG:unhandled value_display: ',presence)
-  end::text as "value_display",  
+  
+  coalesce(code,'LA4489-6') AS "value_code",
+  coalesce(presence, 'FTD_NULL') AS "ftd_value_code", -- flag nulls for analysis
+  coalesce(code, 'Needs Handling') AS "ftd_value_code", -- flag unhandled strings
+  
+  coalesce(display,'Unknown') AS "value_display",
   NULL::text as "value_number",
   NULL::text as "value_units",
   NULL::text as "value_units_display",
