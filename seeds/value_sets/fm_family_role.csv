@@ -1,4 +1,4 @@
-study_id,relationship_to_proband,code,system,display,inactive,description
+study_id,relationship_to_proband,curie,system,display,inactive,description
 ,adopted child,CHLDADOPT,http://terminology.hl7.org/CodeSystem/v3-RoleCode,adopted child,,The player of the role is a child taken into a family through legal means and raised by the scoping person (parent) as his or her own child.
 ,adopted daughter,DAUADOPT,http://terminology.hl7.org/CodeSystem/v3-RoleCode,adopted daughter,,The player of the role is a female child taken into a family through legal means and raised by the scoping person (parent) as his or her own child.
 ,adopted son,SONADOPT,http://terminology.hl7.org/CodeSystem/v3-RoleCode,adopted son,,The player of the role is a male child taken into a family through legal means and raised by the scoping person (parent) as his or her own child.
