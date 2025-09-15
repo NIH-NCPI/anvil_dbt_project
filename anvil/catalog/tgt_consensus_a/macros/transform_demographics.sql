@@ -1,6 +1,6 @@
 {% macro transform_demographics(source_table) %}
 
-select 
+select distinct
   date_of_birth::integer as "date_of_birth",
   date_of_birth_type::text as "date_of_birth_type",
   sex::text as "sex",

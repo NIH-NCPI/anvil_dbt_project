@@ -1,6 +1,6 @@
 {% macro transform_sample(source_table) %}
 
-select 
+select distinct
   parent_sample::text as "parent_sample",
   sample_type::text as "sample_type",
   availablity_status::text as "availablity_status",

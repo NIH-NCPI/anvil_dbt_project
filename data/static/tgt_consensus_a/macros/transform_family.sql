@@ -1,6 +1,6 @@
 {% macro transform_family(source_table) %}
 
-select 
+select distinct
   family_type::text as "family_type",
   family_description::text as "family_description",
   consanguinity::text as "consanguinity",
