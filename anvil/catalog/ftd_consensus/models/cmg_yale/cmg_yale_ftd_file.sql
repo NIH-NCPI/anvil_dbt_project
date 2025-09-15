@@ -17,7 +17,7 @@ get_consents as (
 
 select 
  distinct 
- NULL as data_type, --TODO MAP when available
+ NULL as data_type,
  size_in_bytes as "size",
  consent_id,
  

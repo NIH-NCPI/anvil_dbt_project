@@ -2,7 +2,7 @@
 
 with
 lookup as (
-    select -- annotations from src
+    select
       "searched_code" as join_code,
       "searched_code" as code,
       "display" as display

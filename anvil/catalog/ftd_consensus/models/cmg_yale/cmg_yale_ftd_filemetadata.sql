@@ -32,9 +32,9 @@ unpivot_df as (
 
 select 
   distinct
-  NULL::text as "code",  -- TODO: Get code
+  NULL::text as "code",
   code::text as "display",
-  NULL::text as "value_code",  -- TODO: Get code
+  NULL::text as "value_code",
   value_code::text as "value_display",
   {{ generate_global_id(prefix='fd',descriptor=['filename'], study_id='cmg_yale') }}::text as "id"
 from unpivot_df
