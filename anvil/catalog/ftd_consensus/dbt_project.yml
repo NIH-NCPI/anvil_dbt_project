@@ -687,7 +687,6 @@ models:
     eMERGEseq_ftd_study_external_id:
       +schema: main
       +materialized: table
-<<<<<<< HEAD
   PGRNseq:
     PGRNseq_ftd_datasource_external_id:
       +schema: main
@@ -822,7 +821,6 @@ models:
       +schema: main
       +materialized: table
     PGRNseq_ftd_study_external_id:
-=======
   GWAS:
     GWAS_ftd_datasource_external_id:
       +schema: main
@@ -957,6 +955,5 @@ models:
       +schema: main
       +materialized: table
     GWAS_ftd_study_external_id:
->>>>>>> main
       +schema: main
       +materialized: table

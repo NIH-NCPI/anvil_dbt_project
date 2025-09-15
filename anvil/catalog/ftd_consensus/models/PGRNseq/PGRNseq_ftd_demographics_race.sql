@@ -1,14 +1,17 @@
 {{ config(materialized='table', schema='PGRNseq_data') }}
 
 select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='PGRNseq') }}::text as "demographics_id",
-  demographics.race::text as "race"
-from {{ ref('PGRNseq_stg_bmi') }} as bmi
-join {{ ref('PGRNseq_stg_demographics') }} as demographics
-on subjectconsent.subject_id = demographics.subject_id  join {{ ref('PGRNseq_stg_ecg') }} as ecg
-on   join {{ ref('PGRNseq_stg_labs') }} as labs
-on   join {{ ref('PGRNseq_stg_sampleattribution') }} as sampleattribution
-on samplesubjectmapping.sample_id = sampleattribution.sample_id  join {{ ref('PGRNseq_stg_samplesubjectmapping') }} as samplesubjectmapping
-on sampleattribution.sample_id = samplesubjectmapping.sample_id  join {{ ref('PGRNseq_stg_subjectconsent') }} as subjectconsent
-on demographics.subject_id = subjectconsent.subject_id 
-
+  {{ generate_global_id(prefix='dm',descriptor=['demographics.subject_id'], study_id='phs000906') }}::text as "demographics_id",
+ CASE 
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'C41259' THEN 'american_indian_or_alaskan_native'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'C41260' THEN 'asian'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'C16352' THEN 'black_or_african_american'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'C41219' THEN 'native_hawaiian_or_pacific_islander'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'C41261' THEN 'white'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'C17998' THEN 'unknown'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'C43234' THEN 'unknown'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = '.' THEN 'unknown'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'NA' THEN 'unknown'
+     WHEN UNNEST(SPLIT(demographics.race, ',')) = 'OTHER' THEN 'other_race'
+ END::text as "race"
+from {{ ref('PGRNseq_stg_demographics') }} as demographics
