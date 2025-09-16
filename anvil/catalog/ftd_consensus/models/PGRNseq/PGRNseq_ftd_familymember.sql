@@ -1,17 +1,8 @@
 {{ config(materialized='table', schema='PGRNseq_data') }}
 
 select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='PGRNseq') }}::text as "family_member",
-  GEN_UNKNOWN.family_role::text as "family_role",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='PGRNseq') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='PGRNseq') }}::text as "id",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='PGRNseq') }}::text as "family_id"
-from {{ ref('PGRNseq_stg_bmi') }} as bmi
-join {{ ref('PGRNseq_stg_demographics') }} as demographics
-on subjectconsent.subject_id = demographics.subject_id  join {{ ref('PGRNseq_stg_ecg') }} as ecg
-on   join {{ ref('PGRNseq_stg_labs') }} as labs
-on   join {{ ref('PGRNseq_stg_sampleattribution') }} as sampleattribution
-on samplesubjectmapping.sample_id = sampleattribution.sample_id  join {{ ref('PGRNseq_stg_samplesubjectmapping') }} as samplesubjectmapping
-on sampleattribution.sample_id = samplesubjectmapping.sample_id  join {{ ref('PGRNseq_stg_subjectconsent') }} as subjectconsent
-on demographics.subject_id = subjectconsent.subject_id 
-
+NULL::text as "family_member",
+NULL::text as "family_role",
+NULL::text as "has_access_policy",
+NULL::text as "id",
+NULL::text as "family_id"

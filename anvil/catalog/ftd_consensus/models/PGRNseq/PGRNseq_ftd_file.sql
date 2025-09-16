@@ -1,20 +1,11 @@
 {{ config(materialized='table', schema='PGRNseq_data') }}
 
 select 
-GEN_UNKNOWN.filename::text as "filename",
-  GEN_UNKNOWN.format::text as "format",
-  GEN_UNKNOWN.data_type::text as "data_type",
-  GEN_UNKNOWN.size::integer as "size",
-  GEN_UNKNOWN.drs_uri::text as "drs_uri",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='PGRNseq') }}::text as "file_metadata",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='PGRNseq') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='PGRNseq') }}::text as "id"
-from {{ ref('PGRNseq_stg_bmi') }} as bmi
-join {{ ref('PGRNseq_stg_demographics') }} as demographics
-on subjectconsent.subject_id = demographics.subject_id  join {{ ref('PGRNseq_stg_ecg') }} as ecg
-on   join {{ ref('PGRNseq_stg_labs') }} as labs
-on   join {{ ref('PGRNseq_stg_sampleattribution') }} as sampleattribution
-on samplesubjectmapping.sample_id = sampleattribution.sample_id  join {{ ref('PGRNseq_stg_samplesubjectmapping') }} as samplesubjectmapping
-on sampleattribution.sample_id = samplesubjectmapping.sample_id  join {{ ref('PGRNseq_stg_subjectconsent') }} as subjectconsent
-on demographics.subject_id = subjectconsent.subject_id 
-
+NULL::text as "filename",
+NULL::text as "format",
+NULL::text as "data_type",
+NULL::integer as "size",
+NULL::text as "drs_uri",
+NULL::text as "file_metadata",
+NULL::text as "has_access_policy",
+NULL::text as "id"

@@ -49,8 +49,8 @@ CASE demographics.ethnicity
 END::text as "ethnicity_display",
 NULL as "age_at_last_vital_status",
 NULL as "vital_status",
-    {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs001584') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='dm',descriptor=['demographics.subject_id'], study_id='phs001584') }}::text as "id"
+    {{ generate_global_id(prefix='ap',descriptor=['subjectconsent.consent'], study_id='phs000906') }}::text as "has_access_policy",
+    {{ generate_global_id(prefix='dm',descriptor=['demographics.subject_id'], study_id='phs000906') }}::text as "id"
 from {{ ref('PGRNseq_stg_demographics') }} as demographics
 join {{ ref('PGRNseq_stg_subjectconsent') }} as subjectconsent
 using(subject_id)

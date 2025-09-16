@@ -29,6 +29,8 @@ models:
         values:
         - available
         - unavailable
+        config:
+            where: "availablity_status IS NOT NULL"
   - name: quantity_number
     description: '{{ doc("PGRNseq_ftd_sample_quantity_number") }}'
     data_type: number
