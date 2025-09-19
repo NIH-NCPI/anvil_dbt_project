@@ -21,8 +21,8 @@ with bmi_cte as (
         NULL AS "value_code",
         NULL AS "value_display",
         {{ col }}::text as "value_number",
+        NULL as "value_units_display",
         NULL as "value_units",
-        NULL as "value_units_display"
         from {{ bmi_relation }} as bmi
         {% if not loop.last %}union all{% endif %}
     {% endfor %}
@@ -57,14 +57,14 @@ ecg_w_units as (
         ec.*,
         ecg_units.value_units as 'value_units'
     from ecg_cte as ec
-    left join ecg_units
+    join ecg_units
         on ec.code = ecg_units.code
 ),
 
 union_data as (
-    select * from bmi_cte as bc
-    union all 
-    select * from ecg_w_units as ecu
+    select * from bmi_cte as bc 
+    union all
+    select * from ecg_w_units as ecu 
 )
 
 select distinct
@@ -98,6 +98,8 @@ select distinct
         WHEN ud.code = 'weight' THEN 'kilogram'
         WHEN ud.code = 'height' THEN 'centimeter'
         WHEN ud.code = 'body_mass_index' THEN 'kilogram per square meter'   
+        WHEN ud.value_units = 'ms' THEN 'millisecond'
+        WHEN ud.value_units = 'bpm' THEN 'heart beats per minute'
         ELSE NULL
     END as "value_units_display",
     {{ generate_global_id(prefix='sa', descriptor=['subject_id', 'ud.code'], study_id='phs000906') }}::text as "id",
