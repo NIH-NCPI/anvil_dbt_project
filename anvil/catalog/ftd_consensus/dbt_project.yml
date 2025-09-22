@@ -821,6 +821,8 @@ models:
       +schema: main
       +materialized: table
     PGRNseq_ftd_study_external_id:
+      +schema: main
+      +materialized: table
   GWAS:
     GWAS_ftd_datasource_external_id:
       +schema: main
