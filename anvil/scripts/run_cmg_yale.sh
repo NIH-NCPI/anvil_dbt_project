@@ -3,9 +3,8 @@
 dbt clean
 dbt deps || { echo "Error: dbt deps failed. Exiting..."; exit 1; }
 dbt seed #--full-refresh
-
-
 # build Target tables
+
 dbt build --select +tgt_biospecimencollection --vars '{"source_table": "cmg_yale_ftd_biospecimencollection", "target_schema": "cmg_yale_tgt_data"}' --quiet
 dbt build --select +tgt_biospecimencollection_external_id --vars '{"source_table": "cmg_yale_ftd_biospecimencollection_external_id", "target_schema": "cmg_yale_tgt_data"}' --quiet
 dbt build --select +tgt_study_external_id --vars '{"source_table": "cmg_yale_ftd_study_external_id", "target_schema": "cmg_yale_tgt_data"}' --quiet
