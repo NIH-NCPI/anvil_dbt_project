@@ -5,6 +5,8 @@ import numpy as np
 import sys
 from jinja2 import Template
 import re
+import subprocess
+import os
 from pathlib import Path
 
 from dbt_pipeline_utils.scripts.helpers.general import *
@@ -27,6 +29,7 @@ def get_terra_paths(study_id, project_id, dbt_repo):
     home_dir = script_dir.parent.parent.parent
     pipeline_dir = home_dir / 'pipeline'
     repo_home_dir =  pipeline_dir / dbt_repo # user editable location for the pipeline repo
+    validation_yml_path = repo_home_dir / 'data' / study_id / f'{study_id}_validation.yaml'
     output_dir = pipeline_dir / 'output_data'
     output_study_dir = output_dir / study_id
     output_validation_dir = output_study_dir / "validation"
@@ -45,6 +48,7 @@ def get_terra_paths(study_id, project_id, dbt_repo):
     return {
         "home_dir": home_dir,
         "repo_home_dir": repo_home_dir,
+        "validation_yml_path": validation_yml_path,
         "pipeline_dir": pipeline_dir,
         "output_dir": output_dir,
         "output_study_dir":output_study_dir,
@@ -410,7 +414,281 @@ def format_nulls(s):
     """
     return ['color: red' if v is None else '' for v in s]
 
-# -
+# +
+# pipeline helpers 
+def create_file_dict(table, count):
+    file_list = []
+    for i in range(count):
+        if i == 0:
+            file = f'{table}_{"0" * 12}.csv'
+        else:
+            file = f'{table}_{"0" * (12 - len(str(i)))}{i}.csv'
+        file_list.append(file)
+    
+    return {table: file_list}
 
+# def get_bucket_src_data_format_store(src_table_list, src_files, partial_file_dicts, paths):
+#     '''
+#     Data files are a special case. Get them from the bucket with this 
+#     function, NOT pull_study_files()
+#     Data files should not be edited manually. If edits are required, 
+#     use the original queries with edits to store the new data in the bucket
+#     '''
+#     print('INFO: Start')
+
+#     copy_data_from_bucket(paths['bucket_study_dir'], src_files, paths['src_data_dir'])
+
+#     # Iterate over the dictionaries and process files
+#     for file_dict in partial_file_dicts:  # Iterate over each dictionary in partial_file_dicts
+#         for table, file_list in file_dict.items():  # Extract table name (key) and file list (value)
+#             # Concatenate files for the current table
+#             read_and_concat_files(file_list, paths['src_data_dir'], f'{paths['src_data_dir']}/{table}_combined.csv')
+
+#     # Rename the concatenated files
+#     for table in src_table_list:  # Iterate over all table names
+#         rename_file_single_dir(paths['src_data_dir'], f'{table}_combined.csv', f'{table}.csv')
+
+#     # Remove all the files in the dictionaries
+#     for file_dict in partial_file_dicts:  # Iterate over each dictionary in partial_file_dicts
+#         for table, file_list in file_dict.items():
+#             remove_file(file_list, paths['src_data_dir'])
+
+#     print('INFO: Complete')
+    
+def setup_ssh(paths):
+    # Create and configure ~/.ssh
+    if not paths['ssh_dir'].is_dir():
+        paths['ssh_dir'].mkdir(mode=0o700, exist_ok=True)
+        print("INFO: Created ~/.ssh directory.")
+    ssh_config = paths['ssh_dir'] / "config"
+    if not ssh_config.exists():
+        ssh_config.write_text(
+            """# SSH configuration for GitHub
+Host github
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+  IdentitiesOnly yes
+"""
+        )
+        ssh_config.chmod(0o600)
+        print("INFO: Created ~/.ssh/config file.")
+        
+ # Move id_rsa to ~/.ssh and set correct permissions
+    if paths['id_rsa_src'].exists():
+        os.system(f"mv {paths['id_rsa_src']} {paths['id_rsa_dest']}")
+        id_rsa_dest.chmod(0o600)
+        print(f"INFO: Moved id_rsa to {paths['id_rsa_src']} and set permissions to 600.")
+
+    if not paths['id_rsa_src'].exists() and not paths['id_rsa_dest'].exists():
+        print(f"WARNING: Make sure the private key is available.")
+
+# See [docs](https://github.com/DataBiosphere/terra-examples/blob/main/best_practices/source_control/terra_source_control_cheatsheet.md#1-use-the-jupyter-console-to-upload-your-github-ssh-key-and-create-an-interactive-terminal-session) 
+def setup_gh(gh_user, gh_email, paths):
+    content1=f'''
+[user]
+        email = {gh_email}
+        name = {gh_user}
+[url "git@github.com:"]
+        insteadOf = https://github.com/
+
+    '''
+
+    with paths['git_config_path'].open("a") as file:
+        file.write("\n" + content1)
+
+    print("INFO: Edited ~/.gitconfig file.")
+        
+def update_bash_profile(paths, pipeline):
+    
+    content1 = """
+# Custom PS1 prompt with virtual environment display
+export PS1='\\[\\033[1;33m\\]${VIRTUAL_ENV:+(venv)} \\[\\033[1;36m\\]$(basename "$PWD")\\[\\033[00m\\]\\$ '
+"""
+
+    content2 = f"""
+# Add SSH private key
+eval "ssh-add ~/.ssh/id_rsa"
+
+# Alias to activate Python virtual environment
+alias activate="source /home/jupyter/venv-python3.12/bin/activate"
+
+# Alias to setup ssh and permissions:
+alias setup_ssh="
+echo 'Assuming the id_rsa is in the {paths['id_rsa_src']} dir'
+eval 'mv {paths['id_rsa_src']} {paths['id_rsa_dest']}'
+eval 'chmod 600 ~/.ssh/id_rsa'
+"
+
+# Setup dirs and clone the repo
+alias clone_repo="
+eval 'mkdir {paths['pipeline_dir']}'
+eval 'mkdir {paths['repo_home_dir']}'
+eval 'git clone {pipeline} {paths['repo_home_dir']}'
+eval 'mkdir paths['src_data_dir']'
+eval 'activate'
+eval 'cd {paths['repo_home_dir']}'
+eval 'mkdir {paths['output_dir']}'
+eval 'mkdir {paths['output_study_dir']}'
+"
+
+# Alias to dbt prep file system:
+alias setup_data="
+eval 'mkdir {paths['dbt_dir']}'
+eval 'cp {paths['profiles_path_root']} {paths['profiles_path_home']}'
+"
+
+# Alias to clean and compile pipeline:
+alias r_dbt="
+eval 'dbt clean'
+eval 'dbt deps'
+"
+
+echo 'Alias are: activate, r_dbt, setup_ssh clone_repo, setup_data'
+
+export LOCUTUS_LOGLEVEL='INFO'
+
+"""
+    with paths['bash_profile'].open("a") as file:
+        file.write("\n" + content1 + "\n" + content2)
+        
+    print("INFO: Content successfully added to ~/.bash_profile.")
+
+    print("INFO: To apply changes, run: source ~/.bash_profile")
+
+def stop_gitignoring_sql_files(paths):
+    content = """
+!*.sql
+!*.yml
+"""
+    with paths['terra_gitignore'].open("a") as file:
+        file.write("\n" + content + "\n")
+    print("INFO: Content successfully added to ~/gitignore_global")
+    
+    
+def run_initial_setup(paths, gh_user, gh_email, pipeline):
+    '''
+    Run the setup functions
+    '''
+    setup_ssh(paths) # Required first time env setup
+    setup_gh(gh_user, gh_email, paths) # Required first time env setup
+    update_bash_profile(paths, pipeline)
+    stop_gitignoring_sql_files(paths)
+def copy_data_from_bucket(bucket_study_dir, file_list, output_dir):
+    for file in file_list:
+#         TODO: checkout rsync https://google-cloud-how-to.smarthive.io/buckets/rsync
+        # !gsutil cp {bucket_study_dir}/{file} {output_dir}
+        print(f'INFO: Copied {file} to {output_dir}') 
+
+def copy_data_to_bucket(bucket_study_dir, file_list, input_dir):
+    for file in file_list:
+        # !gsutil cp {input_dir} {bucket_study_dir}/{file}
+        print(f'INFO: Copied {file} to the bucket') 
+        
+# Read and concatenate all files
+def read_and_concat_files(file_list, input_dir, output_dir):
+    dfs = [pd.read_csv(f'{input_dir}/{file}') for file in file_list] 
+    combined_subject = pd.concat(dfs, ignore_index=True)
+    combined_subject.to_csv(output_dir, index=False)
+    
+def rename_file_single_dir(d_dir, input_fn, output_fn):
+    # clean up data_dir
+    # !mv {d_dir}/{input_fn} {d_dir}/{output_fn}
+    return
+
+def remove_file(file_list, d_dir):
+    for file in file_list:
+        file_path = os.path.join(d_dir, file)
+        try:
+            os.remove(file_path)
+            print(f'INFO: Processed: {file}')
+        except FileNotFoundError:
+            print(f'WARNING: File not found: {file}')
+        except Exception as e:
+            print(f'ERROR: Could not remove {file} due to {e}')
+    return
+    
+    
+def store_study_files(study_files, seeds_files, paths):
+    """Store defined files in the bucket. These will persist when the environment is shut down."""
+    for file in study_files:
+        src_file = f"{paths['src_data_dir']}/{file}"
+        dest_file = f"{paths['bucket_study_dir']}"
+        display(src_file)
+        display(dest_file)
+        subprocess.run(["gsutil", "cp", src_file, dest_file], check=True)
+    
+    for file in seeds_files:
+        src_file = f"{paths['seeds_dir']}/{file}"
+        dest_file = f"{paths['bucket_study_dir']}"
+        subprocess.run(["gsutil", "cp", src_file, dest_file], check=True)
+    return
+       
+def get_study_files(study_files, seeds_files, paths):
+    """Store defined files in the bucket. These will persist when the environment is shut down."""
+    for file in study_files:
+        dest_file = f"{paths['src_data_dir']}"
+        src_file = f"{paths['bucket_study_dir']}/{file}"
+        subprocess.run(["gsutil", "cp", src_file, dest_file], check=True)
+    
+    for file in seeds_files:
+        dest_file = f"{paths['seeds_dir']}"
+        src_file = f"{paths['bucket_study_dir']}/{file}"
+        subprocess.run(["gsutil", "cp", src_file, dest_file], check=True)  
+    return
+    
+# Export functions       
+def get_tables_from_schema(schema):
+    '''
+    Get tables from a duckdb dataset. 
+    '''
+    result = engine.execute(f"""
+    SELECT table_name FROM information_schema.tables WHERE table_schema = '{schema}'
+    """)
+    r = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
+    return r['table_name'].to_list()
+
+def tables_to_output_dir(tables, tgt_schema, paths):
+    for t in tables:
+        name = Path(t).stem.replace(f'tgt_','')
+        t = engine.execute( f"COPY (SELECT * FROM {tgt_schema}.{t}) TO '{paths['output_study_dir']}/{name}.csv' (HEADER, DELIMITER ',')").fetchall()
+        print(name)
+
+def harmonized_to_bucket(tables, paths):
+    for t in tables:
+        name = Path(t).stem.replace(f'tgt_','')
+        # !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
+        print(name)
+
+
+def copy_to_csv_and_export_to_bucket(tgt_schema, paths):    
+    '''
+    Get the tables that you want to export to csv.
+    Then export to csv in the output dir
+    '''
+    tgt_tables = get_tables_from_schema(tgt_schema)
+
+    tables_to_output_dir(tgt_tables, tgt_schema, paths)
+    display('Tables sent to output.')
+    
+    harmonized_to_bucket(tgt_tables)
+    display('csvs sent to bucket')
+    
+def convert_csv_to_utf8(input_file_path, output_filepath, delimiter, encoding):
+    df = pd.read_csv(input_file_path, encoding=encoding, delimiter=delimiter, quoting=3)
+    df.to_csv(output_filepath, index=False, encoding='utf-8')
+    print(f"Converted CSV saved to {output_filepath}")
+    
+def study_config_datasets_to_dict(study_config, paths):
+    """
+    Read in the src data dictionaries and put them into a dictionary. The key is the 
+    table name (i.e. 'subject') and the value is the datadictionary as a pd DataFrame.
+    """
+    src_dds_dict = {}
+    for table_name, table_info in study_config["data_dictionary"].items():
+        src_dds_dict[table_name] = table_info['identifier']
+        src_dds_dict[table_name] = read_file(paths["src_data_dir"] / table_info['identifier'])
+    return src_dds_dict
+# -
 
 
