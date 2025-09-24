@@ -136,8 +136,7 @@ select distinct
     END AS value_units_display,
     {{ generate_global_id(prefix='sa', descriptor=['subject_id', 'mappings.code'], study_id='phs000906') }}::text as id,
     {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs000906') }}::text as has_access_policy,
---     { { generate_global_id(prefix='sb', descriptor=['subject_id'], study_id='phs000906') }}::text as subject_id
-    subject_id
+    {{ generate_global_id(prefix='sb', descriptor=['subject_id'], study_id='phs000906') }}::text as subject_id
 from union_data as ud
 left join {{ ref('PGRNseq_stg_subjectconsent') }} as subjectconsent
     using (subject_id)
