@@ -1,4 +1,4 @@
-study_id,relationship_to_proband,code,subject_id,subject_label,predicate_id,object_id,object_label
+study_id,relationship_to_proband,curie,subject_id,subject_label,predicate_id,object_id,code
 ,adopted child,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:narrowMatch,CHLDADOPT,adopted child
 ,adopted daughter,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:narrowMatch,DAUADOPT,adopted daughter
 ,adopted son,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:narrowMatch,SONADOPT,adopted son
@@ -44,6 +44,7 @@ study_id,relationship_to_proband,code,subject_id,subject_label,predicate_id,obje
 ,great grandparent,KIN:018,KIN:018,isGreatGrandparentOf,skos:exactMatch,GGRPRN,great grandparent
 ,half-brother,KIN:012,KIN:012,isHalfSiblingOf,skos:narrowMatch,HBRO,half-brother
 ,half-sibling,KIN:012,KIN:012,isHalfSiblingOf,skos:exactMatch,HSIB,half-sibling
+cmg_yale,half sibling,KIN:012,KIN:012,isHalfSiblingOf,skos:exactMatch,HSIB,half-sibling
 ,maternal half-sibling,KIN:054,KIN:054,isMaternalHalfSiblingOf,skos:broadMatch,HSIB,half-sibling
 ,paternal half-sibling,KIN:055,KIN:055,isPaternalHalfSiblingOf,skos:broadMatch,HSIB,half-sibling
 ,half-sister,KIN:012,KIN:012,isHalfSiblingOf,skos:narrowMatch,HSIS,half-sister
@@ -110,6 +111,7 @@ inactive,inactive sister-in-law,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:nar
 ,stepbrother,KIN:025,KIN:025,isStepSiblingOf,skos:narrowMatch,STPBRO,stepbrother
 ,stepdaughter,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:narrowMatch,STPDAU,stepdaughter
 ,stepfather,KIN:023,KIN:023,isStepParentOf,skos:narrowMatch,STPFTH,stepfather
+cmg_yale,step father,KIN:023,KIN:023,isStepParentOf,skos:narrowMatch,STPFTH,stepfather
 ,stepmother,KIN:023,KIN:023,isStepParentOf,skos:narrowMatch,STPMTH,stepmother
 ,stepsister,KIN:025,KIN:025,isStepSiblingOf,skos:narrowMatch,STPSIS,stepsister
 ,stepson,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:narrowMatch,STPSON,stepson
@@ -119,7 +121,9 @@ inactive,inactive sister-in-law,KIN:019,KIN:019,isSocialLegalRelativeOf,skos:nar
 ,uncle,KIN:013,KIN:013,isParentalSiblingOf,skos:narrowMatch,UNCLE,uncle
 ,niece or nephew,KIN:046,KIN:046,hasParentalSibling,skos:narrowMatch,FTD_EDIT,FTD_EDIT
 ,wife,KIN:026,KIN:026,isPartnerOf,skos:narrowMatch,WIFE,wife
-,cousin,KIN:014,KIN:014,isCousinOf,skos:exactMatch,COUSN,cousin
+cmg_yale,first cousin,KIN:014,KIN:014,isCousinOf,skos:exactMatch,COUSN,cousin
+cmg_yale,other,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
+cmg_yale,first cousin once removed,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
 cmg_yale,grandmother's brother,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
 cmg_yale,maternal great uncle,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
 cmg_yale,non-identical twin brother,KIN:009,KIN:009,isMultipleBirthSiblingOf,skos:narrowMatch,FTWINBRO,fraternal twin brother
