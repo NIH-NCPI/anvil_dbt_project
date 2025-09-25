@@ -7,8 +7,8 @@
 with phecode_cte as (
     select distinct
       phecode.subject_id,
-      NULL as "age_at_assertion",
-      phecode.age_at_observation as "age_at_event",
+      phecode.age_at_observation as "age_at_assertion",
+      NULL as "age_at_event",
       NULL as "age_at_resolution",
       phecode.phecode::text as "code",
       NULL as "display",
@@ -25,8 +25,8 @@ unpivot_bmi as (
         {% for col in pivot_bmi_columns %}
             select distinct
             bmi.subject_id,
-            bmi.bmi_observation_age::text as "age_at_assertion",
-            NULL as "age_at_event",
+            NULL::text as "age_at_assertion",
+            bmi.bmi_observation_age as "age_at_event",
             NULL as "age_at_resolution",
             '{{ col }}' AS "code",
             NULL as "display",
