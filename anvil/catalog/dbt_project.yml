@@ -10,3 +10,7 @@ snapshot-paths:
 clean-targets:
 - target
 - dbt_packages
+
+vars:
+  target_schema: "fallback_schema"
+  source_table: "{study_id}_stg_{table_id}" # Fallback table, define a stg table that is being run.

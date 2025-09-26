@@ -1,0 +1,6 @@
+study_id,src_format,code,curie,display,inactive,description
+,alive,alive,,Alive,,
+,dead,dead,,Dead,,
+,not_reported,not_reported,,Not Reported,,
+,unknown,unknown,,Unknown,,
+,unspecified,unspecified,,unspecified,,
