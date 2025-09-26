@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select race_display
+from "dbt"."main_GREGoR_R03_HMB_20250612_data"."GREGoR_R03_HMB_20250612_ftd_demographics"
+where race_display is null
+
+

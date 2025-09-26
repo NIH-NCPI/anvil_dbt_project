@@ -1,6 +1,6 @@
 {% macro transform_aliquot(source_table) %}
 
-select 
+select distinct
   availablity_status::text as "availablity_status",
   quantity_number::text as "quantity_number",
   quantity_units::text as "quantity_units",

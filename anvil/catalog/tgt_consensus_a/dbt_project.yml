@@ -8,6 +8,11 @@ macro-paths:
 clean-targets:
 - target
 - dbt_packages
+
+vars:
+  target_schema: "fallback_schema"
+  source_table: "fallback_table" # Fallback table, necessary for dbt to compile the tgt model w/o error
+
 models:
   tgt:
     tgt_demographics_source_data:

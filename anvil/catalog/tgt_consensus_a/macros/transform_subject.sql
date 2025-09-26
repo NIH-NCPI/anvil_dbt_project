@@ -1,6 +1,6 @@
 {% macro transform_subject(source_table) %}
 
-select 
+select distinct
   subject_type::text as "subject_type",
   organism_type::text as "organism_type",
   has_access_policy::text as "has_access_policy",
