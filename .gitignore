@@ -1,6 +1,26 @@
+# Jupyter stuff
 .ipynb_checkpoints
-dbt_packages
+
+# Logs and temporary files
+logs/
+*.log
+# dbt-specific files
+target/
+dbt_packages/
+manifest.json
+run_results.json
+sources.json
 package-lock.yml
+
+# User-specific configuration
+profiles.yml
+user.yml
+# IDE and editor files
+idea/
+vscode/
+*.code-workspace
+# OS-specific files
+DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
