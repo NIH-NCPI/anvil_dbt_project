@@ -23,6 +23,51 @@ with phecode_cte as (
 unpivot_bmi as (
 
         
+            select distinct
+            bmi.subject_id,
+            bmi.bmi_observation_age::text as "age_at_assertion",
+            NULL as "age_at_event",
+            NULL as "age_at_resolution",
+            'weight' AS "code",
+            NULL as "display",
+            NULL AS "value_code",
+            NULL AS "value_display",
+           weight::text as "value_number",
+            NULL as "value_units",
+            NULL as "value_units_display"
+            from "dbt"."main_main"."GWAS_stg_bmi" as bmi
+            union all
+        
+            select distinct
+            bmi.subject_id,
+            bmi.bmi_observation_age::text as "age_at_assertion",
+            NULL as "age_at_event",
+            NULL as "age_at_resolution",
+            'height' AS "code",
+            NULL as "display",
+            NULL AS "value_code",
+            NULL AS "value_display",
+           height::text as "value_number",
+            NULL as "value_units",
+            NULL as "value_units_display"
+            from "dbt"."main_main"."GWAS_stg_bmi" as bmi
+            union all
+        
+            select distinct
+            bmi.subject_id,
+            bmi.bmi_observation_age::text as "age_at_assertion",
+            NULL as "age_at_event",
+            NULL as "age_at_resolution",
+            'body_mass_index' AS "code",
+            NULL as "display",
+            NULL AS "value_code",
+            NULL AS "value_display",
+           body_mass_index::text as "value_number",
+            NULL as "value_units",
+            NULL as "value_units_display"
+            from "dbt"."main_main"."GWAS_stg_bmi" as bmi
+            
+        
     ),
   
  union_data as (
