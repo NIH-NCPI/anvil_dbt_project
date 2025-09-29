@@ -1,8 +1,8 @@
 
 
 select
-  family_id,
-  subject_id as "family_member",
+  'fy' || '_' || md5('cmg_bh' || '|' || cast(coalesce(family_id, '') as text))::text as "family_id", 
+  'sb' || '_' || md5('cmg_bh' || '|' || cast(coalesce(subject_id, '') as text))::text as "family_member",
   'ap' || '_' || md5('cmg_bh' || '|' || cast(coalesce(ingest_provenance, '') as text))::text as "has_access_policy",
   'fm' || '_' || md5('cmg_bh' || '|' || cast(coalesce(subject_id, '') as text))::text as "id",
     case 
