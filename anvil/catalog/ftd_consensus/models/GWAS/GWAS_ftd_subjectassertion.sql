@@ -11,16 +11,12 @@ with phecode_cte as (
       NULL as "age_at_event",
       NULL as "age_at_resolution",
       phecode.phecode::text as "code",
-      NULL as "display",
-      NULL as "value_code",
-      NULL as "value_display",
       NULL as "value_number",
-      NULL as "value_units",
-      NULL as "value_units_display",
+      NULL as "value_units"
      from {{ ref('GWAS_stg_phecode') }} as phecode
      ),
  
-unpivot_bmi as (
+bmi_cte as (
 
         {% for col in pivot_bmi_columns %}
             select distinct
@@ -29,64 +25,74 @@ unpivot_bmi as (
             bmi.bmi_observation_age as "age_at_event",
             NULL as "age_at_resolution",
             '{{ col }}' AS "code",
-            NULL as "display",
-            NULL AS "value_code",
-            NULL AS "value_display",
            {{ col }}::text as "value_number",
-            NULL as "value_units",
-            NULL as "value_units_display"
             from {{ ref('GWAS_stg_bmi') }} as bmi
             {% if not loop.last %}union all{% endif %}
         {% endfor %}
     ),
+    
+bmi_w_units as (
+    select distinct
+        bc.*,
+        bu.units as value_units
+    from bmi_cte as bc
+    left join {{ ref('gwas_bmi_seed') }} as bu
+        on bc.code = bu.variable_name
+),
   
  union_data as (
-    select * from phecode_cte as pc
+    select * from phecode_cte
 
     union all 
     
-    select * from unpivot_bmi as ub
+    select * from bmi_w_units
 )
 
     select distinct 
-        CASE WHEN code IN ('weight', 'height', 'body_mass_index') THEN 'measurement' 
-             WHEN code IS NOT NULL THEN 'ehr_billing_code'
-             ELSE CONCAT('FTD_FLAG: unhandled assertion_type: ',code)
+        CASE 
+            WHEN ud.code IN (SELECT variable_name FROM {{ ref('gwas_bmi_seed') }}) THEN 'measurement' 
+            WHEN ud.code IS NOT NULL THEN 'ehr_billing_code'
         END::text as "assertion_type",
         age_at_assertion,
         age_at_event, 
         null as "age_at_resolution",
         CASE 
-            WHEN code = 'weight'THEN 'LOINC:29463-7'
-            WHEN code = 'height' THEN 'LOINC:8302-2'
-            WHEN code = 'body_mass_index' THEN 'LOINC:39156-5'
-            ELSE code
+           WHEN bm.code IS NOT NULL THEN bm.code
+           WHEN ph.phecode IS NOT NULL THEN ph.phecode
         END AS code,        
         CASE 
-            WHEN code = 'weight' THEN 'Body weight'
-            WHEN code = 'height' THEN 'Body height'
-            WHEN code = 'body_mass_index' THEN 'Body mass index (BMI) [Ratio]' 
-            ELSE display
+           WHEN bm.display IS NOT NULL THEN bm.display
+           ELSE NULL
         END AS display,
-        value_code, 
-        value_display, 
+        NULL as value_code, 
+        NULL as value_display, 
         value_number,
         CASE 
-            WHEN code = 'weight' THEN 'kg'
-            WHEN code = 'height' THEN 'cm'
-            WHEN code = 'body_mass_index' THEN 'kg/m2'   
-            ELSE NULL
+           WHEN bm.value_units IS NOT NULL THEN bm.value_units
+           ELSE null
         END AS "value_units",  
         CASE 
-            WHEN code = 'weight' THEN 'kilogram'
-            WHEN code = 'height' THEN 'centimeter'
-            WHEN code = 'body_mass_index' THEN 'kilogram per square meter'   
+            WHEN ud.value_units = 'Kilograms' THEN 'kilogram'
+            WHEN ud.value_units = 'cm' THEN 'centimeter'
+            WHEN ud.value_units = 'kg/m2' THEN 'kilogram per square meter'   
             ELSE NULL
-        END as "value_units_display",
-        {{ generate_global_id(prefix='sa', descriptor=['subject_id', 'code'], study_id='phs001584') }}::text as "id",
+        END AS value_units_display,
+        {{ generate_global_id(prefix='sa', descriptor=['subject_id', 'ud.code'], study_id='phs001584') }}::text as "id",
         {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001584') }}::text as "has_access_policy",
         {{ generate_global_id(prefix='sb', descriptor=['subject_id'], study_id='phs001584') }}::text as "subject_id"
     from union_data as ud
     left join {{ ref('GWAS_stg_subjectconsent') }} as subjectconsent
          using (subject_id)
+    left join (
+    select 
+        "local code",
+        code,
+        display,
+        "code system",
+        value_units
+    from {{ ref('gwas_bmi_mappings') }}
+) as bm
+    on ud.code = bm."local code"
+left join {{ ref('GWAS_stg_phecode') }} as ph
+    on ud.code = ph.phecode::text
 
