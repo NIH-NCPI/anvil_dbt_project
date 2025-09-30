@@ -4,19 +4,7 @@
 {% set constant_bmi_columns = ['ftd_index', 'subject_id', 'bmi_observation_age', 'visit_number'] %}
 {% set pivot_bmi_columns = get_columns(relation=relation_bmi, exclude=constant_bmi_columns) %}
 
-with phecode_cte as (
-    select distinct
-      phecode.subject_id,
-      phecode.age_at_observation as "age_at_assertion",
-      NULL as "age_at_event",
-      NULL as "age_at_resolution",
-      phecode.phecode::text as "code",
-      NULL as "value_number",
-      NULL as "value_units"
-     from {{ ref('GWAS_stg_phecode') }} as phecode
-     ),
- 
-bmi_cte as (
+with bmi_cte as (
 
         {% for col in pivot_bmi_columns %}
             select distinct
@@ -39,6 +27,17 @@ bmi_w_units as (
     left join {{ ref('gwas_bmi_seed') }} as bu
         on bc.code = bu.variable_name
 ),
+phecode_cte as (
+    select distinct
+      phecode.subject_id,
+      phecode.age_at_observation as "age_at_assertion",
+      NULL as "age_at_event",
+      NULL as "age_at_resolution",
+      phecode.phecode::text as "code",
+      NULL as "value_number",
+      NULL as "value_units"
+     from {{ ref('GWAS_stg_phecode') }} as phecode
+     ),
   
  union_data as (
     select * from phecode_cte
@@ -57,8 +56,8 @@ bmi_w_units as (
         age_at_event, 
         null as "age_at_resolution",
         CASE 
-           WHEN bm.code IS NOT NULL THEN bm.code
-           WHEN ph.phecode IS NOT NULL THEN ph.phecode
+            WHEN LOWER(cast(bm."code system" AS VARCHAR)) LIKE '%loinc%' THEN CONCAT('LOINC:', bm.code)
+            WHEN ph.phecode IS NOT NULL THEN ph.phecode
         END AS code,        
         CASE 
            WHEN bm.display IS NOT NULL THEN bm.display
