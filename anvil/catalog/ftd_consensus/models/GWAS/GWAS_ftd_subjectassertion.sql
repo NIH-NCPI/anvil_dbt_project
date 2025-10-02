@@ -1,45 +1,21 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
-{% set relation_bmi = ref('GWAS_stg_bmi') %}
-{% set constant_bmi_columns = ['ftd_index', 'subject_id', 'bmi_observation_age', 'visit_number'] %}
-{% set pivot_bmi_columns = get_columns(relation=relation_bmi, exclude=constant_bmi_columns) %}
-
 with bmi_cte as (
-
-        {% for col in pivot_bmi_columns %}
-            select distinct
-            bmi.subject_id,
-            'measurement' as "assertion_type",
-            NULL::text as "age_at_assertion",
-            bmi.bmi_observation_age as "age_at_event",
-            '{{ col }}' AS "code",
-           {{ col }}::text as "value_number",
-            from {{ ref('GWAS_stg_bmi') }} as bmi
-            {% if not loop.last %}union all{% endif %}
-        {% endfor %}
-    ),
-    
-bmi_w_units as (
     select distinct
-        bc.*,
-        bu.units as value_units,
-        bm."local code",
-        bm.code as mapped_code,
-        bm.display,
-        bm."code system"
-    from bmi_cte as bc
-    left join {{ ref('gwas_bmi_seed') }} as bu
-        on bc.code = bu.variable_name
-    left join (
-        select 
-            "local code",
-            code,
-            display,
-            "code system",
-        from {{ ref('gwas_bmi_mappings') }}
-    ) as bm
-        on bu.variable_name = bm."local code"
+        subject_id,
+        'measurement' as assertion_type,
+        NULL as age_at_assertion,
+        age_at_event,
+        code,
+        value_number,
+        value_units,
+        mapped_code,
+        display,
+        code_system,
+        local_code
+    from {{ ref('GWAS_stg_bmi') }}
 ),
+
 
 phecode_cte as (
     select distinct
@@ -74,13 +50,13 @@ phecode_cte as (
     assertion_type,
     age_at_assertion,
     age_at_event,
-    bwu."local code" as union_code,
+    bmi.local_code as union_code,
     value_number,
     value_units,
-    bwu.mapped_code,
+    bmi.mapped_code,
     display,
-    bwu."code system" as code_system
-    from bmi_w_units as bwu
+    bmi.code_system
+    from bmi_cte as bmi
 )
 
     select distinct 
@@ -89,7 +65,7 @@ phecode_cte as (
     age_at_event,
     null as "age_at_resolution",
     CASE 
-        WHEN LOWER(cast(ud."code_system" AS VARCHAR)) LIKE '%loinc%' THEN CONCAT('LOINC:', ud.mapped_code)
+        WHEN LOWER(cast(ud.code_system AS VARCHAR)) LIKE '%loinc%' THEN CONCAT('LOINC:', ud.mapped_code)
         WHEN ph.phecode IS NOT NULL THEN ph.phecode
         ELSE ud.mapped_code
     END AS code,        
