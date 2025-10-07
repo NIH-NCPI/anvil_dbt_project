@@ -19,7 +19,7 @@ unpivot_df as (
     {% for col in condition_columns %}
         select
             {{ constant_columns | join(', ') }},
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             '{{ col }}' as code,
             case when "{{ col }}" = 0 then 'LA9634-2'
                  when "{{ col }}" = 1 then 'LA9633-4'
@@ -47,7 +47,7 @@ unpivot_bmi as (
         {% for col in pivot_bmi_columns %}
             select distinct
             subject_id, ftd_index,
-            bmi.age_at_observation::text as "age_at_assertion",
+            bmi.age_at_observation::text as "age_at_event",
             '{{ col }}' AS "code",
             NULL AS "value_code",
             NULL AS "value_display",
@@ -71,8 +71,8 @@ union_data as (
              WHEN UPPER(code) LIKE 'PHE%' THEN 'ehr_billing_code'
              ELSE CONCAT('FTD_FLAG: unhandled assertion_type: ',code)
         END::text as "assertion_type",
-        age_at_assertion,
-        null as "age_at_event", 
+        null as "age_at_assertion",
+        age_at_event, 
         null as "age_at_resolution",
         CASE 
             WHEN code = 'weight'THEN 'LOINC:29463-7'
