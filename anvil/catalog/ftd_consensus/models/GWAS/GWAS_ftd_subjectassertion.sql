@@ -1,6 +1,11 @@
 {{ config(materialized='table', schema='GWAS_data') }}
 
-with bmi_cte as (
+with ph_codes as (
+  SELECT DISTINCT CAST(phecode as TEXT) AS phecode_text
+  from {{ ref('GWAS_stg_phecode') }}
+),
+
+bmi_cte as (
     select distinct
         subject_id,
         'measurement' as assertion_type,
@@ -12,7 +17,9 @@ with bmi_cte as (
         mapped_code,
         display,
         code_system,
-        local_code
+        local_code,
+        (LOWER(CAST(code_system AS VARCHAR)) LIKE '%loinc%') AS is_loinc,
+        false as is_phecode
     from {{ ref('GWAS_stg_bmi') }}
 ),
 
@@ -25,11 +32,13 @@ phecode_cte as (
       NULL as "age_at_event",
       phecode.phecode::text as "code",
       NULL as "value_number",
-      NULL as "value_units"
+      NULL as "value_units",
+      false as is_loinc,
+      true as is_phecode
      from {{ ref('GWAS_stg_phecode') }} as phecode
      ),
-  
- union_data as (
+
+union_data as (
     select 
      subject_id,
      assertion_type,
@@ -40,11 +49,13 @@ phecode_cte as (
      value_units,
      NULL as mapped_code,
      NULL as display,
-     NULL as code_system
+     NULL as code_system,
+     is_loinc,
+     is_phecode
      from phecode_cte
 
     union all 
-    
+
     select 
     subject_id,
     assertion_type,
@@ -55,18 +66,20 @@ phecode_cte as (
     value_units,
     bmi.mapped_code,
     display,
-    bmi.code_system
+    bmi.code_system,
+    is_loinc,
+    is_phecode
     from bmi_cte as bmi
 )
 
-    select distinct 
+    select 
     assertion_type,
     age_at_assertion,
     age_at_event,
     null as "age_at_resolution",
     CASE 
-        WHEN LOWER(cast(ud.code_system AS VARCHAR)) LIKE '%loinc%' THEN CONCAT('LOINC:', ud.mapped_code)
-        WHEN ph.phecode IS NOT NULL THEN ph.phecode
+        WHEN ud.is_loinc and ud.mapped_code is not null then concat('LOINC:', ud.mapped_code)
+        WHEN EXISTS (SELECT 1 FROM ph_codes p where p.phecode_text = ud.union_code) THEN ud.union_code
         ELSE ud.mapped_code
     END AS code,        
     CASE 
@@ -86,11 +99,8 @@ phecode_cte as (
         WHEN ud.value_units = 'kg/m2' THEN 'kilogram per square meter'   
         ELSE NULL
     END AS value_units_display,
-    {{ generate_global_id(prefix='sa', descriptor=['ud.subject_id', 'ud.union_code'], study_id='phs001584') }}::text as "id",
+    {{ generate_global_id(prefix='sa', descriptor=['subject_id', 'ud.union_code'], study_id='phs001584') }}::text as "id",
     {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001584') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='sb', descriptor=['ud.subject_id'], study_id='phs001584') }}::text as "subject_id"
+    {{ generate_global_id(prefix='sb', descriptor=['subject_id'], study_id='phs001584') }}::text as "subject_id"
     from union_data as ud
-    left join {{ ref('GWAS_stg_subjectconsent') }} as subjectconsent
-    on ud.subject_id = subjectconsent.subject_id    
-    left join {{ ref('GWAS_stg_phecode') }} as ph
-    on ud.union_code = ph.phecode::text
+    left join {{ ref('GWAS_stg_subjectconsent') }} as subjectconsent using(subject_id) 
