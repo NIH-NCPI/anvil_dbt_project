@@ -86,11 +86,11 @@ phecode_cte as (
         WHEN ud.value_units = 'kg/m2' THEN 'kilogram per square meter'   
         ELSE NULL
     END AS value_units_display,
-    {{ generate_global_id(prefix='sa', descriptor=['subject_id', 'ud.union_code'], study_id='phs001584') }}::text as "id",
+    {{ generate_global_id(prefix='sa', descriptor=['ud.subject_id', 'ud.union_code'], study_id='phs001584') }}::text as "id",
     {{ generate_global_id(prefix='ap', descriptor=['subjectconsent.consent'], study_id='phs001584') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='sb', descriptor=['subject_id'], study_id='phs001584') }}::text as "subject_id"
+    {{ generate_global_id(prefix='sb', descriptor=['ud.subject_id'], study_id='phs001584') }}::text as "subject_id"
     from union_data as ud
     left join {{ ref('GWAS_stg_subjectconsent') }} as subjectconsent
-    using(subject_id)
+    on ud.subject_id = subjectconsent.subject_id    
     left join {{ ref('GWAS_stg_phecode') }} as ph
     on ud.union_code = ph.phecode::text
