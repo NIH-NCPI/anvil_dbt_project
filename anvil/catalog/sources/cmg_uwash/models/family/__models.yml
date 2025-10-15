@@ -1,0 +1,26 @@
+version: 2
+models:
+- name: cmg_uwash_stg_family
+  description: Model for cmg_uwash_stg_family.
+  columns:
+  - name: family_id
+    description: '{{ doc("cmg_uwash_stg_family_family_id") }}'
+    data_type: string
+  - name: consanguinity
+    description: '{{ doc("cmg_uwash_stg_family_consanguinity") }}'
+    data_type: enumeration
+  - name: family_history
+    description: '{{ doc("cmg_uwash_stg_family_family_history") }}'
+    data_type: enumeration
+  - name: pedigree_detail
+    description: '{{ doc("cmg_uwash_stg_family_pedigree_detail") }}'
+    data_type: string
+  - name: pedigree_image
+    description: '{{ doc("cmg_uwash_stg_family_pedigree_image") }}'
+    data_type: string
+  - name: consanguinity_detail
+    description: '{{ doc("cmg_uwash_stg_family_consanguinity_detail") }}'
+    data_type: string
+  - name: ingest_provenance
+    description: '{{ doc("cmg_uwash_stg_family_ingest_provenance") }}'
+    data_type: enumeration

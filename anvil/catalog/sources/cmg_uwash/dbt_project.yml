@@ -1,0 +1,39 @@
+name: cmg_uwash
+version: 1.0.0
+profile: anvil
+model-paths:
+- models
+macro-paths:
+- macros
+snapshot-paths:
+- snapshots
+clean-targets:
+- target
+- dbt_packages
+models:
+  +schema: main
+  +materialized: table
+  sample:
+    cmg_uwash_stg_sample:
+      +schema: main
+      +materialized: table
+  subject:
+    cmg_uwash_stg_subject:
+      +schema: main
+      +materialized: table
+  anvil_dataset:
+    cmg_uwash_stg_anvil_dataset:
+      +schema: main
+      +materialized: table
+  sequencing:
+    cmg_uwash_stg_sequencing:
+      +schema: main
+      +materialized: table
+  family:
+    cmg_uwash_stg_family:
+      +schema: main
+      +materialized: table
+  file_inventory:
+    cmg_uwash_stg_file_inventory:
+      +schema: main
+      +materialized: table

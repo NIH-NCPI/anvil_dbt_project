@@ -1,0 +1,248 @@
+version: 2
+sources:
+- name: cmg_uwash
+  schema: main
+  tables:
+  - name: sample_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000
+    description: Source table for sample_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000.
+    columns:
+    - name: sample_id
+      description: '{{ doc("sample_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sample_id")
+        }}'
+    - name: bam
+      description: '{{ doc("sample_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_bam")
+        }}'
+    - name: sample_source
+      description: '{{ doc("sample_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sample_source")
+        }}'
+    - name: sequencing_center
+      description: '{{ doc("sample_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sequencing_center")
+        }}'
+    - name: subject_id
+      description: '{{ doc("sample_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_subject_id")
+        }}'
+    - name: ingest_provenance
+      description: '{{ doc("sample_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_ingest_provenance")
+        }}'
+  - name: subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000
+    description: Source table for subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000.
+    columns:
+    - name: subject_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_subject_id")
+        }}'
+    - name: affected_status
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_affected_status")
+        }}'
+    - name: ancestry
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_ancestry")
+        }}'
+    - name: dbgap_submission
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_dbgap_submission")
+        }}'
+    - name: disease_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_disease_id")
+        }}'
+    - name: disease_description
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_disease_description")
+        }}'
+    - name: family_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_family_id")
+        }}'
+    - name: multiple_datasets
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_multiple_datasets")
+        }}'
+    - name: phenotype_description
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_phenotype_description")
+        }}'
+    - name: proband_relationship
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_proband_relationship")
+        }}'
+    - name: project_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_project_id")
+        }}'
+    - name: sex
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sex")
+        }}'
+    - name: solve_state
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_solve_state")
+        }}'
+    - name: pmid_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_pmid_id")
+        }}'
+    - name: twin_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_twin_id")
+        }}'
+    - name: hpo_present
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_hpo_present")
+        }}'
+    - name: maternal_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_maternal_id")
+        }}'
+    - name: paternal_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_paternal_id")
+        }}'
+    - name: ancestry_detail
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_ancestry_detail")
+        }}'
+    - name: congential_status
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_congential_status")
+        }}'
+    - name: dbgap_study_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_dbgap_study_id")
+        }}'
+    - name: dbgap_subject_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_dbgap_subject_id")
+        }}'
+    - name: age_at_last_observation
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_age_at_last_observation")
+        }}'
+    - name: prior_testing
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_prior_testing")
+        }}'
+    - name: ingest_provenance
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_ingest_provenance")
+        }}'
+    - name: sample_id
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sample_id")
+        }}'
+    - name: sequencing_center
+      description: '{{ doc("subject_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sequencing_center")
+        }}'
+  - name: anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000
+    description: Source table for anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000.
+    columns:
+    - name: dataset_id
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_dataset_id")
+        }}'
+    - name: consent_group
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_consent_group")
+        }}'
+    - name: data_use_permission
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_data_use_permission")
+        }}'
+    - name: owner
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_owner")
+        }}'
+    - name: principal_investigator
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_principal_investigator")
+        }}'
+    - name: registered_identifier
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_registered_identifier")
+        }}'
+    - name: title
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_title")
+        }}'
+    - name: data_modality
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_data_modality")
+        }}'
+    - name: source_datarepo_row_ids
+      description: '{{ doc("anvil_dataset_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_source_datarepo_row_ids")
+        }}'
+  - name: sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000
+    description: Source table for sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000.
+    columns:
+    - name: sequencing_id
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sequencing_id")
+        }}'
+    - name: alignment_method
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_alignment_method")
+        }}'
+    - name: analyte_type
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_analyte_type")
+        }}'
+    - name: data_processing_pipeline
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_data_processing_pipeline")
+        }}'
+    - name: date_data_generation
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_date_data_generation")
+        }}'
+    - name: exome_capture_platform
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_exome_capture_platform")
+        }}'
+    - name: library_prep_kit_method
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_library_prep_kit_method")
+        }}'
+    - name: file_id
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_file_id")
+        }}'
+    - name: reference_genome_build
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_reference_genome_build")
+        }}'
+    - name: sample_id
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sample_id")
+        }}'
+    - name: seq_filename
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_seq_filename")
+        }}'
+    - name: sequencing_assay
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sequencing_assay")
+        }}'
+    - name: capture_region_bed_file
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_capture_region_bed_file")
+        }}'
+    - name: sequencing_id_fileref
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_sequencing_id_fileref")
+        }}'
+    - name: ingest_provenance
+      description: '{{ doc("sequencing_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_ingest_provenance")
+        }}'
+  - name: family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000
+    description: Source table for family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000.
+    columns:
+    - name: family_id
+      description: '{{ doc("family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_family_id")
+        }}'
+    - name: consanguinity
+      description: '{{ doc("family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_consanguinity")
+        }}'
+    - name: family_history
+      description: '{{ doc("family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_family_history")
+        }}'
+    - name: pedigree_detail
+      description: '{{ doc("family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_pedigree_detail")
+        }}'
+    - name: pedigree_image
+      description: '{{ doc("family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_pedigree_image")
+        }}'
+    - name: consanguinity_detail
+      description: '{{ doc("family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_consanguinity_detail")
+        }}'
+    - name: ingest_provenance
+      description: '{{ doc("family_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_ingest_provenance")
+        }}'
+  - name: file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000
+    description: Source table for file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000.
+    columns:
+    - name: file_id
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_file_id")
+        }}'
+    - name: name
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_name")
+        }}'
+    - name: path
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_path")
+        }}'
+    - name: uri
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_uri")
+        }}'
+    - name: content_type
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_content_type")
+        }}'
+    - name: full_extension
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_full_extension")
+        }}'
+    - name: size_in_bytes
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_size_in_bytes")
+        }}'
+    - name: crc32c
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_crc32c")
+        }}'
+    - name: md5_hash
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_md5_hash")
+        }}'
+    - name: file_ref
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_file_ref")
+        }}'
+    - name: ingest_provenance
+      description: '{{ doc("file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000_ingest_provenance")
+        }}'
