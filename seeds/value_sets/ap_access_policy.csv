@@ -11,3 +11,9 @@ cmg_yale,9,Health/Medical/Biomedical (IRB),HMB-IRB,Yes,National Human Genome Res
 cmg_yale,10,"Disease-Specific (Thalassemia, IRB)",DS-THAL-IRB,Yes,National Human Genome Research Institute,(nhgridac@mail.nih.gov),THAL,controlled
 cmg_yale,12,Disease-Specific (Reproductive Disorders),DS-RD,No,National Human Genome Research Institute,(nhgridac@mail.nih.gov),RD,controlled
 cmg_yale,11,"Disease-Specific (Abnormal Blood Pressure, Electrolyte Abnormalities, or Kidney Disease)",DS-BPEAKD,No,National Human Genome Research Institute,(nhgridac@mail.nih.gov),BPEAKD,controlled
+cmg_uwash,,Disease-Specific (Congenital Heart Defects),DS-CHDEF,No,,,CHDEF,controlled
+cmg_uwash,,Disease-Specific (Head and Face),DS-HFA,No,,,HFA,controlled
+cmg_uwash,,Disease-Specific (Neurodegeneration with Brain Iron Accumulation),DS-NBIA,No,,,NBIA,controlled
+cmg_uwash,,Disease-Specific (Bicuspid Aortic Valve),DS-BAV,No,,,BAV,controlled
+cmg_uwash,,Disease-Specific (Epilepsy),DS-EP,No,,,EP,controlled
+cmg_uwash,,Disease-Specific (Brain Disorders),DS-BDIS,No,,,BDIS,controlled
