@@ -1,13 +1,12 @@
 {{ config(materialized='table', schema='cmg_uwash_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_uwash') }}::text as "accesspolicy_id",
-  GEN_UNKNOWN.access_policy_code::text as "access_policy_code"
-from {{ ref('cmg_uwash_stg_sample') }} as sample
-join {{ ref('cmg_uwash_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id  join {{ ref('cmg_uwash_stg_anvil_dataset') }} as anvil_dataset
-on   join {{ ref('cmg_uwash_stg_sequencing') }} as sequencing
-on   join {{ ref('cmg_uwash_stg_family') }} as family
-on   join {{ ref('cmg_uwash_stg_file_inventory') }} as file_inventory
-on  
+{%- set consent_groups = ['gru', 'ds', 'hmb', 'irb', 'pub'] -%}
+  {%- for grp in consent_groups %}
+    select distinct
+      {{ generate_global_id(prefix='ap', descriptor=['consent_group'], study_id='phs000693') }}::text as accesspolicy_id,
+      '{{ grp }}' as access_policy_code
+    from (select distinct consent_group from {{ ref('cmg_uwash_stg_anvil_dataset') }}) as ad
+    where ad.consent_group ILIKE '%{{ grp }}%'
+    {%- if not loop.last %} union all {% endif %}
+  {%- endfor %}
 

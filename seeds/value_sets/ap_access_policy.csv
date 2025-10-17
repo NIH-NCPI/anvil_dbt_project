@@ -17,3 +17,5 @@ cmg_uwash,,Disease-Specific (Neurodegeneration with Brain Iron Accumulation),DS-
 cmg_uwash,,Disease-Specific (Bicuspid Aortic Valve),DS-BAV,No,,,BAV,controlled
 cmg_uwash,,Disease-Specific (Epilepsy),DS-EP,No,,,EP,controlled
 cmg_uwash,,Disease-Specific (Brain Disorders),DS-BDIS,No,,,BDIS,controlled
+cmg_uwash,,IRB Approval Required,IRB,Yes,,,,controlled
+cmg_uwash,,Publication Required,PUB,No,,,,controlled
