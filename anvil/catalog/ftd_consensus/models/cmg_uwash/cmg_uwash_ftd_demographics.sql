@@ -3,18 +3,9 @@
 select 
 NULL::integer as "date_of_birth",
 NULL::text as "date_of_birth_type",
-  coalesce(sex_code,'unknown')::text as "sex",
-  coalesce(sex,'FTD_NULL') AS "ftd_sex", -- flag nulls for analysis
-  coalesce(sex_code,'Needs Handling') AS "ftd_flag_sex", -- flag unhandled strings
-  
+  coalesce(sex_code,'unknown')::text as "sex",  
   coalesce(sex_display,'Unknown')::text as "sex_display",
-  coalesce(sex,'FTD_NULL') AS "ftd_sex_display", -- flag nulls for analysis
-  coalesce(sex_display,'Needs Handling') AS "ftd_flag_sex_display", -- flag unhandled strings
-  
   coalesce(race_display,'Unknown')::text as "race_display",
-  coalesce(ancestry, 'FTD_NULL') AS "ftd_race", -- flag nulls for analysis
-  coalesce(race_display, 'Needs Handling') AS "ftd_flag_race", -- flag unhandled strings
-  
   'unknown'::text as "ethnicity",
   'Unknown'::text as "ethnicity_display",
   NULL::integer as "age_at_last_vital_status",
