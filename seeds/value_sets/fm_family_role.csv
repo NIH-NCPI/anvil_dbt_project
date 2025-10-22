@@ -44,7 +44,7 @@ cmg_yale,grandmother's brother,EXT,http://terminology.hl7.org/CodeSystem/v3-Role
 ,great grandmother,GGRMTH,http://terminology.hl7.org/CodeSystem/v3-RoleCode,great grandmother,,The player of the role is the mother of the scoping person's grandparent.
 ,great grandparent,GGRPRN,http://terminology.hl7.org/CodeSystem/v3-RoleCode,great grandparent,,The player of the role is a parent of the scoping person's grandparent.
 cmg_yale,half brother (unrelated to father),HBRO,http://terminology.hl7.org/CodeSystem/v3-RoleCode,half-brother,,The player of the role is a male related to the scoping entity by sharing only one biological parent.
-cmg_uwash,half_brother (unrelated to father),HBRO,http://terminology.hl7.org/CodeSystem/v3-RoleCode,half-brother,,The player of the role is a male related to the scoping entity by sharing only one biological parent.
+cmg_uwash,half_brother,HBRO,http://terminology.hl7.org/CodeSystem/v3-RoleCode,half-brother,,The player of the role is a male related to the scoping entity by sharing only one biological parent.
 cmg_yale,half sister (unrelated to father),HSIS,http://terminology.hl7.org/CodeSystem/v3-RoleCode,half-sister,,The player of the role is a female related to the scoping entity by sharing only one biological parent.
 ,half-brother,HBRO,http://terminology.hl7.org/CodeSystem/v3-RoleCode,half-brother,,The player of the role is a male related to the scoping entity by sharing only one biological parent.
 ,half-sibling,HSIB,http://terminology.hl7.org/CodeSystem/v3-RoleCode,half-sibling,,The player of the role is related to the scoping entity by sharing only one biological parent.

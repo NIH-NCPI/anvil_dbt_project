@@ -1,13 +1,42 @@
 {{ config(materialized='table', schema='cmg_uwash_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_uwash') }}::text as "familyrelationship_id",
-  GEN_UNKNOWN.external_id::text as "external_id"
-from {{ ref('cmg_uwash_stg_sample') }} as sample
-join {{ ref('cmg_uwash_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id  join {{ ref('cmg_uwash_stg_anvil_dataset') }} as anvil_dataset
-on   join {{ ref('cmg_uwash_stg_sequencing') }} as sequencing
-on   join {{ ref('cmg_uwash_stg_family') }} as family
-on   join {{ ref('cmg_uwash_stg_file_inventory') }} as file_inventory
-on  
+with
+probands_only as (
+    select distinct
+      consent_id,
+      family_id,
+      subject_id,
+      proband_relationship as "proband_rel_code",
+    from {{ ref('cmg_uwash_stg_subject') }}
+    where proband_relationship = 'Proband'
+)
+,others_only as (
+    select distinct
+      consent_id,
+      family_id,
+      subject_id,
+      proband_relationship as "other_rel_code",
+    from {{ ref('cmg_uwash_stg_subject') }}
+    where proband_relationship != 'Proband'
+)
+,fr_base as (
+    select
+      distinct
+      p.subject_id,
+      {{ generate_global_id(prefix='sb',descriptor=['p.subject_id'], study_id='phs000693') }}::text as "family_member",
+      proband_rel_code,
+      {{ generate_global_id(prefix='sb',descriptor=['o.subject_id'], study_id='phs000693') }}::text as "other_family_member",
+      other_rel_code,
+      {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='phs000693') }}::text as "has_access_policy",
+      {{ generate_global_id(prefix='fr',descriptor=['family_id','p.subject_id','o.subject_id','other_rel_code'], study_id='phs000693') }}::text as "id"
+    from probands_only as p
+    left join others_only as o
+    using (family_id, consent_id)
+    where o.subject_id is not null
+)
 
+select 
+  distinct
+  id as "familyrelationship_id",
+  subject_id::text as "external_id"
+from fr_base

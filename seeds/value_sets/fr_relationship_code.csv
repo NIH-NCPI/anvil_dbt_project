@@ -131,3 +131,27 @@ cmg_yale,non-identical twin sister,KIN:009,KIN:009,isMultipleBirthSiblingOf,skos
 cmg_yale,sister and daughter,KIN:001,KIN:001,isRelativeOf,skos:broadMatch,FAMMEMB,family member
 cmg_yale,half brother (unrelated to father),KIN:012,KIN:012,isHalfSiblingOf,skos:narrowMatch,HBRO,half-brother
 cmg_yale,half sister (unrelated to father),KIN:012,KIN:012,isHalfSiblingOf,skos:narrowMatch,HSIS,half-sister
+cmg_uwash,first_cousin,KIN:014,KIN:014,isCousinOf,skos:exactMatch,COUSN,cousin
+cmg_uwash,maternal first cousin,KIN:015,KIN:015,isMaternalCousinOf,skos:exactMatch,MCOUSN,maternal cousin
+cmg_uwash,paternal first cousin,KIN:016,KIN:016,isPaternalCousinOf,skos:exactMatch,PCOUSN,paternal cousin
+cmg_uwash,half_brother,KIN:012,KIN:012,isHalfSiblingOf,skos:narrowMatch,HBRO,half-brother
+cmg_uwash,half sister,KIN:012,KIN:012,isHalfSiblingOf,skos:narrowMatch,HSIS,half-sister
+cmg_uwash,discordant monozygotic twin,KIN:010,KIN:010,isMonozygoticMultipleBirthSiblingOf,skos:exactMatch,ITWIN,identical twin
+cmg_uwash,maternal_aunt,KIN:060,KIN:060,isMaternalAuntOf,skos:exactMatch,MAUNT,maternal aunt
+cmg_uwash,maternal_grandmother,KIN:017,KIN:017,isGrandparentOf,skos:narrowMatch,MGRMTH,maternal grandmother
+cmg_uwash,maternal_great_uncle,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
+cmg_uwash,maternal greatgrandmother,KIN:018,KIN:018,isGreatGrandparentOf,skos:narrowMatch,MGGRMTH,maternal great-grandmother
+cmg_uwash,maternal great grandmother,KIN:018,KIN:018,isGreatGrandparentOf,skos:narrowMatch,MGGRMTH,maternal great-grandmother
+cmg_uwash,maternal_uncle,KIN:058,KIN:058,isMaternalUncleOf,skos:exactMatch,MUNCLE,maternal uncle
+cmg_uwash,Paternal_aunt,KIN:061,KIN:061,isPaternalAuntOf,skos:exactMatch,PAUNT,paternal aunt
+cmg_uwash,paternal_grandfather,KIN:017,KIN:017,isGrandparentOf,skos:narrowMatch,PGRFTH,paternal grandfather
+cmg_uwash,paternal_grandmother,KIN:017,KIN:017,isGrandparentOf,skos:narrowMatch,PGRMTH,paternal grandmother
+cmg_uwash,sibling-1,KIN:008,KIN:008,isFullsiblingOf,skos:closeMatch,NSIB,natural sibling
+cmg_uwash,sibling #1,KIN:008,KIN:008,isFullsiblingOf,skos:closeMatch,NSIB,natural sibling
+cmg_uwash,sibling #2,KIN:008,KIN:008,isFullsiblingOf,skos:closeMatch,NSIB,natural sibling
+cmg_uwash,sibling #3,KIN:008,KIN:008,isFullsiblingOf,skos:closeMatch,NSIB,natural sibling
+cmg_uwash,Second_cousin_once_removed,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
+cmg_uwash,First_cousin_once_removed,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
+cmg_uwash,maternal first cousin once removed,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
+cmg_uwash,materal uncle,KIN:058,KIN:058,isMaternalUncleOf,skos:exactMatch,MUNCLE,maternal uncle
+cmg_uwash,Married-in,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
