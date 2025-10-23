@@ -11,7 +11,7 @@ NULL::text as "date_of_birth_type",
   NULL::integer as "age_at_last_vital_status",
   NULL::text as "vital_status",
     {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='phs000693') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='dm',descriptor=['subject_id'], study_id='phs000693') }}::text as "id"
+    {{ generate_global_id(prefix='dm',descriptor=['subject_id', 'consent_id'], study_id='phs000693') }}::text as "id"
 from (select 
         distinct 
         sex,

@@ -24,9 +24,9 @@ probands_only as (
       distinct
       p.subject_id as ftd_subject_1,
       o.subject_id as ftd_subject_2,
-      {{ generate_global_id(prefix='sb',descriptor=['p.subject_id'], study_id='phs000693') }}::text as "family_member",
+      {{ generate_global_id(prefix='sb',descriptor=['p.subject_id', 'consent_id'], study_id='phs000693') }}::text as "family_member",
       proband_rel_code,
-      {{ generate_global_id(prefix='sb',descriptor=['o.subject_id'], study_id='phs000693') }}::text as "other_family_member",
+      {{ generate_global_id(prefix='sb',descriptor=['o.subject_id', 'consent_id'], study_id='phs000693') }}::text as "other_family_member",
       other_rel_code,
       {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='phs000693') }}::text as "has_access_policy",
       {{ generate_global_id(prefix='fr',descriptor=['family_id','p.subject_id','o.subject_id','other_rel_code'], study_id='phs000693') }}::text as "id"
