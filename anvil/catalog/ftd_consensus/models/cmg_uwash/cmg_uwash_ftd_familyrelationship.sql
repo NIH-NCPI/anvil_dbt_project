@@ -34,6 +34,19 @@ probands_only as (
     left join others_only as o
     using (family_id, consent_id)
     where o.subject_id is not null
+), 
+
+bio_curies as (
+    select 
+        lower(relationship_to_proband) as relationship_to_proband,
+        max(case 
+            when study_id = 'cmg_uwash' then curie 
+        end)::text as bio_curie,
+        max(case 
+            when study_id is null or study_id != 'cmg_uwash' then curie 
+        end)::text as def_curie
+    from {{ ref('fr_relationship_code') }}
+    group by lower(relationship_to_proband)
 )
 
 select 
@@ -44,15 +57,11 @@ select
   id,
   ftd_subject_1,
   ftd_subject_2,
-  curie::text as "relationship_code",
+  coalesce(bc.bio_curie, bc.def_curie, 'Needs Handling - nullable')::text as "relationship_code",
   coalesce(other_rel_code, 'FTD_NULL') AS "ftd_family_rel", -- flag nulls for analysis
-  coalesce(curie, 'Needs Handling - nullable') AS "ftd_flag_family_rel" -- flag unhandled strings
+  coalesce(bc.bio_curie, 'Needs Handling - nullable') AS "ftd_flag_family_rel", -- flag unhandled strings
   
 from fr_base
      left join
-      (select 
-       curie, 
-       relationship_to_proband
-       from {{ ref('fr_relationship_code') }}
-       ) as seed
-     on lower(relationship_to_proband) = lower(fr_base.other_rel_code)    
+     bio_curies as bc
+     on lower(bc.relationship_to_proband) = lower(fr_base.other_rel_code)    

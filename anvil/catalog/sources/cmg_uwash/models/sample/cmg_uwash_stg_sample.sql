@@ -208,5 +208,6 @@ with source as (
 
 select 
   ROW_NUMBER() OVER () AS ftd_index,
-  source.*
+  source.*,
+  REPLACE(REPLACE(REPLACE(UPPER(ingest_provenance), 'SAMPLE_ANVIL_CMG_UWASH_', ''),'.TSV',''),'_','-') AS "consent_id",
 from source

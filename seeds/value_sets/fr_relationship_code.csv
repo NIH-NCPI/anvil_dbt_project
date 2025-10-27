@@ -155,3 +155,7 @@ cmg_uwash,First_cousin_once_removed,KIN:001,KIN:001,isRelativeOf,skos:narrowMatc
 cmg_uwash,maternal first cousin once removed,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
 cmg_uwash,materal uncle,KIN:058,KIN:058,isMaternalUncleOf,skos:exactMatch,MUNCLE,maternal uncle
 cmg_uwash,Married-in,KIN:001,KIN:001,isRelativeOf,skos:narrowMatch,EXT,extended family member
+cmg_uwash,mother,KIN:027,KIN:027,isBiologicalMotherOf,skos:closeMatch,NMTH,natural mother 
+cmg_uwash,father,KIN:028,KIN:028,isBiologicalFatherOf,skos:closeMatch,NFTH,natural father
+cmg_uwash,son,KIN:032,KIN:032,isBiologicalChildOf,skos:narrowMatch,SON,natural son
+cmg_uwash,daughter,KIN:032,KIN:032,isBiologicalChildOf,skos:narrowMatch,DAU,natural daughter
