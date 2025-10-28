@@ -1,14 +1,7 @@
 {{ config(materialized='table', schema='cmg_uwash_data') }}
 
 select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_uwash') }}::text as "data_source",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_uwash') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cmg_uwash') }}::text as "id"
-from {{ ref('cmg_uwash_stg_sample') }} as sample
-join {{ ref('cmg_uwash_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id  join {{ ref('cmg_uwash_stg_anvil_dataset') }} as anvil_dataset
-on   join {{ ref('cmg_uwash_stg_sequencing') }} as sequencing
-on   join {{ ref('cmg_uwash_stg_family') }} as family
-on   join {{ ref('cmg_uwash_stg_file_inventory') }} as file_inventory
-on  
-
+  {{ generate_global_id(prefix='ds',descriptor=['dbgap_study_id'], study_id='phs000693') }}::text as "data_source",
+    {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='phs000693') }}::text as "has_access_policy",
+    {{ generate_global_id(prefix='sd',descriptor=['dbgap_study_id'], study_id='phs000693') }}::text as "id"
+from (select distinct dbgap_study_id, consent_id from {{ ref('cmg_uwash_stg_subject') }}) as subject
