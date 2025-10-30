@@ -9,7 +9,7 @@ with c_or_d as (
   NULL::text as "code",
   NULL::text as "display",
   NULL::text as "value_code",
-  NULL::text as "value_display",
+  affected_status::text as "value_display",
   NULL::text as "value_number",
   NULL::text as "value_units",
   NULL::text as "value_units_display",
@@ -29,7 +29,14 @@ select
   age_at_resolution,
   coalesce(d_code,c_code,null)::text as "code",
   display,
-  value_code,
+  CASE 
+        WHEN LOWER(affected_status) = 'affected' THEN 'LA9633-4'
+        WHEN LOWER(affected_status) = 'unaffected' THEN 'LA9634-2'
+        WHEN LOWER(affected_status) = 'unknown' THEN 'LA4489-6'
+        WHEN LOWER(affected_status) = 'possibly affected' THEN 'LA15097-1'
+        WHEN affected_status is null THEN 'LA4489-6'
+        ELSE CONCAT('FTD_FLAG: unhandled value_code: ', affected_status)
+  END::text as "value_code",
   value_display,
   value_number,
   value_units,
@@ -41,3 +48,5 @@ select
 from {{ ref('cmg_uwash_stg_subject') }} as s
 left join c_or_d as cd
 using(subject_id)
+left join {{ ref('cmg_uwash_condition_mappings') }}
+on s.
