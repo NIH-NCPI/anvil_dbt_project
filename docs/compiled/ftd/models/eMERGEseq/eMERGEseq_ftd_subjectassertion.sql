@@ -19,7 +19,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_401.1' as code,
             case when "phe_401.1" = 0 then 'LA9634-2'
                  when "phe_401.1" = 1 then 'LA9633-4'
@@ -33,7 +33,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_250.2' as code,
             case when "phe_250.2" = 0 then 'LA9634-2'
                  when "phe_250.2" = 1 then 'LA9633-4'
@@ -47,7 +47,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_272.1' as code,
             case when "phe_272.1" = 0 then 'LA9634-2'
                  when "phe_272.1" = 1 then 'LA9633-4'
@@ -61,7 +61,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_411.4' as code,
             case when "phe_411.4" = 0 then 'LA9634-2'
                  when "phe_411.4" = 1 then 'LA9633-4'
@@ -75,7 +75,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_495' as code,
             case when "phe_495" = 0 then 'LA9634-2'
                  when "phe_495" = 1 then 'LA9633-4'
@@ -89,7 +89,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_427.21' as code,
             case when "phe_427.21" = 0 then 'LA9634-2'
                  when "phe_427.21" = 1 then 'LA9633-4'
@@ -103,7 +103,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_530.11' as code,
             case when "phe_530.11" = 0 then 'LA9634-2'
                  when "phe_530.11" = 1 then 'LA9633-4'
@@ -117,7 +117,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_296.22' as code,
             case when "phe_296.22" = 0 then 'LA9634-2'
                  when "phe_296.22" = 1 then 'LA9633-4'
@@ -131,7 +131,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_313.1' as code,
             case when "phe_313.1" = 0 then 'LA9634-2'
                  when "phe_313.1" = 1 then 'LA9633-4'
@@ -145,7 +145,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_244.4' as code,
             case when "phe_244.4" = 0 then 'LA9634-2'
                  when "phe_244.4" = 1 then 'LA9633-4'
@@ -159,7 +159,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_476' as code,
             case when "phe_476" = 0 then 'LA9634-2'
                  when "phe_476" = 1 then 'LA9633-4'
@@ -173,7 +173,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_272.11' as code,
             case when "phe_272.11" = 0 then 'LA9634-2'
                  when "phe_272.11" = 1 then 'LA9633-4'
@@ -187,7 +187,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_278.1' as code,
             case when "phe_278.1" = 0 then 'LA9634-2'
                  when "phe_278.1" = 1 then 'LA9633-4'
@@ -201,7 +201,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_174.11' as code,
             case when "phe_174.11" = 0 then 'LA9634-2'
                  when "phe_174.11" = 1 then 'LA9633-4'
@@ -215,7 +215,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_296.2' as code,
             case when "phe_296.2" = 0 then 'LA9634-2'
                  when "phe_296.2" = 1 then 'LA9633-4'
@@ -229,7 +229,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_306' as code,
             case when "phe_306" = 0 then 'LA9634-2'
                  when "phe_306" = 1 then 'LA9633-4'
@@ -243,7 +243,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_327.32' as code,
             case when "phe_327.32" = 0 then 'LA9634-2'
                  when "phe_327.32" = 1 then 'LA9633-4'
@@ -257,7 +257,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_313.3' as code,
             case when "phe_313.3" = 0 then 'LA9634-2'
                  when "phe_313.3" = 1 then 'LA9633-4'
@@ -271,7 +271,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_278.11' as code,
             case when "phe_278.11" = 0 then 'LA9634-2'
                  when "phe_278.11" = 1 then 'LA9633-4'
@@ -285,7 +285,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_272.13' as code,
             case when "phe_272.13" = 0 then 'LA9634-2'
                  when "phe_272.13" = 1 then 'LA9633-4'
@@ -299,7 +299,7 @@ unpivot_df as (
     
         select
             subject_id, ftd_index,
-            NULL as "age_at_assertion",
+            NULL as "age_at_event",
             'phe_587' as code,
             case when "phe_587" = 0 then 'LA9634-2'
                  when "phe_587" = 1 then 'LA9633-4'
@@ -327,7 +327,7 @@ unpivot_bmi as (
         
             select distinct
             subject_id, ftd_index,
-            bmi.age_at_observation::text as "age_at_assertion",
+            bmi.age_at_observation::text as "age_at_event",
             'weight' AS "code",
             NULL AS "value_code",
             NULL AS "value_display",
@@ -338,7 +338,7 @@ unpivot_bmi as (
         
             select distinct
             subject_id, ftd_index,
-            bmi.age_at_observation::text as "age_at_assertion",
+            bmi.age_at_observation::text as "age_at_event",
             'height' AS "code",
             NULL AS "value_code",
             NULL AS "value_display",
@@ -349,7 +349,7 @@ unpivot_bmi as (
         
             select distinct
             subject_id, ftd_index,
-            bmi.age_at_observation::text as "age_at_assertion",
+            bmi.age_at_observation::text as "age_at_event",
             'body_mass_index' AS "code",
             NULL AS "value_code",
             NULL AS "value_display",
@@ -373,8 +373,8 @@ union_data as (
              WHEN UPPER(code) LIKE 'PHE%' THEN 'ehr_billing_code'
              ELSE CONCAT('FTD_FLAG: unhandled assertion_type: ',code)
         END::text as "assertion_type",
-        age_at_assertion,
-        null as "age_at_event", 
+        null as "age_at_assertion",
+        age_at_event, 
         null as "age_at_resolution",
         CASE 
             WHEN code = 'weight'THEN 'LOINC:29463-7'

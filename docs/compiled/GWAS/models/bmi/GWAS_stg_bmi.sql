@@ -1,17 +1,67 @@
 
 
-with source as (
-    select 
-      "subject_id"::text as "subject_id",
-       "bmi_observation_age"::text as "bmi_observation_age",
-       "weight"::text as "weight",
-       "height"::text as "height",
-       "body_mass_index"::text as "body_mass_index",
-       "visit_number"::text as "visit_number"
+with bmi_cte as (
+    select distinct
+    subject_id,
+    'measurement' as "assertion_type",
+    NULL::text as "age_at_assertion",
+    bmi_observation_age as "age_at_event",
+    'weight' AS "code",
+   weight::text as "value_number",
     from "dbt"."main"."GWAS_BMI_DS_20201028"
+    union all
+
+    select distinct
+    subject_id,
+    'measurement' as "assertion_type",
+    NULL::text as "age_at_assertion",
+    bmi_observation_age as "age_at_event",
+    'height' AS "code",
+   height::text as "value_number",
+    from "dbt"."main"."GWAS_BMI_DS_20201028"
+    union all
+
+    select distinct
+    subject_id,
+    'measurement' as "assertion_type",
+    NULL::text as "age_at_assertion",
+    bmi_observation_age as "age_at_event",
+    'body_mass_index' AS "code",
+   body_mass_index::text as "value_number",
+    from "dbt"."main"."GWAS_BMI_DS_20201028" 
+    ),
+    
+bmi_w_units as (
+    select distinct
+        bc.*,
+        bu.units as value_units,
+        bm."local code",
+        bm.code as mapped_code,
+        bm.display,
+        bm."code system"
+    from bmi_cte as bc
+    left join "dbt"."main"."gwas_bmi_seed" as bu
+        on bc.code = bu.variable_name
+    left join (
+        select 
+            "local code",
+            code,
+            display,
+            "code system",
+        from "dbt"."main"."gwas_bmi_mappings"
+    ) as bm
+        on bu.variable_name = bm."local code"
 )
 
 select 
   ROW_NUMBER() OVER () AS ftd_index,
-  source.*
-from source
+    subject_id,
+    age_at_event,
+    code,
+    value_number,
+    value_units,
+    mapped_code,
+    display,
+    "local code" as local_code,
+    "code system" as code_system,
+from bmi_w_units
