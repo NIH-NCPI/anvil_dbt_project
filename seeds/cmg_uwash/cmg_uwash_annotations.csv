@@ -1,0 +1,183 @@
+api,searched_code,response_code,display,description,system,code_iri,ontology_prefix
+ols2,HP:0000002,HP:0000002,Abnormality of body height,['Abnormality of body height'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000002,HP
+ols2,HP:0000152,HP:0000152,Abnormality of head or neck,['Abnormality of head or neck'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000152,HP
+ols2,HP:0000153,HP:0000153,Abnormality of the mouth,['Abnormality of the mouth'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000153,HP
+ols2,HP:0000164,HP:0000164,Abnormality of the dentition,['Abnormality of the dentition'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000164,HP
+ols2,HP:0000202,HP:0000202,Orofacial cleft,['Orofacial cleft'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000202,HP
+ols2,HP:0000271,HP:0000271,Abnormality of the face,['Abnormality of the face'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000271,HP
+ols2,HP:0000309,HP:0000309,Abnormal midface morphology,['Abnormal midface morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000309,HP
+ols2,HP:0000478,HP:0000478,Abnormality of the eye,['Abnormality of the eye'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000478,HP
+ols2,HP:0000501,HP:0000501,Glaucoma,['Glaucoma'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000501,HP
+ols2,HP:0000525,HP:0000525,Abnormality iris morphology,['Abnormality iris morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000525,HP
+ols2,HP:0000528,HP:0000528,Anophthalmia,['Anophthalmia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000528,HP
+ols2,HP:0000587,HP:0000587,Abnormal optic nerve morphology,['Abnormal optic nerve morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000587,HP
+ols2,HP:0000612,HP:0000612,Iris coloboma,['Iris coloboma'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000612,HP
+ols2,HP:0000657,HP:0000657,Oculomotor apraxia,['Oculomotor apraxia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000657,HP
+ols2,HP:0000707,HP:0000707,Abnormality of the nervous system,['Abnormality of the nervous system'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000707,HP
+ols2,HP:0000708,HP:0000708,Behavioral abnormality,['Behavioral abnormality'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000708,HP
+ols2,HP:0000717,HP:0000717,Autism,['Autism'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000717,HP
+ols2,HP:0000775,HP:0000775,Abnormality of the diaphragm,['Abnormality of the diaphragm'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000775,HP
+ols2,HP:0000776,HP:0000776,Congenital diaphragmatic hernia,['Congenital diaphragmatic hernia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000776,HP
+ols2,HP:0000924,HP:0000924,Abnormality of the skeletal system,['Abnormality of the skeletal system'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000924,HP
+ols2,HP:0000925,HP:0000925,Abnormality of the vertebral column,['Abnormality of the vertebral column'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000925,HP
+ols2,HP:0000929,HP:0000929,Abnormal skull morphology,['Abnormal skull morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000929,HP
+ols2,HP:0000951,HP:0000951,Abnormality of the skin,['Abnormality of the skin'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000951,HP
+ols2,HP:0000992,HP:0000992,Cutaneous photosensitivity,['Cutaneous photosensitivity'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0000992,HP
+ols2,HP:0001059,HP:0001059,Pterygium,['Pterygium'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001059,HP
+ols2,HP:0001159,HP:0001159,Syndactyly,['Syndactyly'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001159,HP
+ols2,HP:0001161,HP:0001161,Hand polydactyly,['Hand polydactyly'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001161,HP
+ols2,HP:0001249,HP:0001249,Intellectual disability,['Intellectual disability'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001249,HP
+ols2,HP:0001250,HP:0001250,Seizure,['Seizure'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001250,HP
+ols2,HP:0001252,HP:0001252,Hypotonia,['Hypotonia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001252,HP
+ols2,HP:0001263,HP:0001263,Global developmental delay,['Global developmental delay'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001263,HP
+ols2,HP:0001272,HP:0001272,Cerebellar atrophy,['Cerebellar atrophy'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001272,HP
+ols2,HP:0001273,HP:0001273,Abnormal corpus callosum morphology,['Abnormal corpus callosum morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001273,HP
+ols2,HP:0001274,HP:0001274,Agenesis of corpus callosum,['Agenesis of corpus callosum'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001274,HP
+ols2,HP:0001305,HP:0001305,Dandy-Walker malformation,['Dandy-Walker malformation'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001305,HP
+ols2,HP:0001320,HP:0001320,Cerebellar vermis hypoplasia,['Cerebellar vermis hypoplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001320,HP
+ols2,HP:0001321,HP:0001321,Cerebellar hypoplasia,['Cerebellar hypoplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001321,HP
+ols2,HP:0001324,HP:0001324,Muscle weakness,['Muscle weakness'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001324,HP
+ols2,HP:0001363,HP:0001363,Craniosynostosis,['Craniosynostosis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001363,HP
+ols2,HP:0001367,HP:0001367,Abnormal joint morphology,['Abnormal joint morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001367,HP
+ols2,HP:0001382,HP:0001382,Joint hypermobility,['Joint hypermobility'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001382,HP
+ols2,HP:0001438,HP:0001438,Abnormal abdomen morphology,['Abnormal abdomen morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001438,HP
+ols2,HP:0001507,HP:0001507,Growth abnormality,['Growth abnormality'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001507,HP
+ols2,HP:0001574,HP:0001574,Abnormality of the integument,['Abnormality of the integument'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001574,HP
+ols2,HP:0001595,HP:0001595,Abnormal hair morphology,['Abnormal hair morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001595,HP
+ols2,HP:0001626,HP:0001626,Abnormality of the cardiovascular system,['Abnormality of the cardiovascular system'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001626,HP
+ols2,HP:0001627,HP:0001627,Abnormal heart morphology,['Abnormal heart morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001627,HP
+ols2,HP:0001647,HP:0001647,Bicuspid aortic valve,['Bicuspid aortic valve'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001647,HP
+ols2,HP:0001679,HP:0001679,Abnormal aortic morphology,['Abnormal aortic morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001679,HP
+ols2,HP:0001743,HP:0001743,Abnormality of the spleen,['Abnormality of the spleen'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001743,HP
+ols2,HP:0001760,HP:0001760,Abnormal foot morphology,['Abnormal foot morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001760,HP
+ols2,HP:0001871,HP:0001871,Abnormality of blood and blood-forming tissues,['Abnormality of blood and blood-forming tissues'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001871,HP
+ols2,HP:0001881,HP:0001881,Abnormal leukocyte morphology,['Abnormal leukocyte morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001881,HP
+ols2,HP:0001883,HP:0001883,Talipes,['Talipes'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001883,HP
+ols2,HP:0001939,HP:0001939,Abnormality of metabolism/homeostasis,['Abnormality of metabolism/homeostasis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001939,HP
+ols2,HP:0002011,HP:0002011,Morphological central nervous system abnormality,['Morphological central nervous system abnormality'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002011,HP
+ols2,HP:0002086,HP:0002086,Abnormality of the respiratory system,['Abnormality of the respiratory system'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002086,HP
+ols2,HP:0002088,HP:0002088,Abnormal lung morphology,['Abnormal lung morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002088,HP
+ols2,HP:0002119,HP:0002119,Ventriculomegaly,['Ventriculomegaly'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002119,HP
+ols2,HP:0002126,HP:0002126,Polymicrogyria,['Polymicrogyria'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002126,HP
+ols2,HP:0002140,HP:0002140,Ischemic stroke,['Ischemic stroke'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002140,HP
+ols2,HP:0002180,HP:0002180,Neurodegeneration,['Neurodegeneration'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002180,HP
+ols2,HP:0002308,HP:0002308,Chiari malformation,['Chiari malformation'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002308,HP
+ols2,HP:0002438,HP:0002438,Cerebellar malformation,['Cerebellar malformation'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002438,HP
+ols2,HP:0002564,HP:0030680,Abnormality of cardiovascular system morphology,['Abnormality of cardiovascular system morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0030680,HP
+ols2,HP:0002650,HP:0002650,Scoliosis,['Scoliosis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002650,HP
+ols2,HP:0002652,HP:0002652,Skeletal dysplasia,['Skeletal dysplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002652,HP
+ols2,HP:0002664,HP:0002664,Neoplasm,['Neoplasm'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002664,HP
+ols2,HP:0002715,HP:0002715,Abnormality of the immune system,['Abnormality of the immune system'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002715,HP
+ols2,HP:0002721,HP:0002721,Immunodeficiency,['Immunodeficiency'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002721,HP
+ols2,HP:0002795,HP:0002795,Abnormal respiratory system physiology,['Abnormal respiratory system physiology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002795,HP
+ols2,HP:0002803,HP:0002803,Congenital contracture,['Congenital contracture'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002803,HP
+ols2,HP:0002960,HP:0002960,Autoimmunity,['Autoimmunity'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002960,HP
+ols2,HP:0003011,HP:0003011,Abnormality of the musculature,['Abnormality of the musculature'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0003011,HP
+ols2,HP:0003202,HP:0003202,Skeletal muscle atrophy,['Skeletal muscle atrophy'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0003202,HP
+ols2,HP:0003330,HP:0003330,Abnormal bone structure,['Abnormal bone structure'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0003330,HP
+ols2,HP:0003549,HP:0003549,Abnormality of connective tissue,['Abnormality of connective tissue'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0003549,HP
+ols2,HP:0003560,HP:0003560,Muscular dystrophy,['Muscular dystrophy'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0003560,HP
+ols2,HP:0003634,HP:0003634,Amyoplasia,['Amyoplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0003634,HP
+ols2,HP:0003808,HP:0003808,Abnormal muscle tone,['Abnormal muscle tone'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0003808,HP
+ols2,HP:0004322,HP:0004322,Short stature,['Short stature'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0004322,HP
+ols2,HP:0004377,HP:0004377,Hematological neoplasm,['Hematological neoplasm'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0004377,HP
+ols2,HP:0004383,HP:0004383,Hypoplastic left heart,['Hypoplastic left heart'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0004383,HP
+ols2,HP:0004439,HP:0004439,Craniofacial dysostosis,['Craniofacial dysostosis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0004439,HP
+ols2,HP:0004944,HP:0004944,Dilatation of the cerebral artery,['Dilatation of the cerebral artery'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0004944,HP
+ols2,HP:0005294,HP:0005294,Arterial dissection,['Arterial dissection'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0005294,HP
+ols2,HP:0005549,No results,Congenital neutropenia,No results,No results,No results,No results
+ols2,HP:0005684,HP:0005684,Distal arthrogryposis,['Distal arthrogryposis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0005684,HP
+ols2,HP:0007033,HP:0007033,Cerebellar dysplasia,['Cerebellar dysplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0007033,HP
+ols2,HP:0007068,HP:0007068,Inferior cerebellar vermis hypoplasia,['Inferior cerebellar vermis hypoplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0007068,HP
+ols2,HP:0007858,HP:0007858,Chorioretinal lacunae,['Chorioretinal lacunae'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0007858,HP
+ols2,HP:0008058,HP:0008058,Aplasia/Hypoplasia of the optic nerve,['Aplasia/Hypoplasia of the optic nerve'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0008058,HP
+ols2,HP:0009124,HP:0009124,Abnormal adipose tissue morphology,['Abnormal adipose tissue morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0009124,HP
+ols2,HP:0009125,HP:0009125,Lipodystrophy,['Lipodystrophy'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0009125,HP
+ols2,HP:0009830,HP:0009830,Peripheral neuropathy,['Peripheral neuropathy'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0009830,HP
+ols2,HP:0010628,HP:0010628,Facial palsy,['Facial palsy'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0010628,HP
+ols2,HP:0010719,HP:0010719,Abnormality of hair texture,['Abnormality of hair texture'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0010719,HP
+ols2,HP:0011013,HP:0011013,Abnormal circulating carbohydrate concentration,['Abnormal circulating carbohydrate concentration'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011013,HP
+ols2,HP:0011014,HP:0011014,Abnormal glucose homeostasis,['Abnormal glucose homeostasis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011014,HP
+ols2,HP:0011024,HP:0011024,Abnormality of the gastrointestinal tract,['Abnormality of the gastrointestinal tract'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011024,HP
+ols2,HP:0011121,HP:0011121,Abnormal skin morphology,['Abnormal skin morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011121,HP
+ols2,HP:0011282,HP:0011282,Abnormal hindbrain morphology,['Abnormal hindbrain morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011282,HP
+ols2,HP:0011297,HP:0011297,Abnormal digit morphology,['Abnormal digit morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011297,HP
+ols2,HP:0011805,HP:0011805,Abnormal skeletal muscle morphology,['Abnormal skeletal muscle morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011805,HP
+ols2,HP:0011842,HP:0011842,Abnormal skeletal morphology,['Abnormal skeletal morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011842,HP
+ols2,HP:0011932,HP:0011932,Abnormal superior cerebellar peduncle morphology,['Abnormal superior cerebellar peduncle morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0011932,HP
+ols2,HP:0012110,HP:0012110,Hypoplasia of the pons,['Hypoplasia of the pons'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012110,HP
+ols2,HP:0012265,HP:0012265,Ciliary dyskinesia,['Ciliary dyskinesia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012265,HP
+ols2,HP:0012337,HP:0012337,Abnormal homeostasis,['Abnormal homeostasis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012337,HP
+ols2,HP:0012372,HP:0012372,Abnormal eye morphology,['Abnormal eye morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012372,HP
+ols2,HP:0012373,HP:0012373,Abnormal eye physiology,['Abnormal eye physiology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012373,HP
+ols2,HP:0012374,HP:0012372,Abnormal eye morphology,['Abnormal eye morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012372,HP
+ols2,HP:0012443,HP:0012443,Abnormal brain morphology,['Abnormal brain morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012443,HP
+ols2,HP:0012469,HP:0012469,Infantile spasms,['Infantile spasms'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012469,HP
+ols2,HP:0012503,HP:0012503,Abnormal pituitary gland morphology,['Abnormal pituitary gland morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012503,HP
+ols2,HP:0012638,HP:0012638,Abnormal nervous system physiology,['Abnormal nervous system physiology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012638,HP
+ols2,HP:0012639,HP:0012639,Abnormal nervous system morphology,['Abnormal nervous system morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012639,HP
+ols2,HP:0012727,HP:0012727,Thoracic aortic aneurysm,['Thoracic aortic aneurysm'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012727,HP
+ols2,HP:0012759,HP:0012759,Neurodevelopmental abnormality,['Neurodevelopmental abnormality'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012759,HP
+ols2,HP:0020185,HP:0020185,Superior cerebellar dysplasia,['Superior cerebellar dysplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0020185,HP
+ols2,HP:0025015,HP:0025015,Abnormal vascular morphology,['Abnormal vascular morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0025015,HP
+ols2,HP:0025102,HP:0025102,Dysgenesis of the basal ganglia,['Dysgenesis of the basal ganglia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0025102,HP
+ols2,HP:0030056,HP:0030056,Uncombable hair,['Uncombable hair'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0030056,HP
+ols2,HP:0033127,HP:0033127,Abnormality of the musculoskeletal system,['Abnormality of the musculoskeletal system'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0033127,HP
+ols2,HP:0040064,HP:0040064,Abnormality of limbs,['Abnormality of limbs'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0040064,HP
+ols2,HP:0100006,HP:0100006,Neoplasm of the central nervous system,['Neoplasm of the central nervous system'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0100006,HP
+ols2,HP:0100545,HP:0100545,Arterial stenosis,['Arterial stenosis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0100545,HP
+ols2,HP:0100659,HP:0100659,Abnormality of the cerebral vasculature,['Abnormality of the cerebral vasculature'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0100659,HP
+ols2,HP:0200134,HP:0200134,Epileptic encephalopathy,['Epileptic encephalopathy'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0200134,HP
+ols2,HP:0410008,HP:0410008,Abnormality of the peripheral nervous system,['Abnormality of the peripheral nervous system'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0410008,HP
+umls,OMIM:108120,108120,"ARTHROGRYPOSIS, DISTAL, TYPE 1A","['ARTHROGRYPOSIS, DISTAL, TYPE 1A']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/108120,OMIM
+umls,OMIM:114300,114300,"ARTHROGRYPOSIS, DISTAL, TYPE 3","['ARTHROGRYPOSIS, DISTAL, TYPE 3']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/114300,OMIM
+umls,OMIM:115200,115200,"CARDIOMYOPATHY, DILATED, 1A","['CARDIOMYOPATHY, DILATED, 1A']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/115200,OMIM
+umls,OMIM:119530,119530,OROFACIAL CLEFT 1,['OROFACIAL CLEFT 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/119530,OMIM
+umls,OMIM:134200,134200,"FACIAL PALSY, FAMILIAL RECURRENT PERIPHERAL","['FACIAL PALSY, FAMILIAL RECURRENT PERIPHERAL']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/134200,OMIM
+umls,OMIM:142340,142340,"DIAPHRAGMATIC HERNIA, CONGENITAL","['DIAPHRAGMATIC HERNIA, CONGENITAL']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/142340,OMIM
+umls,OMIM:143465,143465,ATTENTION DEFICIT-HYPERACTIVITY DISORDER,['ATTENTION DEFICIT-HYPERACTIVITY DISORDER'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/143465,OMIM
+umls,OMIM:147920,147920,KABUKI SYNDROME 1,['KABUKI SYNDROME 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/147920,OMIM
+umls,OMIM:154400,154400,"ACROFACIAL DYSOSTOSIS 1, NAGER TYPE","['ACROFACIAL DYSOSTOSIS 1, NAGER TYPE']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/154400,OMIM
+umls,OMIM:178110,178110,"CONTRACTURES, PTERYGIA, AND SPONDYLOCARPOTARSAL FUSION SYNDROME 1A","['CONTRACTURES, PTERYGIA, AND SPONDYLOCARPOTARSAL FUSION SYNDROME 1A']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/178110,OMIM
+umls,OMIM:178500,178500,INTERSTITIAL LUNG DISEASE 2,['INTERSTITIAL LUNG DISEASE 2'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/178500,OMIM
+umls,OMIM:191480,191480,UNCOMBABLE HAIR SYNDROME 1,['UNCOMBABLE HAIR SYNDROME 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/191480,OMIM
+umls,OMIM:209850,209850,AUTISM,['AUTISM'],https://omim.org/,https://omim.org/entry/209850?search=209850&highlight=209850,OMIM
+umls,OMIM:212065,212065,"CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ia","['CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ia']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/212065,OMIM
+umls,OMIM:217980,217980,"CORPUS CALLOSUM, AGENESIS OF, WITH FACIAL ANOMALIES AND ROBIN SEQUENCE","['CORPUS CALLOSUM, AGENESIS OF, WITH FACIAL ANOMALIES AND ROBIN SEQUENCE']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/217980,OMIM
+umls,OMIM:217990,217990,"CORPUS CALLOSUM, AGENESIS OF","['CORPUS CALLOSUM, AGENESIS OF']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/217990,OMIM
+umls,OMIM:231300,231300,"GLAUCOMA 3, PRIMARY CONGENITAL, A","['GLAUCOMA 3, PRIMARY CONGENITAL, A']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/231300,OMIM
+umls,OMIM:236000,236000,"LYMPHOMA, HODGKIN, CLASSIC","['LYMPHOMA, HODGKIN, CLASSIC']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/236000,OMIM
+umls,OMIM:241550,241550,HYPOPLASTIC LEFT HEART SYNDROME 1,['HYPOPLASTIC LEFT HEART SYNDROME 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/241550,OMIM
+umls,OMIM:248700,248700,MARDEN-WALKER SYNDROME,['MARDEN-WALKER SYNDROME'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/248700,OMIM
+umls,OMIM:252350,252350,MOYAMOYA DISEASE 1,['MOYAMOYA DISEASE 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/252350,OMIM
+umls,OMIM:254300,254300,"MYASTHENIC SYNDROME, CONGENITAL, 10","['MYASTHENIC SYNDROME, CONGENITAL, 10']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/254300,OMIM
+umls,OMIM:255800,255800,"SCHWARTZ-JAMPEL SYNDROME, TYPE 1","['SCHWARTZ-JAMPEL SYNDROME, TYPE 1']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/255800,OMIM
+umls,OMIM:256700,256700,"NEUROBLASTOMA, SUSCEPTIBILITY TO, 1","['NEUROBLASTOMA, SUSCEPTIBILITY TO, 1']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/256700,OMIM
+umls,OMIM:256850,256850,"GIANT AXONAL NEUROPATHY 1, AUTOSOMAL RECESSIVE","['GIANT AXONAL NEUROPATHY 1, AUTOSOMAL RECESSIVE']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/256850,OMIM
+umls,OMIM:265000,265000,"MULTIPLE PTERYGIUM SYNDROME, ESCOBAR VARIANT","['MULTIPLE PTERYGIUM SYNDROME, ESCOBAR VARIANT']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/265000,OMIM
+umls,OMIM:266265,266265,"CONGENITAL DISORDER OF GLYCOSYLATION, TYPE IIc","['CONGENITAL DISORDER OF GLYCOSYLATION, TYPE IIc']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/266265,OMIM
+umls,OMIM:271510,271510,"SPONDYLOEPIMETAPHYSEAL DYSPLASIA, SPONASTRIME TYPE","['SPONDYLOEPIMETAPHYSEAL DYSPLASIA, SPONASTRIME TYPE']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/271510,OMIM
+umls,OMIM:273300,273300,TESTICULAR GERM CELL TUMOR,['TESTICULAR GERM CELL TUMOR'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/273300,OMIM
+umls,OMIM:300049,300049,PERIVENTRICULAR NODULAR HETEROTOPIA 1,['PERIVENTRICULAR NODULAR HETEROTOPIA 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/300049,OMIM
+umls,OMIM:300881,No results,DESBUQUOIS DYSPLASIA 2; DBQD2,No results,No results,No results,No results
+umls,OMIM:300894,300894,NEURODEGENERATION WITH BRAIN IRON ACCUMULATION 5,['NEURODEGENERATION WITH BRAIN IRON ACCUMULATION 5'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/300894,OMIM
+umls,OMIM:308350,308350,DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 1,['DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/308350,OMIM
+umls,OMIM:313850,313850,THORACOABDOMINAL SYNDROME,['THORACOABDOMINAL SYNDROME'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/313850,OMIM
+umls,OMIM:600618,600618,ETS VARIANT TRANSCRIPTION FACTOR 6,['ETS VARIANT TRANSCRIPTION FACTOR 6'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/600618,OMIM
+umls,OMIM:600776,600776,FRYNS MICROPHTHALMIA SYNDROME,['FRYNS MICROPHTHALMIA SYNDROME'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/600776,OMIM
+umls,OMIM:601088,601088,AYME-GRIPP SYNDROME,['AYME-GRIPP SYNDROME'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/601088,OMIM
+umls,OMIM:601680,601680,"ARTHROGRYPOSIS, DISTAL, TYPE 2B1","['ARTHROGRYPOSIS, DISTAL, TYPE 2B1']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/601680,OMIM
+umls,OMIM:602579,602579,"CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ib","['CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ib']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/602579,OMIM
+umls,OMIM:604592,604592,T CELL IMMUNE REGULATOR 1,['T CELL IMMUNE REGULATOR 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/604592,OMIM
+umls,OMIM:606157,606157,PANTOTHENATE KINASE 2,['PANTOTHENATE KINASE 2'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/606157,OMIM
+umls,OMIM:608540,608540,"CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ik","['CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ik']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/608540,OMIM
+umls,OMIM:608600,608600,"LIPODYSTROPHY, FAMILIAL PARTIAL, TYPE 1","['LIPODYSTROPHY, FAMILIAL PARTIAL, TYPE 1']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/608600,OMIM
+umls,OMIM:610031,610031,"CORTICAL DYSPLASIA, COMPLEX, WITH OTHER BRAIN MALFORMATIONS 7","['CORTICAL DYSPLASIA, COMPLEX, WITH OTHER BRAIN MALFORMATIONS 7']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/610031,OMIM
+umls,OMIM:610217,610217,NEURODEGENERATION WITH BRAIN IRON ACCUMULATION 2B,['NEURODEGENERATION WITH BRAIN IRON ACCUMULATION 2B'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/610217,OMIM
+umls,OMIM:612280,612280,"FUCOSIDASE, ALPHA-L, 1","['FUCOSIDASE, ALPHA-L, 1']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/612280,OMIM
+umls,OMIM:613065,613065,"LEUKEMIA, ACUTE LYMPHOBLASTIC","['LEUKEMIA, ACUTE LYMPHOBLASTIC']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/613065,OMIM
+umls,OMIM:614034,614034,HEME OXYGENASE 1 DEFICIENCY,['HEME OXYGENASE 1 DEFICIENCY'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/614034,OMIM
+umls,OMIM:615065,615065,"ARTHROGRYPOSIS, DISTAL, TYPE 5D","['ARTHROGRYPOSIS, DISTAL, TYPE 5D']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/615065,OMIM
+umls,OMIM:615369,615369,DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 94,['DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 94'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/615369,OMIM
+umls,OMIM:616266,616266,"CONGENITAL CONTRACTURES OF THE LIMBS AND FACE, HYPOTONIA, AND DEVELOPMENTAL DELAY","['CONGENITAL CONTRACTURES OF THE LIMBS AND FACE, HYPOTONIA, AND DEVELOPMENTAL DELAY']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/616266,OMIM
+umls,OMIM:616421,616421,MYOCLONIC-ATONIC EPILEPSY,['MYOCLONIC-ATONIC EPILEPSY'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/616421,OMIM
