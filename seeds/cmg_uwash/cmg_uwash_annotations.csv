@@ -63,7 +63,7 @@ ols2,HP:0002140,HP:0002140,Ischemic stroke,['Ischemic stroke'],http://purl.oboli
 ols2,HP:0002180,HP:0002180,Neurodegeneration,['Neurodegeneration'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002180,HP
 ols2,HP:0002308,HP:0002308,Chiari malformation,['Chiari malformation'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002308,HP
 ols2,HP:0002438,HP:0002438,Cerebellar malformation,['Cerebellar malformation'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002438,HP
-ols2,HP:0002564,HP:0030680,Abnormality of cardiovascular system morphology,['Abnormality of cardiovascular system morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0030680,HP
+ols2,HP:0002564,HP:0030680,Malformation of the heart and great vessels,['Abnormality of cardiovascular system morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0030680,HP
 ols2,HP:0002650,HP:0002650,Scoliosis,['Scoliosis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002650,HP
 ols2,HP:0002652,HP:0002652,Skeletal dysplasia,['Skeletal dysplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002652,HP
 ols2,HP:0002664,HP:0002664,Neoplasm,['Neoplasm'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002664,HP
@@ -110,7 +110,7 @@ ols2,HP:0012265,HP:0012265,Ciliary dyskinesia,['Ciliary dyskinesia'],http://purl
 ols2,HP:0012337,HP:0012337,Abnormal homeostasis,['Abnormal homeostasis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012337,HP
 ols2,HP:0012372,HP:0012372,Abnormal eye morphology,['Abnormal eye morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012372,HP
 ols2,HP:0012373,HP:0012373,Abnormal eye physiology,['Abnormal eye physiology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012373,HP
-ols2,HP:0012374,HP:0012372,Abnormal eye morphology,['Abnormal eye morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012372,HP
+ols2,HP:0012374,HP:0012372,Abnormal globe morphology,['Abnormal eye morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012372,HP
 ols2,HP:0012443,HP:0012443,Abnormal brain morphology,['Abnormal brain morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012443,HP
 ols2,HP:0012469,HP:0012469,Infantile spasms,['Infantile spasms'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012469,HP
 ols2,HP:0012503,HP:0012503,Abnormal pituitary gland morphology,['Abnormal pituitary gland morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012503,HP
