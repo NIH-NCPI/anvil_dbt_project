@@ -63,7 +63,7 @@ ols2,HP:0002140,HP:0002140,Ischemic stroke,['Ischemic stroke'],http://purl.oboli
 ols2,HP:0002180,HP:0002180,Neurodegeneration,['Neurodegeneration'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002180,HP
 ols2,HP:0002308,HP:0002308,Chiari malformation,['Chiari malformation'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002308,HP
 ols2,HP:0002438,HP:0002438,Cerebellar malformation,['Cerebellar malformation'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002438,HP
-ols2,HP:0002564,HP:0030680,Malformation of the heart and great vessels,['Abnormality of cardiovascular system morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0030680,HP
+ols2,HP:0002564,HP:0030680,Abnormality of cardiovascular system morphology,['Abnormality of cardiovascular system morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0030680,HP
 ols2,HP:0002650,HP:0002650,Scoliosis,['Scoliosis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002650,HP
 ols2,HP:0002652,HP:0002652,Skeletal dysplasia,['Skeletal dysplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002652,HP
 ols2,HP:0002664,HP:0002664,Neoplasm,['Neoplasm'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0002664,HP
@@ -85,7 +85,7 @@ ols2,HP:0004383,HP:0004383,Hypoplastic left heart,['Hypoplastic left heart'],htt
 ols2,HP:0004439,HP:0004439,Craniofacial dysostosis,['Craniofacial dysostosis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0004439,HP
 ols2,HP:0004944,HP:0004944,Dilatation of the cerebral artery,['Dilatation of the cerebral artery'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0004944,HP
 ols2,HP:0005294,HP:0005294,Arterial dissection,['Arterial dissection'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0005294,HP
-ols2,HP:0005549,No results,Congenital neutropenia,No results,No results,No results,No results
+ols2,HP:0005549,HP:0001875,Decreased total neutrophil count,['Decreased total neutrophil count'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0001875,HP
 ols2,HP:0005684,HP:0005684,Distal arthrogryposis,['Distal arthrogryposis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0005684,HP
 ols2,HP:0007033,HP:0007033,Cerebellar dysplasia,['Cerebellar dysplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0007033,HP
 ols2,HP:0007068,HP:0007068,Inferior cerebellar vermis hypoplasia,['Inferior cerebellar vermis hypoplasia'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0007068,HP
@@ -110,7 +110,7 @@ ols2,HP:0012265,HP:0012265,Ciliary dyskinesia,['Ciliary dyskinesia'],http://purl
 ols2,HP:0012337,HP:0012337,Abnormal homeostasis,['Abnormal homeostasis'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012337,HP
 ols2,HP:0012372,HP:0012372,Abnormal eye morphology,['Abnormal eye morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012372,HP
 ols2,HP:0012373,HP:0012373,Abnormal eye physiology,['Abnormal eye physiology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012373,HP
-ols2,HP:0012374,HP:0012372,Abnormal globe morphology,['Abnormal eye morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012372,HP
+ols2,HP:0012374,HP:0012372,Abnormal eye morphology,['Abnormal eye morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012372,HP
 ols2,HP:0012443,HP:0012443,Abnormal brain morphology,['Abnormal brain morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012443,HP
 ols2,HP:0012469,HP:0012469,Infantile spasms,['Infantile spasms'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012469,HP
 ols2,HP:0012503,HP:0012503,Abnormal pituitary gland morphology,['Abnormal pituitary gland morphology'],http://purl.obolibrary.org/obo/hp/hp-international.owl,http://purl.obolibrary.org/obo/HP_0012503,HP
@@ -141,7 +141,7 @@ umls,OMIM:154400,154400,"ACROFACIAL DYSOSTOSIS 1, NAGER TYPE","['ACROFACIAL DYSO
 umls,OMIM:178110,178110,"CONTRACTURES, PTERYGIA, AND SPONDYLOCARPOTARSAL FUSION SYNDROME 1A","['CONTRACTURES, PTERYGIA, AND SPONDYLOCARPOTARSAL FUSION SYNDROME 1A']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/178110,OMIM
 umls,OMIM:178500,178500,INTERSTITIAL LUNG DISEASE 2,['INTERSTITIAL LUNG DISEASE 2'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/178500,OMIM
 umls,OMIM:191480,191480,UNCOMBABLE HAIR SYNDROME 1,['UNCOMBABLE HAIR SYNDROME 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/191480,OMIM
-umls,OMIM:209850,209850,AUTISM,['AUTISM'],https://omim.org/,https://omim.org/entry/209850?search=209850&highlight=209850,OMIM
+umls,OMIM:209850,MTHU028108,Autism (209850),['Autism (209850)'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/MTHU028108,OMIM
 umls,OMIM:212065,212065,"CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ia","['CONGENITAL DISORDER OF GLYCOSYLATION, TYPE Ia']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/212065,OMIM
 umls,OMIM:217980,217980,"CORPUS CALLOSUM, AGENESIS OF, WITH FACIAL ANOMALIES AND ROBIN SEQUENCE","['CORPUS CALLOSUM, AGENESIS OF, WITH FACIAL ANOMALIES AND ROBIN SEQUENCE']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/217980,OMIM
 umls,OMIM:217990,217990,"CORPUS CALLOSUM, AGENESIS OF","['CORPUS CALLOSUM, AGENESIS OF']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/217990,OMIM
@@ -159,7 +159,7 @@ umls,OMIM:266265,266265,"CONGENITAL DISORDER OF GLYCOSYLATION, TYPE IIc","['CONG
 umls,OMIM:271510,271510,"SPONDYLOEPIMETAPHYSEAL DYSPLASIA, SPONASTRIME TYPE","['SPONDYLOEPIMETAPHYSEAL DYSPLASIA, SPONASTRIME TYPE']",https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/271510,OMIM
 umls,OMIM:273300,273300,TESTICULAR GERM CELL TUMOR,['TESTICULAR GERM CELL TUMOR'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/273300,OMIM
 umls,OMIM:300049,300049,PERIVENTRICULAR NODULAR HETEROTOPIA 1,['PERIVENTRICULAR NODULAR HETEROTOPIA 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/300049,OMIM
-umls,OMIM:300881,No results,DESBUQUOIS DYSPLASIA 2; DBQD2,No results,No results,No results,No results
+umls,OMIM:300881,615777,DESBUQUOIS DYSPLASIA 2; DBQD2,['DESBUQUOIS DYSPLASIA 2; DBQD2'],https://omim.org/,No results,OMIM
 umls,OMIM:300894,300894,NEURODEGENERATION WITH BRAIN IRON ACCUMULATION 5,['NEURODEGENERATION WITH BRAIN IRON ACCUMULATION 5'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/300894,OMIM
 umls,OMIM:308350,308350,DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 1,['DEVELOPMENTAL AND EPILEPTIC ENCEPHALOPATHY 1'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/308350,OMIM
 umls,OMIM:313850,313850,THORACOABDOMINAL SYNDROME,['THORACOABDOMINAL SYNDROME'],https://omim.org/,https://uts-ws.nlm.nih.gov/rest/content/2025AA/source/OMIM/313850,OMIM
