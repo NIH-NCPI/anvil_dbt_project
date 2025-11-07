@@ -28,7 +28,7 @@ all_codes as (select
         ELSE cua.response_code
     END as code,
     cua.display as display,
-    null as assertion_type,
+    uc.assertion_type,
     NULL as system
     from unioned_codes as uc
     join {{ ref('cmg_uwash_annotations') }} as cua
