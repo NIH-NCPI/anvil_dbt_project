@@ -1,5 +1,0 @@
-src_table,src_field,expected_src_value,equivalent_model_value,tgt_field,in_use
-"clinical","assertion",'1','Observed',"condition_interpretation",T
-"clinical","assertion",'0','Not Observed',"condition_interpretation",T
-"clinical","assertion",is null,null,"condition_interpretation",T
-"clinical","assertion","else",null,"condition_interpretation",T

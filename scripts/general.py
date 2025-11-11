@@ -1,92 +1,67 @@
-# +
 import duckdb
 import pandas as pd
 import numpy as np
-import sys
 from jinja2 import Template
 import re
-import subprocess
 import os
 from pathlib import Path
+from dbt_pipeline_utils.scripts.helpers.general import get_paths, read_file
 
-from dbt_pipeline_utils.scripts.helpers.general import *
-from harmonization_initial_setup import get_terra_paths
+# Environment setup
+if os.environ.get("WORKSPACE_BUCKET"):
+    bucket = os.environ.get("WORKSPACE_BUCKET")
+else:
+    bucket = "bucket_placeholder"
 
-bucket = os.environ['WORKSPACE_BUCKET']
 engine = duckdb.connect("/tmp/dbt.duckdb")
 
-# +
-from pathlib import Path
-from dbt_pipeline_utils.scripts.helpers.general import *
 
-bucket = os.environ['WORKSPACE_BUCKET']
-engine = duckdb.connect("/tmp/dbt.duckdb")
-
-# def get_terra_paths(study_id, project_id, dbt_repo):
-#     """
-#     For automatic validation of dir path creation, end the dir variables with "dir"
-#     """
-#     home_dir = Path.cwd().parent.parent
-#     pipeline_dir = home_dir / 'pipeline'
-#     repo_home_dir =  pipeline_dir / dbt_repo # user editable location for the pipeline repo
-#     validation_yml_path = repo_home_dir / 'data' / study_id / f'{study_id}_validation.yaml'
-#     output_dir = pipeline_dir / 'output_data'
-#     output_study_dir = output_dir / study_id
-#     output_validation_dir = output_study_dir / "validation"
-#     seeds_dir = repo_home_dir / 'seeds'
-#     notebook_dir = repo_home_dir / 'notebooks'
-    
-#     dbt_dir = home_dir / ".dbt" # New loc for the profiles.yml
-#     ssh_dir = home_dir / ".ssh"
-#     git_config_path = home_dir / ".gitconfig"
-#     id_rsa_src = home_dir / "id_rsa"
-#     id_rsa_dest = ssh_dir / "id_rsa"
-#     bash_profile = home_dir / ".bash_profile"
-#     terra_gitignore = home_dir / 'gitignore_global'
-#     bucket_study_dir = f'{bucket}/{study_id}'
-    
-#     return {
-#         "home_dir": home_dir,
-#         "repo_home_dir": repo_home_dir,
-#         "validation_yml_path": validation_yml_path,
-#         "pipeline_dir": pipeline_dir,
-#         "output_dir": output_dir,
-#         "output_study_dir":output_study_dir,
-#         "output_validation_dir": output_validation_dir,
-#         "seeds_dir": seeds_dir,
-#         "notebook_dir": notebook_dir,
-#         "dbt_dir": dbt_dir,
-#         "ssh_dir": ssh_dir,
-#         "git_config_path": git_config_path,
-#         "id_rsa_src": id_rsa_src,
-#         "id_rsa_dest": id_rsa_dest,
-#         "bash_profile": bash_profile,
-#         "terra_gitignore": terra_gitignore,
-#         "bucket_study_dir": bucket_study_dir,
-#         "bucket": bucket,
-#     }
-
-def get_all_paths(study_id, dbt_repo, org_id, tgt_model_id=None, src_data_path=None):
+def get_terra_paths(study_id):
     """
-    Creates one dictionary of frequently used paths. 
-    
-    The Terra paths are specific to directories required for Terra development. 
+    For automatic validation of dir path creation, end the dir variables with "dir"
+    """
+    repo_home_dir = Path(__file__).parent.parent
+    validation_yml_path = (
+        repo_home_dir / "data" / study_id / f"{study_id}_validation.yaml"
+    )
+    output_dir = repo_home_dir.parent / "output_data"
+    output_study_dir = output_dir / study_id
+    output_validation_dir = output_study_dir / "validation"
+    seeds_dir = repo_home_dir / "seeds"
+    notebook_dir = repo_home_dir / "notebooks"
+    bucket_study_dir = f"{bucket}/{study_id}"
+
+    return {
+        "repo_home_dir": repo_home_dir,
+        "validation_yml_path": validation_yml_path,
+        "output_dir": output_dir,
+        "output_study_dir": output_study_dir,
+        "output_validation_dir": output_validation_dir,
+        "seeds_dir": seeds_dir,
+        "notebook_dir": notebook_dir,
+        "bucket_study_dir": bucket_study_dir,
+    }
+
+
+def get_all_paths(
+    study_id=None, dbt_repo=None, org_id=None, tgt_model_id=None, src_data_path=None
+):
+    """
+    Creates one dictionary of frequently used paths.
+
+    The Terra paths are specific to directories required for Terra development.
     The pipeline_utils paths cover the paths within the project repository.
     """
-    original_cwd = Path().resolve()
-    one_dir_back = original_cwd.parent # pipeline_utils get_paths needs to be run from the root dir
 
     paths = {}
-    
-    
-    paths.update(get_terra_paths(study_id, org_id, dbt_repo))  # Terra paths
-    
-#     os.chdir(one_dir_back)
-    paths.update(get_paths(study_id, org_id, tgt_model_id, src_data_path))  # pipeline_utils paths
-    os.chdir(original_cwd)
+    paths.update(get_terra_paths(study_id))
+    paths.update(
+        get_paths(study_id, org_id, tgt_model_id, src_data_path)
+    )  # pipeline_utils paths
 
     return paths
-# +
+
+
 def execute(query):
     """
     Connect to duckdb, execute a query and format as a DataFrame with headers. 
@@ -353,11 +328,11 @@ def enum_report_by_file(src_dds_dict, src_df_names_dict, paths):
 
     for table_name in src_dds_dict.keys():
         if table_name == 'anvil_dataset':
-                continue
+            continue
         separate_src_tables_dict = get_separate_src_tables_dict(src_df_names_dict, table_name, paths)
         enum_cols_dd = src_dds_dict[table_name][src_dds_dict[table_name]['data_type'] == 'enumeration']
         df_col_names = enum_cols_dd['variable_name'].tolist()
-        
+
         if df_col_names:
             for file in separate_src_tables_dict:
                 enum_cols_df = separate_src_tables_dict[file][separate_src_tables_dict[file].columns.intersection(df_col_names)]
@@ -374,7 +349,7 @@ def enum_report_by_file(src_dds_dict, src_df_names_dict, paths):
         results_df = pd.concat(all_results, ignore_index=True)
 
     return results_df
-                
+
 
 def enum_report_by_table_group():
     """
@@ -416,8 +391,8 @@ def format_nulls(s):
     """
     return ['color: red' if v is None else '' for v in s]
 
-# +
-# pipeline helpers 
+
+# pipeline helpers
 def create_file_dict(table, count):
     file_list = []
     for i in range(count):
@@ -426,10 +401,10 @@ def create_file_dict(table, count):
         else:
             file = f'{table}_{"0" * (12 - len(str(i)))}{i}.csv'
         file_list.append(file)
-    
+
     return {table: file_list}
 
-    
+
 def run_initial_setup(paths, gh_user, gh_email, pipeline):
     '''
     Run the setup functions
@@ -443,13 +418,13 @@ def copy_data_to_bucket(bucket_study_dir, file_list, input_dir):
     for file in file_list:
         # !gsutil cp {input_dir} {bucket_study_dir}/{file}
         print(f'INFO: Copied {file} to the bucket') 
-        
+
 # Read and concatenate all files
 def read_and_concat_files(file_list, input_dir, output_dir):
     dfs = [pd.read_csv(f'{input_dir}/{file}') for file in file_list] 
     combined_subject = pd.concat(dfs, ignore_index=True)
     combined_subject.to_csv(output_dir, index=False)
-    
+
 def rename_file_single_dir(d_dir, input_fn, output_fn):
     # clean up data_dir
     # !mv {d_dir}/{input_fn} {d_dir}/{output_fn}
@@ -466,8 +441,8 @@ def remove_file(file_list, d_dir):
         except Exception as e:
             print(f'ERROR: Could not remove {file} due to {e}')
     return
-    
-# Export functions       
+
+# Export functions
 def get_tables_from_schema(schema):
     '''
     Get tables from a duckdb dataset. 
@@ -489,12 +464,12 @@ def harmonized_to_bucket(tables, paths):
         name = Path(t).stem.replace(f'tgt_','')
         # !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
         print(name)
-    
+
 def convert_csv_to_utf8(input_file_path, output_filepath, delimiter, encoding):
     df = pd.read_csv(input_file_path, encoding=encoding, delimiter=delimiter, quoting=3)
     df.to_csv(output_filepath, index=False, encoding='utf-8')
     print(f"Converted CSV saved to {output_filepath}")
-    
+
 def study_config_datasets_to_dict(study_config, paths):
     """
     Read in the src data dictionaries and put them into a dictionary. The key is the 
@@ -505,7 +480,7 @@ def study_config_datasets_to_dict(study_config, paths):
         src_dds_dict[table_name] = table_info['identifier']
         src_dds_dict[table_name] = read_file(paths["study_data_dir"] / table_info['identifier'])
     return src_dds_dict
-# +
+
 
 """
 Convert files in data dir into utf-8. Add to the appropriate list, to save the changes in the bucket.
@@ -515,4 +490,3 @@ def convert_to_utf8(input_filepath,output_filepath):
     encoding = 'latin1'
     convert_csv_to_utf8(input_filepath, output_filepath, delimiter, encoding)
     print('Completed')
-

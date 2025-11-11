@@ -1,36 +1,30 @@
 #!/usr/bin/env python
-# coding: utf-8
-# %%
-# Imports
+import duckdb
 from pathlib import Path
 import os
-import pandas as pd
-import duckdb
-from jinja2 import Template
-import sys
+import subprocess
 import argparse
+from general import get_all_paths
+from dbt_pipeline_utils.scripts.helpers.general import read_file
+from dbt_pipeline_utils import logger
+
+bucket = os.environ["WORKSPACE_BUCKET"]
+engine = duckdb.connect("/tmp/dbt.duckdb")
 
 
-bucket = os.environ['WORKSPACE_BUCKET']
-con = duckdb.connect("/tmp/dbt.duckdb")
-
-from general import *
-
-
-# %%
 def store_study_files(study_files, seeds_files, paths):
     """Store defined files in the bucket. These will persist when the environment is shut down."""
     for file in study_files:
         src_file = f"{paths['src_data_dir']}/{file}"
         dest_file = f"{paths['bucket_study_dir']}"
         subprocess.run(["gsutil", "cp", src_file, dest_file], check=True)
-    
+
     for file in seeds_files:
         src_file = f"{paths['seeds_dir']}/{file}"
         dest_file = f"{paths['bucket_study_dir']}"
         subprocess.run(["gsutil", "cp", src_file, dest_file], check=True)
     return
-       
+
 def get_study_files(study_files, seeds_files, paths):
     """Store defined files in the bucket. These will persist when the environment is shut down."""
     for file in study_files:
@@ -46,9 +40,41 @@ def get_study_files(study_files, seeds_files, paths):
 
 def copy_data_from_bucket(bucket_study_dir, file_list, output_dir):
     for file in file_list:
-#         TODO: checkout rsync https://google-cloud-how-to.smarthive.io/buckets/rsync
-        # !gsutil cp {bucket_study_dir}/{file} {output_dir}
-        print(f'INFO: Copied {file} to {output_dir}') 
+        # TODO: checkout rsync https://google-cloud-how-to.smarthive.io/buckets/rsync
+        subprocess.run(
+            ["gsutil", "cp", f"{bucket_study_dir}/{file}", output_dir], check=True
+        )
+        logger.info(f"INFO: Copied {file} to {output_dir}")
+
+
+# Export functions
+def get_tables_from_schema(schema):
+    """
+    Get tables from a duckdb dataset.
+    """
+    result = engine.execute(
+        f"""
+    SELECT table_name FROM information_schema.tables WHERE table_schema = '{schema}'
+    """
+    )
+    r = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
+    return r["table_name"].to_list()
+
+
+def tables_to_output_dir(tables, tgt_schema, paths):
+    for t in tables:
+        name = Path(t).stem.replace(f"tgt_", "")
+        t = engine.execute(
+            f"COPY (SELECT * FROM {tgt_schema}.{t}) TO '{paths['output_study_dir']}/{name}.csv' (HEADER, DELIMITER ',')"
+        ).fetchall()
+        logger.info(name)
+
+
+def harmonized_to_bucket(tables, paths):
+    for t in tables:
+        name = Path(t).stem.replace(f"tgt_", "")
+        # !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
+        logger.info(name)
 
 
 def copy_to_csv_and_export_to_bucket(tgt_schema, paths):    
@@ -59,16 +85,13 @@ def copy_to_csv_and_export_to_bucket(tgt_schema, paths):
     tgt_tables = get_tables_from_schema(tgt_schema)
 
     tables_to_output_dir(tgt_tables, tgt_schema, paths)
-    display('Tables sent to output.')
-    
+    logger.info("Tables sent to output.")
+
     harmonized_to_bucket(tgt_tables)
-    display('csvs sent to bucket')
+    logger.info("csvs sent to bucket")
 
 
-# %%
-
-
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Handle dbt pipeline data")
 
     parser.add_argument("-s", "--study_id", required=True, help="Study identifier. FTD coded for dbt.")
@@ -80,9 +103,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    ftd_schema = f'main_{args.study_id}_data'
-    tgt_schema = f'main_{args.study_id}_tgt_data'
-    
     paths = get_all_paths(args.study_id, args.repo, args.org_id, args.tgt_model, src_data_path=None)
 
     validation_config = read_file(paths["validation_yml_path"])
@@ -91,9 +111,6 @@ if __name__ == "__main__":
     src_table_list = list(study_config["data_dictionary"].keys())
 
     src_files_list = []
-    datasets = validation_config["datasets"].items()
-    dataset_names = list(validation_config["datasets"].keys())
-
 
     for table in study_config["data_dictionary"].keys():
         for dataset, v in validation_config["datasets"].items():
@@ -116,14 +133,16 @@ if __name__ == "__main__":
     if validation_config["bucket_seeds"]:
         for file in validation_config["bucket_seeds"]:
             seeds_files.append(file)
-    
+
     if args.option == 'get_files':
         get_study_files(study_files, seeds_files, paths) 
 
     if args.option == 'get_data':
         copy_data_from_bucket(paths['bucket_study_dir'], src_table_list, paths['src_data_dir'])
-        
+
     if args.option == 'store_files':
         store_study_files(study_files, seeds_files, paths)
 
 
+if __name__ == "__main__":
+    main()
