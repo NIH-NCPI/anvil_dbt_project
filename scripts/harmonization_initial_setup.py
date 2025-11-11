@@ -1,7 +1,9 @@
 """
 Terra environment setup script.
+Sets up github auth with ssh
+Edits the global gitignore for harmonization work
+Adds alias' to bash_profile for other terminal based setup commands
 """
-
 from pathlib import Path
 import argparse
 import os
@@ -9,12 +11,11 @@ import os
 # Environment setup
 bucket = os.environ.get("WORKSPACE_BUCKET")
 
-
 def get_terra_startup_paths(study_id, dbt_repo):
     """
     For automatic validation of dir path creation, end the dir variables with "dir"
     """
-    home_dir = Path.cwd().resolve().parent.parent
+    home_dir = Path.home()
     pipeline_dir = home_dir / 'pipeline'
     repo_home_dir =  pipeline_dir / dbt_repo # user editable location for the pipeline repo
     profiles_path = repo_home_dir / 'profiles.yml'
