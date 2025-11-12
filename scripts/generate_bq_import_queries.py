@@ -1,25 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
-# %%
+
 # Probably no edits necessary
 
-import sys
 from pathlib import Path
 import argparse
-
 # Probably no edits necessary
-import duckdb
-import numpy as np
-import pandas as pd
 from jinja2 import Template
-import re
-import subprocess
-import os
-from pathlib import Path
 from general import *
 
 
-# %%
 def generate_bq_queries(study_id, src_table_list, query_datasets):
 
     # Might want to edit but don't change the naming conventions
@@ -41,7 +31,6 @@ def generate_bq_queries(study_id, src_table_list, query_datasets):
             """)
 
 
-# %%
 def union_stg_query(table, file_list, paths):
     """
     """
@@ -66,7 +55,6 @@ def union_stg_query(table, file_list, paths):
     return final_sql
 
 
-# %%
 def generate_stg_query(table_columns, all_columns, table_paths):
     """
     """
@@ -100,9 +88,6 @@ def generate_stg_query(table_columns, all_columns, table_paths):
     return query
 
 
-# %%
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get metadata for a code using the available locutus OntologyAPI connection.")
 
@@ -132,9 +117,9 @@ if __name__ == "__main__":
     src_table_list = list(study_config["data_dictionary"].keys())
 
     src_files_list = []
+    ori_src_files_list = []
     datasets = validation_config["datasets"].items()
     dataset_names = list(validation_config["datasets"].keys())
-
 
     for table in study_config["data_dictionary"].keys():
         for dataset, v in validation_config["datasets"].items():
@@ -157,18 +142,16 @@ if __name__ == "__main__":
     if validation_config["bucket_seeds"]:
         for file in validation_config["bucket_seeds"]:
             seeds_files.append(file)
-    
-    # Compile and format the source 
+
+    # Compile and format the source
     src_dds_dict = study_config_dds_to_dict(study_config, paths)
     src_df_names_dict = study_config_df_lists_to_dict(study_config)
-    
+
     if args.options == 'bq_queries':
         generate_bq_queries(args.study_id, src_table_list, query_datasets)
-            
 
     if args.options == 'stg_queries':
         for table, file_list in src_df_names_dict.items():
             print(f'\n\n\n\n\n START {table} QUERY')
             stg_query = union_stg_query(table, file_list, paths)
             print(stg_query)
-

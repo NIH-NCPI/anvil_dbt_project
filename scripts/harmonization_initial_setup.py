@@ -173,17 +173,7 @@ def stop_gitignoring_filetypes(paths):
     print("INFO: Content successfully added to ~/gitignore_global")
 
 
-def run_initial_setup(paths, gh_user, gh_email, pipeline):
-    '''
-    Run the setup functions
-    '''
-    setup_ssh(paths) # Required first time env setup
-    setup_gh(gh_user, gh_email, paths) # Required first time env setup
-    update_bash_profile(paths, pipeline)
-    stop_gitignoring_filetypes(paths)
-
-
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Get metadata for a code using the available locutus OntologyAPI connection.")
 
     parser.add_argument(
@@ -197,4 +187,11 @@ if __name__ == "__main__":
 
     paths = get_terra_startup_paths(args.study_id, args.repo)
 
-    run_initial_setup(paths, args.gh_user, args.gh_email, args.repo_id)
+    setup_ssh(paths)  # Required first time env setup
+    setup_gh(args.gh_user, args.gh_email, paths)  # Required first time env setup
+    update_bash_profile(paths, args.repo_id)
+    stop_gitignoring_filetypes(paths)
+
+
+if __name__ == "__main__":
+    main()

@@ -78,7 +78,9 @@ def study_config_dds_to_dict(study_config, paths):
     src_dds_dict = {}
     for table_name, table_info in study_config["data_dictionary"].items():
         src_dds_dict[table_name] = table_info['identifier']
-        src_dds_dict[table_name] = read_file(paths["study_data_dir"] / table_info['identifier'])
+        src_dds_dict[table_name] = read_file(
+            paths["src_data_dir"] / table_info["identifier"]
+        )
     return src_dds_dict
 
 def study_config_df_lists_to_dict(study_config):
@@ -98,12 +100,12 @@ def get_separate_src_tables_dict(src_df_names_dict, tablename, paths):
     the file name (i.e. 'subject_ANVIL_consent') and the value is the datafile as pd DataFrame.
     """
     separate_src_tables_dict = {}
-    
+
     for table, file_list in src_df_names_dict.items():
         if table == tablename:
             for file in file_list:
 
-                table_path = paths['study_data_dir'] / file 
+                table_path = paths["src_data_dir"] / file
                 table_columns, _ = get_column_names(file_list, paths)
                 columns = table_columns[str(table_path)]
 
@@ -131,7 +133,7 @@ def union_tables(src_dfs_dict, paths):
         all_columns_set = set()
 
         for table in src_tables:
-            table_path = paths['study_data_dir'] / table
+            table_path = paths["src_data_dir"] / table
             table_columns, all_columns = get_column_names([table], paths)
 
             table_columns_all[str(table_path)] = table_columns[str(table_path)]
@@ -153,7 +155,7 @@ def get_column_names(file_list, paths):
     table_columns = {}
 
     for table in file_list:
-        table_path = paths['study_data_dir'] / table 
+        table_path = paths["src_data_dir"] / table
 
         query = f"""
         SELECT column_name AS name
@@ -351,7 +353,7 @@ def enum_report_by_file(src_dds_dict, src_df_names_dict, paths):
     return results_df
 
 
-def enum_report_by_table_group():
+def enum_report_by_table_group(src_dds_dict, unioned_dfs_dict):
     """
     Run the column comparison report at the table level. - More summarized view.
     """
@@ -375,16 +377,18 @@ def enum_report_by_table_group():
         comparison_results['src_table'] = table_name 
 
         all_results.append(comparison_results)
-      
+
     results_df = pd.concat(all_results, ignore_index=True)
 
     return results_df
+
 
 def format_not_nulls(s):
     """
     If the record is not null, color the text darkred
     """
     return ['color: darkred' if v is not None else '' for v in s]
+
 def format_nulls(s):
     """
     If the record is null, color the text red
@@ -404,16 +408,6 @@ def create_file_dict(table, count):
 
     return {table: file_list}
 
-
-def run_initial_setup(paths, gh_user, gh_email, pipeline):
-    '''
-    Run the setup functions
-    '''
-    setup_ssh(paths) # Required first time env setup
-    setup_gh(gh_user, gh_email, paths) # Required first time env setup
-    update_bash_profile(paths, pipeline)
-    stop_gitignoring_sql_files(paths)
-
 def copy_data_to_bucket(bucket_study_dir, file_list, input_dir):
     for file in file_list:
         # !gsutil cp {input_dir} {bucket_study_dir}/{file}
@@ -424,11 +418,6 @@ def read_and_concat_files(file_list, input_dir, output_dir):
     dfs = [pd.read_csv(f'{input_dir}/{file}') for file in file_list] 
     combined_subject = pd.concat(dfs, ignore_index=True)
     combined_subject.to_csv(output_dir, index=False)
-
-def rename_file_single_dir(d_dir, input_fn, output_fn):
-    # clean up data_dir
-    # !mv {d_dir}/{input_fn} {d_dir}/{output_fn}
-    return
 
 def remove_file(file_list, d_dir):
     for file in file_list:
@@ -478,14 +467,16 @@ def study_config_datasets_to_dict(study_config, paths):
     src_dds_dict = {}
     for table_name, table_info in study_config["data_dictionary"].items():
         src_dds_dict[table_name] = table_info['identifier']
-        src_dds_dict[table_name] = read_file(paths["study_data_dir"] / table_info['identifier'])
+        src_dds_dict[table_name] = read_file(
+            paths["src_data_dir"] / table_info["identifier"]
+        )
     return src_dds_dict
 
 
-"""
-Convert files in data dir into utf-8. Add to the appropriate list, to save the changes in the bucket.
-"""
-def convert_to_utf8(input_filepath,output_filepath):
+def convert_to_utf8(input_filepath, output_filepath):
+    """
+    Convert files in data dir into utf-8. Add to the appropriate list, to save the changes in the bucket.
+    """
     delimiter = '\t'
     encoding = 'latin1'
     convert_csv_to_utf8(input_filepath, output_filepath, delimiter, encoding)

@@ -95,7 +95,7 @@ def main():
     parser = argparse.ArgumentParser(description="Handle dbt pipeline data")
 
     parser.add_argument("-s", "--study_id", required=True, help="Study identifier. FTD coded for dbt.")
-    parser.add_argument("-o", "--option", required=True, choices=['get_files', 'get_data', 'store_files', 'export_harmonized_data', 'to_utf8'])
+    parser.add_argument("-o", "--option", required=True, choices=['get_files', 'get_data', 'store_files', 'export_harmonized_data'])
     parser.add_argument("-i", "--repo_id", required=False, default='git@github.com:NIH-NCPI/anvil_dbt_project.git', help="SSH version for cloning.")
     parser.add_argument("-r", "--repo", required=False, default='anvil_dbt_project', help="Name of the repo to clone and create dirs for.")
     parser.add_argument("-org", "--org_id", required=False, default='anvil', help="Name of the organization.")
@@ -105,16 +105,22 @@ def main():
 
     paths = get_all_paths(args.study_id, args.repo, args.org_id, args.tgt_model, src_data_path=None)
 
-    validation_config = read_file(paths["validation_yml_path"])
-    study_config = read_file(paths["study_yml_path"])
-    study_config
+    validation_config = read_file(
+        paths["bucket_study_dir"] / f"{args.study_id}_validation.yaml"
+    )
+    study_config = read_file(
+        paths["bucket_study_dir"] / f"{args.study_id}_study.yaml"
+    )
+
     src_table_list = list(study_config["data_dictionary"].keys())
 
     src_files_list = []
-
+    ori_src_files_list = []
     for table in study_config["data_dictionary"].keys():
         for dataset, v in validation_config["datasets"].items():
             f_table = table
+            fn = v["filename"]
+            ori_src_files_list.append(f"{f_table}_{fn}")
             if v['table_name_swap']:
                 if f_table in v['table_name_swap'].keys():
                     f_table = v['table_name_swap'].get(table)
@@ -138,7 +144,9 @@ def main():
         get_study_files(study_files, seeds_files, paths) 
 
     if args.option == 'get_data':
-        copy_data_from_bucket(paths['bucket_study_dir'], src_table_list, paths['src_data_dir'])
+        copy_data_from_bucket(
+            paths["bucket_study_dir"], ori_src_files_list, paths["src_data_dir"]
+        )
 
     if args.option == 'store_files':
         store_study_files(study_files, seeds_files, paths)
