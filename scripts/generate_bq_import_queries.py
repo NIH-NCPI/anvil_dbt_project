@@ -108,8 +108,6 @@ if __name__ == "__main__":
     validation_config = read_file(paths["validation_yml_path"])
     study_config = read_file(paths["study_yml_path"])
 
-    paths = get_terra_paths(args.study_id, args.project_id, args.repo)
-
     query_datasets = []
     for snapshot, atts in validation_config["datasets"].items():
         query_datasets.append(f"{atts['schema']}.{snapshot}")
