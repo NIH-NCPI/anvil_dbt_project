@@ -119,7 +119,7 @@ eval "ssh-add ~/.ssh/id_rsa"
 
 # Add UMLS key
 eval "ssh-add ~/.ssh/id_rsa"
-export UMLS_API_KEY=""
+export UMLS_API_KEY={umls_key}
 
 # Alias to activate Python virtual environment
 alias activate="source /home/jupyter/venv-python3.12/bin/activate"
