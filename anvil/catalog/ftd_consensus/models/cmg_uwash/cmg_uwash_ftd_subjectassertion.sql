@@ -128,8 +128,8 @@ all_conditions as (
   NULL as value_units_display,
     {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='phs000693') }}::text as "has_access_policy",
     {{ generate_global_id(prefix='sa',descriptor=['subject_id', 'code'], study_id='phs000693') }}::text as "id",
-    subject_id
---     { { generate_global_id(prefix='sb',descriptor=['subject_id', 'consent_id'], study_id='phs000693') }}::text as "subject_id"
+    {{ generate_global_id(prefix='sb',descriptor=['subject_id', 'consent_id'], study_id='phs000693') }}::text as "subject_id"
 from {{ ref('cmg_uwash_stg_subject') }} as s
-left join all_codes as alc
+left join all_conditions as alc
 using(subject_id)
+where code is not null
