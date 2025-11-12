@@ -106,10 +106,10 @@ def main():
     paths = get_all_paths(args.study_id, args.repo, args.org_id, args.tgt_model, src_data_path=None)
 
     validation_config = read_file(
-        paths["bucket_study_dir"] / f"{args.study_id}_validation.yaml"
+        paths["src_data_dir"] / Path(f"{args.study_id}_validation.yaml")
     )
     study_config = read_file(
-        paths["bucket_study_dir"] / f"{args.study_id}_study.yaml"
+        paths["src_data_dir"] / Path(f"{args.study_id}_study.yaml")
     )
 
     src_table_list = list(study_config["data_dictionary"].keys())
