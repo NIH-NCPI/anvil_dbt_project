@@ -23,14 +23,17 @@ def clean_codes(codes, curies):
     Returns:
         str: Cleaned string of codes.
     """
+    codes = str(codes) if not pd.isnull(codes) else ""
+
     for c in curies:  # Ensure codes are separated by the |
         codes = codes.replace(c, f"|{c}").replace(c, f"{c}:").replace(f"{c}::", f"{c}:")
     codes = codes.replace(" ", "")  # Whitespace
-    codes = codes.replace("''", "").replace('"', "")  # Quotations
+    codes = codes.replace("''", "").replace('"', "").replace("\"","")  # Quotations
     codes = codes.replace("Ê", "")  # Sp characters
     codes = codes.replace("|||", "|").replace("||", "|")  # Multiple bars
     codes = codes.strip("'")  # Leading and trailing bars
     codes = codes.strip("|")  # Leading and trailing bars
+
     return codes
 
 
@@ -44,11 +47,13 @@ def is_valid_format(code):
     Returns:
         bool: True if valid, False otherwise.
     """
+    
     return bool(re.fullmatch(r"[A-Z]+:\d+", code))
 
 
 def create_flag_column(codes):
     # Check if each code matches the valid format
+    codes = str(codes) if not pd.isnull(codes) else ""
     return [is_valid_format(code) for code in codes.split("|") if code.strip()]
 
 
@@ -132,9 +137,10 @@ def main():
     df = pd.read_csv(args.data_file)
 
     # Clean the column
-    df["cleaned_col"] = df[args.column].apply(lambda x: clean_codes(x, curies))
-
+    df["cleaned_col"] = df[args.column].apply(lambda x: clean_codes(x, curies) if pd.notnull(x) else x)
     # Create a flag column for validation
+    df["cleaned_col"] = df["cleaned_col"].drop_duplicates(keep='first')
+    df = df[df["cleaned_col"].notna()]
     df["correct_format"] = df["cleaned_col"].apply(create_flag_column)
 
     # Set filepaths
@@ -150,7 +156,7 @@ def main():
     )
 
     # Save cleaned data to file
-    t = df[["cleaned_col", "correct_format"]]
+    t = df[["cleaned_col", "correct_format"]].dropna(subset=["cleaned_col"])    
     t.to_csv(cleaned_codes_path, index=False)
 
     # Catch all codes that might not be cleaned properly.
@@ -162,6 +168,7 @@ def main():
 
     # Join all unique, clean codes, into a single string to use as the api search input.
     unique_codes=set()
+
     for row in df["cleaned_col"]:
         unique_codes.update(row.split('|'))
     all_keywords = '|'.join(unique_codes) 

@@ -106,7 +106,7 @@ def setup_gh(gh_user, gh_email, paths):
 
     print("INFO: Edited ~/.gitconfig file.")
 
-def update_bash_profile(paths, pipeline):
+def update_bash_profile(paths, pipeline, umls_key):
 
     content1 = """
 # Custom PS1 prompt with virtual environment display
@@ -116,6 +116,10 @@ export PS1='\\[\\033[1;33m\\]${VIRTUAL_ENV:+(venv)} \\[\\033[1;36m\\]$(basename 
     content2 = f"""
 # Add SSH private key
 eval "ssh-add ~/.ssh/id_rsa"
+
+# Add UMLS key
+eval "ssh-add ~/.ssh/id_rsa"
+export UMLS_API_KEY=""
 
 # Alias to activate Python virtual environment
 alias activate="source /home/jupyter/venv-python3.12/bin/activate"
@@ -180,7 +184,8 @@ def main():
         "-s", "--study_id", required=True, help="Study identifier. FTD coded for dbt."
     )
     parser.add_argument("-u", "--gh_user", required=True, help="Github users username")
-    parser.add_argument("-e", "--gh_email", required=True, help="Github users email")
+    parser.add_argument("-e", "--gh_email", required=True, help="Github users email")    
+    parser.add_argument("-k", "--umls_key", required=False, default="", help="The umls api key. Necessary if using search_dragon.")
     parser.add_argument("-i", "--repo_id", required=False, default='git@github.com:NIH-NCPI/anvil_dbt_project.git', help="SSH version for cloning.")
     parser.add_argument("-r", "--repo", required=False, default='anvil_dbt_project', help="Name of the repo to clone and create dirs for.")
     args = parser.parse_args()
@@ -189,7 +194,7 @@ def main():
 
     setup_ssh(paths)  # Required first time env setup
     setup_gh(args.gh_user, args.gh_email, paths)  # Required first time env setup
-    update_bash_profile(paths, args.repo_id)
+    update_bash_profile(paths, args.repo_id, args.umls_key)
     stop_gitignoring_filetypes(paths)
 
 
