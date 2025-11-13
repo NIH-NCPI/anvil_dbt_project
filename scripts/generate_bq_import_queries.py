@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# Probably no edits necessary
-
-from pathlib import Path
 import argparse
-# Probably no edits necessary
 from jinja2 import Template
-from general import *
+from dbt_pipeline_utils.scripts.helpers.general import read_file
+from anvil_dbt_project.scripts.general.common import bucket
+from anvil_dbt_project.scripts.general.data_tools import (
+    get_column_names,
+    study_config_dds_to_dict,
+    study_config_df_lists_to_dict,
+)
+from anvil_dbt_project.scripts.general.terra_common import get_all_paths
 
 
 def generate_bq_queries(study_id, src_table_list, query_datasets):

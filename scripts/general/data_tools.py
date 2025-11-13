@@ -1,74 +1,9 @@
-import duckdb
 import pandas as pd
 import numpy as np
 from jinja2 import Template
 import re
-import os
-from pathlib import Path
-from dbt_pipeline_utils.scripts.helpers.general import get_paths, read_file
-
-# Environment setup
-if os.environ.get("WORKSPACE_BUCKET"):
-    bucket = os.environ.get("WORKSPACE_BUCKET")
-else:
-    bucket = "bucket_placeholder"
-
-engine = duckdb.connect("/tmp/dbt.duckdb")
-
-
-def get_terra_paths(study_id):
-    """
-    For automatic validation of dir path creation, end the dir variables with "dir"
-    """
-    repo_home_dir = Path(__file__).parent.parent
-    validation_yml_path = (
-        repo_home_dir / "data" / study_id / f"{study_id}_validation.yaml"
-    )
-    output_dir = repo_home_dir.parent / "output_data"
-    output_study_dir = output_dir / study_id
-    output_validation_dir = output_study_dir / "validation"
-    seeds_dir = repo_home_dir / "seeds"
-    notebook_dir = repo_home_dir / "notebooks"
-    bucket_study_dir = f"{bucket}/{study_id}"
-
-    return {
-        "repo_home_dir": repo_home_dir,
-        "validation_yml_path": validation_yml_path,
-        "output_dir": output_dir,
-        "output_study_dir": output_study_dir,
-        "output_validation_dir": output_validation_dir,
-        "seeds_dir": seeds_dir,
-        "notebook_dir": notebook_dir,
-        "bucket_study_dir": bucket_study_dir,
-    }
-
-
-def get_all_paths(
-    study_id=None, dbt_repo=None, org_id=None, tgt_model_id=None, src_data_path=None
-):
-    """
-    Creates one dictionary of frequently used paths.
-
-    The Terra paths are specific to directories required for Terra development.
-    The pipeline_utils paths cover the paths within the project repository.
-    """
-
-    paths = {}
-    paths.update(get_terra_paths(study_id))
-    paths.update(
-        get_paths(study_id, org_id, tgt_model_id, src_data_path)
-    )  # pipeline_utils paths
-
-    return paths
-
-
-def execute(query):
-    """
-    Connect to duckdb, execute a query and format as a DataFrame with headers. 
-    """
-    result = engine.execute(query)
-    df = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
-    return df
+from dbt_pipeline_utils.scripts.helpers.general import read_file
+from anvil_dbt_project.scripts.general.common import engine, execute
 
 def study_config_dds_to_dict(study_config, paths):
     """
@@ -396,88 +331,50 @@ def format_nulls(s):
     return ['color: red' if v is None else '' for v in s]
 
 
-# pipeline helpers
-def create_file_dict(table, count):
-    file_list = []
-    for i in range(count):
-        if i == 0:
-            file = f'{table}_{"0" * 12}.csv'
-        else:
-            file = f'{table}_{"0" * (12 - len(str(i)))}{i}.csv'
-        file_list.append(file)
-
-    return {table: file_list}
-
-def copy_data_to_bucket(bucket_study_dir, file_list, input_dir):
-    for file in file_list:
-        # !gsutil cp {input_dir} {bucket_study_dir}/{file}
-        print(f'INFO: Copied {file} to the bucket') 
-
-# Read and concatenate all files
-def read_and_concat_files(file_list, input_dir, output_dir):
-    dfs = [pd.read_csv(f'{input_dir}/{file}') for file in file_list] 
-    combined_subject = pd.concat(dfs, ignore_index=True)
-    combined_subject.to_csv(output_dir, index=False)
-
-def remove_file(file_list, d_dir):
-    for file in file_list:
-        file_path = os.path.join(d_dir, file)
-        try:
-            os.remove(file_path)
-            print(f'INFO: Processed: {file}')
-        except FileNotFoundError:
-            print(f'WARNING: File not found: {file}')
-        except Exception as e:
-            print(f'ERROR: Could not remove {file} due to {e}')
-    return
-
-# Export functions
-def get_tables_from_schema(schema):
-    '''
-    Get tables from a duckdb dataset. 
-    '''
-    result = engine.execute(f"""
-    SELECT table_name FROM information_schema.tables WHERE table_schema = '{schema}'
-    """)
-    r = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
-    return r['table_name'].to_list()
-
-def tables_to_output_dir(tables, tgt_schema, paths):
-    for t in tables:
-        name = Path(t).stem.replace(f'tgt_','')
-        t = engine.execute( f"COPY (SELECT * FROM {tgt_schema}.{t}) TO '{paths['output_study_dir']}/{name}.csv' (HEADER, DELIMITER ',')").fetchall()
-        print(name)
-
-def harmonized_to_bucket(tables, paths):
-    for t in tables:
-        name = Path(t).stem.replace(f'tgt_','')
-        # !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
-        print(name)
-
-def convert_csv_to_utf8(input_file_path, output_filepath, delimiter, encoding):
-    df = pd.read_csv(input_file_path, encoding=encoding, delimiter=delimiter, quoting=3)
-    df.to_csv(output_filepath, index=False, encoding='utf-8')
-    print(f"Converted CSV saved to {output_filepath}")
-
-def study_config_datasets_to_dict(study_config, paths):
+def study_config_dds_to_dict(study_config, paths):
     """
-    Read in the src data dictionaries and put them into a dictionary. The key is the 
+    Read in the src data dictionaries and put them into a dictionary. The key is the
     table name (i.e. 'subject') and the value is the datadictionary as a pd DataFrame.
     """
     src_dds_dict = {}
     for table_name, table_info in study_config["data_dictionary"].items():
-        src_dds_dict[table_name] = table_info['identifier']
+        src_dds_dict[table_name] = table_info["identifier"]
         src_dds_dict[table_name] = read_file(
             paths["src_data_dir"] / table_info["identifier"]
         )
     return src_dds_dict
 
 
-def convert_to_utf8(input_filepath, output_filepath):
+def study_config_df_lists_to_dict(study_config):
     """
-    Convert files in data dir into utf-8. Add to the appropriate list, to save the changes in the bucket.
+    Create a dictionary of tables and the src data files associated with the table. The key is
+    the table_name (i.e. 'subject') and the value is a list of filenames.
     """
-    delimiter = '\t'
-    encoding = 'latin1'
-    convert_csv_to_utf8(input_filepath, output_filepath, delimiter, encoding)
-    print('Completed')
+    src_dfs_dict = {}
+    for table_name, table_info in study_config["data_files"].items():
+        src_dfs_dict[table_name] = table_info["identifier"]
+    return src_dfs_dict
+
+
+def get_column_names(file_list, paths):
+    """
+    Get unique column names from the files in the list.
+    """
+    all_columns = set()
+    table_columns = {}
+
+    for table in file_list:
+        table_path = paths["src_data_dir"] / table
+
+        query = f"""
+        SELECT column_name AS name
+        FROM (DESCRIBE SELECT * FROM read_csv_auto('{table_path}'))
+        """
+        result = engine.execute(query)
+
+        columns = [row[0] for row in result.fetchall()]
+        table_columns[str(table_path)] = columns
+        all_columns.update(columns)
+
+    sorted_columns = sorted(all_columns)
+    return table_columns, sorted_columns

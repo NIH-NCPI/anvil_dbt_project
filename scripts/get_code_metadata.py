@@ -9,7 +9,7 @@ import pandas as pd
 import re
 from datetime import datetime
 from dbt_pipeline_utils import logger
-from general import get_all_paths
+from anvil_dbt_project.scripts.general.terra_common import get_all_paths
 
 
 def clean_codes(codes, curies):

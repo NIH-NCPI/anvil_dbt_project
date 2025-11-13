@@ -2,9 +2,10 @@
 import duckdb
 from pathlib import Path
 import os
+import pandas as pd
 import subprocess
 import argparse
-from general import get_all_paths
+from anvil_dbt_project.scripts.general.terra_common import get_all_paths
 from dbt_pipeline_utils.scripts.helpers.general import read_file
 from dbt_pipeline_utils import logger
 
