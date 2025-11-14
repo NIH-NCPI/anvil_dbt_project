@@ -14,4 +14,4 @@ from {{ ref('cmg_uwash_stg_sample') }} as sm
 left join {{ ref('cmg_uwash_stg_sequencing') }} as seq
 using(sample_id)
 left join {{ ref('sm_sample_type') }} as st
-on seq.analyte_type = st.src_format
+on lower(seq.analyte_type)= lower(st.src_format)
