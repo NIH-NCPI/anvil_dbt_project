@@ -70,7 +70,7 @@ def create_file_dict(table, count):
 
 def copy_data_to_bucket(bucket_study_dir, file_list, input_dir):
     for file in file_list:
-        # !gsutil cp {input_dir} {bucket_study_dir}/{file}
+        !gsutil cp {input_dir} {bucket_study_dir}/{file}
         print(f'INFO: Copied {file} to the bucket') 
 
 # Read and concatenate all files
@@ -111,5 +111,5 @@ def tables_to_output_dir(tables, tgt_schema, paths):
 def harmonized_to_bucket(tables, paths):
     for t in tables:
         name = Path(t).stem.replace(f'tgt_','')
-        # !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
+        !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
         print(name)
