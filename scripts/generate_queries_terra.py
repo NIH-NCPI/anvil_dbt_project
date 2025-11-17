@@ -1,25 +1,37 @@
 #!/usr/bin/env python
 # coding: utf-8
-# %%
-# Probably no edits necessary
+"""
+Useful for pipelines that have multiple datasets. Queries will most likely need some edits,
+but will get most of the queries written.
 
-import sys
-from pathlib import Path
+1. (-o bq_queries) Generates the query(BigQuery) that will get the data from the files
+listed in the configuration files and store them as csvs in the Terra
+workspace bucket.
+2. (-o stg_queries) Generates queries that should be used in the staging model. 
+Note: This will eventually be integrated with the pipeline_utils generate_docs.
+
+Example usage. Use the help command to get info on all available arguments. 
+- python scripts/generate_bq_import_queries.py -h
+- python scripts/generate_queries.py -s cmg_yale -p anvil
+"""
+# +
 import argparse
-
-# Probably no edits necessary
-import duckdb
-import numpy as np
-import pandas as pd
 from jinja2 import Template
-import re
-import subprocess
-import os
 from pathlib import Path
-from general import *
+
+from dbt_pipeline_utils.scripts.helpers.general import read_file
+
+from scripts.general.common import bucket
+from scripts.general.data_tools import (
+    get_column_names,
+    study_config_dds_to_dict,
+    study_config_df_lists_to_dict,
+)
+from scripts.general.terra_common import get_all_paths
 
 
-# %%
+# -
+
 def generate_bq_queries(study_id, src_table_list, query_datasets):
 
     # Might want to edit but don't change the naming conventions
@@ -41,7 +53,6 @@ def generate_bq_queries(study_id, src_table_list, query_datasets):
             """)
 
 
-# %%
 def union_stg_query(table, file_list, paths):
     """
     """
@@ -51,7 +62,7 @@ def union_stg_query(table, file_list, paths):
     all_columns_set = set()
 
     for table in file_list:
-        table_path = paths['study_data_dir'] / table
+        table_path = paths['src_data_dir'] / table
         table_columns, all_columns = get_column_names([table], paths)
 
         table_columns_all[str(table_path)] = table_columns[str(table_path)]
@@ -66,7 +77,6 @@ def union_stg_query(table, file_list, paths):
     return final_sql
 
 
-# %%
 def generate_stg_query(table_columns, all_columns, table_paths):
     """
     """
@@ -100,18 +110,15 @@ def generate_stg_query(table_columns, all_columns, table_paths):
     return query
 
 
-# %%
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get metadata for a code using the available locutus OntologyAPI connection.")
 
     parser.add_argument("-s", "--study_id", required=True, help="Study identifier. FTD coded for dbt.")
     parser.add_argument("-p", "--project_id", required=True, help="Project identifier")
-    parser.add_argument("-o", "--options", required=False, default='bq_queries', help="")
-    parser.add_argument("-r", "--repo", required=False, default='anvil_dbt_project', help="Name of the repo to clone and create dirs for.")
-    parser.add_argument("-t", "--tgt_model", required=False, default='tgt_consensus_a', help="Name of the current tgt_consensus model")
-    parser.add_argument("-org", "--org_id", required=False, default='anvil', help="Name of the organization.")
+    parser.add_argument("-o", "--options", required=False, default='bq_queries', choices=['bq_queries', 'stg_queries'], help="")
+    parser.add_argument("-r", "--repo", required=False, default='anvil_dbt_project', help="Required to automatically set paths. Defaults to 'anvil_dbt_project'")
+    parser.add_argument("-t", "--tgt_model", required=False, default='tgt_consensus_a', help="Name of the current tgt_consensus model. Defaults to 'tgt_consensus_a'")
+    parser.add_argument("-org", "--org_id", required=False, default='anvil', help="Name of the organization. Defaults to 'anvil'")
 
     args = parser.parse_args()
 
@@ -123,8 +130,6 @@ if __name__ == "__main__":
     validation_config = read_file(paths["validation_yml_path"])
     study_config = read_file(paths["study_yml_path"])
 
-    paths = get_terra_paths(args.study_id, args.project_id, args.repo)
-
     query_datasets = []
     for snapshot, atts in validation_config["datasets"].items():
         query_datasets.append(f"{atts['schema']}.{snapshot}")
@@ -132,9 +137,9 @@ if __name__ == "__main__":
     src_table_list = list(study_config["data_dictionary"].keys())
 
     src_files_list = []
+    ori_src_files_list = []
     datasets = validation_config["datasets"].items()
     dataset_names = list(validation_config["datasets"].keys())
-
 
     for table in study_config["data_dictionary"].keys():
         for dataset, v in validation_config["datasets"].items():
@@ -157,18 +162,16 @@ if __name__ == "__main__":
     if validation_config["bucket_seeds"]:
         for file in validation_config["bucket_seeds"]:
             seeds_files.append(file)
-    
-    # Compile and format the source 
+
+    # Compile and format the source
     src_dds_dict = study_config_dds_to_dict(study_config, paths)
     src_df_names_dict = study_config_df_lists_to_dict(study_config)
-    
+
     if args.options == 'bq_queries':
         generate_bq_queries(args.study_id, src_table_list, query_datasets)
-            
 
     if args.options == 'stg_queries':
         for table, file_list in src_df_names_dict.items():
             print(f'\n\n\n\n\n START {table} QUERY')
             stg_query = union_stg_query(table, file_list, paths)
             print(stg_query)
-
