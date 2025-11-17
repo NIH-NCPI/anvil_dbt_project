@@ -79,7 +79,7 @@ def tables_to_output_dir(tables, tgt_schema, paths):
 def harmonized_to_bucket(tables, paths, study_id):
     for t in tables:
         name = Path(t).stem.replace(f"tgt_", "")
-        # !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
+        !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
         logger.info(name)
 
 
