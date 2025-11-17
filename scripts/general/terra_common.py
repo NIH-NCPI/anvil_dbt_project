@@ -90,20 +90,3 @@ def remove_file(file_list, d_dir):
         except Exception as e:
             print(f'ERROR: Could not remove {file} due to {e}')
     return
-
-# Export functions
-def get_tables_from_schema(schema):
-    '''
-    Get tables from a duckdb dataset. 
-    '''
-    result = engine.execute(f"""
-    SELECT table_name FROM information_schema.tables WHERE table_schema = '{schema}'
-    """)
-    r = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
-    return r['table_name'].to_list()
-
-def tables_to_output_dir(tables, tgt_schema, paths):
-    for t in tables:
-        name = Path(t).stem.replace(f'tgt_','')
-        t = engine.execute( f"COPY (SELECT * FROM {tgt_schema}.{t}) TO '{paths['output_study_dir']}/{name}.csv' (HEADER, DELIMITER ',')").fetchall()
-        print(name)
