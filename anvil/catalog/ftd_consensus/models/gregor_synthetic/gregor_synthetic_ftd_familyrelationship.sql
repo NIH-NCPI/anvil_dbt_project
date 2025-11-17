@@ -75,7 +75,8 @@
     select DISTINCT
         {{ generate_global_id(prefix='fm',descriptor=['participant_id','source.other_family_member'],study_id='gregor_synthetic') }}::text as "id",
         relationship_code, 
-        {{ generate_global_id(prefix='sb',descriptor=['source.participant_id'], study_id='gregor_synthetic') }}::text AS "family_member",
-        {{ generate_global_id(prefix='sb',descriptor=['source.other_family_member'], study_id='gregor_synthetic') }}::text as "other_family_member"
+        {{ generate_global_id(prefix='sb',descriptor=['sourceconsent_id.participant_id'], study_id='gregor_synthetic') }}::text AS "family_member",
+        {{ generate_global_id(prefix='sb',descriptor=['source.other_family_member'], study_id='gregor_synthetic') }}::text as "other_family_member",
+        has_access_policy
     from source
  

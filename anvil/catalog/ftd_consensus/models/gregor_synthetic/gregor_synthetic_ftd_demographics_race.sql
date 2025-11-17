@@ -2,7 +2,7 @@
 
     with source as (
         select 
-            {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id'], study_id='gregor_synthetic') }}::text as "Demographics_id",
+            {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id', 'participant.consent_code'], study_id='gregor_synthetic') }}::text as "Demographics_id",
          CASE 
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'American Indian or Alaska Native' THEN 'american_indian_or_alaskan_native'
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'Asian' THEN 'asian'
@@ -16,8 +16,6 @@
             WHEN STRING_SPLIT(participant.reported_race, '|') IS NULL THEN 'unknown'
         END::text as "race"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
-    on participant.participant_id = phenotype.participant_id 
     )
 
     select 
