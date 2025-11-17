@@ -25,7 +25,7 @@
             WHEN 'Self' THEN 'SNOMED:85900004'
         END::text as "family_role",       
         {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='gregor_synthetic') }}::text as "has_access_policy",
-        {{ generate_global_id(prefix='fm',descriptor=['participant.family_id', 'participant.participant_id', 'paritcipant.consent_code'], study_id='gregor_synthetic') }}::text as "id",
+        {{ generate_global_id(prefix='fm',descriptor=['participant.family_id', 'participant.participant_id', 'participant.consent_code'], study_id='gregor_synthetic') }}::text as "id",
        {{ generate_global_id(prefix='fm',descriptor=['participant.family_id'], study_id='gregor_synthetic') }}::text as "family_id"
         from {{ ref('gregor_synthetic_stg_participant') }} as participant
     )
