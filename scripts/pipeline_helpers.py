@@ -76,14 +76,14 @@ def tables_to_output_dir(tables, tgt_schema, paths):
         logger.info(name)
 
 
-def harmonized_to_bucket(tables, paths):
+def harmonized_to_bucket(tables, paths, study_id):
     for t in tables:
         name = Path(t).stem.replace(f"tgt_", "")
         # !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
         logger.info(name)
 
 
-def copy_to_csv_and_export_to_bucket(tgt_schema, paths):    
+def copy_to_csv_and_export_to_bucket(tgt_schema, paths, study_id):    
     '''
     Get the tables that you want to export to csv.
     Then export to csv in the output dir
@@ -93,7 +93,7 @@ def copy_to_csv_and_export_to_bucket(tgt_schema, paths):
     tables_to_output_dir(tgt_tables, tgt_schema, paths)
     logger.info("Tables sent to output.")
 
-    harmonized_to_bucket(tgt_tables)
+    harmonized_to_bucket(tgt_tables, paths, study_id)
     logger.info("csvs sent to bucket")
 
 
@@ -156,6 +156,9 @@ def main():
 
     if args.option == 'store_files':
         store_study_files(study_files, seeds_files, paths)
+        
+    if args.option == 'export_harmonized_data':
+        copy_to_csv_and_export_to_bucket(args.tgt_model, paths, args.study_id)
 
 
 if __name__ == "__main__":
