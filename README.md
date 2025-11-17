@@ -87,10 +87,10 @@ Available commands:
 5. Place your id_rsa key file in the 'home/jupyter' dir. Note: harmonization_initial_setup.py will move the file to the correct dir, then follow the Terra instructions for setting up credentials with GitHub automatically. The key is deleted upon environment deletion. See Terra docs.
 6. Run python harmonization_initial_setup.py -s {study_id} -p {project_id} -u {github username} -e {github email} from 'home/jupyter'
 7. In the Terminal:
-  - Run source ~/.bash_profile
-  - Run setup_ssh
-  - Run clone_repo - When asked, answer 'yes'
-  - Run setup_data
+  - Run: source ~/.bash_profile
+  - Run: setup_ssh
+  - Run: clone_repo - When asked, answer 'yes'
+  - Run: setup_data
 
 ## Pipeline setup
 1. Fill out config file(s). Various example files are found in `data/static/example_data`
@@ -99,3 +99,4 @@ Available commands:
 4. Place datafiles (sample_anvil_dataset_filename, etc) in the workspace bucket. These should be listed in the config files.
 5. Place any seed files in the workspace bucket.  These should be listed in the config files.
 6. Pull the avaiable data into or outof the workspace bucket with: python scripts/pipeline_helpers.py -s cmg_yale -o {Choices: store_files, get_files, get_data}
+```

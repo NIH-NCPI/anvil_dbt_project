@@ -1,16 +1,32 @@
 #!/usr/bin/env python
 """
+Will clean a column of data consisting of keywords or codes separated by bars. Use search_dragon directly
+if no cleaning is required, or if there are a small number of search items.
+
+eturns a file for the
+harmonizer to review. Then uses search_dragon to return the top match to the cleaned keywords.
+
+Files will be created at `data/tools/code_metadata`
+
+Example usage. Use the help command to get info on all available arguments. 
 ./scripts/get_code_metadata.py -df 'data/static/example_data/test_col_clean.csv' -c 'test_codes' -o 'HP,HPO'
+
+NOTE: search_dragon can be used directly if no cleaning is necessary.
 """
 
+# +
 import argparse
 import subprocess
 import pandas as pd
 import re
+from pathlib import Path
 from datetime import datetime
 from dbt_pipeline_utils import logger
-from anvil_dbt_project.scripts.general.terra_common import get_all_paths
 
+from scripts.general.terra_common import get_all_paths
+
+
+# -
 
 def clean_codes(codes, curies):
     """

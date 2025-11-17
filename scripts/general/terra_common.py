@@ -1,15 +1,20 @@
+# +
 import pandas as pd
 import os
 from pathlib import Path
 from dbt_pipeline_utils.scripts.helpers.general import get_paths
-from anvil_dbt_project.scripts.general.common import bucket, engine
 
+from scripts.general.common import bucket, engine
+
+
+# -
 
 def get_terra_paths(study_id):
     """
     For automatic validation of dir path creation, end the dir variables with "dir"
     """
-    repo_home_dir = Path(__file__).parent.parent
+    
+    repo_home_dir = Path(__file__).parent.parent.parent
     validation_yml_path = (
         repo_home_dir / "data" / study_id / f"{study_id}_validation.yaml"
     )

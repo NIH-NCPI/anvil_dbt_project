@@ -135,6 +135,7 @@ alias clone_repo="
 eval 'mkdir {paths['pipeline_dir']}'
 eval 'mkdir {paths['repo_home_dir']}'
 eval 'git clone {pipeline} {paths['repo_home_dir']}'
+export PYTHONPATH="{paths['repo_home_dir']}:$PYTHONPATH"
 "
 
 # Alias to dbt prep file system:

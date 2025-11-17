@@ -1,9 +1,15 @@
+# +
 import pandas as pd
 import numpy as np
 from jinja2 import Template
 import re
+from pathlib import Path
 from dbt_pipeline_utils.scripts.helpers.general import read_file
-from anvil_dbt_project.scripts.general.common import engine, execute
+
+from scripts.general.common import engine, execute
+
+
+# -
 
 def study_config_dds_to_dict(study_config, paths):
     """

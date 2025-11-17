@@ -1,5 +1,10 @@
 #!/usr/bin/env python
-from anvil_dbt_project.scripts.general.common import engine
+# ```
+# Tool to query tables in the duckdb database.
+# Create new cells for study specific analysis/validation. 
+# ```
+
+from scripts.general.common import engine
 
 tables = engine.execute(
     "SELECT table_name FROM information_schema.tables WHERE table_schema = 'main_gregor_synthetic_data'"

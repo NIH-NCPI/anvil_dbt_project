@@ -1,17 +1,22 @@
 #!/usr/bin/env python
+"""
+python scripts/pipeline_helpers.py -s cmg_yale -o {Choices: store_files, get_files, get_data}
+"""
+
+# +
 import duckdb
 from pathlib import Path
-import os
 import pandas as pd
 import subprocess
 import argparse
-from anvil_dbt_project.scripts.general.terra_common import get_all_paths
 from dbt_pipeline_utils.scripts.helpers.general import read_file
 from dbt_pipeline_utils import logger
 
-bucket = os.environ["WORKSPACE_BUCKET"]
-engine = duckdb.connect("/tmp/dbt.duckdb")
+from scripts.general.terra_common import get_all_paths
+from scripts.general.common import bucket, engine
 
+
+# -
 
 def store_study_files(study_files, seeds_files, paths):
     """Store defined files in the bucket. These will persist when the environment is shut down."""
@@ -104,7 +109,7 @@ def main():
 
     args = parser.parse_args()
 
-    paths = get_all_paths(args.study_id, args.repo, args.org_id, args.tgt_model, src_data_path=None)
+    paths = get_all_paths(args.study_id, args.org_id, args.tgt_model, src_data_path=None)
 
     validation_config = read_file(
         paths["src_data_dir"] / Path(f"{args.study_id}_validation.yaml")

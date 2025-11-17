@@ -1,17 +1,36 @@
 #!/usr/bin/env python
 # coding: utf-8
+"""
+Useful for pipelines that have multiple datasets. Queries will most likely need some edits,
+but will get most of the queries written.
 
+1. (-o bq_queries) Generates the query(BigQuery) that will get the data from the files
+listed in the configuration files and store them as csvs in the Terra
+workspace bucket.
+2. (-o stg_queries) Generates queries that should be used in the staging model. 
+Note: This will eventually be integrated with the pipeline_utils generate_docs.
+
+Example usage. Use the help command to get info on all available arguments. 
+- python scripts/generate_bq_import_queries.py -h
+- python scripts/generate_queries.py -s cmg_yale -p anvil
+"""
+# +
 import argparse
 from jinja2 import Template
+from pathlib import Path
+
 from dbt_pipeline_utils.scripts.helpers.general import read_file
-from anvil_dbt_project.scripts.general.common import bucket
-from anvil_dbt_project.scripts.general.data_tools import (
+
+from scripts.general.common import bucket
+from scripts.general.data_tools import (
     get_column_names,
     study_config_dds_to_dict,
     study_config_df_lists_to_dict,
 )
-from anvil_dbt_project.scripts.general.terra_common import get_all_paths
+from scripts.general.terra_common import get_all_paths
 
+
+# -
 
 def generate_bq_queries(study_id, src_table_list, query_datasets):
 
@@ -43,7 +62,7 @@ def union_stg_query(table, file_list, paths):
     all_columns_set = set()
 
     for table in file_list:
-        table_path = paths['study_data_dir'] / table
+        table_path = paths['src_data_dir'] / table
         table_columns, all_columns = get_column_names([table], paths)
 
         table_columns_all[str(table_path)] = table_columns[str(table_path)]
@@ -96,10 +115,10 @@ if __name__ == "__main__":
 
     parser.add_argument("-s", "--study_id", required=True, help="Study identifier. FTD coded for dbt.")
     parser.add_argument("-p", "--project_id", required=True, help="Project identifier")
-    parser.add_argument("-o", "--options", required=False, default='bq_queries', help="")
-    parser.add_argument("-r", "--repo", required=False, default='anvil_dbt_project', help="Name of the repo to clone and create dirs for.")
-    parser.add_argument("-t", "--tgt_model", required=False, default='tgt_consensus_a', help="Name of the current tgt_consensus model")
-    parser.add_argument("-org", "--org_id", required=False, default='anvil', help="Name of the organization.")
+    parser.add_argument("-o", "--options", required=False, default='bq_queries', choices=['bq_queries', 'stg_queries'], help="")
+    parser.add_argument("-r", "--repo", required=False, default='anvil_dbt_project', help="Required to automatically set paths. Defaults to 'anvil_dbt_project'")
+    parser.add_argument("-t", "--tgt_model", required=False, default='tgt_consensus_a', help="Name of the current tgt_consensus model. Defaults to 'tgt_consensus_a'")
+    parser.add_argument("-org", "--org_id", required=False, default='anvil', help="Name of the organization. Defaults to 'anvil'")
 
     args = parser.parse_args()
 
