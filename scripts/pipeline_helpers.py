@@ -79,8 +79,15 @@ def tables_to_output_dir(tables, tgt_schema, paths):
 def harmonized_to_bucket(tables, paths, study_id):
     for t in tables:
         name = Path(t).stem.replace(f"tgt_", "")
-        !gsutil cp {paths['output_study_dir']}/{name}.csv {paths['bucket']}/harmonized/{study_id}
-        logger.info(name)
+        
+        for file in file_list:
+            # TODO: checkout rsync https://google-cloud-how-to.smarthive.io/buckets/rsync
+            input_path = f"{paths['output_study_dir']}/{name}.csv"
+            output_dir = f"{paths['bucket']}/harmonized/{study_id}"
+            subprocess.run(
+                ["gsutil", "cp", input_path , output_dir], check=True
+            )
+            logger.info(f"INFO: Copied {file} to {output_dir}")
 
 
 def copy_to_csv_and_export_to_bucket(tgt_schema, paths, study_id):    
