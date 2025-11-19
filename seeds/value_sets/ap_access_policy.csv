@@ -19,3 +19,4 @@ cmg_uwash,,Disease-Specific (Epilepsy),DS-EP,No,,,EP,controlled
 cmg_uwash,,Disease-Specific (Brain Disorders),DS-BDIS,No,,,BDIS,controlled
 cmg_uwash,,IRB Approval Required,IRB,Yes,,,,controlled
 cmg_uwash,,Publication Required,PUB,No,,,,controlled
+cmg_uwash,,Related Diseases,RD,No,,,,controlled

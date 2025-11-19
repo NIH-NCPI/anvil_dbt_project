@@ -564,6 +564,7 @@ models:
         - mds
         - gso
         - gsr
+        - rd
 - name: cmg_uwash_ftd_file
   description: Model for cmg_uwash_ftd_file.
   columns:
