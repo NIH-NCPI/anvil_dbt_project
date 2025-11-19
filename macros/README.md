@@ -25,3 +25,14 @@
 
     The macro generates the following list
         ['subject_id','other_col_1', 'other_col_2',...]
+
+## register_external_sources.sql
+    Will create a database table, then import the data from a csv into the table.
+    Use this when not importing directly into the database via dbt models.
+
+## run_sql
+    Required by pipeline_utils import script. That script can be used, but for the 
+    most part it isn't used anymore. Currently importing csv data into duckdb via the
+    first model run. 
+    
+
