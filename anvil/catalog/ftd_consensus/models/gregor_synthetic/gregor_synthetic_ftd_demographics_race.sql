@@ -1,10 +1,10 @@
 {{ config(materialized='table', schema='gregor_synthetic_data') }}
 
     with source as (
-        select 
+        select distinct
             {{ generate_global_id(prefix='dm',descriptor=['participant.participant_id', 'participant.consent_code'], study_id='gregor_synthetic') }}::text as "Demographics_id",
          CASE 
-            WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'American Indian or Alaska Native' THEN 'american_indian_or_alaskan_native'
+            WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'American Indian or Alaskan Native' THEN 'american_indian_or_alaskan_native'
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'Asian' THEN 'asian'
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'Black or African American' THEN 'black_or_african_american'
             WHEN UNNEST(SPLIT(participant.reported_race, '|')) = 'Native Hawaiian or Other Pacific Islander' THEN 'native_hawaiian_or_pacific_islander'

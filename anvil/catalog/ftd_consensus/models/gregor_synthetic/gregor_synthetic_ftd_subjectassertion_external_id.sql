@@ -9,11 +9,10 @@
         using(participant_id) 
     )
 
-        select 
-        {{ generate_global_id(prefix='sa',descriptor=['participant_id','code'], study_id='gregor_synthetic') }}::text as "SubjectAssertion_id",
-        participant_id::text as "external_id"
-
+    select distinct
+    {{ generate_global_id(prefix='sa',descriptor=['participant_id','code'], study_id='gregor_synthetic') }}::text as "SubjectAssertion_id",
+    participant_id::text as "external_id"
     from source as s
-       left join {{ ref('gregor_synthetic_annotations') }} as ga
-       on lower(s.code) = lower(ga.searched_code)
+    left join {{ ref('gregor_synthetic_annotations') }} as ga
+    on lower(s.code) = lower(ga.searched_code)
     

@@ -50,7 +50,7 @@ with source as (
     )
 
 
-        select 
+        select distinct
         {{ generate_global_id(prefix='fm',descriptor=['family_id','participant_id','source.other_family_member'],study_id='gregor_synthetic') }}::text as "FamilyRelationship_id",
         participant_id::text as "external_id"
         from source

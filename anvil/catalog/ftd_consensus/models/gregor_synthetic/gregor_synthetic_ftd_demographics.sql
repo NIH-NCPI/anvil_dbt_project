@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='gregor_synthetic_data') }}
 
     with source as (
-        select 
+        select distinct
         NULL::integer as "date_of_birth",
         NULL::text as "date_of_birth_type",
          CASE participant.sex

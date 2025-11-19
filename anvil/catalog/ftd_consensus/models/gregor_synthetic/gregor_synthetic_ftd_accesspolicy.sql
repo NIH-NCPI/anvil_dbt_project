@@ -1,7 +1,7 @@
 {{ config(materialized='table', schema='gregor_synthetic_data') }}
 
     with source as (
-        select 
+        select distinct
         NULL::text as "disease_limitation",
         CASE participant.consent_code
             WHEN 'GRU' THEN 'General Research Use'

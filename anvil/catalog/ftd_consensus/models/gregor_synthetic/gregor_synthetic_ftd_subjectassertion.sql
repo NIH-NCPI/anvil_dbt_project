@@ -27,7 +27,7 @@
         using(participant_id) 
     )
 
-        select 
+        select distinct
         'phenotypic_feature'::text as "assertion_type",
         NULL::text as "age_at_assertion",
         age_at_event,
@@ -42,7 +42,6 @@
        {{ generate_global_id(prefix='ap',descriptor=['consent_code'], study_id='gregor_synthetic') }}::text as "has_access_policy",
        {{ generate_global_id(prefix='sb',descriptor=['participant_id', 'consent_code'], study_id='gregor_synthetic') }}::text as "Subject_id",
        {{ generate_global_id(prefix='sa',descriptor=['participant_id', 'code'], study_id='gregor_synthetic') }}::text as "id"
-       
        from source as s
        left join {{ ref('gregor_synthetic_annotations') }} as ga
        on lower(s.code) = lower(ga.searched_code)

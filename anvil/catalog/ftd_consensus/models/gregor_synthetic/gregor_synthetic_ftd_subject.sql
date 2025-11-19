@@ -1,6 +1,6 @@
 {{ config(materialized='table', schema='gregor_synthetic_data') }}
     with source as (
-        select 
+        select distinct
         'participant'::text as "subject_type",
         'human'::text as "organism_type",
        {{ generate_global_id(prefix='ap',descriptor=['participant.consent_code'], study_id='gregor_synthetic') }}::text as "has_access_policy",
