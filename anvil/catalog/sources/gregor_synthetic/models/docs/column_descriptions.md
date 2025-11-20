@@ -261,3 +261,47 @@ Indicates if the phenotype is present or absent
 {% docs gregor_synthetic_stg_phenotype_term_id %}
 Ontology identifier for the phenotype term
 {% enddocs %}
+
+{% docs G_description %}
+Model for G.
+{% enddocs %}
+
+
+{% docs G_phenotype_id %}
+Unique identifier for the phenotype record
+{% enddocs %}
+
+
+{% docs G_additional_details %}
+Free text field for extra phenotype information
+{% enddocs %}
+
+
+{% docs G_additional_modifiers %}
+Modifiers that qualify the phenotype term
+{% enddocs %}
+
+
+{% docs G_onset_age_range %}
+Age range when the phenotype was observed
+{% enddocs %}
+
+
+{% docs G_ontology %}
+Ontology used for the phenotype term
+{% enddocs %}
+
+
+{% docs G_participant_id %}
+Participant ID associated with the phenotype record
+{% enddocs %}
+
+
+{% docs G_presence %}
+Indicates if the phenotype is present or absent
+{% enddocs %}
+
+
+{% docs G_term_id %}
+Ontology identifier for the phenotype term
+{% enddocs %}
