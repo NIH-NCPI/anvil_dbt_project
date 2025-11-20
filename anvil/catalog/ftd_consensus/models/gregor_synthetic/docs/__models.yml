@@ -39,17 +39,6 @@ models:
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_family_external_id_external_id") }}'
     data_type: string
-- name: gregor_synthetic_ftd_study_external_study_id
-  description: Model for gregor_synthetic_ftd_study_external_study_id.
-  columns:
-  - name: study_id
-    description: '{{ doc("gregor_synthetic_ftd_study_external_study_id_study_id")
-      }}'
-    data_type: string
-  - name: external_study_id
-    description: '{{ doc("gregor_synthetic_ftd_study_external_study_id_external_study_id")
-      }}'
-    data_type: string
 - name: gregor_synthetic_ftd_study_principal_investigator
   description: Model for gregor_synthetic_ftd_study_principal_investigator.
   columns:
@@ -208,6 +197,27 @@ models:
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_external_id_external_id")
       }}'
+    data_type: string
+- name: gregor_synthetic_ftd_datasource
+  description: Model for gregor_synthetic_ftd_datasource.
+  columns:
+  - name: snapshot_id
+    description: '{{ doc("gregor_synthetic_ftd_datasource_snapshot_id") }}'
+    data_type: string
+  - name: google_data_project
+    description: '{{ doc("gregor_synthetic_ftd_datasource_google_data_project") }}'
+    data_type: string
+  - name: snapshot_dataset
+    description: '{{ doc("gregor_synthetic_ftd_datasource_snapshot_dataset") }}'
+    data_type: string
+  - name: table_id
+    description: '{{ doc("gregor_synthetic_ftd_datasource_table_id") }}'
+    data_type: string
+  - name: parameterized_query
+    description: '{{ doc("gregor_synthetic_ftd_datasource_parameterized_query") }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("gregor_synthetic_ftd_datasource_id") }}'
     data_type: string
 - name: gregor_synthetic_ftd_file_external_id
   description: Model for gregor_synthetic_ftd_file_external_id.
@@ -392,15 +402,6 @@ models:
   - name: subject_id
     description: '{{ doc("gregor_synthetic_ftd_file_subject_subject_id") }}'
     data_type: string
-- name: gregor_synthetic_ftd_thing_external_id
-  description: Model for gregor_synthetic_ftd_thing_external_id.
-  columns:
-  - name: thing_id
-    description: '{{ doc("gregor_synthetic_ftd_thing_external_id_thing_id") }}'
-    data_type: string
-  - name: external_id
-    description: '{{ doc("gregor_synthetic_ftd_thing_external_id_external_id") }}'
-    data_type: string
 - name: gregor_synthetic_ftd_familyrelationship_external_id
   description: Model for gregor_synthetic_ftd_familyrelationship_external_id.
   columns:
@@ -439,6 +440,17 @@ models:
         - mds
         - gso
         - gsr
+- name: gregor_synthetic_ftd_sourcedata_query_parameter
+  description: Model for gregor_synthetic_ftd_sourcedata_query_parameter.
+  columns:
+  - name: sourcedata_id
+    description: '{{ doc("gregor_synthetic_ftd_sourcedata_query_parameter_sourcedata_id")
+      }}'
+    data_type: string
+  - name: query_parameter
+    description: '{{ doc("gregor_synthetic_ftd_sourcedata_query_parameter_query_parameter")
+      }}'
+    data_type: string
 - name: gregor_synthetic_ftd_sample_processing
   description: Model for gregor_synthetic_ftd_sample_processing.
   columns:
@@ -632,6 +644,17 @@ models:
     data_type: string
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_filemetadata_id") }}'
+    data_type: string
+- name: gregor_synthetic_ftd_datasource_external_id
+  description: Model for gregor_synthetic_ftd_datasource_external_id.
+  columns:
+  - name: datasource_id
+    description: '{{ doc("gregor_synthetic_ftd_datasource_external_id_datasource_id")
+      }}'
+    data_type: string
+  - name: external_id
+    description: '{{ doc("gregor_synthetic_ftd_datasource_external_id_external_id")
+      }}'
     data_type: string
 - name: gregor_synthetic_ftd_filemetadata_external_id
   description: Model for gregor_synthetic_ftd_filemetadata_external_id.
