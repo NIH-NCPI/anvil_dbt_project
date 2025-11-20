@@ -3,304 +3,93 @@ sources:
 - name: gregor_synthetic
   schema: main
   tables:
-  - name: G
-    description: Source table for G.
+  - name: GREGoR_synthetic_participant_revised07Aug2024
+    description: Source table for GREGoR_synthetic_participant_revised07Aug2024.
+    columns:
+    - name: participant_id
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_participant_id")
+        }}'
+    - name: affected_status
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_affected_status")
+        }}'
+    - name: age_at_enrollment
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_age_at_enrollment")
+        }}'
+    - name: age_at_last_observation
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_age_at_last_observation")
+        }}'
+    - name: ancestry_detail
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_ancestry_detail")
+        }}'
+    - name: consent_code
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_consent_code")
+        }}'
+    - name: family_id
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_family_id")
+        }}'
+    - name: gregor_center
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_gregor_center")
+        }}'
+    - name: internal_project_id
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_internal_project_id")
+        }}'
+    - name: maternal_id
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_maternal_id")
+        }}'
+    - name: missing_variant_case
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_missing_variant_case")
+        }}'
+    - name: paternal_id
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_paternal_id")
+        }}'
+    - name: phenotype_description
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_phenotype_description")
+        }}'
+    - name: pmid_id
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_pmid_id")
+        }}'
+    - name: prior_testing
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_prior_testing")
+        }}'
+    - name: proband_relationship
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_proband_relationship")
+        }}'
+    - name: proband_relationship_detail
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_proband_relationship_detail")
+        }}'
+    - name: reported_ethnicity
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_reported_ethnicity")
+        }}'
+    - name: reported_race
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_reported_race")
+        }}'
+    - name: sex
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_sex") }}'
+    - name: sex_detail
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_sex_detail")
+        }}'
+    - name: solve_status
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_solve_status")
+        }}'
+    - name: twin_id
+      description: '{{ doc("GREGoR_synthetic_participant_revised07Aug2024_twin_id")
+        }}'
+  - name: GREGoR_synthetic_phenotype
+    description: Source table for GREGoR_synthetic_phenotype.
     columns:
     - name: phenotype_id
-      description: '{{ doc("G_phenotype_id") }}'
+      description: '{{ doc("GREGoR_synthetic_phenotype_phenotype_id") }}'
     - name: additional_details
-      description: '{{ doc("G_additional_details") }}'
+      description: '{{ doc("GREGoR_synthetic_phenotype_additional_details") }}'
     - name: additional_modifiers
-      description: '{{ doc("G_additional_modifiers") }}'
+      description: '{{ doc("GREGoR_synthetic_phenotype_additional_modifiers") }}'
     - name: onset_age_range
-      description: '{{ doc("G_onset_age_range") }}'
+      description: '{{ doc("GREGoR_synthetic_phenotype_onset_age_range") }}'
     - name: ontology
-      description: '{{ doc("G_ontology") }}'
+      description: '{{ doc("GREGoR_synthetic_phenotype_ontology") }}'
     - name: participant_id
-      description: '{{ doc("G_participant_id") }}'
+      description: '{{ doc("GREGoR_synthetic_phenotype_participant_id") }}'
     - name: presence
-      description: '{{ doc("G_presence") }}'
+      description: '{{ doc("GREGoR_synthetic_phenotype_presence") }}'
     - name: term_id
-      description: '{{ doc("G_term_id") }}'
-  - name: R
-    description: Source table for R.
-    columns: []
-  - name: E
-    description: Source table for E.
-    columns: []
-  - name: G
-    description: Source table for G.
-    columns:
-    - name: phenotype_id
-      description: '{{ doc("G_phenotype_id") }}'
-    - name: additional_details
-      description: '{{ doc("G_additional_details") }}'
-    - name: additional_modifiers
-      description: '{{ doc("G_additional_modifiers") }}'
-    - name: onset_age_range
-      description: '{{ doc("G_onset_age_range") }}'
-    - name: ontology
-      description: '{{ doc("G_ontology") }}'
-    - name: participant_id
-      description: '{{ doc("G_participant_id") }}'
-    - name: presence
-      description: '{{ doc("G_presence") }}'
-    - name: term_id
-      description: '{{ doc("G_term_id") }}'
-  - name: o
-    description: Source table for o.
-    columns: []
-  - name: R
-    description: Source table for R.
-    columns: []
-  - name: _
-    description: Source table for _.
-    columns: []
-  - name: s
-    description: Source table for s.
-    columns: []
-  - name: y
-    description: Source table for y.
-    columns: []
-  - name: n
-    description: Source table for n.
-    columns: []
-  - name: t
-    description: Source table for t.
-    columns: []
-  - name: h
-    description: Source table for h.
-    columns: []
-  - name: e
-    description: Source table for e.
-    columns: []
-  - name: t
-    description: Source table for t.
-    columns: []
-  - name: i
-    description: Source table for i.
-    columns: []
-  - name: c
-    description: Source table for c.
-    columns: []
-  - name: _
-    description: Source table for _.
-    columns: []
-  - name: p
-    description: Source table for p.
-    columns: []
-  - name: a
-    description: Source table for a.
-    columns: []
-  - name: r
-    description: Source table for r.
-    columns: []
-  - name: t
-    description: Source table for t.
-    columns: []
-  - name: i
-    description: Source table for i.
-    columns: []
-  - name: c
-    description: Source table for c.
-    columns: []
-  - name: i
-    description: Source table for i.
-    columns: []
-  - name: p
-    description: Source table for p.
-    columns: []
-  - name: a
-    description: Source table for a.
-    columns: []
-  - name: n
-    description: Source table for n.
-    columns: []
-  - name: t
-    description: Source table for t.
-    columns: []
-  - name: _
-    description: Source table for _.
-    columns: []
-  - name: r
-    description: Source table for r.
-    columns: []
-  - name: e
-    description: Source table for e.
-    columns: []
-  - name: v
-    description: Source table for v.
-    columns: []
-  - name: i
-    description: Source table for i.
-    columns: []
-  - name: s
-    description: Source table for s.
-    columns: []
-  - name: e
-    description: Source table for e.
-    columns: []
-  - name: d
-    description: Source table for d.
-    columns: []
-  - name: '0'
-    description: Source table for 0.
-    columns: []
-  - name: '7'
-    description: Source table for 7.
-    columns: []
-  - name: A
-    description: Source table for A.
-    columns: []
-  - name: u
-    description: Source table for u.
-    columns: []
-  - name: g
-    description: Source table for g.
-    columns: []
-  - name: '2'
-    description: Source table for 2.
-    columns: []
-  - name: '0'
-    description: Source table for 0.
-    columns: []
-  - name: '2'
-    description: Source table for 2.
-    columns: []
-  - name: '4'
-    description: Source table for 4.
-    columns: []
-  - name: ''
-    description: Source table for .
-    columns: []
-  - name: c
-    description: Source table for c.
-    columns: []
-  - name: s
-    description: Source table for s.
-    columns: []
-  - name: v
-    description: Source table for v.
-    columns: []
-  - name: G
-    description: Source table for G.
-    columns:
-    - name: phenotype_id
-      description: '{{ doc("G_phenotype_id") }}'
-    - name: additional_details
-      description: '{{ doc("G_additional_details") }}'
-    - name: additional_modifiers
-      description: '{{ doc("G_additional_modifiers") }}'
-    - name: onset_age_range
-      description: '{{ doc("G_onset_age_range") }}'
-    - name: ontology
-      description: '{{ doc("G_ontology") }}'
-    - name: participant_id
-      description: '{{ doc("G_participant_id") }}'
-    - name: presence
-      description: '{{ doc("G_presence") }}'
-    - name: term_id
-      description: '{{ doc("G_term_id") }}'
-  - name: R
-    description: Source table for R.
-    columns: []
-  - name: E
-    description: Source table for E.
-    columns: []
-  - name: G
-    description: Source table for G.
-    columns:
-    - name: phenotype_id
-      description: '{{ doc("G_phenotype_id") }}'
-    - name: additional_details
-      description: '{{ doc("G_additional_details") }}'
-    - name: additional_modifiers
-      description: '{{ doc("G_additional_modifiers") }}'
-    - name: onset_age_range
-      description: '{{ doc("G_onset_age_range") }}'
-    - name: ontology
-      description: '{{ doc("G_ontology") }}'
-    - name: participant_id
-      description: '{{ doc("G_participant_id") }}'
-    - name: presence
-      description: '{{ doc("G_presence") }}'
-    - name: term_id
-      description: '{{ doc("G_term_id") }}'
-  - name: o
-    description: Source table for o.
-    columns: []
-  - name: R
-    description: Source table for R.
-    columns: []
-  - name: _
-    description: Source table for _.
-    columns: []
-  - name: s
-    description: Source table for s.
-    columns: []
-  - name: y
-    description: Source table for y.
-    columns: []
-  - name: n
-    description: Source table for n.
-    columns: []
-  - name: t
-    description: Source table for t.
-    columns: []
-  - name: h
-    description: Source table for h.
-    columns: []
-  - name: e
-    description: Source table for e.
-    columns: []
-  - name: t
-    description: Source table for t.
-    columns: []
-  - name: i
-    description: Source table for i.
-    columns: []
-  - name: c
-    description: Source table for c.
-    columns: []
-  - name: _
-    description: Source table for _.
-    columns: []
-  - name: p
-    description: Source table for p.
-    columns: []
-  - name: h
-    description: Source table for h.
-    columns: []
-  - name: e
-    description: Source table for e.
-    columns: []
-  - name: n
-    description: Source table for n.
-    columns: []
-  - name: o
-    description: Source table for o.
-    columns: []
-  - name: t
-    description: Source table for t.
-    columns: []
-  - name: y
-    description: Source table for y.
-    columns: []
-  - name: p
-    description: Source table for p.
-    columns: []
-  - name: e
-    description: Source table for e.
-    columns: []
-  - name: ''
-    description: Source table for .
-    columns: []
-  - name: c
-    description: Source table for c.
-    columns: []
-  - name: s
-    description: Source table for s.
-    columns: []
-  - name: v
-    description: Source table for v.
-    columns: []
+      description: '{{ doc("GREGoR_synthetic_phenotype_term_id") }}'
