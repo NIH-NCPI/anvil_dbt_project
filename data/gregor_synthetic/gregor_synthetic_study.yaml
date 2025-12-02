@@ -20,12 +20,14 @@ data_dictionary:
 
 data_files:
   participant: 
-    identifier: GREGoR_synthetic_participant_revised07Aug2024.csv 
+    identifier: 
+      - GREGoR_synthetic_participant_revised07Aug2024.csv 
     import_type: duckdb
     src_file_id: None
     join_cols: {phenotype: participant_id}
   phenotype:
-    identifier: GREGoR_synthetic_phenotype.csv
+    identifier: 
+      - GREGoR_synthetic_phenotype.csv
     import_type: duckdb
     src_file_id: None
     join_cols: {participant: participant_id}

@@ -12,9 +12,6 @@ data_dictionary:
   family_external_id:
     identifier: Family_external_id-dd.csv
     pipeline_identifier: ftd_family_external_id_dd.csv
-  study_external_study_id:
-    identifier: Study_external_study_id-dd.csv
-    pipeline_identifier: ftd_study_external_study_id_dd.csv
   study_principal_investigator:
     identifier: Study_principal_investigator-dd.csv
     pipeline_identifier: ftd_study_principal_investigator_dd.csv
@@ -45,6 +42,9 @@ data_dictionary:
   accesscontrolledrecord_external_id:
     identifier: AccessControlledRecord_external_id-dd.csv
     pipeline_identifier: ftd_accesscontrolledrecord_external_id_dd.csv
+  datasource:
+    identifier: DataSource-dd.csv
+    pipeline_identifier: ftd_datasource_dd.csv
   file_external_id:
     identifier: File_external_id-dd.csv
     pipeline_identifier: ftd_file_external_id_dd.csv
@@ -78,15 +78,15 @@ data_dictionary:
   file_subject:
     identifier: File_subject-dd.csv
     pipeline_identifier: ftd_file_subject_dd.csv
-  thing_external_id:
-    identifier: Thing_external_id-dd.csv
-    pipeline_identifier: ftd_thing_external_id_dd.csv
   familyrelationship_external_id:
     identifier: FamilyRelationship_external_id-dd.csv
     pipeline_identifier: ftd_familyrelationship_external_id_dd.csv
   accesspolicy_access_policy_code:
     identifier: AccessPolicy_access_policy_code-dd.csv
     pipeline_identifier: ftd_accesspolicy_access_policy_code_dd.csv
+  sourcedata_query_parameter:
+    identifier: SourceData_query_parameter-dd.csv
+    pipeline_identifier: ftd_sourcedata_query_parameter_dd.csv
   sample_processing:
     identifier: Sample_processing-dd.csv
     pipeline_identifier: ftd_sample_processing_dd.csv
@@ -105,6 +105,9 @@ data_dictionary:
   filemetadata:
     identifier: FileMetadata-dd.csv
     pipeline_identifier: ftd_filemetadata_dd.csv
+  datasource_external_id:
+    identifier: DataSource_external_id-dd.csv
+    pipeline_identifier: ftd_datasource_external_id_dd.csv
   filemetadata_external_id:
     identifier: FileMetadata_external_id-dd.csv
     pipeline_identifier: ftd_filemetadata_external_id_dd.csv

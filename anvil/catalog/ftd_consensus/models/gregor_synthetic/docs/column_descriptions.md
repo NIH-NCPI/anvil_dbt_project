@@ -58,21 +58,6 @@ Other identifiers for this entity, eg, from the submitting study or in systems l
 {% enddocs %}
 
 
-{% docs gregor_synthetic_ftd_study_external_study_id_description %}
-Model for gregor_synthetic_ftd_study_external_study_id.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_study_external_study_id_study_id %}
-Autocreated FK slot
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_study_external_study_id_external_study_id %}
-External Study ID
-{% enddocs %}
-
-
 {% docs gregor_synthetic_ftd_study_principal_investigator_description %}
 Model for gregor_synthetic_ftd_study_principal_investigator.
 {% enddocs %}
@@ -228,38 +213,8 @@ Model for gregor_synthetic_ftd_sourcedata.
 {% enddocs %}
 
 
-{% docs gregor_synthetic_ftd_sourcedata_code %}
-The structured term defining the meaning of the assertion.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_display %}
-The friendly display string of the coded term
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_code %}
-The structured term defining the value of the assertion.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_display %}
-The friendly display string of the coded term for the value of the assertion.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_number %}
-The numeric value of the assertion.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_units %}
-The structured term defining the units of the value.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_units_display %}
-The friendly display string of units of the value.
+{% docs gregor_synthetic_ftd_sourcedata_data_source %}
+Defines the location of data and how to query it.
 {% enddocs %}
 
 
@@ -300,6 +255,41 @@ Autocreated FK slot
 
 {% docs gregor_synthetic_ftd_accesscontrolledrecord_external_id_external_id %}
 Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_description %}
+Model for gregor_synthetic_ftd_datasource.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_snapshot_id %}
+The Terra Data Repository Snapshot ID.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_google_data_project %}
+The Google Data Project needed to query this snapshot in BigQuery.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_snapshot_dataset %}
+The Dataset within BigQuery where the table can be queried.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_table_id %}
+The table in the dataset that contains the row of interest.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_parameterized_query %}
+A parameterized query that contains the primary key fields and can be used to select specific rows. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], including using named parameters.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_id %}
+ID associated with a class
 {% enddocs %}
 
 
@@ -404,8 +394,7 @@ Is there known or suspected consanguinity in this study family?
 
 
 {% docs gregor_synthetic_ftd_family_family_study_focus %}
-What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
-
+What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie.
 {% enddocs %}
 
 
@@ -544,21 +533,6 @@ The Subject(s) which this file describes.
 {% enddocs %}
 
 
-{% docs gregor_synthetic_ftd_thing_external_id_description %}
-Model for gregor_synthetic_ftd_thing_external_id.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_thing_external_id_thing_id %}
-Autocreated FK slot
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_thing_external_id_external_id %}
-Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
-{% enddocs %}
-
-
 {% docs gregor_synthetic_ftd_familyrelationship_external_id_description %}
 Model for gregor_synthetic_ftd_familyrelationship_external_id.
 {% enddocs %}
@@ -586,6 +560,21 @@ Autocreated FK slot
 
 {% docs gregor_synthetic_ftd_accesspolicy_access_policy_code_access_policy_code %}
 Access Policy Code
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_sourcedata_query_parameter_description %}
+Model for gregor_synthetic_ftd_sourcedata_query_parameter.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_sourcedata_query_parameter_sourcedata_id %}
+Autocreated FK slot
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_sourcedata_query_parameter_query_parameter %}
+One or more query parameters used to select the specific row. It will leverage the parameterized_query defined by a data_source. This should be formatted according to (https://cloud.google.com/bigquery/docs/parameterized-queries)[BigQuery instructions], specifically the bq CLI version with named parameters, ie, "<parameter name>:<data type>:<value>".
 {% enddocs %}
 
 
@@ -826,6 +815,21 @@ The friendly display string of the coded term for the value of the assertion.
 
 {% docs gregor_synthetic_ftd_filemetadata_id %}
 ID associated with a class
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_external_id_description %}
+Model for gregor_synthetic_ftd_datasource_external_id.
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_external_id_datasource_id %}
+Autocreated FK slot
+{% enddocs %}
+
+
+{% docs gregor_synthetic_ftd_datasource_external_id_external_id %}
+Other identifiers for this entity, eg, from the submitting study or in systems link dbGaP
 {% enddocs %}
 
 
