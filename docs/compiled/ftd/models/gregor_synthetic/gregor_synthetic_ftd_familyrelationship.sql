@@ -1,7 +1,8 @@
 
 
     with source as (
-        select 
+        select
+        family_id,
         participant_id AS other_family_member,
         twin_id AS participant_id,
         'KIN:009' AS relationship_code,
@@ -11,6 +12,7 @@
         UNION 
 
         select 
+        family_id,
         participant_id AS other_family_member, 
         paternal_id AS participant_id,
         'KIN:028' AS relationship_code,
@@ -20,6 +22,7 @@
         UNION 
 
         select 
+        family_id,
         participant_id AS other_family_member, 
         maternal_id AS participant_id,
         'KIN:027' AS relationship_code,
@@ -29,6 +32,7 @@
         UNION 
         -- Normal Direction of family relationship
         SELECT
+        participant.family_id,
         proband.participant_id as other_family_member, -- is proband's participant ID. -- Josh changed this as other_family_member, -- is proband's participant ID
         participant.participant_id AS participant_id, -- is not proband's participant ID
        CASE 
@@ -61,6 +65,7 @@
         UNION 
         -- Flipped Direction of family relationship
         SELECT 
+        family_id,
         'sb' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.participant_id, '') as text))::text as "other_family_member", -- not proband (niece or nephew's ID)
         (   select DISTINCT CAST(participant_id as STRING) FROM "dbt"."main_main"."gregor_synthetic_stg_participant" as stg 
             WHERE CAST(stg.family_id as STRING) = CAST(participant.family_id as STRING) 
@@ -73,8 +78,9 @@
     )
 
     select DISTINCT
-        'fm' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant_id, '') as text) || '|' || 'gregor_synthetic' || '|' || cast(coalesce(source.other_family_member, '') as text))::text as "id",
+        'fr' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(family_id, '') as text) || '|' || 'gregor_synthetic' || '|' || cast(coalesce(participant_id, '') as text) || '|' || 'gregor_synthetic' || '|' || cast(coalesce(source.other_family_member, '') as text))::text as "id",
         relationship_code, 
         'sb' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(source.participant_id, '') as text))::text AS "family_member",
-        'sb' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(source.other_family_member, '') as text))::text as "other_family_member"
+        'sb' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(source.other_family_member, '') as text))::text as "other_family_member",
+        has_access_policy
     from source

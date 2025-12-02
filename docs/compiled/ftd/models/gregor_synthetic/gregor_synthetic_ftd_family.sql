@@ -2,17 +2,12 @@
 
     with source as (
         select 
-        GEN_UNKNOWN.family_type::text as "family_type",
-       GEN_UNKNOWN.family_description::text as "family_description",
-       GEN_UNKNOWN.consanguinity::text as "consanguinity",
-       GEN_UNKNOWN.family_study_focus::text as "family_study_focus",
-       '' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(, '') as text))::text as "has_access_policy",
-        -- participant.family_id::text as "id"
-       -- Check if using the auto-generated id is correct. 
-       '' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(, '') as text))::text as "id"
-        from "dbt"."main_main"."gregor_synthetic_stg_participant" as participant
-        join "dbt"."main_main"."gregor_synthetic_stg_phenotype" as phenotype
-        on participant.participant_id = phenotype.participant_id 
+        NULL::text as "family_type",
+        NULL::text as "family_description",
+        NULL::text as "consanguinity",
+        NULL::text as "family_study_focus",
+        NULL::text as "has_access_policy",
+        NULL::text as "id"
     )
 
     select 

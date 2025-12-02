@@ -2,11 +2,8 @@
 
     with source as (
         select 
-        '' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(, '') as text))::text as "study_id",
-       GEN_UNKNOWN.external_study_id::text as "external_study_id"
-        from "dbt"."main_main"."gregor_synthetic_stg_participant" as participant
-        join "dbt"."main_main"."gregor_synthetic_stg_phenotype" as phenotype
-on participant.participant_id = phenotype.participant_id 
+       NULL::text as "study_id",
+       NULL::text as "external_study_id"
     )
 
     select 

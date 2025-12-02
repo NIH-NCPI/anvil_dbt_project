@@ -1,8 +1,8 @@
 
 
     with source as (
-        select 
-    --     GEN_UNKNOWN.disease_limitation::text as "disease_limitation",
+        select distinct
+        NULL::text as "disease_limitation",
         CASE participant.consent_code
             WHEN 'GRU' THEN 'General Research Use'
             WHEN 'HMB' THEN 'Health/Medical/Biomedical'
@@ -14,11 +14,10 @@
             WHEN 'MDS' THEN 'Methods'
             WHEN 'GSO' THEN 'Genetic Studies only'
             WHEN 'GSR' THEN 'Genomic Summary Results'
-        END::text as "description",        --    GEN_UNKNOWN.website::text as "website",
+        END::text as "description",       
+        NULL::text as "website",
       'ap' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.consent_code, '') as text))::text as "id"
         from "dbt"."main_main"."gregor_synthetic_stg_participant" as participant
-        join "dbt"."main_main"."gregor_synthetic_stg_phenotype" as phenotype
-on participant.participant_id = phenotype.participant_id 
     )
 
     select 
