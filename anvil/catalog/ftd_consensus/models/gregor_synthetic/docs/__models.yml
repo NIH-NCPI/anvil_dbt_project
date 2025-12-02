@@ -6,19 +6,25 @@ models:
   - name: sample_id
     description: '{{ doc("gregor_synthetic_ftd_sample_storage_method_sample_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: storage_method
     description: '{{ doc("gregor_synthetic_ftd_sample_storage_method_storage_method")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_subject_external_id
   description: Model for gregor_synthetic_ftd_subject_external_id.
   columns:
   - name: subject_id
     description: '{{ doc("gregor_synthetic_ftd_subject_external_id_subject_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_subject_external_id_external_id") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_subjectassertion_external_id
   description: Model for gregor_synthetic_ftd_subjectassertion_external_id.
   columns:
@@ -26,19 +32,25 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_subjectassertion_external_id_subjectassertion_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_subjectassertion_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_family_external_id
   description: Model for gregor_synthetic_ftd_family_external_id.
   columns:
   - name: family_id
     description: '{{ doc("gregor_synthetic_ftd_family_external_id_family_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_family_external_id_external_id") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_study_principal_investigator
   description: Model for gregor_synthetic_ftd_study_principal_investigator.
   columns:
@@ -46,10 +58,13 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_study_principal_investigator_study_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: principal_investigator
     description: '{{ doc("gregor_synthetic_ftd_study_principal_investigator_principal_investigator")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_accesspolicy_external_id
   description: Model for gregor_synthetic_ftd_accesspolicy_external_id.
   columns:
@@ -57,10 +72,13 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_accesspolicy_external_id_accesspolicy_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_accesspolicy_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_family_family_relationships
   description: Model for gregor_synthetic_ftd_family_family_relationships.
   columns:
@@ -68,37 +86,50 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_family_family_relationships_family_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: family_relationships_id
     description: '{{ doc("gregor_synthetic_ftd_family_family_relationships_family_relationships_id")
       }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_file
   description: Model for gregor_synthetic_ftd_file.
   columns:
   - name: filename
     description: '{{ doc("gregor_synthetic_ftd_file_filename") }}'
     data_type: string
+    tests: []
   - name: format
     description: '{{ doc("gregor_synthetic_ftd_file_format") }}'
     data_type: enumeration
+    tests: []
   - name: data_type
     description: '{{ doc("gregor_synthetic_ftd_file_data_type") }}'
     data_type: enumeration
+    tests: []
   - name: size
     description: '{{ doc("gregor_synthetic_ftd_file_size") }}'
-    data_type: integer
+    data_type: bigint
+    tests: []
   - name: drs_uri
     description: '{{ doc("gregor_synthetic_ftd_file_drs_uri") }}'
     data_type: string
+    tests: []
   - name: file_metadata
     description: '{{ doc("gregor_synthetic_ftd_file_file_metadata") }}'
     data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("gregor_synthetic_ftd_file_has_access_policy") }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_file_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_familyrelationship
   description: Model for gregor_synthetic_ftd_familyrelationship.
   columns:
@@ -136,57 +167,54 @@ models:
   - name: file_id
     description: '{{ doc("gregor_synthetic_ftd_file_sample_file_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: sample_id
     description: '{{ doc("gregor_synthetic_ftd_file_sample_sample_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_study_external_id
   description: Model for gregor_synthetic_ftd_study_external_id.
   columns:
   - name: study_id
     description: '{{ doc("gregor_synthetic_ftd_study_external_id_study_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_study_external_id_external_id") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_sourcedata
   description: Model for gregor_synthetic_ftd_sourcedata.
   columns:
-  - name: code
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_code") }}'
+  - name: data_source
+    description: '{{ doc("gregor_synthetic_ftd_sourcedata_data_source") }}'
     data_type: string
-  - name: display
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_display") }}'
-    data_type: string
-  - name: value_code
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_code") }}'
-    data_type: string
-  - name: value_display
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_display") }}'
-    data_type: string
-  - name: value_number
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_number") }}'
-    data_type: number
-  - name: value_units
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_units") }}'
-    data_type: string
-  - name: value_units_display
-    description: '{{ doc("gregor_synthetic_ftd_sourcedata_value_units_display") }}'
-    data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("gregor_synthetic_ftd_sourcedata_has_access_policy") }}'
     data_type: string
+    tests:
+    - not_null
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_sourcedata_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_aliquot_external_id
   description: Model for gregor_synthetic_ftd_aliquot_external_id.
   columns:
   - name: aliquot_id
     description: '{{ doc("gregor_synthetic_ftd_aliquot_external_id_aliquot_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_aliquot_external_id_external_id") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_accesscontrolledrecord_external_id
   description: Model for gregor_synthetic_ftd_accesscontrolledrecord_external_id.
   columns:
@@ -194,10 +222,13 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_external_id_accesscontrolledrecord_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_datasource
   description: Model for gregor_synthetic_ftd_datasource.
   columns:
@@ -225,21 +256,29 @@ models:
   - name: file_id
     description: '{{ doc("gregor_synthetic_ftd_file_external_id_file_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_file_external_id_external_id") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_study
   description: Model for gregor_synthetic_ftd_study.
   columns:
   - name: parent_study_id
     description: '{{ doc("gregor_synthetic_ftd_study_parent_study_id") }}'
     data_type: string
+    tests: []
   - name: study_title
     description: '{{ doc("gregor_synthetic_ftd_study_study_title") }}'
     data_type: string
+    tests:
+    - not_null
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_study_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_demographics_external_id
   description: Model for gregor_synthetic_ftd_demographics_external_id.
   columns:
@@ -247,10 +286,13 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_demographics_external_id_demographics_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_demographics_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_subject
   description: Model for gregor_synthetic_ftd_subject.
   columns:
@@ -290,21 +332,46 @@ models:
   - name: family_type
     description: '{{ doc("gregor_synthetic_ftd_family_family_type") }}'
     data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - control_only
+        - duo
+        - proband_only
+        - trio
+        - trio_plus
+        - other
+        config:
+          where: family_type is not null
   - name: family_description
     description: '{{ doc("gregor_synthetic_ftd_family_family_description") }}'
     data_type: string
+    tests: []
   - name: consanguinity
     description: '{{ doc("gregor_synthetic_ftd_family_consanguinity") }}'
     data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - not_suspected
+        - suspected
+        - known_present
+        - unknown
+        config:
+          where: consanguinity is not null
   - name: family_study_focus
     description: '{{ doc("gregor_synthetic_ftd_family_family_study_focus") }}'
     data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("gregor_synthetic_ftd_family_has_access_policy") }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_family_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_biospecimencollection_external_id
   description: Model for gregor_synthetic_ftd_biospecimencollection_external_id.
   columns:
@@ -312,10 +379,13 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_external_id_biospecimencollection_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_subjectassertion_source_data
   description: Model for gregor_synthetic_ftd_subjectassertion_source_data.
   columns:
@@ -323,10 +393,14 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_subjectassertion_source_data_subjectassertion_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: source_data_id
     description: '{{ doc("gregor_synthetic_ftd_subjectassertion_source_data_source_data_id")
       }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_demographics_source_data
   description: Model for gregor_synthetic_ftd_demographics_source_data.
   columns:
@@ -334,10 +408,14 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_demographics_source_data_demographics_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: source_data_id
     description: '{{ doc("gregor_synthetic_ftd_demographics_source_data_source_data_id")
       }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_demographics_race
   description: Model for gregor_synthetic_ftd_demographics_race.
   columns:
@@ -368,40 +446,61 @@ models:
   - name: parent_sample
     description: '{{ doc("gregor_synthetic_ftd_sample_parent_sample") }}'
     data_type: string
+    tests: []
   - name: sample_type
     description: '{{ doc("gregor_synthetic_ftd_sample_sample_type") }}'
     data_type: string
+    tests:
+    - not_null
   - name: availablity_status
     description: '{{ doc("gregor_synthetic_ftd_sample_availablity_status") }}'
     data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - available
+        - unavailable
+        config:
+          where: availablity_status is not null
   - name: quantity_number
     description: '{{ doc("gregor_synthetic_ftd_sample_quantity_number") }}'
     data_type: number
+    tests: []
   - name: quantity_units
     description: '{{ doc("gregor_synthetic_ftd_sample_quantity_units") }}'
     data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("gregor_synthetic_ftd_sample_has_access_policy") }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_sample_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: subject_id
     description: '{{ doc("gregor_synthetic_ftd_sample_subject_id") }}'
     data_type: string
+    tests: []
   - name: biospecimen_collection_id
     description: '{{ doc("gregor_synthetic_ftd_sample_biospecimen_collection_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_file_subject
   description: Model for gregor_synthetic_ftd_file_subject.
   columns:
   - name: file_id
     description: '{{ doc("gregor_synthetic_ftd_file_subject_file_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: subject_id
     description: '{{ doc("gregor_synthetic_ftd_file_subject_subject_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_familyrelationship_external_id
   description: Model for gregor_synthetic_ftd_familyrelationship_external_id.
   columns:
@@ -409,10 +508,13 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_familyrelationship_external_id_familyrelationship_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_familyrelationship_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_accesspolicy_access_policy_code
   description: Model for gregor_synthetic_ftd_accesspolicy_access_policy_code.
   columns:
@@ -457,9 +559,12 @@ models:
   - name: sample_id
     description: '{{ doc("gregor_synthetic_ftd_sample_processing_sample_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: processing
     description: '{{ doc("gregor_synthetic_ftd_sample_processing_processing") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_demographics
   description: Model for gregor_synthetic_ftd_demographics.
   columns:
@@ -470,7 +575,16 @@ models:
   - name: date_of_birth_type
     description: '{{ doc("gregor_synthetic_ftd_demographics_date_of_birth_type") }}'
     data_type: enumeration
-    tests: []
+    tests:
+    - accepted_values:
+        values:
+        - exact
+        - year_only
+        - shifted
+        - decade_only
+        - other
+        config:
+          where: date_of_birth_type is not null
   - name: sex
     description: '{{ doc("gregor_synthetic_ftd_demographics_sex") }}'
     data_type: enumeration
@@ -532,27 +646,42 @@ models:
   - name: availablity_status
     description: '{{ doc("gregor_synthetic_ftd_aliquot_availablity_status") }}'
     data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - available
+        - unavailable
+        config:
+          where: availablity_status is not null
   - name: quantity_number
     description: '{{ doc("gregor_synthetic_ftd_aliquot_quantity_number") }}'
     data_type: number
+    tests: []
   - name: quantity_units
     description: '{{ doc("gregor_synthetic_ftd_aliquot_quantity_units") }}'
     data_type: string
+    tests: []
   - name: concentration_number
     description: '{{ doc("gregor_synthetic_ftd_aliquot_concentration_number") }}'
     data_type: number
+    tests: []
   - name: concentration_unit
     description: '{{ doc("gregor_synthetic_ftd_aliquot_concentration_unit") }}'
     data_type: string
+    tests: []
   - name: has_access_policy
     description: '{{ doc("gregor_synthetic_ftd_aliquot_has_access_policy") }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_aliquot_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: sample_id
     description: '{{ doc("gregor_synthetic_ftd_aliquot_sample_id") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_subjectassertion
   description: Model for gregor_synthetic_ftd_subjectassertion.
   columns:
@@ -624,27 +753,37 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_has_access_policy")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_accesscontrolledrecord_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_filemetadata
   description: Model for gregor_synthetic_ftd_filemetadata.
   columns:
   - name: code
     description: '{{ doc("gregor_synthetic_ftd_filemetadata_code") }}'
     data_type: string
+    tests: []
   - name: display
     description: '{{ doc("gregor_synthetic_ftd_filemetadata_display") }}'
     data_type: string
+    tests: []
   - name: value_code
     description: '{{ doc("gregor_synthetic_ftd_filemetadata_value_code") }}'
     data_type: string
+    tests: []
   - name: value_display
     description: '{{ doc("gregor_synthetic_ftd_filemetadata_value_display") }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_filemetadata_id") }}'
     data_type: string
+    tests:
+    - not_null
 - name: gregor_synthetic_ftd_datasource_external_id
   description: Model for gregor_synthetic_ftd_datasource_external_id.
   columns:
@@ -663,10 +802,13 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_filemetadata_external_id_filemetadata_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_filemetadata_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_familymember_external_id
   description: Model for gregor_synthetic_ftd_familymember_external_id.
   columns:
@@ -674,20 +816,26 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_familymember_external_id_familymember_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_familymember_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_study_funding_source
   description: Model for gregor_synthetic_ftd_study_funding_source.
   columns:
   - name: study_id
     description: '{{ doc("gregor_synthetic_ftd_study_funding_source_study_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: funding_source
     description: '{{ doc("gregor_synthetic_ftd_study_funding_source_funding_source")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_accesspolicy
   description: Model for gregor_synthetic_ftd_accesspolicy.
   columns:
@@ -741,19 +889,25 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_sourcedata_external_id_sourcedata_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_sourcedata_external_id_external_id")
       }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_sample_external_id
   description: Model for gregor_synthetic_ftd_sample_external_id.
   columns:
   - name: sample_id
     description: '{{ doc("gregor_synthetic_ftd_sample_external_id_sample_id") }}'
     data_type: string
+    tests:
+    - not_null
   - name: external_id
     description: '{{ doc("gregor_synthetic_ftd_sample_external_id_external_id") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_biospecimencollection
   description: Model for gregor_synthetic_ftd_biospecimencollection.
   columns:
@@ -761,27 +915,34 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_age_at_collection")
       }}'
     data_type: integer
+    tests: []
   - name: method
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_method") }}'
     data_type: enumeration
+    tests: []
   - name: site
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_site") }}'
     data_type: enumeration
+    tests: []
   - name: spatial_qualifier
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_spatial_qualifier")
       }}'
     data_type: enumeration
+    tests: []
   - name: laterality
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_laterality")
       }}'
     data_type: enumeration
+    tests: []
   - name: has_access_policy
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_has_access_policy")
       }}'
     data_type: string
+    tests: []
   - name: id
     description: '{{ doc("gregor_synthetic_ftd_biospecimencollection_id") }}'
     data_type: string
+    tests: []
 - name: gregor_synthetic_ftd_accesspolicy_data_access_type
   description: Model for gregor_synthetic_ftd_accesspolicy_data_access_type.
   columns:
@@ -789,7 +950,18 @@ models:
     description: '{{ doc("gregor_synthetic_ftd_accesspolicy_data_access_type_accesspolicy_id")
       }}'
     data_type: string
+    tests:
+    - not_null
   - name: data_access_type
     description: '{{ doc("gregor_synthetic_ftd_accesspolicy_data_access_type_data_access_type")
       }}'
     data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - open
+        - registered
+        - controlled
+        - gsr_restricted
+        - gsr_allowed

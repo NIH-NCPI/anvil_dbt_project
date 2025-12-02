@@ -213,38 +213,8 @@ Model for gregor_synthetic_ftd_sourcedata.
 {% enddocs %}
 
 
-{% docs gregor_synthetic_ftd_sourcedata_code %}
-The structured term defining the meaning of the assertion.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_display %}
-The friendly display string of the coded term
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_code %}
-The structured term defining the value of the assertion.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_display %}
-The friendly display string of the coded term for the value of the assertion.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_number %}
-The numeric value of the assertion.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_units %}
-The structured term defining the units of the value.
-{% enddocs %}
-
-
-{% docs gregor_synthetic_ftd_sourcedata_value_units_display %}
-The friendly display string of units of the value.
+{% docs gregor_synthetic_ftd_sourcedata_data_source %}
+Defines the location of data and how to query it.
 {% enddocs %}
 
 
@@ -424,8 +394,7 @@ Is there known or suspected consanguinity in this study family?
 
 
 {% docs gregor_synthetic_ftd_family_family_study_focus %}
-What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie. 
-
+What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie.
 {% enddocs %}
 
 

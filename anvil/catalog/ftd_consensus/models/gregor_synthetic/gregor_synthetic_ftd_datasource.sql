@@ -6,3 +6,4 @@ NULL::text as "google_data_project",
 NULL::text as "snapshot_dataset",
 NULL::text as "table_id",
 NULL::text as "parameterized_query",
+NULL::text as "id"
