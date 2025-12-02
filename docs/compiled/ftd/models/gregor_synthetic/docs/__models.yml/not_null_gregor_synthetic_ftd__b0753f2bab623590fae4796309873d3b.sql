@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select accesspolicy_id
+from "dbt"."main_gregor_synthetic_data"."gregor_synthetic_ftd_accesspolicy_data_access_type"
+where accesspolicy_id is null
+
+

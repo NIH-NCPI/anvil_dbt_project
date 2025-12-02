@@ -1,7 +1,7 @@
 
 
     with source as (
-        select 
+        select distinct
         'fm' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.participant_id, '') as text))::text as "family_member",
         CASE participant.proband_relationship
             WHEN 'Mother' THEN 'MTH'
@@ -25,11 +25,9 @@
             WHEN 'Self' THEN 'SNOMED:85900004'
         END::text as "family_role",       
         'ap' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.consent_code, '') as text))::text as "has_access_policy",
-        'fm' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.participant_id, '') as text))::text as "id",
-       'fm' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.family_id, '') as text))::text as "family_id"
+        'fm' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.family_id, '') as text) || '|' || 'gregor_synthetic' || '|' || cast(coalesce(participant.participant_id, '') as text) || '|' || 'gregor_synthetic' || '|' || cast(coalesce(participant.consent_code, '') as text))::text as "id",
+       'fy' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.family_id, '') as text))::text as "family_id"
         from "dbt"."main_main"."gregor_synthetic_stg_participant" as participant
-        join "dbt"."main_main"."gregor_synthetic_stg_phenotype" as phenotype
-on participant.participant_id = phenotype.participant_id 
     )
 
     select 
