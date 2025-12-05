@@ -12,10 +12,7 @@ with source as (
        "crc32c"::text as "crc32c",
        "md5_hash"::text as "md5_hash",
        "file_ref"::text as "file_ref",
-       "nan"::text as "nan",
-       "nan"::text as "nan",
-       "nan"::text as "nan",
-       "nan"::text as "nan"
+       "ingest_provenance"::text as "ingest_provenance"
     from {{ source('cser','cser_file_inventory') }}
 )
 

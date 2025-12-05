@@ -33,15 +33,6 @@ models:
   - name: file_ref
     description: '{{ doc("cser_stg_file_inventory_file_ref") }}'
     data_type: string
-  - name: nan
-    description: '{{ doc("cser_stg_file_inventory_nan") }}'
-    data_type: string
-  - name: nan
-    description: '{{ doc("cser_stg_file_inventory_nan") }}'
-    data_type: string
-  - name: nan
-    description: '{{ doc("cser_stg_file_inventory_nan") }}'
-    data_type: string
-  - name: nan
-    description: '{{ doc("cser_stg_file_inventory_nan") }}'
+  - name: ingest_provenance
+    description: '{{ doc("cser_stg_file_inventory_ingest_provenance") }}'
     data_type: string

@@ -1,11 +1,8 @@
 {{ config(materialized='table', schema='cser_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "accesspolicy_id",
-  GEN_UNKNOWN.data_access_type::text as "data_access_type"
-from {{ ref('cser_stg_file_inventory') }} as file_inventory
-join {{ ref('cser_stg_sample') }} as sample
-on subject.subject_id = sample.subject_id  join {{ ref('cser_stg_sequencing') }} as sequencing
-on   join {{ ref('cser_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-
+select distinct
+  {{ generate_global_id(prefix='ap',descriptor=['s.consent_id'], study_id='cser') }}::text as "accesspolicy_id",
+  data_access_type::text as "data_access_type"
+from {{ ref('cser_stg_subject') }} as s
+left join {{ ref('ap_access_policy') }} as ap
+on lower(s.consent_id) = lower(ap.consent_code)

@@ -9,3 +9,5 @@ cmg_yale,american indian or alaskan native,american_indian_or_alaskan_native,CDC
 cmg_yale,native hawaiian or other pacific islander,native_hawaiian_or_pacific_islander,CDCREC:2076-8,Native Hawaiian or Pacific Islander,,
 ,native hawaiian or pacific islander,native_hawaiian_or_pacific_islander,CDCREC:2076-8,Native Hawaiian or Pacific Islander,,
 ,asked but unknown,asked_but_unknown,CDCREC:,Asked but Unknown,,
+cser,white or european american,white,CDCREC:2106-3,White,,
+cser,hispanic/latino,unknown,SNOMED:261665006,Unknown,,

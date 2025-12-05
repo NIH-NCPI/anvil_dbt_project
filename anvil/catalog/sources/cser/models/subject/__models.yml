@@ -48,3 +48,6 @@ models:
   - name: subject_id_local
     description: '{{ doc("cser_stg_subject_subject_id_local") }}'
     data_type: string
+  - name: ingest_provenance
+    description: '{{ doc("cser_stg_subject_ingest_provenance") }}'
+    data_type: string

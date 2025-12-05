@@ -45,3 +45,6 @@ models:
   - name: tumor_treatment
     description: '{{ doc("cser_stg_sample_tumor_treatment") }}'
     data_type: enumeration
+  - name: ingest_provenance
+    description: '{{ doc("cser_stg_sample_ingest_provenance") }}'
+    data_type: string

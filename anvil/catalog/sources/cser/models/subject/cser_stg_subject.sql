@@ -16,11 +16,13 @@ with source as (
        "pmids"::text as "pmids",
        "race_ethnicity"::text as "race_ethnicity",
        "sex"::text as "sex",
-       "subject_id_local"::text as "subject_id_local"
+       "subject_id_local"::text as "subject_id_local",
+       "ingest_provenance"::text as "ingest_provenance"
     from {{ source('cser','cser_subject') }}
 )
 
 select 
   ROW_NUMBER() OVER () AS ftd_index,
-  source.*
+  source.*,
+  REPLACE(REPLACE(UPPER(ingest_provenance), 'SUBJECT_ANVIL_CSER_SOUTHSEQ_', ''), '.TSV', '') as "consent_id"
 from source

@@ -15,7 +15,8 @@ with source as (
        "tissue_affected_status"::text as "tissue_affected_status",
        "tumor_grade"::text as "tumor_grade",
        "tumor_stage"::text as "tumor_stage",
-       "tumor_treatment"::text as "tumor_treatment"
+       "tumor_treatment"::text as "tumor_treatment",
+       "ingest_provenance"::text as "ingest_provenance"
     from {{ source('cser','cser_sample') }}
 )
 

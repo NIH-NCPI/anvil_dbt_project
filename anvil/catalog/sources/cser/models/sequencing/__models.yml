@@ -48,3 +48,6 @@ models:
   - name: seq_filename
     description: '{{ doc("cser_stg_sequencing_seq_filename") }}'
     data_type: string
+  - name: ingest_provenance
+    description: '{{ doc("cser_stg_sequencing_ingest_provenance") }}'
+    data_type: string

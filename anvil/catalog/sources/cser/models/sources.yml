@@ -26,14 +26,8 @@ sources:
       description: '{{ doc("cser_file_inventory_md5_hash") }}'
     - name: file_ref
       description: '{{ doc("cser_file_inventory_file_ref") }}'
-    - name: .nan
-      description: '{{ doc("cser_file_inventory_nan") }}'
-    - name: .nan
-      description: '{{ doc("cser_file_inventory_nan") }}'
-    - name: .nan
-      description: '{{ doc("cser_file_inventory_nan") }}'
-    - name: .nan
-      description: '{{ doc("cser_file_inventory_nan") }}'
+    - name: ingest_provenance
+      description: '{{ doc("cser_file_inventory_ingest_provenance") }}'
   - name: cser_sample
     description: Source table for cser_sample.
     columns:
@@ -65,6 +59,8 @@ sources:
       description: '{{ doc("cser_sample_tumor_stage") }}'
     - name: tumor_treatment
       description: '{{ doc("cser_sample_tumor_treatment") }}'
+    - name: ingest_provenance
+      description: '{{ doc("cser_sample_ingest_provenance") }}'
   - name: cser_sequencing
     description: Source table for cser_sequencing.
     columns:
@@ -98,6 +94,8 @@ sources:
       description: '{{ doc("cser_sequencing_sample_id") }}'
     - name: seq_filename
       description: '{{ doc("cser_sequencing_seq_filename") }}'
+    - name: ingest_provenance
+      description: '{{ doc("cser_sequencing_ingest_provenance") }}'
   - name: cser_subject
     description: Source table for cser_subject.
     columns:
@@ -131,3 +129,5 @@ sources:
       description: '{{ doc("cser_subject_sex") }}'
     - name: subject_id_local
       description: '{{ doc("cser_subject_subject_id_local") }}'
+    - name: ingest_provenance
+      description: '{{ doc("cser_subject_ingest_provenance") }}'

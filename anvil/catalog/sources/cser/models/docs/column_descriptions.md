@@ -53,7 +53,7 @@ None
 {% enddocs %}
 
 
-{% docs cser_file_inventory_nan %}
+{% docs cser_file_inventory_ingest_provenance %}
 None
 {% enddocs %}
 
@@ -113,7 +113,7 @@ None
 {% enddocs %}
 
 
-{% docs cser_stg_file_inventory_nan %}
+{% docs cser_stg_file_inventory_ingest_provenance %}
 None
 {% enddocs %}
 
@@ -193,6 +193,11 @@ None
 {% enddocs %}
 
 
+{% docs cser_sample_ingest_provenance %}
+None
+{% enddocs %}
+
+
 {% docs cser_stg_sample_description %}
 Model for cser_stg_sample.
 {% enddocs %}
@@ -264,6 +269,11 @@ None
 
 
 {% docs cser_stg_sample_tumor_treatment %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_sample_ingest_provenance %}
 None
 {% enddocs %}
 
@@ -348,6 +358,11 @@ None
 {% enddocs %}
 
 
+{% docs cser_sequencing_ingest_provenance %}
+None
+{% enddocs %}
+
+
 {% docs cser_stg_sequencing_description %}
 Model for cser_stg_sequencing.
 {% enddocs %}
@@ -424,6 +439,11 @@ None
 
 
 {% docs cser_stg_sequencing_seq_filename %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_sequencing_ingest_provenance %}
 None
 {% enddocs %}
 
@@ -508,6 +528,11 @@ None
 {% enddocs %}
 
 
+{% docs cser_subject_ingest_provenance %}
+None
+{% enddocs %}
+
+
 {% docs cser_stg_subject_description %}
 Model for cser_stg_subject.
 {% enddocs %}
@@ -584,5 +609,10 @@ None
 
 
 {% docs cser_stg_subject_subject_id_local %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_subject_ingest_provenance %}
 None
 {% enddocs %}

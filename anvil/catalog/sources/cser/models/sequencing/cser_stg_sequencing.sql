@@ -16,7 +16,8 @@ with source as (
        "read_length"::text as "read_length",
        "reference_genome_build"::text as "reference_genome_build",
        "sample_id"::text as "sample_id",
-       "seq_filename"::text as "seq_filename"
+       "seq_filename"::text as "seq_filename",
+       "ingest_provenance"::text as "ingest_provenance"
     from {{ source('cser','cser_sequencing') }}
 )
 
