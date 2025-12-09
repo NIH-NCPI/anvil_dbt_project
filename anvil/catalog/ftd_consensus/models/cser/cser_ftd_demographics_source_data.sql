@@ -1,11 +1,6 @@
 {{ config(materialized='table', schema='cser_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "demographics_id",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "source_data_id"
-from {{ ref('cser_stg_file_inventory') }} as file_inventory
-join {{ ref('cser_stg_sample') }} as sample
-on subject.subject_id = sample.subject_id  join {{ ref('cser_stg_sequencing') }} as sequencing
-on   join {{ ref('cser_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-
+select distinct
+  {{ generate_global_id(prefix='dm',descriptor=['subject_id', 'consent_id'], study_id='cser') }}::text as "demographics_id",
+    {{ generate_global_id(prefix='sd',descriptor=['dbgap_study_id'], study_id='cser') }}::text as "source_data_id"
+from {{ ref('cser_stg_subject') }} as subject
