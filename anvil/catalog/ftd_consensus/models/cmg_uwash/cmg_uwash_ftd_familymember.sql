@@ -3,7 +3,7 @@
 select 
   distinct
   coalesce(curie, 'FAMMEMB')::text as "family_role",
-  {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='phs000693') }}::text as "family_member",
+  {{ generate_global_id(prefix='sb',descriptor=['subject_id', 'consent_id'], study_id='phs000693') }}::text as "family_member",
   {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='phs000693') }}::text as "has_access_policy",
   {{ generate_global_id(prefix='fm',descriptor=['family_id','subject_id', 'consent_id'], study_id='phs000693') }}::text as "id",
   {{ generate_global_id(prefix='fy',descriptor=['family_id'], study_id='phs000693') }}::text as "family_id"
