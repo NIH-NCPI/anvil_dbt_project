@@ -1,17 +1,14 @@
 {{ config(materialized='table', schema='cser_data') }}
 
-select 
-GEN_UNKNOWN.filename::text as "filename",
-  GEN_UNKNOWN.format::text as "format",
-  GEN_UNKNOWN.data_type::text as "data_type",
-  GEN_UNKNOWN.size::text as "size",
-  GEN_UNKNOWN.drs_uri::text as "drs_uri",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "file_metadata",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "id"
-from {{ ref('cser_stg_file_inventory') }} as file_inventory
-join {{ ref('cser_stg_sample') }} as sample
-on subject.subject_id = sample.subject_id  join {{ ref('cser_stg_sequencing') }} as sequencing
-on   join {{ ref('cser_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-
+select distinct
+name::text as "filename",
+curie::text as "format",
+NULL::text as "data_type",
+size_in_bytes::text as "size",
+file_ref::text as "drs_uri",
+    {{ generate_global_id(prefix='fd',descriptor=['name'], study_id='cser') }}::text as "file_metadata",
+    {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='cser') }}::text as "has_access_policy",
+    {{ generate_global_id(prefix='fl',descriptor=['file_id'], study_id='cser') }}::text as "id"
+from {{ ref('cser_stg_file_inventory') }} as fi
+left join {{ ref('fl_format') }} as ff
+on lower(replace(fi.full_extension,'.','')) = lower(ff.src_format)
