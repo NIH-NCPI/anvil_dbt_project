@@ -1,11 +1,20 @@
 {{ config(materialized='table', schema='cser_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "filemetadata_id",
-  GEN_UNKNOWN.external_id::text as "external_id"
-from {{ ref('cser_stg_file_inventory') }} as file_inventory
-join {{ ref('cser_stg_sample') }} as sample
-on subject.subject_id = sample.subject_id  join {{ ref('cser_stg_sequencing') }} as sequencing
-on   join {{ ref('cser_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
+with unioned_names as (
+        select
+            distinct 
+            file_id as "file_id"
+        from {{ ref('cser_stg_file_inventory') }}
+    
+        union all
+   
+        select
+            distinct 
+            sequencing_id as "file_id"
+        from {{ ref('cser_stg_sequencing') }}
+)
 
+select
+  {{ generate_global_id(prefix='fd',descriptor=['file_id'], study_id='cser') }}::text as "filemetadata_id",
+  file_id::text as "external_id"
+from {{ ref('cser_stg_file_inventory') }} as file_inventory

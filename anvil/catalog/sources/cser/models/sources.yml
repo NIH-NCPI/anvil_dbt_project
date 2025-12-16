@@ -131,3 +131,24 @@ sources:
       description: '{{ doc("cser_subject_subject_id_local") }}'
     - name: ingest_provenance
       description: '{{ doc("cser_subject_ingest_provenance") }}'
+  - name: cser_anvil_dataset
+    description: Source table for cser_anvil_dataset.
+    columns:
+    - name: datarepo_row_id
+      description: '{{ doc("cser_anvil_dataset_datarepo_row_id") }}'
+    - name: dataset_id
+      description: '{{ doc("cser_anvil_dataset_dataset_id") }}'
+    - name: consent_group
+      description: '{{ doc("cser_anvil_dataset_consent_group") }}'
+    - name: data_use_permission
+      description: '{{ doc("cser_anvil_dataset_data_use_permission") }}'
+    - name: owner
+      description: '{{ doc("cser_anvil_dataset_owner") }}'
+    - name: principal_investigator
+      description: '{{ doc("cser_anvil_dataset_principal_investigator") }}'
+    - name: title
+      description: '{{ doc("cser_anvil_dataset_title") }}'
+    - name: data_modality
+      description: '{{ doc("cser_anvil_dataset_data_modality") }}'
+    - name: source_datarepo_row_ids
+      description: '{{ doc("cser_anvil_dataset_source_datarepo_row_ids") }}'

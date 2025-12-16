@@ -616,3 +616,103 @@ None
 {% docs cser_stg_subject_ingest_provenance %}
 None
 {% enddocs %}
+
+
+{% docs cser_anvil_dataset_description %}
+Model for cser_anvil_dataset.
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_datarepo_row_id %}
+None
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_dataset_id %}
+None
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_consent_group %}
+None
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_data_use_permission %}
+None
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_owner %}
+None
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_principal_investigator %}
+None
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_title %}
+None
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_data_modality %}
+None
+{% enddocs %}
+
+
+{% docs cser_anvil_dataset_source_datarepo_row_ids %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_description %}
+Model for cser_stg_anvil_dataset.
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_datarepo_row_id %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_dataset_id %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_consent_group %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_data_use_permission %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_owner %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_principal_investigator %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_title %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_data_modality %}
+None
+{% enddocs %}
+
+
+{% docs cser_stg_anvil_dataset_source_datarepo_row_ids %}
+None
+{% enddocs %}

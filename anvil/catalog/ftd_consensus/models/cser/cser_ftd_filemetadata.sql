@@ -1,14 +1,40 @@
 {{ config(materialized='table', schema='cser_data') }}
 
-select 
-GEN_UNKNOWN.code::text as "code",
-  GEN_UNKNOWN.display::text as "display",
-  GEN_UNKNOWN.value_code::text as "value_code",
-  GEN_UNKNOWN.value_display::text as "value_display",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "id"
-from {{ ref('cser_stg_file_inventory') }} as file_inventory
-join {{ ref('cser_stg_sample') }} as sample
-on subject.subject_id = sample.subject_id  join {{ ref('cser_stg_sequencing') }} as sequencing
-on   join {{ ref('cser_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
-
+{%- set fi_metadata_columns = ['crc32c','md5_hash'] -%}
+{%- set seq_metadata_columns = ['alignment_method','analyte_type','functional_equivalence_standard','library_prep_kit_method','reference_genome_build'] -%}
+with
+unpivot_df as (
+    {%- for col in fi_metadata_columns -%}
+        select
+            distinct 
+            name as "filename",
+            file_id as "file_id",
+            '{{ col }}' as "display",
+            cast({{ col }} as varchar) as "value_display",
+            CONCAT(ftd_index,'_fi') as "ftd_index"
+        from {{ ref('cser_stg_file_inventory') }}
+        where {{ col }} IS NOT NULL
+        {% if not loop.last %}union all{% endif %}
+    {% endfor %}
+        union all
+   
+    {% for col in seq_metadata_columns %}
+        select
+            distinct 
+            sequencing_id as "filename",
+            sequencing_id as "file_id",
+            '{{ col }}' as "display",
+            cast({{ col }} as varchar) as "value_display",
+            CONCAT(ftd_index,'_seq') as "ftd_index"
+        from {{ ref('cser_stg_sequencing') }}
+        where {{ col }} IS NOT NULL
+        {% if not loop.last %}union all{% endif %}
+    {% endfor %}
+)
+select distinct
+NULL::text as "code",
+display::text as "display",
+NULL::text as "value_code",
+value_display::text as "value_display",
+    {{ generate_global_id(prefix='fd',descriptor=['file_id'], study_id='cser') }}::text as "id"
+from unpivot_df
