@@ -1,19 +1,42 @@
 {{ config(materialized='table', schema='cser_data') }}
 
 
-select 
+with hpo_codes as (
+    select distinct
+    subject_id,
+    consent_id,
+    hpo_present as "code",
+    'LA9633-4'::text as "value_code",
+    'Present'::text as "value_display"
+    from {{ ref('cser_stg_subject') }} as s   
+    
+    union all
+    
+    select distinct
+    subject_id,
+    consent_id,
+    hpo_absent as "code",
+    'LA9634-2'::text as "value_code",
+    'Absent'::text as "value_display"
+    from {{ ref('cser_stg_subject') }} as s  
+)
+
+select
 'phenotypic_feature'::text as "assertion_type",
 NULL::text as "age_at_assertion",
 NULL::text as "age_at_event",
 NULL::text as "age_at_resolution",
-  GEN_UNKNOWN.code::text as "code",
-  GEN_UNKNOWN.display::text as "display",
-  GEN_UNKNOWN.value_code::text as "value_code",
-  GEN_UNKNOWN.value_display::text as "value_display",
+ca.response_code as "code",
+ca.display::text as "display",
+hc.value_code,
+hc.value_display,
 NULL::text as "value_number",
 NULL::text as "value_units",
 NULL::text as "value_units_display",
     {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='cser') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "id",
+    {{ generate_global_id(prefix='sa',descriptor=['subject_id','response_code'], study_id='cser') }}::text as "id",
     {{ generate_global_id(prefix='sb',descriptor=['subject_id','consent_id'], study_id='cser') }}::text as "subject_id"
-from {{ ref('cser_stg_subject') }} as s
+from hpo_codes as hc
+join {{ ref('cser_annotations') }} as ca
+    on hc.code = ca.searched_code
+where hc.code is not null
