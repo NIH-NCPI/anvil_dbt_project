@@ -1,34 +1,35 @@
 study_id: gregor_synthetic
 project_id: anvil
-pipeline_db: anvil_duckdb
-  
+db_profile: anvil_duckdb
+pipeline_db: duckdb
+project_structure: anvil
+tgt_model_id: tgt_consensus_a
+data_dir: data
+int_model_id: ftd
+dbt_project:
+  src:
+    schema: main
+    materialized: table
+  int: 
+    schema: main
+    materialized: table
 data_dictionary:
   participant:
     identifier: participant_dd.csv
-    import_type: duckdb
     format: pipeline_format
-    src_file_id: None
-    stg_src_table_id: participant_stg_dd.csv
-    ftd_transformation_id: participant_stg_additions_dd.csv  
+    import_type: duckdb
   phenotype:
     identifier: phenotype_dd.csv
-    import_type: duckdb 
     format: pipeline_format
-    src_file_id: None
-    stg_src_table_id: phenotype_stg_dd.csv
-    ftd_transformation_id: phenotype_stg_additions_dd.csv
-
-data_files:
+    import_type: duckdb
+data_file:
   participant: 
     identifier: 
       - GREGoR_synthetic_participant_revised07Aug2024.csv 
-    import_type: duckdb
-    src_file_id: None
-    join_cols: {phenotype: participant_id}
+    import_type: duckdb    
+    join_cols: {participant: participant_id}
   phenotype:
     identifier: 
       - GREGoR_synthetic_phenotype.csv
     import_type: duckdb
-    src_file_id: None
     join_cols: {participant: participant_id}
-  
