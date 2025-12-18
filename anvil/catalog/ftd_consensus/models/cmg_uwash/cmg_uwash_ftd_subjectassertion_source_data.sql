@@ -87,7 +87,7 @@ concatenated_codes as (
 
 select distinct
   {{ generate_global_id(prefix='sa',descriptor=['subject_id', 'code'], study_id='phs000693') }}::text as "subjectassertion_id",
-    {{ generate_global_id(prefix='',descriptor=['project_id'], study_id='phs000693') }}::text as "source_data_id"
+    {{ generate_global_id(prefix='sd',descriptor=['project_id'], study_id='phs000693') }}::text as "source_data_id"
 from {{ ref('cmg_uwash_stg_subject') }} as subject
 left join concatenated_codes as cc
 using(subject_id)
