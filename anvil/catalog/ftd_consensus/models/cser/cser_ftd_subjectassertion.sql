@@ -2,23 +2,23 @@
 
 
 with hpo_codes as (
-    select distinct
+    select 
     subject_id,
     consent_id,
-    hpo_present as "code",
+    UNNEST(IFNULL(SPLIT(hpo_present, '|'),[NULL])) as code,
     'LA9633-4'::text as "value_code",
     'Present'::text as "value_display"
-    from {{ ref('cser_stg_subject') }} as s   
+    from (select distinct subject_id, consent_id, hpo_present from {{ ref('cser_stg_subject') }})
     
     union all
     
-    select distinct
+    select 
     subject_id,
     consent_id,
-    hpo_absent as "code",
+    UNNEST(IFNULL(SPLIT(hpo_absent, '|'),[NULL])) as code,
     'LA9634-2'::text as "value_code",
     'Absent'::text as "value_display"
-    from {{ ref('cser_stg_subject') }} as s  
+    from (select distinct subject_id, consent_id, hpo_absent from {{ ref('cser_stg_subject') }})
 )
 
 select

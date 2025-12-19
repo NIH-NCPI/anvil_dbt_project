@@ -1,11 +1,25 @@
 {{ config(materialized='table', schema='cser_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='cser') }}::text as "subjectassertion_id",
-  GEN_UNKNOWN.external_id::text as "external_id"
-from {{ ref('cser_stg_file_inventory') }} as file_inventory
-join {{ ref('cser_stg_sample') }} as sample
-on subject.subject_id = sample.subject_id  join {{ ref('cser_stg_sequencing') }} as sequencing
-on   join {{ ref('cser_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
+with hpo_codes as (
+    select
+    subject_id,
+    consent_id,
+    UNNEST(IFNULL(SPLIT(hpo_present, '|'),[NULL])) as code,
+    from (select distinct subject_id, consent_id, hpo_present from {{ ref('cser_stg_subject') }}) as hp
+    
+    union all
+    
+    select
+    subject_id,
+    consent_id,
+    UNNEST(IFNULL(SPLIT(hpo_absent, '|'),[NULL])) as code,
+    from (select distinct subject_id, consent_id, hpo_absent from {{ ref('cser_stg_subject') }}) as ha
+)
 
+select 
+  {{ generate_global_id(prefix='sa',descriptor=['subject_id', 'response_code'], study_id='cser') }}::text as "subjectassertion_id",
+  subject_id::text as "external_id"
+from hpo_codes as hc
+join {{ ref('cser_annotations') }} as ca
+    on hc.code = ca.searched_code
+where hc.code is not null

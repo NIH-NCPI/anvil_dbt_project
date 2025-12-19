@@ -7,7 +7,6 @@ unpivot_df as (
     {%- for col in fi_metadata_columns -%}
         select
             distinct 
-            name as "filename",
             file_id as "file_id",
             '{{ col }}' as "display",
             cast({{ col }} as varchar) as "value_display",
@@ -21,7 +20,6 @@ unpivot_df as (
     {% for col in seq_metadata_columns %}
         select
             distinct 
-            sequencing_id as "filename",
             sequencing_id as "file_id",
             '{{ col }}' as "display",
             cast({{ col }} as varchar) as "value_display",
