@@ -12,3 +12,10 @@ snapshot-paths:
 clean-targets:
 - target
 - dbt_packages
+vars: {}
+models:
+  gregor_synthetic:
+    +schema: main
+    +materialized: table
+    participant: {}
+    phenotype: {}

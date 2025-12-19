@@ -12,3 +12,53 @@ snapshot-paths:
 clean-targets:
 - target
 - dbt_packages
+vars: {}
+models:
+  gregor_synthetic:
+    +schema: main
+    +materialized: table
+    ftd_sample_storage_method: {}
+    ftd_subject_external_id: {}
+    ftd_subjectassertion_external_id: {}
+    ftd_family_external_id: {}
+    ftd_study_principal_investigator: {}
+    ftd_accesspolicy_external_id: {}
+    ftd_family_family_relationships: {}
+    ftd_file: {}
+    ftd_familyrelationship: {}
+    ftd_file_sample: {}
+    ftd_study_external_id: {}
+    ftd_sourcedata: {}
+    ftd_aliquot_external_id: {}
+    ftd_accesscontrolledrecord_external_id: {}
+    ftd_datasource: {}
+    ftd_file_external_id: {}
+    ftd_study: {}
+    ftd_demographics_external_id: {}
+    ftd_subject: {}
+    ftd_family: {}
+    ftd_biospecimencollection_external_id: {}
+    ftd_subjectassertion_source_data: {}
+    ftd_demographics_source_data: {}
+    ftd_demographics_race: {}
+    ftd_sample: {}
+    ftd_file_subject: {}
+    ftd_familyrelationship_external_id: {}
+    ftd_accesspolicy_access_policy_code: {}
+    ftd_sourcedata_query_parameter: {}
+    ftd_sample_processing: {}
+    ftd_demographics: {}
+    ftd_aliquot: {}
+    ftd_subjectassertion: {}
+    ftd_accesscontrolledrecord: {}
+    ftd_filemetadata: {}
+    ftd_datasource_external_id: {}
+    ftd_filemetadata_external_id: {}
+    ftd_familymember_external_id: {}
+    ftd_study_funding_source: {}
+    ftd_accesspolicy: {}
+    ftd_familymember: {}
+    ftd_sourcedata_external_id: {}
+    ftd_sample_external_id: {}
+    ftd_biospecimencollection: {}
+    ftd_accesspolicy_data_access_type: {}

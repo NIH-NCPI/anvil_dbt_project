@@ -13,5 +13,5 @@ packages:
   - local: "anvil/catalog/sources/cmg_yale"
   - local: "anvil/catalog/sources/PGRNseq"
   
-  - local: "anvil/catalog/ftd"
+  - local: "anvil/catalog/ftd_consensus"
   - local: "anvil/catalog/tgt_consensus_a"
