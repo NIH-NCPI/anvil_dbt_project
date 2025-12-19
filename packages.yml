@@ -12,6 +12,7 @@ packages:
   - local: "anvil/catalog/sources/cmg_bh"
   - local: "anvil/catalog/sources/cmg_yale"
   - local: "anvil/catalog/sources/PGRNseq"
+  - local: "anvil/catalog/sources/cser"
   
   - local: "anvil/catalog/ftd_consensus"
   - local: "anvil/catalog/tgt_consensus_a"
