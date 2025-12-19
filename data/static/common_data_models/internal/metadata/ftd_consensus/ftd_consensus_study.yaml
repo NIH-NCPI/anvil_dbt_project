@@ -1,3 +1,5 @@
+model_name: ftd_consensus
+model_prefix: ftd
 data_dictionary:
   sample_storage_method:
     identifier: Sample_storage_method-dd.csv

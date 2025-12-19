@@ -1,4 +1,4 @@
-name: gregor_synthetic
+name: ftd_consensus
 version: 1.0.0
 profile: anvil_duckdb
 model-paths:

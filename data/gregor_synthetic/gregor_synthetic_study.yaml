@@ -1,18 +1,37 @@
-study_id: gregor_synthetic
-project_id: anvil
-db_profile: anvil_duckdb
-pipeline_db: duckdb
-project_structure: anvil
-tgt_model_id: tgt_consensus_a
-data_dir: data
-int_model_id: ftd
+pipeline:
+  db: duckdb
+  structure: anvil
+  data_dir: data
+  int_model_name: ftd_consensus
+  exp_model_name: tgt_consensus_a
+study:
+  study_id: gregor_synthetic
+  project_id: anvil
+  db_profile: anvil_duckdb
+  data_dir: data
+  
 dbt_project:
   src:
+    schema:
+    materialized:
+  src_all:
     schema: main
     materialized: table
-  int: 
+  int:
+    schema:
+    materialized:
+  int_all:
     schema: main
     materialized: table
+  exp:
+    schema:
+    materialized:
+  exp_all:
+    schema: main
+    materialized: table
+  exp_vars:
+    
+
 data_dictionary:
   participant:
     identifier: participant_dd.csv
