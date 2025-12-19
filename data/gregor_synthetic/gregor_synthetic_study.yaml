@@ -12,25 +12,19 @@ study:
   
 dbt_project:
   src:
-    schema:
-    materialized:
-  src_all:
     schema: main
     materialized: table
+    vars:
   int:
-    schema:
-    materialized:
-  int_all:
     schema: main
     materialized: table
+    vars:
   exp:
-    schema:
-    materialized:
-  exp_all:
     schema: main
     materialized: table
-  exp_vars:
-    
+    vars:
+      target_schema: "fallback_schema"
+      source_table: "fallback_table"   
 
 data_dictionary:
   participant:
