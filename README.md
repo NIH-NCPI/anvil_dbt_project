@@ -85,7 +85,7 @@ Available commands:
 3. Start an environment. Put the gsutil URI of the startup script into the startup script field and start the env(~20 min).
 4. Download, then place anvil_dbt_project/scripts/harmonization_initial_setup.py in the 'home/jupyter'dir.
 5. Place your id_rsa key file in the 'home/jupyter' dir. Note: harmonization_initial_setup.py will move the file to the correct dir, then follow the Terra instructions for setting up credentials with GitHub automatically. The key is deleted upon environment deletion. See Terra docs.
-6. Run python harmonization_initial_setup.py -s {study_id} -p {project_id} -u {github username} -e {github email} from 'home/jupyter'
+6. Run python harmonization_initial_setup.py -s {study_id} -u {github username} -e {github email} from 'home/jupyter'
 7. In the Terminal:
   - Run: source ~/.bash_profile
   - Run: setup_ssh

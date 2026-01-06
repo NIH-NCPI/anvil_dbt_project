@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 from jinja2 import Template
 import re
+import os
+import yaml
 from pathlib import Path
 from dbt_pipeline_utils.scripts.helpers.general import read_file
 
@@ -52,7 +54,7 @@ def get_separate_src_tables_dict(src_df_names_dict, tablename, paths):
 
                 column_definitions = ", ".join([f"'{col}': 'VARCHAR'" for col in columns])  # Fix: Use proper dictionary syntax
                 query = f"""
-                SELECT * FROM read_csv('{table_path}', AUTO_DETECT=FALSE, HEADER=TRUE, columns={{ {column_definitions} }})
+                SELECT * FROM read_csv('{table_path}', AUTO_DETECT=FALSE, HEADER=TRUE, DELIM=',', QUOTE='"', ESCAPE='"', COLUMNS={{ {column_definitions} }})
                 """
                 result = engine.execute(query)
 

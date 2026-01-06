@@ -1,0 +1,35 @@
+name: cser_kidscanseq
+version: 1.0.0
+profile: anvil
+model-paths:
+- models
+macro-paths:
+- macros
+snapshot-paths:
+- snapshots
+clean-targets:
+- target
+- dbt_packages
+models:
+  +schema: main
+  +materialized: table
+  anvil_dataset:
+    cser_kidscanseq_stg_anvil_dataset:
+      +schema: main
+      +materialized: table
+  file_inventory:
+    cser_kidscanseq_stg_file_inventory:
+      +schema: main
+      +materialized: table
+  sample:
+    cser_kidscanseq_stg_sample:
+      +schema: main
+      +materialized: table
+  sequencing:
+    cser_kidscanseq_stg_sequencing:
+      +schema: main
+      +materialized: table
+  subject:
+    cser_kidscanseq_stg_subject:
+      +schema: main
+      +materialized: table
