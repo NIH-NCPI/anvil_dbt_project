@@ -1,4 +1,4 @@
-variable_name,description,data_type,min,max,units,enumerations,comment
+variable_name,variable_description,data_type,min,max,units,enumerations,comment
 snapshot_id,The Terra Data Repository Snapshot ID.,string,,,,,
 google_data_project,The Google Data Project needed to query this snapshot in BigQuery.,string,,,,,
 snapshot_dataset,The Dataset within BigQuery where the table can be queried.,string,,,,,

@@ -1,4 +1,4 @@
-variable_name,description,data_type,min,max,units,enumerations,comment,tests
+variable_name,variable_description,data_type,min,max,units,enumerations,comment,tests
 availablity_status,Can this Sample be requested for further analysis?,enumeration,,,,available;unavailable,,accepted_values
 quantity_number,The total quantity of the specimen,number,,,,,,
 quantity_units,The structured term defining the units of the quantity.,string,,,,,,

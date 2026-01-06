@@ -1,4 +1,4 @@
-variable_name,description,data_type,min,max,units,enumerations,comment,tests
+variable_name,variable_description,data_type,min,max,units,enumerations,comment,tests
 family_type,"Describes the 'type' of study family, eg, trio.",enumeration,,,,control_only;duo;proband_only;trio;trio_plus;other,,accepted_values
 family_description,"Free title describing the study family, such as potential inheritance or details about consanguinity",string,,,,,,
 consanguinity,Is there known or suspected consanguinity in this study family?,enumeration,,,,not_suspected;suspected;known_present;unknown,,accepted_values

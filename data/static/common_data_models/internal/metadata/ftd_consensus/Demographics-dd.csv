@@ -1,4 +1,4 @@
-variable_name,description,data_type,min,max,units,enumerations,comment,tests
+variable_name,variable_description,data_type,min,max,units,enumerations,comment,tests
 date_of_birth,Date at which the individual was born. May be impacted by privacy rules described in date_of_birth_type.,integer,,,,,,
 date_of_birth_type,Privacy rule modification applied to date_of_birth.,enumeration,,,,exact;year_only;shifted;decade_only;other,,accepted_values
 sex,Sex of the individual,enumeration,,,,female;male;unknown;intersex,,not_null|accepted_values 

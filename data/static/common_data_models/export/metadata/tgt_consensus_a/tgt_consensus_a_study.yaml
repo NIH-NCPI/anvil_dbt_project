@@ -1,138 +1,93 @@
 model_name: tgt_consensus_a
 model_prefix: tgt
 data_dictionary:
-  sample_storage_method:
+  Sample_storage_method:
     identifier: Sample_storage_method-dd.csv
-    pipeline_identifier: tgt_sample_storage_method_dd.csv
-  subject_external_id:
+  Subject_external_id:
     identifier: Subject_external_id-dd.csv
-    pipeline_identifier: tgt_subject_external_id_dd.csv
-  subjectassertion_external_id:
+  SubjectAssertion_external_id:
     identifier: SubjectAssertion_external_id-dd.csv
-    pipeline_identifier: tgt_subjectassertion_external_id_dd.csv
-  family_external_id:
+  Family_external_id:
     identifier: Family_external_id-dd.csv
-    pipeline_identifier: tgt_family_external_id_dd.csv
-  study_principal_investigator:
+  Study_principal_investigator:
     identifier: Study_principal_investigator-dd.csv
-    pipeline_identifier: tgt_study_principal_investigator_dd.csv
-  accesspolicy_external_id:
+  AccessPolicy_external_id:
     identifier: AccessPolicy_external_id-dd.csv
-    pipeline_identifier: tgt_accesspolicy_external_id_dd.csv
-  family_family_relationships:
+  Family_family_relationships:
     identifier: Family_family_relationships-dd.csv
-    pipeline_identifier: tgt_family_family_relationships_dd.csv
-  file:
+  File:
     identifier: File-dd.csv
-    pipeline_identifier: tgt_file_dd.csv
-  familyrelationship:
+  FamilyRelationship:
     identifier: FamilyRelationship-dd.csv
-    pipeline_identifier: tgt_familyrelationship_dd.csv
-  file_sample:
+  File_sample:
     identifier: File_sample-dd.csv
-    pipeline_identifier: tgt_file_sample_dd.csv
-  study_external_id:
+  Study_external_id:
     identifier: Study_external_id-dd.csv
-    pipeline_identifier: tgt_study_external_id_dd.csv
-  sourcedata:
+  SourceData:
     identifier: SourceData-dd.csv
-    pipeline_identifier: tgt_sourcedata_dd.csv
-  aliquot_external_id:
+  Aliquot_external_id:
     identifier: Aliquot_external_id-dd.csv
-    pipeline_identifier: tgt_aliquot_external_id_dd.csv
-  accesscontrolledrecord_external_id:
+  AccessControlledRecord_external_id:
     identifier: AccessControlledRecord_external_id-dd.csv
-    pipeline_identifier: tgt_accesscontrolledrecord_external_id_dd.csv
-  datasource:
+  DataSource:
     identifier: DataSource-dd.csv
-    pipeline_identifier: tgt_datasource_dd.csv
-  file_external_id:
+  File_external_id:
     identifier: File_external_id-dd.csv
-    pipeline_identifier: tgt_file_external_id_dd.csv
-  study:
+  Study:
     identifier: Study-dd.csv
-    pipeline_identifier: tgt_study_dd.csv
-  demographics_external_id:
+  Demographics_external_id:
     identifier: Demographics_external_id-dd.csv
-    pipeline_identifier: tgt_demographics_external_id_dd.csv
-  subject:
+  Subject:
     identifier: Subject-dd.csv
-    pipeline_identifier: tgt_subject_dd.csv
-  family:
+  Family:
     identifier: Family-dd.csv
-    pipeline_identifier: tgt_family_dd.csv
-  biospecimencollection_external_id:
+  BiospecimenCollection_external_id:
     identifier: BiospecimenCollection_external_id-dd.csv
-    pipeline_identifier: tgt_biospecimencollection_external_id_dd.csv
-  subjectassertion_source_data:
+  SubjectAssertion_source_data:
     identifier: SubjectAssertion_source_data-dd.csv
-    pipeline_identifier: tgt_subjectassertion_source_data_dd.csv
-  demographics_source_data:
+  Demographics_source_data:
     identifier: Demographics_source_data-dd.csv
-    pipeline_identifier: tgt_demographics_source_data_dd.csv
-  demographics_race:
+  Demographics_race:
     identifier: Demographics_race-dd.csv
-    pipeline_identifier: tgt_demographics_race_dd.csv
-  sample:
+  Sample:
     identifier: Sample-dd.csv
-    pipeline_identifier: tgt_sample_dd.csv
-  file_subject:
+  File_subject:
     identifier: File_subject-dd.csv
-    pipeline_identifier: tgt_file_subject_dd.csv
-  familyrelationship_external_id:
+  FamilyRelationship_external_id:
     identifier: FamilyRelationship_external_id-dd.csv
-    pipeline_identifier: tgt_familyrelationship_external_id_dd.csv
-  accesspolicy_access_policy_code:
+  AccessPolicy_access_policy_code:
     identifier: AccessPolicy_access_policy_code-dd.csv
-    pipeline_identifier: tgt_accesspolicy_access_policy_code_dd.csv
-  sourcedata_query_parameter:
+  SourceData_query_parameter:
     identifier: SourceData_query_parameter-dd.csv
-    pipeline_identifier: tgt_sourcedata_query_parameter_dd.csv
-  sample_processing:
+  Sample_processing:
     identifier: Sample_processing-dd.csv
-    pipeline_identifier: tgt_sample_processing_dd.csv
-  demographics:
+  Demographics:
     identifier: Demographics-dd.csv
-    pipeline_identifier: tgt_demographics_dd.csv
-  aliquot:
+  Aliquot:
     identifier: Aliquot-dd.csv
-    pipeline_identifier: tgt_aliquot_dd.csv
-  subjectassertion:
+  SubjectAssertion:
     identifier: SubjectAssertion-dd.csv
-    pipeline_identifier: tgt_subjectassertion_dd.csv
-  accesscontrolledrecord:
+  AccessControlledRecord:
     identifier: AccessControlledRecord-dd.csv
-    pipeline_identifier: tgt_accesscontrolledrecord_dd.csv
-  filemetadata:
+  FileMetadata:
     identifier: FileMetadata-dd.csv
-    pipeline_identifier: tgt_filemetadata_dd.csv
-  datasource_external_id:
+  DataSource_external_id:
     identifier: DataSource_external_id-dd.csv
-    pipeline_identifier: tgt_datasource_external_id_dd.csv
-  filemetadata_external_id:
+  FileMetadata_external_id:
     identifier: FileMetadata_external_id-dd.csv
-    pipeline_identifier: tgt_filemetadata_external_id_dd.csv
-  familymember_external_id:
+  FamilyMember_external_id:
     identifier: FamilyMember_external_id-dd.csv
-    pipeline_identifier: tgt_familymember_external_id_dd.csv
-  study_funding_source:
+  Study_funding_source:
     identifier: Study_funding_source-dd.csv
-    pipeline_identifier: tgt_study_funding_source_dd.csv
-  accesspolicy:
+  AccessPolicy:
     identifier: AccessPolicy-dd.csv
-    pipeline_identifier: tgt_accesspolicy_dd.csv
-  familymember:
+  FamilyMember:
     identifier: FamilyMember-dd.csv
-    pipeline_identifier: tgt_familymember_dd.csv
-  sourcedata_external_id:
+  SourceData_external_id:
     identifier: SourceData_external_id-dd.csv
-    pipeline_identifier: tgt_sourcedata_external_id_dd.csv
-  sample_external_id:
+  Sample_external_id:
     identifier: Sample_external_id-dd.csv
-    pipeline_identifier: tgt_sample_external_id_dd.csv
-  biospecimencollection:
+  BiospecimenCollection:
     identifier: BiospecimenCollection-dd.csv
-    pipeline_identifier: tgt_biospecimencollection_dd.csv
-  accesspolicy_data_access_type:
+  AccessPolicy_data_access_type:
     identifier: AccessPolicy_data_access_type-dd.csv
-    pipeline_identifier: tgt_accesspolicy_data_access_type_dd.csv
