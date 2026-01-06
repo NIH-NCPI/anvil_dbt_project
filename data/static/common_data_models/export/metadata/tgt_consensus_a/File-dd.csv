@@ -1,4 +1,4 @@
-variable_name,description,data_type,min,max,units,enumerations,comment,tests
+variable_name,variable_description,data_type,min,max,units,enumerations,comment,tests
 filename,The name of the file.,string,,,,,,
 format,The format of the file.,enumeration,,,,,Data formats from the EDAM ontology.,
 data_type,The type of data within this file.,enumeration,,,,,Data types from the EDAM ontology.,
