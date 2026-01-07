@@ -3,11 +3,6 @@ Model for cser_kidscanseq_anvil_dataset.
 {% enddocs %}
 
 
-{% docs cser_kidscanseq_anvil_dataset_datarepo_row_id %}
-None
-{% enddocs %}
-
-
 {% docs cser_kidscanseq_anvil_dataset_dataset_id %}
 None
 {% enddocs %}
@@ -33,6 +28,11 @@ None
 {% enddocs %}
 
 
+{% docs cser_kidscanseq_anvil_dataset_registered_identifier %}
+None
+{% enddocs %}
+
+
 {% docs cser_kidscanseq_anvil_dataset_title %}
 None
 {% enddocs %}
@@ -50,11 +50,6 @@ None
 
 {% docs cser_kidscanseq_stg_anvil_dataset_description %}
 Model for cser_kidscanseq_stg_anvil_dataset.
-{% enddocs %}
-
-
-{% docs cser_kidscanseq_stg_anvil_dataset_datarepo_row_id %}
-None
 {% enddocs %}
 
 
@@ -79,6 +74,11 @@ None
 
 
 {% docs cser_kidscanseq_stg_anvil_dataset_principal_investigator %}
+None
+{% enddocs %}
+
+
+{% docs cser_kidscanseq_stg_anvil_dataset_registered_identifier %}
 None
 {% enddocs %}
 

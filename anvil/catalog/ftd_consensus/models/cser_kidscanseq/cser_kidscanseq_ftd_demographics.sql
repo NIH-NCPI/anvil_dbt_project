@@ -1,21 +1,88 @@
 {{ config(materialized='table', schema='cser_kidscanseq_data') }}
 
-select 
-GEN_UNKNOWN.date_of_birth::integer as "date_of_birth",
-  GEN_UNKNOWN.date_of_birth_type::text as "date_of_birth_type",
-  subject.sex::text as "sex",
-  GEN_UNKNOWN.sex_display::text as "sex_display",
-  GEN_UNKNOWN.race_display::text as "race_display",
-  GEN_UNKNOWN.ethnicity::text as "ethnicity",
-  GEN_UNKNOWN.ethnicity_display::text as "ethnicity_display",
-  GEN_UNKNOWN.age_at_last_vital_status::integer as "age_at_last_vital_status",
-  GEN_UNKNOWN.vital_status::text as "vital_status",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cser_kidscanseq') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='cser_kidscanseq') }}::text as "id"
-from {{ ref('cser_kidscanseq_stg_anvil_dataset') }} as anvil_dataset
-join {{ ref('cser_kidscanseq_stg_file_inventory') }} as file_inventory
-on   join {{ ref('cser_kidscanseq_stg_sample') }} as sample
-on subject.subject_id = sample.subject_id  join {{ ref('cser_kidscanseq_stg_sequencing') }} as sequencing
-on   join {{ ref('cser_kidscanseq_stg_subject') }} as subject
-on sample.subject_id = subject.subject_id 
+WITH split_race AS (
+  SELECT
+    subject_id,
+    src_race
+  FROM {{ ref('cser_kidscanseq_stg_subject') }},
+  UNNEST(SPLIT(race_ethnicity, '|')) AS t(src_race)
+),
 
+race_eth AS (
+  SELECT
+    subject_id,
+    CASE
+      WHEN src_race IN ('Hispanic or Latino(a)', 'Hispanic/Latino(a)')
+        THEN NULL                              
+      ELSE src_race
+    END AS race_val,
+    CASE
+      WHEN src_race IN ('Hispanic or Latino(a)', 'Hispanic/Latino(a)')
+        THEN 'hispanic_or_latino'
+      ELSE NULL                               
+    END AS eth_val
+  FROM split_race
+),
+
+ethnicity_by_id AS (
+  SELECT
+    subject_id,
+    ANY_VALUE(eth_val) AS ethnicity
+  FROM race_eth
+  WHERE eth_val IS NOT NULL
+  GROUP BY subject_id
+),
+
+race_rows AS (
+  SELECT
+    re.subject_id,
+    re.race_val AS race,
+    COALESCE(e.ethnicity, 'unknown') AS ethnicity
+  FROM race_eth re
+  LEFT JOIN ethnicity_by_id e
+    ON re.subject_id = e.subject_id
+  WHERE re.race_val IS NOT NULL
+),
+
+unknown_race_rows AS (
+  SELECT
+    e.subject_id,
+    'Unknown' AS race,
+    e.ethnicity
+  FROM ethnicity_by_id e
+  LEFT JOIN race_rows r
+    ON e.subject_id = r.subject_id
+  WHERE r.subject_id IS NULL
+),
+
+final_race_ethnicity AS (
+  SELECT *
+  FROM race_rows
+  UNION ALL
+  SELECT *
+  FROM unknown_race_rows
+  ORDER BY subject_id, race
+)
+
+select distinct
+NULL::integer as "date_of_birth",
+NULL::text as "date_of_birth_type",
+ds.code::text as "sex",
+ds.display::text as "sex_display",
+COALESCE(dr.display, 'Unknown')::text as "race_display",
+COALESCE(sr.ethnicity, 'unknown') AS ethnicity,
+CASE 
+    WHEN sr.ethnicity = 'hispanic_or_latino' THEN 'Hispanic or Latino'
+    ELSE 'Unknown'
+END::text as "ethnicity_display",
+NULL::integer as "age_at_last_vital_status",
+NULL::text as "vital_status",
+{{ generate_global_id(prefix='ap',descriptor=['s.consent_id'], study_id='cser') }}::text as "has_access_policy",
+{{ generate_global_id(prefix='dm',descriptor=['subject_id', 'consent_id'], study_id='cser') }}::text as "id"
+from {{ ref('cser_stg_subject') }} as s
+left join final_race_ethnicity as sr
+    using(subject_id) 
+left join {{ ref('dm_race') }} as dr
+    on lower(sr.race) = lower(dr.src_format)
+left join {{ ref('dm_sex') }} as ds
+    on lower(s.sex) = lower(ds.src_format)

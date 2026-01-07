@@ -6,8 +6,6 @@ sources:
   - name: cser_kidscanseq_anvil_dataset
     description: Source table for cser_kidscanseq_anvil_dataset.
     columns:
-    - name: datarepo_row_id
-      description: '{{ doc("cser_kidscanseq_anvil_dataset_datarepo_row_id") }}'
     - name: dataset_id
       description: '{{ doc("cser_kidscanseq_anvil_dataset_dataset_id") }}'
     - name: consent_group
@@ -18,6 +16,9 @@ sources:
       description: '{{ doc("cser_kidscanseq_anvil_dataset_owner") }}'
     - name: principal_investigator
       description: '{{ doc("cser_kidscanseq_anvil_dataset_principal_investigator")
+        }}'
+    - name: registered_identifier
+      description: '{{ doc("cser_kidscanseq_anvil_dataset_registered_identifier")
         }}'
     - name: title
       description: '{{ doc("cser_kidscanseq_anvil_dataset_title") }}'

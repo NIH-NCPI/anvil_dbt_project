@@ -12,3 +12,4 @@ cmg_yale,native hawaiian or other pacific islander,native_hawaiian_or_pacific_is
 cser,white or european american,white,CDCREC:2106-3,White,,
 cser,hispanic/latino,unknown,SNOMED:261665006,Unknown,,
 cser,"middle eastern, north african or mediterranean",other_race,CDCREC:2131-1,Other Race,,
+cser_kidscanseq,prefer not to answer,unknown,SNOMED:261665006,Unknown,,

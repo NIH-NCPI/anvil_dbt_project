@@ -3,9 +3,6 @@ models:
 - name: cser_kidscanseq_stg_anvil_dataset
   description: Model for cser_kidscanseq_stg_anvil_dataset.
   columns:
-  - name: datarepo_row_id
-    description: '{{ doc("cser_kidscanseq_stg_anvil_dataset_datarepo_row_id") }}'
-    data_type: string
   - name: dataset_id
     description: '{{ doc("cser_kidscanseq_stg_anvil_dataset_dataset_id") }}'
     data_type: string
@@ -21,6 +18,10 @@ models:
     data_type: string
   - name: principal_investigator
     description: '{{ doc("cser_kidscanseq_stg_anvil_dataset_principal_investigator")
+      }}'
+    data_type: string
+  - name: registered_identifier
+    description: '{{ doc("cser_kidscanseq_stg_anvil_dataset_registered_identifier")
       }}'
     data_type: string
   - name: title
