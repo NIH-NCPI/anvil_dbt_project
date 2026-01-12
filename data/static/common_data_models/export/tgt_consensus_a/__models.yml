@@ -1,0 +1,945 @@
+models:
+- name: sample_storage_method_dd
+  description: Model for sample_storage_method_dd.
+  columns:
+  - name: sample_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_storage_method_dd_177240bb")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: storage_method
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_storage_method_dd_836d950a")
+      }}'
+    data_type: string
+- name: subject_external_id_dd
+  description: Model for subject_external_id_dd.
+  columns:
+  - name: subject_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subject_external_id_dd_subject_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subject_external_id_dd_e_4e6d3fb5")
+      }}'
+    data_type: string
+- name: subjectassertion_external_id_dd
+  description: Model for subjectassertion_external_id_dd.
+  columns:
+  - name: subjectassertion_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_externa_135e373b")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_externa_39963d66")
+      }}'
+    data_type: string
+- name: family_external_id_dd
+  description: Model for family_external_id_dd.
+  columns:
+  - name: family_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_external_id_dd_family_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_external_id_dd_external_id")
+      }}'
+    data_type: string
+- name: study_principal_investigator_dd
+  description: Model for study_principal_investigator_dd.
+  columns:
+  - name: study_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_principal_investig_81838e5f")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: principal_investigator
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_principal_investig_c58e8976")
+      }}'
+    data_type: string
+- name: accesspolicy_external_id_dd
+  description: Model for accesspolicy_external_id_dd.
+  columns:
+  - name: accesspolicy_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_external_id_67146661")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_external_id_e171c451")
+      }}'
+    data_type: string
+- name: family_family_relationships_dd
+  description: Model for family_family_relationships_dd.
+  columns:
+  - name: family_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_family_relationsh_2c441c8d")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: family_relationships_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_family_relationsh_fd6a34ce")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+- name: file_dd
+  description: Model for file_dd.
+  columns:
+  - name: filename
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_dd_filename") }}'
+    data_type: string
+  - name: format
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_dd_format") }}'
+    data_type: enumeration
+  - name: data_type
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_dd_data_type") }}'
+    data_type: enumeration
+  - name: size
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_dd_size") }}'
+    data_type: bigint
+  - name: drs_uri
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_dd_drs_uri") }}'
+    data_type: string
+  - name: file_metadata
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_dd_file_metadata") }}'
+    data_type: string
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_dd_has_access_policy") }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: familyrelationship_dd
+  description: Model for familyrelationship_dd.
+  columns:
+  - name: family_member
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familyrelationship_dd_fa_a09ee014")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: other_family_member
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familyrelationship_dd_ot_d519aee7")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: relationship_code
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familyrelationship_dd_re_5e46b41e")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familyrelationship_dd_ha_06c78a50")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familyrelationship_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: file_sample_dd
+  description: Model for file_sample_dd.
+  columns:
+  - name: file_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_sample_dd_file_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: sample_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_sample_dd_sample_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: study_external_id_dd
+  description: Model for study_external_id_dd.
+  columns:
+  - name: study_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_external_id_dd_study_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_external_id_dd_external_id")
+      }}'
+    data_type: string
+- name: sourcedata_dd
+  description: Model for sourcedata_dd.
+  columns:
+  - name: data_source
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sourcedata_dd_data_source") }}'
+    data_type: string
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sourcedata_dd_has_access_policy")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sourcedata_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: aliquot_external_id_dd
+  description: Model for aliquot_external_id_dd.
+  columns:
+  - name: aliquot_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_external_id_dd_aliquot_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_external_id_dd_e_8ca3a078")
+      }}'
+    data_type: string
+- name: accesscontrolledrecord_external_id_dd
+  description: Model for accesscontrolledrecord_external_id_dd.
+  columns:
+  - name: accesscontrolledrecord_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesscontrolledrecord_e_74477247")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesscontrolledrecord_e_4032c85b")
+      }}'
+    data_type: string
+- name: datasource_dd
+  description: Model for datasource_dd.
+  columns:
+  - name: snapshot_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_datasource_dd_snapshot_id") }}'
+    data_type: string
+  - name: google_data_project
+    description: '{{ doc("anvil_gregor_synthetic_tgt_datasource_dd_google_data_project")
+      }}'
+    data_type: string
+  - name: snapshot_dataset
+    description: '{{ doc("anvil_gregor_synthetic_tgt_datasource_dd_snapshot_dataset")
+      }}'
+    data_type: string
+  - name: table_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_datasource_dd_table_id") }}'
+    data_type: string
+  - name: parameterized_query
+    description: '{{ doc("anvil_gregor_synthetic_tgt_datasource_dd_parameterized_query")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_datasource_dd_id") }}'
+    data_type: string
+- name: file_external_id_dd
+  description: Model for file_external_id_dd.
+  columns:
+  - name: file_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_external_id_dd_file_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_external_id_dd_external_id")
+      }}'
+    data_type: string
+- name: study_dd
+  description: Model for study_dd.
+  columns:
+  - name: parent_study_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_dd_parent_study_id") }}'
+    data_type: string
+  - name: study_title
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_dd_study_title") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: demographics_external_id_dd
+  description: Model for demographics_external_id_dd.
+  columns:
+  - name: demographics_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_external_id_7fb7309f")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_external_id_495fed92")
+      }}'
+    data_type: string
+- name: subject_dd
+  description: Model for subject_dd.
+  columns:
+  - name: subject_type
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subject_dd_subject_type") }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - participant
+        - non_participant
+        - cell_line
+        - animal_model
+        - group
+        - other
+  - name: organism_type
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subject_dd_organism_type") }}'
+    data_type: string
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subject_dd_has_access_policy")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subject_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: has_demographics_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subject_dd_has_demographics_id")
+      }}'
+    data_type: string
+- name: family_dd
+  description: Model for family_dd.
+  columns:
+  - name: family_type
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_dd_family_type") }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - control_only
+        - duo
+        - proband_only
+        - trio
+        - trio_plus
+        - other
+        config:
+          where: family_type is not null
+  - name: family_description
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_dd_family_description")
+      }}'
+    data_type: string
+  - name: consanguinity
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_dd_consanguinity") }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - not_suspected
+        - suspected
+        - known_present
+        - unknown
+        config:
+          where: consanguinity is not null
+  - name: family_study_focus
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_dd_family_study_focus")
+      }}'
+    data_type: string
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_dd_has_access_policy")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_family_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: biospecimencollection_external_id_dd
+  description: Model for biospecimencollection_external_id_dd.
+  columns:
+  - name: biospecimencollection_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_ex_d376b21a")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_ex_1e867349")
+      }}'
+    data_type: string
+- name: subjectassertion_source_data_dd
+  description: Model for subjectassertion_source_data_dd.
+  columns:
+  - name: subjectassertion_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_source__3cdface5")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: source_data_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_source__b4d8ffe4")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+- name: demographics_source_data_dd
+  description: Model for demographics_source_data_dd.
+  columns:
+  - name: demographics_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_source_data_e165cf86")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: source_data_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_source_data_5ca973f9")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+- name: demographics_race_dd
+  description: Model for demographics_race_dd.
+  columns:
+  - name: demographics_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_race_dd_dem_3c1c964d")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: race
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_race_dd_race") }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - american_indian_or_alaskan_native
+        - asian
+        - black_or_african_american
+        - native_hawaiian_or_pacific_islander
+        - white
+        - other_race
+        - unknown
+        - asked_but_unknown
+- name: sample_dd
+  description: Model for sample_dd.
+  columns:
+  - name: parent_sample
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_parent_sample") }}'
+    data_type: string
+  - name: sample_type
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_sample_type") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: availablity_status
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_availablity_status")
+      }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - available
+        - unavailable
+        config:
+          where: availablity_status is not null
+  - name: quantity_number
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_quantity_number") }}'
+    data_type: number
+  - name: quantity_units
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_quantity_units") }}'
+    data_type: string
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_has_access_policy")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: subject_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_subject_id") }}'
+    data_type: string
+  - name: biospecimen_collection_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_dd_biospecimen_co_036c3761")
+      }}'
+    data_type: string
+- name: file_subject_dd
+  description: Model for file_subject_dd.
+  columns:
+  - name: file_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_subject_dd_file_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: subject_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_file_subject_dd_subject_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+- name: familyrelationship_external_id_dd
+  description: Model for familyrelationship_external_id_dd.
+  columns:
+  - name: familyrelationship_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familyrelationship_exter_86fc892b")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familyrelationship_exter_6ae71f7a")
+      }}'
+    data_type: string
+- name: accesspolicy_access_policy_code_dd
+  description: Model for accesspolicy_access_policy_code_dd.
+  columns:
+  - name: accesspolicy_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_access_poli_0fdb2782")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: access_policy_code
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_access_poli_959cbd3d")
+      }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - gru
+        - hmb
+        - ds
+        - irb
+        - pub
+        - col
+        - npu
+        - mds
+        - gso
+        - gsr
+- name: sourcedata_query_parameter_dd
+  description: Model for sourcedata_query_parameter_dd.
+  columns:
+  - name: sourcedata_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sourcedata_query_paramet_5c6a6d97")
+      }}'
+    data_type: string
+  - name: query_parameter
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sourcedata_query_paramet_039cbfc2")
+      }}'
+    data_type: string
+- name: sample_processing_dd
+  description: Model for sample_processing_dd.
+  columns:
+  - name: sample_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_processing_dd_sample_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: processing
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_processing_dd_processing")
+      }}'
+    data_type: string
+- name: demographics_dd
+  description: Model for demographics_dd.
+  columns:
+  - name: date_of_birth
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_date_of_birth")
+      }}'
+    data_type: integer
+  - name: date_of_birth_type
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_date_of__02380e38")
+      }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - exact
+        - year_only
+        - shifted
+        - decade_only
+        - other
+        config:
+          where: date_of_birth_type is not null
+  - name: sex
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_sex") }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - female
+        - male
+        - unknown
+        - intersex
+  - name: sex_display
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_sex_display")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: race_display
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_race_display")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: ethnicity
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_ethnicity") }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - hispanic_or_latino
+        - not_hispanic_or_latino
+        - unknown
+        - asked_but_unknown
+  - name: ethnicity_display
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_ethnicity_display")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: age_at_last_vital_status
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_age_at_l_34f3986d")
+      }}'
+    data_type: integer
+  - name: vital_status
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_vital_status")
+      }}'
+    data_type: enumeration
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_has_access_policy")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_demographics_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: aliquot_dd
+  description: Model for aliquot_dd.
+  columns:
+  - name: availablity_status
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_dd_availablity_status")
+      }}'
+    data_type: enumeration
+    tests:
+    - accepted_values:
+        values:
+        - available
+        - unavailable
+        config:
+          where: availablity_status is not null
+  - name: quantity_number
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_dd_quantity_number")
+      }}'
+    data_type: number
+  - name: quantity_units
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_dd_quantity_units") }}'
+    data_type: string
+  - name: concentration_number
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_dd_concentration_number")
+      }}'
+    data_type: number
+  - name: concentration_unit
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_dd_concentration_unit")
+      }}'
+    data_type: string
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_dd_has_access_policy")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: sample_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_aliquot_dd_sample_id") }}'
+    data_type: string
+- name: subjectassertion_dd
+  description: Model for subjectassertion_dd.
+  columns:
+  - name: assertion_type
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_asse_ad30343b")
+      }}'
+    data_type: enumeration
+  - name: age_at_assertion
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_age__fc85a51f")
+      }}'
+    data_type: number
+  - name: age_at_event
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_age_at_event")
+      }}'
+    data_type: number
+  - name: age_at_resolution
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_age__756bf4f3")
+      }}'
+    data_type: number
+  - name: code
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_code") }}'
+    data_type: string
+  - name: display
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_display")
+      }}'
+    data_type: string
+  - name: value_code
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_value_code")
+      }}'
+    data_type: string
+  - name: value_display
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_value_display")
+      }}'
+    data_type: string
+  - name: value_number
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_value_number")
+      }}'
+    data_type: number
+  - name: value_units
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_value_units")
+      }}'
+    data_type: string
+  - name: value_units_display
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_valu_f672d4e2")
+      }}'
+    data_type: string
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_has__2fe4f946")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: subject_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_subjectassertion_dd_subject_id")
+      }}'
+    data_type: string
+- name: accesscontrolledrecord_dd
+  description: Model for accesscontrolledrecord_dd.
+  columns:
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesscontrolledrecord_d_deae7b14")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesscontrolledrecord_dd_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+- name: filemetadata_dd
+  description: Model for filemetadata_dd.
+  columns:
+  - name: code
+    description: '{{ doc("anvil_gregor_synthetic_tgt_filemetadata_dd_code") }}'
+    data_type: string
+  - name: display
+    description: '{{ doc("anvil_gregor_synthetic_tgt_filemetadata_dd_display") }}'
+    data_type: string
+  - name: value_code
+    description: '{{ doc("anvil_gregor_synthetic_tgt_filemetadata_dd_value_code")
+      }}'
+    data_type: string
+  - name: value_display
+    description: '{{ doc("anvil_gregor_synthetic_tgt_filemetadata_dd_value_display")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_filemetadata_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: datasource_external_id_dd
+  description: Model for datasource_external_id_dd.
+  columns:
+  - name: datasource_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_datasource_external_id_d_823ae70b")
+      }}'
+    data_type: string
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_datasource_external_id_d_7eca4828")
+      }}'
+    data_type: string
+- name: filemetadata_external_id_dd
+  description: Model for filemetadata_external_id_dd.
+  columns:
+  - name: filemetadata_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_filemetadata_external_id_57116aa0")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_filemetadata_external_id_0ca1adba")
+      }}'
+    data_type: string
+- name: familymember_external_id_dd
+  description: Model for familymember_external_id_dd.
+  columns:
+  - name: familymember_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familymember_external_id_468dd0c7")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familymember_external_id_c8a925d3")
+      }}'
+    data_type: string
+- name: study_funding_source_dd
+  description: Model for study_funding_source_dd.
+  columns:
+  - name: study_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_funding_source_dd_study_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: funding_source
+    description: '{{ doc("anvil_gregor_synthetic_tgt_study_funding_source_dd__51aee620")
+      }}'
+    data_type: string
+- name: accesspolicy_dd
+  description: Model for accesspolicy_dd.
+  columns:
+  - name: disease_limitation
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_dd_disease__938947b4")
+      }}'
+    data_type: string
+  - name: description
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_dd_description")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: website
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_dd_website") }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+- name: familymember_dd
+  description: Model for familymember_dd.
+  columns:
+  - name: family_member
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familymember_dd_family_member")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: family_role
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familymember_dd_family_role")
+      }}'
+    data_type: string
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familymember_dd_has_access_policy")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familymember_dd_id") }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: family_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_familymember_dd_family_id") }}'
+    data_type: string
+- name: sourcedata_external_id_dd
+  description: Model for sourcedata_external_id_dd.
+  columns:
+  - name: sourcedata_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sourcedata_external_id_d_2aac7290")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sourcedata_external_id_d_e577cef8")
+      }}'
+    data_type: string
+- name: sample_external_id_dd
+  description: Model for sample_external_id_dd.
+  columns:
+  - name: sample_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_external_id_dd_sample_id")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: external_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_sample_external_id_dd_external_id")
+      }}'
+    data_type: string
+- name: biospecimencollection_dd
+  description: Model for biospecimencollection_dd.
+  columns:
+  - name: age_at_collection
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_dd_00bfadb4")
+      }}'
+    data_type: integer
+  - name: method
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_dd_method")
+      }}'
+    data_type: enumeration
+  - name: site
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_dd_site")
+      }}'
+    data_type: enumeration
+  - name: spatial_qualifier
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_dd_43ae8204")
+      }}'
+    data_type: enumeration
+  - name: laterality
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_dd_7feeaebe")
+      }}'
+    data_type: enumeration
+  - name: has_access_policy
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_dd_4e116b15")
+      }}'
+    data_type: string
+  - name: id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_biospecimencollection_dd_id")
+      }}'
+    data_type: string
+- name: accesspolicy_data_access_type_dd
+  description: Model for accesspolicy_data_access_type_dd.
+  columns:
+  - name: accesspolicy_id
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_data_access_e7047f63")
+      }}'
+    data_type: string
+    tests:
+    - not_null
+  - name: data_access_type
+    description: '{{ doc("anvil_gregor_synthetic_tgt_accesspolicy_data_access_2615fb4b")
+      }}'
+    data_type: enumeration
+    tests:
+    - not_null
+    - accepted_values:
+        values:
+        - open
+        - registered
+        - controlled
+        - gsr_restricted
+        - gsr_allowed

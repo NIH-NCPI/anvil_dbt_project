@@ -8,5 +8,5 @@ ethnicity,Reported ethnicity as defined by the 1997 OMB directives.,enumeration,
 ethnicity_display,The friendly display string of the coded term for Ethnicity,string,,,,,,not_null
 age_at_last_vital_status,Age at last vital status in decimal years.,integer,,,UCUM:a,,,
 vital_status,Vital Status,enumeration,,,,alive;dead;not_reported;unknown;unspecified,,
-has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id,
+has_access_policy,Which access policy applies to this element?,string,,,,,,
 id,ID associated with a class,string,,,,,,not_null

@@ -3,5 +3,5 @@ family_type,"Describes the 'type' of study family, eg, trio.",enumeration,,,,con
 family_description,"Free title describing the study family, such as potential inheritance or details about consanguinity",string,,,,,,
 consanguinity,Is there known or suspected consanguinity in this study family?,enumeration,,,,not_suspected;suspected;known_present;unknown,,accepted_values
 family_study_focus,"What is this study family investigating? EG, a specific condition. The code should be prefixed with a recognizable curie.",string,,,,,,
-has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id,
+has_access_policy,Which access policy applies to this element?,string,,,,,,
 id,ID associated with a class,string,,,,,,not_null

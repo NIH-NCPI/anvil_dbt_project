@@ -10,6 +10,6 @@ value_display,The friendly display string of the coded term for the value of the
 value_number,The numeric value of the assertion.,number,,,,,,
 value_units,The structured term defining the units of the value.,string,,,,,,
 value_units_display,The friendly display string of units of the value.,string,,,,,,
-has_access_policy,Which access policy applies to this element?,string,,,,,Foreign Key: AccessPolicy.id,
+has_access_policy,Which access policy applies to this element?,string,,,,,,
 id,ID associated with a class,string,,,,,,not_null
-Subject_id,Autocreated FK slot,string,,,,,Foreign Key: Subject.id,
+Subject_id,Autocreated FK slot,string,,,,,,
