@@ -806,3 +806,407 @@ None
 {% docs cmg_uwash_stg_file_inventory_ingest_provenance %}
 None
 {% enddocs %}
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_description %}
+Model for anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000.
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_dataset_id %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_consent_group %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_data_use_permission %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_owner %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_principal_investigator %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_registered_identifier %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_title %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_data_modality %}
+None
+{% enddocs %}
+
+
+{% docs anvil_dataset_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_source_datarepo_row_ids %}
+None
+{% enddocs %}
+
+
+{% docs family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_description %}
+Model for family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000.
+{% enddocs %}
+
+
+{% docs family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_family_id %}
+None
+{% enddocs %}
+
+
+{% docs family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_consanguinity %}
+None
+{% enddocs %}
+
+
+{% docs family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_family_history %}
+None
+{% enddocs %}
+
+
+{% docs family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_pedigree_detail %}
+None
+{% enddocs %}
+
+
+{% docs family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_pedigree_image %}
+None
+{% enddocs %}
+
+
+{% docs family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_consanguinity_detail %}
+None
+{% enddocs %}
+
+
+{% docs family_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_description %}
+Model for file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000.
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_file_id %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_name %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_path %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_uri %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_content_type %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_full_extension %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_size_in_bytes %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_crc32c %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_md5_hash %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_file_ref %}
+None
+{% enddocs %}
+
+
+{% docs file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs sample_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_description %}
+Model for sample_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000.
+{% enddocs %}
+
+
+{% docs sample_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sample_id %}
+None
+{% enddocs %}
+
+
+{% docs sample_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_bam %}
+None
+{% enddocs %}
+
+
+{% docs sample_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sample_source %}
+None
+{% enddocs %}
+
+
+{% docs sample_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sequencing_center %}
+None
+{% enddocs %}
+
+
+{% docs sample_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_subject_id %}
+None
+{% enddocs %}
+
+
+{% docs sample_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_description %}
+Model for sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000.
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sequencing_id %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_alignment_method %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_analyte_type %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_data_processing_pipeline %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_date_data_generation %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_exome_capture_platform %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_library_prep_kit_method %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_file_id %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_reference_genome_build %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sample_id %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_seq_filename %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sequencing_assay %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_capture_region_bed_file %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sequencing_id_fileref %}
+None
+{% enddocs %}
+
+
+{% docs sequencing_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_description %}
+Model for subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000.
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_subject_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_affected_status %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_ancestry %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_dbgap_submission %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_disease_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_disease_description %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_family_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_multiple_datasets %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_phenotype_description %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_proband_relationship %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_project_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sex %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_solve_state %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_pmid_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_twin_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_hpo_present %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_maternal_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_paternal_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_ancestry_detail %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_congential_status %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_dbgap_study_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_dbgap_subject_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_age_at_last_observation %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_prior_testing %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_ingest_provenance %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sample_id %}
+None
+{% enddocs %}
+
+
+{% docs subject_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000_sequencing_center %}
+None
+{% enddocs %}
