@@ -52,7 +52,7 @@ def get_separate_src_tables_dict(src_df_names_dict, tablename, paths):
 
                 column_definitions = ", ".join([f"'{col}': 'VARCHAR'" for col in columns])  # Fix: Use proper dictionary syntax
                 query = f"""
-                SELECT * FROM read_csv('{table_path}', AUTO_DETECT=FALSE, HEADER=TRUE, columns={{ {column_definitions} }})
+                SELECT * FROM read_csv('{table_path}', AUTO_DETECT=FALSE, HEADER=TRUE, DELIM=',', QUOTE='"', ESCAPE='"', COLUMNS={{ {column_definitions} }})
                 """
                 result = engine.execute(query)
 
@@ -119,7 +119,7 @@ def generate_union_query(table_columns, all_columns, table_paths):
     {% for table, columns in table_columns.items() %}
     SELECT 
         {% for col in all_columns %}
-        COALESCE({% if col in columns %}{{ col }}{% else %}NULL{% endif %}, NULL) AS {{ col }}{% if not loop.last %}, {% endif %}
+        COALESCE({% if col in columns %}{{ col }}{% else %}NULL{% endif %}, NULL)::text AS {{ col }}{% if not loop.last %}, {% endif %}
         {% endfor %}
     FROM '{{ table }}'
     {% if not loop.last %}UNION ALL{% endif %}
