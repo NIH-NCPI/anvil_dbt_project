@@ -2,11 +2,8 @@
 
     with source as (
         select 
-        {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "file_id",
-       {{ generate_global_id(prefix='',descriptor=[''], study_id='gregor_synthetic') }}::text as "sample_id"
-        from {{ ref('gregor_synthetic_stg_participant') }} as participant
-        join {{ ref('gregor_synthetic_stg_phenotype') }} as phenotype
-on participant.participant_id = phenotype.participant_id 
+        NULL::text as "file_id",
+        NULL::text as "sample_id"
     )
 
     select 

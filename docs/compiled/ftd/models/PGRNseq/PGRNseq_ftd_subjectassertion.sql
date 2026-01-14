@@ -14,42 +14,6 @@
 
 with bmi_cte as (
     
-        select distinct
-        bmi.subject_id,
-        bmi.age_observation as age_at_event,
-        'weight' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        weight::text as value_number,
-        NULL as value_units_display,
-        from "dbt"."main_main"."PGRNseq_stg_bmi" as bmi
-        union all
-    
-        select distinct
-        bmi.subject_id,
-        bmi.age_observation as age_at_event,
-        'height' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        height::text as value_number,
-        NULL as value_units_display,
-        from "dbt"."main_main"."PGRNseq_stg_bmi" as bmi
-        union all
-    
-        select distinct
-        bmi.subject_id,
-        bmi.age_observation as age_at_event,
-        'body_mass_index' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        body_mass_index::text as value_number,
-        NULL as value_units_display,
-        from "dbt"."main_main"."PGRNseq_stg_bmi" as bmi
-        
-    
 ),
 
 bmi_w_units as (
@@ -63,66 +27,6 @@ bmi_w_units as (
 
 ecg_cte as (
     
-        select distinct
-        ecg.subject_id,
-        ecg.age_at_ecg as age_at_event,
-        'ecg_qrs_duration' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        ecg_qrs_duration::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_ecg" as ecg
-        union all
-    
-        select distinct
-        ecg.subject_id,
-        ecg.age_at_ecg as age_at_event,
-        'ecg_qt_interval' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        ecg_qt_interval::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_ecg" as ecg
-        union all
-    
-        select distinct
-        ecg.subject_id,
-        ecg.age_at_ecg as age_at_event,
-        'ecg_qtc_bazett' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        ecg_qtc_bazett::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_ecg" as ecg
-        union all
-    
-        select distinct
-        ecg.subject_id,
-        ecg.age_at_ecg as age_at_event,
-        'ecg_hr' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        ecg_hr::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_ecg" as ecg
-        union all
-    
-        select distinct
-        ecg.subject_id,
-        ecg.age_at_ecg as age_at_event,
-        'ecg_pr_interval' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        ecg_pr_interval::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_ecg" as ecg
-        
-    
 ),
 
 ecg_w_units as (
@@ -135,66 +39,6 @@ ecg_w_units as (
 ),
 
 lab_cte as (
-    
-        select distinct
-        lab.subject_id,
-        lab.age_at_lipids as age_at_event,
-        'on_statins_at_time_of_lab' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        on_statins_at_time_of_lab::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_labs" as lab
-        union all
-    
-        select distinct
-        lab.subject_id,
-        lab.age_at_lipids as age_at_event,
-        'serum_total_cholesterol' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        serum_total_cholesterol::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_labs" as lab
-        union all
-    
-        select distinct
-        lab.subject_id,
-        lab.age_at_lipids as age_at_event,
-        'ldl' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        ldl::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_labs" as lab
-        union all
-    
-        select distinct
-        lab.subject_id,
-        lab.age_at_lipids as age_at_event,
-        'hdl' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        hdl::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_labs" as lab
-        union all
-    
-        select distinct
-        lab.subject_id,
-        lab.age_at_lipids as age_at_event,
-        'triglyceride' as code,
-        NULL as display,
-        NULL as value_code,
-        NULL as value_display,
-        triglyceride::text as value_number,
-        NULL as value_units_display
-        from "dbt"."main_main"."PGRNseq_stg_labs" as lab
-        
     
 ),
 

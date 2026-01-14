@@ -1,7 +1,8 @@
 {{ config(materialized='table', schema='gregor_synthetic_data') }}
 
     with source as (
-        select 
+        select
+        family_id,
         participant_id AS other_family_member,
         twin_id AS participant_id,
         'KIN:009' AS relationship_code,
@@ -11,6 +12,7 @@
         UNION 
 
         select 
+        family_id,
         participant_id AS other_family_member, 
         paternal_id AS participant_id,
         'KIN:028' AS relationship_code,
@@ -20,6 +22,7 @@
         UNION 
 
         select 
+        family_id,
         participant_id AS other_family_member, 
         maternal_id AS participant_id,
         'KIN:027' AS relationship_code,
@@ -29,6 +32,7 @@
         UNION 
         -- Normal Direction of family relationship
         SELECT
+        participant.family_id,
         proband.participant_id as other_family_member, -- is proband's participant ID. -- Josh changed this as other_family_member, -- is proband's participant ID
         participant.participant_id AS participant_id, -- is not proband's participant ID
        CASE 
@@ -61,6 +65,7 @@
         UNION 
         -- Flipped Direction of family relationship
         SELECT 
+        family_id,
         {{ generate_global_id(prefix='sb',descriptor=['participant.participant_id'], study_id='gregor_synthetic') }}::text as "other_family_member", -- not proband (niece or nephew's ID)
         (   select DISTINCT CAST(participant_id as STRING) FROM {{ ref('gregor_synthetic_stg_participant') }} as stg 
             WHERE CAST(stg.family_id as STRING) = CAST(participant.family_id as STRING) 
@@ -73,9 +78,10 @@
     )
 
     select DISTINCT
-        {{ generate_global_id(prefix='fm',descriptor=['participant_id','source.other_family_member'],study_id='gregor_synthetic') }}::text as "id",
+        {{ generate_global_id(prefix='fr',descriptor=['family_id','participant_id','source.other_family_member'],study_id='gregor_synthetic') }}::text as "id",
         relationship_code, 
         {{ generate_global_id(prefix='sb',descriptor=['source.participant_id'], study_id='gregor_synthetic') }}::text AS "family_member",
-        {{ generate_global_id(prefix='sb',descriptor=['source.other_family_member'], study_id='gregor_synthetic') }}::text as "other_family_member"
+        {{ generate_global_id(prefix='sb',descriptor=['source.other_family_member'], study_id='gregor_synthetic') }}::text as "other_family_member",
+        has_access_policy
     from source
  

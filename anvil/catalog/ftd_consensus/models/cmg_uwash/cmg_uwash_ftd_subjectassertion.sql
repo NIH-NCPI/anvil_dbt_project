@@ -20,7 +20,8 @@ with unioned_codes as (
   from {{ ref('cmg_uwash_stg_subject') }}
      ),
           
-all_codes as (select
+all_codes as (
+    select
     uc.subject_id as subject_id,
     uc.value_display as value_display,
     CASE 
@@ -47,8 +48,10 @@ all_codes as (select
     END::text as assertion_type,
     cm."code system" as system
     from unioned_codes as uc
+    left join {{ ref('cmg_uwash_split_text_mappings_var') }} as st
+    on trim(lower(uc.display)) = trim(lower(st.original_text))
     left join {{ ref('cmg_uwash_condition_mappings') }} as cm
-    on trim(lower(uc.display)) = trim(lower(cm."local code"))
+    on trim(lower(st.split_text)) = trim(lower(cm."local code"))
               
     union all
         
@@ -132,4 +135,4 @@ all_conditions as (
 from {{ ref('cmg_uwash_stg_subject') }} as s
 left join all_conditions as alc
 using(subject_id)
-where code is not null
+-- where code is not null

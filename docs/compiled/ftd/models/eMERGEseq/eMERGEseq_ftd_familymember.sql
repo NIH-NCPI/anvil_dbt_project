@@ -7,36 +7,6 @@
     unpivot_df as (
 
         
-            select
-                ftd_index, family_id,
-                mother as "other_family_memb_id",
-                subject_id as "proband_id",
-                NULL as "sex",
-                'mother' as "family_role",
-            from "dbt"."main_main"."eMERGEseq_stg_pedigree" as p
-            WHERE mother IS NOT NULL 
-            union all
-        
-            select
-                ftd_index, family_id,
-                father as "other_family_memb_id",
-                subject_id as "proband_id",
-                NULL as "sex",
-                'father' as "family_role",
-            from "dbt"."main_main"."eMERGEseq_stg_pedigree" as p
-            WHERE father IS NOT NULL 
-            union all
-        
-            select
-                ftd_index, family_id,
-                mz_twin_id as "other_family_memb_id",
-                subject_id as "proband_id",
-                NULL as "sex",
-                'mz_twin_id' as "family_role",
-            from "dbt"."main_main"."eMERGEseq_stg_pedigree" as p
-            WHERE mz_twin_id IS NOT NULL 
-            
-        
     ),
     
    all_pedigree as (

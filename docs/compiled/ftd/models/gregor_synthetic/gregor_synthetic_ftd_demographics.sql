@@ -1,9 +1,9 @@
 
 
     with source as (
-        select 
-        -- GEN_UNKNOWN.date_of_birth::integer as "date_of_birth",
-        -- GEN_UNKNOWN.date_of_birth_type::text as "date_of_birth_type",
+        select distinct
+        NULL::integer as "date_of_birth",
+        NULL::text as "date_of_birth_type",
          CASE participant.sex
             WHEN 'Female' THEN 'female'
             WHEN 'Male' THEN 'male'
@@ -25,15 +25,9 @@
             ELSE participant.reported_ethnicity
         END::text as "ethnicity_display",
         participant.age_at_last_observation::integer as "age_at_last_vital_status",
-        -- GEN_UNKNOWN.vital_status::text as "vital_status",
-        -- NOTE! Currently, For the model to run successfully, the global_id rows must be able to create SQL, the args cannot be invalid, even when commented out. Use placeholders for now.
--- To see the generated sql, run `dbt compile --select {model}`
--- Brenda plans to make these run easier later.
        'ap' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.consent_code, '') as text))::text as "has_access_policy",
        'dm' || '_' || md5('gregor_synthetic' || '|' || cast(coalesce(participant.participant_id, '') as text))::text as "id"
         from "dbt"."main_main"."gregor_synthetic_stg_participant" as participant
-        join "dbt"."main_main"."gregor_synthetic_stg_phenotype" as phenotype
-        on participant.participant_id = phenotype.participant_id 
     )
 
     select 
