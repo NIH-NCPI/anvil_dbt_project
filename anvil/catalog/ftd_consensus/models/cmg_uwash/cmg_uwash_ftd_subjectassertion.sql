@@ -19,7 +19,7 @@ with unioned_codes as (
     'phenotypic_feature' as assertion_type
   from {{ ref('cmg_uwash_stg_subject') }}
      ),
-          
+             
 all_codes as (
     select
     uc.subject_id as subject_id,
@@ -135,4 +135,4 @@ all_conditions as (
 from {{ ref('cmg_uwash_stg_subject') }} as s
 left join all_conditions as alc
 using(subject_id)
--- where code is not null
+where code is not null

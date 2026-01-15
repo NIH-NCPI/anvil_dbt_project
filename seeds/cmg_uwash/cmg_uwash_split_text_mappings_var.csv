@@ -1,0 +1,218 @@
+original_text,split_text,was_split,variable_name
+CHARGE Syndrome,myoclonic atonic epilepsy:CHARGE Syndrome,TRUE,phenotype_description
+septo optic dysplasia,septo optic dysplasia,FALSE,phenotype_description
+Family history of Moyamoya disease,Family history of Moyamoya disease,FALSE,phenotype_description
+Family history of moyamoya disease,Family history of Moyamoya disease,FALSE,phenotype_description
+Family history of arterial aneurysm/dissection,Family history of arterial aneurysm/dissection,FALSE,phenotype_description
+Family history of thoracic aortic disease,Family history of thoracic aortic disease,FALSE,phenotype_description
+Chiari Malformation,Chiari Malformation,FALSE,phenotype_description
+Abdominal aortic disease,Abdominal aortic disease,FALSE,phenotype_description
+arterial aneurysm/dissection,arterial aneurysm/dissection,FALSE,phenotype_description
+Thoracic aortic disease,Thoracic aortic disease,FALSE,phenotype_description
+Thoracic aortic aneurysm and/or dissection,Thoracic aortic aneurysm and/or dissection,FALSE,phenotype_description
+other arterial dissection; arterial stenosis,arterial stenosis,TRUE,phenotype_description
+Other arterial dissection; stroke,Other arterial dissection,TRUE,phenotype_description
+Other arterial dissection; stroke,stroke,TRUE,phenotype_description
+Other arterial occlusion,Other arterial occlusion,FALSE,phenotype_description
+arterial aneurysm; stroke,arterial aneurysm,TRUE,phenotype_description
+arterial aneurysm; stroke,stroke,TRUE,phenotype_description
+Moyamoya Disease,Moyamoya Disease,FALSE,phenotype_description
+Moyamoya disease,Moyamoya Disease,FALSE,phenotype_description
+Stroke,Stroke,FALSE,phenotype_description
+Kobberling Familial Partial Lipodystrophy,Kobberling Familial Partial Lipodystrophy,FALSE,phenotype_description
+intracranial anerysm intracranial occlusion,intracranial anerysm intracranial occlusion,FALSE,phenotype_description
+Kobberling familial partial lipodystrophy,Kobberling Familial Partial Lipodystrophy,FALSE,phenotype_description
+Premature vascular occlusive disease,Premature vascular occlusive disease,FALSE,phenotype_description
+Premature vascular occlusive disease; aortic root aneurysm; other arterial dissection,aortic root aneurysm,TRUE,phenotype_description
+Premature vascular occlusive disease; aortic root aneurysm; other arterial dissection,other arterial dissection,TRUE,phenotype_description
+Premature vascular occlusive disease; other arterial dissection,Premature vascular occlusive disease,TRUE,phenotype_description
+Premature vascular occlusive disease; other arterial dissection,other arterial dissection,TRUE,phenotype_description
+Hypoplastic Left Heart Syndrome,Hypoplastic Left Heart Syndrome,FALSE,phenotype_description
+Pulmonary atresia,Pulmonary atresia,FALSE,phenotype_description
+Dextro-Transposition of the Great Arteries,Dextro-Transposition of the Great Arteries,FALSE,phenotype_description
+Total anomalous pulmonary venous return,Total anomalous pulmonary venous return,FALSE,phenotype_description
+Long Qt syndrome (LQTS),Long Qt syndrome (LQTS),FALSE,phenotype_description
+Premature vascular occlusive disease; aortic root aneurysm; other arterial dissection,Premature vascular occlusive disease,TRUE,phenotype_description
+Atrial Septal Defect,Atrial Septal Defect,FALSE,phenotype_description
+Aortic dilation/aneurysm,Aortic dilation/aneurysm,FALSE,phenotype_description
+Ebstein's anomaly,Ebstein's anomaly,FALSE,phenotype_description
+Normal,Normal,FALSE,phenotype_description
+Ventricular Septal Defect,Ventricular Septal Defect,FALSE,phenotype_description
+Aortic Stenosis,Aortic Stenosis,FALSE,phenotype_description
+Patent Ductus Arteriosus,Patent Ductus Arteriosus,FALSE,phenotype_description
+Patent Foramen Ovale,Patent Foramen Ovale,FALSE,phenotype_description
+Coarctation of the Aorta,Coarctation of the Aorta,FALSE,phenotype_description
+Arrhy,Arrhy,FALSE,phenotype_description
+Bicuspid Aortic Valve,Bicuspid Aortic Valve,FALSE,phenotype_description
+Intact Ventricular Septum,Intact Ventricular Septum,FALSE,phenotype_description
+Mutation Negative Distal Arthrogryposis 5D,Mutation Negative Distal Arthrogryposis 5D,FALSE,phenotype_description
+Primary Congenital Glaucoma,Primary Congenital Glaucoma,FALSE,phenotype_description
+Joint Hypermobility,Joint Hypermobility,FALSE,phenotype_description
+intellectual disability,intellectual disability,FALSE,phenotype_description
+Distal arthrogryposis,Distal arthrogryposis,FALSE,phenotype_description
+Laurin Sandrow Syndrome,Laurin Sandrow Syndrome,FALSE,phenotype_description
+Hypoplastic left heart syndrome,Hypoplastic left heart syndrome,FALSE,phenotype_description
+Aicardi syndrome,Aicardi syndrome,FALSE,phenotype_description
+Multiplex family,Multiplex family,FALSE,phenotype_description
+Agenesis of the Corpus Callosum with Polymicrogyria and Pituitary Abnormalities,Agenesis of the Corpus Callosum,TRUE,phenotype_description
+Agenesis of the Corpus Callosum with Polymicrogyria and Pituitary Abnormalities,Polymicrogyria,TRUE,phenotype_description
+short stature,short stature,FALSE,phenotype_description
+Agenesis of the Corpus Callosum,Agenesis of the Corpus Callosum,FALSE,phenotype_description
+Agenesis of the Corpus Callosum with Polymicrogyria and Heterotopia,Agenesis of the Corpus Callosum,TRUE,phenotype_description
+Agenesis of the Corpus Callosum with Polymicrogyria and Heterotopia,Polymicrogyria,TRUE,phenotype_description
+hypoventilation,hypoventilation,FALSE,phenotype_description
+Sponastrime Dysplasia,Sponastrime Dysplasia,FALSE,phenotype_description
+and autonomic dysregulation,autonomic dysregulation,TRUE,phenotype_description
+Congenital Diaphragmatic Hernia,Congenital Diaphragmatic Hernia,FALSE,phenotype_description
+Callosal agenesis retinal abnormalities infantile spasms only girls,Callosal agenesis retinal abnormalities infantile spasms only girls,FALSE,phenotype_description
+hypotonia,hypotonia,FALSE,phenotype_description
+Anophthalmos Plus Syndrome,Anophthalmos Plus Syndrome,FALSE,phenotype_description
+Periventricular Nodular Heterotopia,Periventricular Nodular Heterotopia,FALSE,phenotype_description
+Persistent buccopharyngeal membrane,Persistent buccopharyngeal membrane,FALSE,phenotype_description
+Distal Arthrogryposis with Abnormal Thumb and Extra Toes,Distal Arthrogryposis with Abnormal Thumb and Extra Toes,FALSE,phenotype_description
+Pachydermoperiostosis,Pachydermoperiostosis,FALSE,phenotype_description
+motor delay,motor delay,FALSE,phenotype_description
+Pulmonary Acinar Dysplasia,Pulmonary Acinar Dysplasia,FALSE,phenotype_description
+hypoplastic left heart syndrome,hypoplastic left heart syndrome,FALSE,phenotype_description
+Contractures with scoliosis,Contractures with scoliosis,FALSE,phenotype_description
+Progressive Muscular Atrophy,Progressive Muscular Atrophy,FALSE,phenotype_description
+Autonomic Neuropathy,Autonomic Neuropathy,FALSE,phenotype_description
+CIPO-like,CIPO-like,FALSE,phenotype_description
+Agenesis of the Corpus Callosum with Pituitary Abnormalities,Agenesis of the Corpus Callosum,TRUE,phenotype_description
+Agenesis of the Corpus Callosum with Pituitary Abnormalities,Pituitary Abnormalities,TRUE,phenotype_description
+Rapid-onset obseity,Rapid-onset obseity,FALSE,phenotype_description
+Familial Bell's Palsy,Familial Bell's Palsy,FALSE,phenotype_description
+Agenesis of the Corpus Callosum with Heterotopia and Polymicrogyria,Agenesis of the Corpus Callosum,TRUE,phenotype_description
+Agenesis of the Corpus Callosum with Heterotopia and Polymicrogyria,Heterotopia,TRUE,phenotype_description
+Agenesis of the Corpus Callosum with Heterotopia and Polymicrogyria,Polymicrogyria,TRUE,phenotype_description
+Polymicrogyria,Polymicrogyria,FALSE,phenotype_description
+Toriello-Carey Syndrome,Toriello-Carey Syndrome,FALSE,phenotype_description
+and Ehlers Danlos Syndrome,Ehlers Danlos Syndrome,TRUE,phenotype_description
+Other arterial dissection,Other arterial dissection,FALSE,phenotype_description
+other arterial dissection; arterial stenosis,Other arterial dissection,TRUE,phenotype_description
+Contractures,Contractures,FALSE,phenotype_description
+Primary ciliary defect,Primary ciliary defect,FALSE,phenotype_description
+Epidermolysis bullosa simplex with muscular dystrophy,Epidermolysis bullosa simplex with muscular dystrophy,FALSE,phenotype_description
+Subcortical Heterotopia,Subcortical Heterotopia,FALSE,phenotype_description
+Congenital diaphragmatic hernia,Congenital diaphragmatic hernia,FALSE,phenotype_description
+Sheldon-Hall Syndrome,Sheldon-Hall Syndrome,FALSE,phenotype_description
+Van Den Ende Gupta Syndrome,Van Den Ende Gupta Syndrome,FALSE,phenotype_description
+Van den Ende Gupta Syndrome,Van Den Ende Gupta Syndrome,FALSE,phenotype_description
+Gordon Syndrome,Gordon Syndrome,FALSE,phenotype_description
+Multiple congenital anomalies including macrocephaly,macrocephaly,TRUE,phenotype_description
+speech delay,speech delay,FALSE,phenotype_description
+Uncombable Hair Syndrome,Uncombable Hair Syndrome,FALSE,phenotype_description
+Agenesis of the Corpus Callosum and Polymicrogyria,Agenesis of the Corpus Callosum,TRUE,phenotype_description
+Agenesis of the Corpus Callosum and Polymicrogyria,Polymicrogyria,TRUE,phenotype_description
+"severe hypoplasia of cerebellar vermis and hemispheres, moderate hypoplasia of pons",severe hypoplasia of cerebellar vermis and hemispheres,TRUE,phenotype_description
+"severe hypoplasia of cerebellar vermis and hemispheres, moderate hypoplasia of pons",moderate hypoplasia of pons,TRUE,phenotype_description
+"severe ventriculomegaly, likely rhombencephalosynpasis",mild ventriculomegaly,TRUE,phenotype_description
+"severe ventriculomegaly, likely rhombencephalosynpasis",likely rhombencephalosynpasis,TRUE,phenotype_description
+tubulinopathy,tubulinopathy,FALSE,phenotype_description
+"OMA, inferior vermis hypoplasia, mild superior cerebellar dysplasia",OMA,TRUE,phenotype_description
+"OMA, inferior vermis hypoplasia, mild superior cerebellar dysplasia",inferior vermis hypoplasia,TRUE,phenotype_description
+"OMA, inferior vermis hypoplasia, mild superior cerebellar dysplasia",mild superior cerebellar dysplasia,TRUE,phenotype_description
+"Dandy Walker malformation, KID syndrome",Dandy Walker malformation,TRUE,phenotype_description
+"Dandy Walker malformation, KID syndrome",KID syndrome,TRUE,phenotype_description
+"OMA, mild ventriculomegaly, mild superior cerebellar dysplasia",OMA,TRUE,phenotype_description
+"OMA, mild ventriculomegaly, mild superior cerebellar dysplasia",mild superior cerebellar dysplasia,TRUE,phenotype_description
+"OMA, mild ventriculomegaly, mild superior cerebellar dysplasia",mild ventriculomegaly,TRUE,phenotype_description
+Joubert syndrome and Rhomencephalosynapsis,Joubert syndrome,TRUE,phenotype_description
+Joubert syndrome and Rhomencephalosynapsis,Rhomencephalosynapsis,TRUE,phenotype_description
+Rhomencephalosynapsis,Rhomencephalosynapsis,FALSE,phenotype_description
+Joubert syndrome,Joubert syndrome,FALSE,phenotype_description
+hypothalmic dysregulation,hypothalmic dysregulation,FALSE,phenotype_description
+cerebellar atrophy,cerebellar atrophy,FALSE,phenotype_description
+TBCK syndrome,TBCK syndrome,FALSE,phenotype_description
+Agenesis of the Corpus Callosum with Polymicrogyria and Heterotopia,Heterotopia,TRUE,phenotype_description
+Marden Walker Syndrome,Marden Walker Syndrome,FALSE,phenotype_description
+Agenesis of the Corpus Callosum with Polymicrogyria and Pituitary Abnormalities,Pituitary Abnormalities,TRUE,phenotype_description
+Trichothiodystrophy,Trichothiodystrophy,FALSE,phenotype_description
+possible partial Rhombencephalosynapsis,possible partial Rhombencephalosynapsis,FALSE,phenotype_description
+"Epileptic Encephalopathy, early onset epileptic encephalopathy",Epileptic Encephalopathy,TRUE,phenotype_description
+"Epileptic Encephalopathy, early onset epileptic encephalopathy",early onset epileptic encephalopathy,TRUE,phenotype_description
+Rhombencephalosynapsis,Rhombencephalosynapsis,FALSE,phenotype_description
+Poretti-Boltshauser syndrome,Poretti-Boltshauser syndrome,FALSE,phenotype_description
+"Epileptic Encephalopathy, infantile spasms",Epileptic Encephalopathy,TRUE,phenotype_description
+"Epileptic Encephalopathy, infantile spasms",infantile spasms,TRUE,phenotype_description
+Joubert syndrome like,Joubert syndrome,TRUE,phenotype_description
+Neurodegeneration with brain iron accumulation,Neurodegeneration with Brain Iron Accumulation,FALSE,phenotype_description
+Neurodegeneration with Brain Iron Accumulation,Neurodegeneration with Brain Iron Accumulation,FALSE,phenotype_description
+"Epileptic Encephalopathy, early onset absence epilepsy",Epileptic Encephalopathy,TRUE,phenotype_description
+"Epileptic Encephalopathy, early onset absence epilepsy",early onset absence epilepsy,TRUE,phenotype_description
+"Epileptic Encephalopathy, Epilepsy Aphasia Spectrum",Epileptic Encephalopathy,TRUE,phenotype_description
+"Epileptic Encephalopathy, Epilepsy Aphasia Spectrum",Epilepsy Aphasia Spectrum,TRUE,phenotype_description
+"Epileptic Encephalopathy, myoclonic atonic epilepsy",Epileptic Encephalopathy,TRUE,phenotype_description
+"Epileptic Encephalopathy, myoclonic atonic epilepsy",myoclonic atonic epilepsy,TRUE,phenotype_description
+Epileptic Encephalopathy,Epileptic Encephalopathy,FALSE,phenotype_description
+congenital heart disease,congenital heart disease,FALSE,phenotype_description
+Agenesis of the Corpus Callosum with Polymicrogyria,Agenesis of the Corpus Callosum,TRUE,phenotype_description
+Agenesis of the Corpus Callosum with Polymicrogyria,Polymicrogyria,TRUE,phenotype_description
+Agenesis of the Corpus Callosum with Heterotopia,Agenesis of the Corpus Callosum,TRUE,phenotype_description
+Agenesis of the Corpus Callosum with Heterotopia,Heterotopia,TRUE,phenotype_description
+Unique Skeletal Dysplasia,Unique Skeletal Dysplasia,FALSE,phenotype_description
+Dysgenesis of the Corpus Callosum with Pituitary Abnormalities,Dysgenesis of the Corpus Callosum with Pituitary Abnormalities,FALSE,phenotype_description
+Bicuspid aortic valve,Bicuspid aortic valve,FALSE,phenotype_description
+Marden-Walker syndrome,Marden-Walker syndrome,FALSE,disease_description
+Neurological abnormalities and contractures,Neurological abnormalities and contractures,FALSE,disease_description
+nager_SF3B4 mutation negative,nager_SF3B4 mutation negative,FALSE,disease_description
+Arthrogryposis; distal; type 2B/Freeman-Sheldon syndrome,"Arthrogryposis, distal, type 2B/Freeman-Sheldon syndrome",FALSE,disease_description
+Arthrogryposis; distal,"Arthrogryposis, distal",FALSE,disease_description
+Toriello-Carey syndrome,Toriello-Carey syndrome,FALSE,disease_description
+Uncombable Hair,Uncombable Hair,FALSE,disease_description
+congenital asplenia,congenital asplenia,FALSE,disease_description
+Pentalogy of Cantrell,Pentalogy of Cantrell,FALSE,disease_description
+hypereosinophilia; severe food allergies; arthritis,hypereosinophilia,TRUE,disease_description
+hypereosinophilia; severe food allergies; arthritis,severe food allergies,TRUE,disease_description
+hypereosinophilia; severe food allergies; arthritis,arthritis,TRUE,disease_description
+Ichthyosis and in utero Autoimmunity,Ichthyosis,TRUE,disease_description
+Ichthyosis and in utero Autoimmunity,in utero Autoimmunity,TRUE,disease_description
+neutrophilic dermatoses,neutrophilic dermatoses,FALSE,disease_description
+T-positive; B-negative; NK-negative SCID,"T-positive, B-negative, NK-negative SCID",FALSE,disease_description
+ID/Autism,ID/Autism,FALSE,disease_description
+congenital disorders of glycosylation,congenital disorders of glycosylation,FALSE,disease_description
+Baratela Scott Syndrome,Baratela Scott Syndrome,FALSE,disease_description
+Diamond-Blackfan anemia with mandibulofacial dysostosis,Diamond-Blackfan anemia with mandibulofacial dysostosis,FALSE,disease_description
+Ayme-Gripp,Ayme-Gripp,FALSE,disease_description
+unique frontonasal dysplasia,unique frontonasal dysplasia,FALSE,disease_description
+attention-deficit/hyperactivity disorder,attention-deficit/hyperactivity disorder,FALSE,disease_description
+Congenital Myasthenic Syndrome,Congenital Myasthenic Syndrome,FALSE,disease_description
+Schwartz-Jampel Syndrome,Schwartz-Jampel Syndrome,FALSE,disease_description
+Early Infantile Epileptic Encephalopathy,Early Infantile Epileptic Encephalopathy,FALSE,disease_description
+congenital diaphragmatic hernia,congenital diaphragmatic hernia,FALSE,disease_description
+Myoclonic Astatic Epilepsy,Myoclonic Astatic Epilepsy,FALSE,disease_description
+Thoracic aortic aneurysm and/or dissection,Thoracic aortic aneurysm and/or dissection,FALSE,disease_description
+Moyamoya disease,Moyamoya disease,FALSE,disease_description
+Peripheral/Diffuse Vascular Disease,Peripheral/Diffuse Vascular Disease,FALSE,disease_description
+Abdominal aortic aneurysm,Abdominal aortic aneurysm,FALSE,disease_description
+Arthrogryposis; distal; type 8/Multiple pterygium syndrome; autosomal dominant,Arthrogryposis distal type 8/Multiple pterygium syndrome autosomal dominant,TRUE,disease_description
+Amyoplasia Congenita,Amyoplasia Congenita,FALSE,disease_description
+Acute Lymphoblastic Leukemia,Acute Lymphoblastic Leukemia,FALSE,disease_description
+Hodgkins Lymphoma,Hodgkins Lymphoma,FALSE,disease_description
+Acute Lymphoblastic Leukemia Thrombocytopenia,Acute Lymphoblastic Leukemia Thrombocytopenia,FALSE,disease_description
+Neuroblastoma,Neuroblastoma,FALSE,disease_description
+Testicular Cancer,Testicular Cancer,FALSE,disease_description
+Cleft Lip and Palate,Cleft Lip and Palate,FALSE,disease_description
+severe speech sound disorder,severe speech sound disorder,FALSE,disease_description
+Multiple Congenital Anomalies; Hypertelorism; Dysmorphis Features (MCAHDF),"Multiple Congenital Anomalies, Hypertelorism, Dysmorphis Features (MCAHDF)",FALSE,disease_description
+Arthrogryposis; distal; type 3/Gordon syndrome,"Arthrogryposis, distal, type 3/Gordon syndrome",FALSE,disease_description
+kabuki syndrome,kabuki syndrome,FALSE,disease_description
+Arthrogryposis; distal; type 1,"Arthrogryposis, distal, type 1",FALSE,disease_description
+Family history of thoracic aortic disease,Family history of thoracic aortic disease,FALSE,disease_description
+Unknown Neuromuscular Disorder,Unknown Neuromuscular Disorder,FALSE,disease_description
+Dilated cardiomyopathy,Dilated cardiomyopathy,FALSE,disease_description
+Intracranial aneurysm,intracranial aneurysm,FALSE,disease_description
+Abdominal aortic disease,Abdominal aortic disease,FALSE,disease_description
+arterial aneurysm/dissection,arterial aneurysm/dissection,FALSE,disease_description
+Thoracic aortic disease,Thoracic aortic disease,FALSE,disease_description
+autosomal dominant atrial septal defects,autosomal dominant atrial septal defects,FALSE,disease_description
+congenital neutropenia,congenital neutropenia,FALSE,disease_description
+congenital disorders of gylcosylation,congenital disorders of gylcosylation,FALSE,disease_description
+Pulmonary Fibrosis; Idiopathic; IPF,"Pulmonary Fibrosis, Idiopathic, IPF",FALSE,disease_description
+Idiopathic Pulmonary Fibrosis,Idiopathic Pulmonary Fibrosis,FALSE,disease_description
+Non-Specific Interstitial Pneumonia,Non-Specific Interstitial Pneumonia,FALSE,disease_description
+Congenital contractures of the limbs and face; hypotonia; and developmental delay (CLIFAHHD),Congenital contractures of the limbs and face,TRUE,disease_description
+Congenital contractures of the limbs and face; hypotonia; and developmental delay (CLIFAHHD),hypotonia,TRUE,disease_description
+Congenital contractures of the limbs and face; hypotonia; and developmental delay (CLIFAHHD),and developmental delay (CLIFAHHD),TRUE,disease_description
+Multiple pterygium syndrome,Multiple pterygium syndrome,FALSE,disease_description
+Arthrogryposis; distal; type 5D,"Arthrogryposis, distal, type 5D",FALSE,disease_description
