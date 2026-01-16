@@ -5,6 +5,6 @@ select
   {{ generate_global_id(prefix='dm',descriptor=['subject_id', 'consent_id'], study_id='phs000693') }}::text as "demographics_id",
   {{ generate_global_id(prefix='sd',descriptor=['project_id'], study_id='phs000693') }}::text as "source_data_id"
   
-from (select distinct subject_id, project_id, dbgap_study_id 
+from (select distinct subject_id, project_id, dbgap_study_id, consent_id
       from {{ ref('cmg_uwash_stg_subject') }} 
       where dbgap_study_id is not null) as s

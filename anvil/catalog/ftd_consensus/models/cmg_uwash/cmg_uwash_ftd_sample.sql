@@ -1,6 +1,6 @@
 {{ config(materialized='table', schema='cmg_uwash_data') }}
 
-select 
+select  distinct
  NULL::text as "parent_sample",
  coalesce(sm.sample_source, st.curie)::text as "sample_type",
  NULL::text as "availablity_status",
