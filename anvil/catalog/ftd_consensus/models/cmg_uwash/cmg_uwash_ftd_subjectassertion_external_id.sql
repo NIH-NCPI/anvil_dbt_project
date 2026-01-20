@@ -130,8 +130,8 @@ all_conditions as (
   NULL as value_units,
   NULL as value_units_display,
     {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='phs000693') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='sa',descriptor=['subject_id', 'code'], study_id='phs000693') }}::text as "id",
-    {{ generate_global_id(prefix='sb',descriptor=['subject_id', 'consent_id'], study_id='phs000693') }}::text as "subject_id"
+    {{ generate_global_id(prefix='sa',descriptor=['subject_id', 'code','assertion_type'], study_id='phs000693') }}::text as "id",
+    subject_id
 from {{ ref('cmg_uwash_stg_subject') }} as s
 left join all_conditions as alc
 using(subject_id)
@@ -140,5 +140,5 @@ where code is not null)
 select distinct
   id::text as "subjectassertion_id",
   subject_id::text as "external_id"
-from all_formatted_codes as afc
+from all_formatted_codes as afc 
 where code is not null

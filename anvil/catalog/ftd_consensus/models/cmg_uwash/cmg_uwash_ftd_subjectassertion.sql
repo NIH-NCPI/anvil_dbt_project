@@ -130,7 +130,7 @@ all_conditions as (
   NULL as value_units,
   NULL as value_units_display,
     {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='phs000693') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='sa',descriptor=['subject_id', 'code'], study_id='phs000693') }}::text as "id",
+    {{ generate_global_id(prefix='sa',descriptor=['subject_id', 'code', 'assertion_type'], study_id='phs000693') }}::text as "id",
     {{ generate_global_id(prefix='sb',descriptor=['subject_id', 'consent_id'], study_id='phs000693') }}::text as "subject_id"
 from {{ ref('cmg_uwash_stg_subject') }} as s
 left join all_conditions as alc
