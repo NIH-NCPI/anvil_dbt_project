@@ -1,0 +1,24 @@
+version: 2
+models:
+- name: alscompute_stg_harmonized_genotypes
+  description: Model for alscompute_stg_harmonized_genotypes.
+  columns:
+  - name: harmonized_genotypes_id
+    description: '{{ doc("alscompute_stg_harmonized_genotypes_harmonized_genotypes_id")
+      }}'
+    data_type: string
+  - name: annotated_harmonized_vcf
+    description: '{{ doc("alscompute_stg_harmonized_genotypes_annotated_harmonized_vcf")
+      }}'
+    data_type: string
+  - name: annotated_harmonized_vcf_index
+    description: '{{ doc("alscompute_stg_harmonized_genotypes_annotated_harmonized_vcf_index")
+      }}'
+    data_type: string
+  - name: harmonized_vcf
+    description: '{{ doc("alscompute_stg_harmonized_genotypes_harmonized_vcf") }}'
+    data_type: string
+  - name: harmonized_vcf_index
+    description: '{{ doc("alscompute_stg_harmonized_genotypes_harmonized_vcf_index")
+      }}'
+    data_type: string

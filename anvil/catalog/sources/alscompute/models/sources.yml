@@ -1,0 +1,130 @@
+version: 2
+sources:
+- name: alscompute
+  schema: main
+  tables:
+  - name: alscompute_hmb_anvil_dataset
+    description: Source table for alscompute_hmb_anvil_dataset.
+    columns:
+    - name: dataset_id
+      description: '{{ doc("alscompute_hmb_anvil_dataset_dataset_id") }}'
+    - name: consent_group
+      description: '{{ doc("alscompute_hmb_anvil_dataset_consent_group") }}'
+    - name: data_use_permission
+      description: '{{ doc("alscompute_hmb_anvil_dataset_data_use_permission") }}'
+    - name: owner
+      description: '{{ doc("alscompute_hmb_anvil_dataset_owner") }}'
+    - name: principal_investigator
+      description: '{{ doc("alscompute_hmb_anvil_dataset_principal_investigator")
+        }}'
+    - name: registered_identifier
+      description: '{{ doc("alscompute_hmb_anvil_dataset_registered_identifier") }}'
+    - name: title
+      description: '{{ doc("alscompute_hmb_anvil_dataset_title") }}'
+    - name: data_modality
+      description: '{{ doc("alscompute_hmb_anvil_dataset_data_modality") }}'
+    - name: source_datarepo_row_ids
+      description: '{{ doc("alscompute_hmb_anvil_dataset_source_datarepo_row_ids")
+        }}'
+  - name: alscompute_hmb_file_inventory
+    description: Source table for alscompute_hmb_file_inventory.
+    columns:
+    - name: file_id
+      description: '{{ doc("alscompute_hmb_file_inventory_file_id") }}'
+    - name: name
+      description: '{{ doc("alscompute_hmb_file_inventory_name") }}'
+    - name: path
+      description: '{{ doc("alscompute_hmb_file_inventory_path") }}'
+    - name: uri
+      description: '{{ doc("alscompute_hmb_file_inventory_uri") }}'
+    - name: content_type
+      description: '{{ doc("alscompute_hmb_file_inventory_content_type") }}'
+    - name: full_extension
+      description: '{{ doc("alscompute_hmb_file_inventory_full_extension") }}'
+    - name: size_in_bytes
+      description: '{{ doc("alscompute_hmb_file_inventory_size_in_bytes") }}'
+    - name: crc32c
+      description: '{{ doc("alscompute_hmb_file_inventory_crc32c") }}'
+    - name: md5_hash
+      description: '{{ doc("alscompute_hmb_file_inventory_md5_hash") }}'
+    - name: file_ref
+      description: '{{ doc("alscompute_hmb_file_inventory_file_ref") }}'
+  - name: alscompute_hmb_file_inventory1
+    description: Source table for alscompute_hmb_file_inventory1.
+    columns: []
+  - name: alscompute_hmb_harmonized_genotypes
+    description: Source table for alscompute_hmb_harmonized_genotypes.
+    columns:
+    - name: harmonized_genotypes_id
+      description: '{{ doc("alscompute_hmb_harmonized_genotypes_harmonized_genotypes_id")
+        }}'
+    - name: annotated_harmonized_vcf
+      description: '{{ doc("alscompute_hmb_harmonized_genotypes_annotated_harmonized_vcf")
+        }}'
+    - name: annotated_harmonized_vcf_index
+      description: '{{ doc("alscompute_hmb_harmonized_genotypes_annotated_harmonized_vcf_index")
+        }}'
+    - name: harmonized_vcf
+      description: '{{ doc("alscompute_hmb_harmonized_genotypes_harmonized_vcf") }}'
+    - name: harmonized_vcf_index
+      description: '{{ doc("alscompute_hmb_harmonized_genotypes_harmonized_vcf_index")
+        }}'
+  - name: alscompute_hmb_sample
+    description: Source table for alscompute_hmb_sample.
+    columns:
+    - name: sample_id
+      description: '{{ doc("alscompute_hmb_sample_sample_id") }}'
+    - name: c9orf72_repeat_expansion_imputed
+      description: '{{ doc("alscompute_hmb_sample_c9orf72_repeat_expansion_imputed")
+        }}'
+    - name: c9orf72_repeat_length
+      description: '{{ doc("alscompute_hmb_sample_c9orf72_repeat_length") }}'
+    - name: affected_status
+      description: '{{ doc("alscompute_hmb_sample_affected_status") }}'
+    - name: age_at_death_years
+      description: '{{ doc("alscompute_hmb_sample_age_at_death_years") }}'
+    - name: age_of_collection_years
+      description: '{{ doc("alscompute_hmb_sample_age_of_collection_years") }}'
+    - name: age_of_diagnosis_years
+      description: '{{ doc("alscompute_hmb_sample_age_of_diagnosis_years") }}'
+    - name: age_of_onset_years
+      description: '{{ doc("alscompute_hmb_sample_age_of_onset_years") }}'
+    - name: concordant_gender
+      description: '{{ doc("alscompute_hmb_sample_concordant_gender") }}'
+    - name: cram
+      description: '{{ doc("alscompute_hmb_sample_cram") }}'
+    - name: cram_index
+      description: '{{ doc("alscompute_hmb_sample_cram_index") }}'
+    - name: cram_md5sum
+      description: '{{ doc("alscompute_hmb_sample_cram_md5sum") }}'
+    - name: diagnosis
+      description: '{{ doc("alscompute_hmb_sample_diagnosis") }}'
+    - name: diagnosis_subtype
+      description: '{{ doc("alscompute_hmb_sample_diagnosis_subtype") }}'
+    - name: family_history
+      description: '{{ doc("alscompute_hmb_sample_family_history") }}'
+    - name: gvcf
+      description: '{{ doc("alscompute_hmb_sample_gvcf") }}'
+    - name: gvcf_index
+      description: '{{ doc("alscompute_hmb_sample_gvcf_index") }}'
+    - name: imputed_gender_text
+      description: '{{ doc("alscompute_hmb_sample_imputed_gender_text") }}'
+    - name: reference_genome_build
+      description: '{{ doc("alscompute_hmb_sample_reference_genome_build") }}'
+    - name: reported_gender_coded
+      description: '{{ doc("alscompute_hmb_sample_reported_gender_coded") }}'
+    - name: reported_gender_text
+      description: '{{ doc("alscompute_hmb_sample_reported_gender_text") }}'
+    - name: sequencing_id
+      description: '{{ doc("alscompute_hmb_sample_sequencing_id") }}'
+    - name: sequencing_platform
+      description: '{{ doc("alscompute_hmb_sample_sequencing_platform") }}'
+    - name: site_of_onset
+      description: '{{ doc("alscompute_hmb_sample_site_of_onset") }}'
+    - name: survival_months
+      description: '{{ doc("alscompute_hmb_sample_survival_months") }}'
+    - name: survival_years
+      description: '{{ doc("alscompute_hmb_sample_survival_years") }}'
+    - name: targeted_expansion_hunter_vcf
+      description: '{{ doc("alscompute_hmb_sample_targeted_expansion_hunter_vcf")
+        }}'

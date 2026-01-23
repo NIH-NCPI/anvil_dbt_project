@@ -1,0 +1,31 @@
+name: alscompute
+version: 1.0.0
+profile: anvil
+model-paths:
+- models
+macro-paths:
+- macros
+snapshot-paths:
+- snapshots
+clean-targets:
+- target
+- dbt_packages
+models:
+  +schema: main
+  +materialized: table
+  anvil_dataset:
+    alscompute_stg_anvil_dataset:
+      +schema: main
+      +materialized: table
+  file_inventory:
+    alscompute_stg_file_inventory:
+      +schema: main
+      +materialized: table
+  harmonized_genotypes:
+    alscompute_stg_harmonized_genotypes:
+      +schema: main
+      +materialized: table
+  sample:
+    alscompute_stg_sample:
+      +schema: main
+      +materialized: table

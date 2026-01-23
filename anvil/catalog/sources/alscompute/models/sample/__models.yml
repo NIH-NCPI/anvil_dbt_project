@@ -1,0 +1,87 @@
+version: 2
+models:
+- name: alscompute_stg_sample
+  description: Model for alscompute_stg_sample.
+  columns:
+  - name: sample_id
+    description: '{{ doc("alscompute_stg_sample_sample_id") }}'
+    data_type: string
+  - name: c9orf72_repeat_expansion_imputed
+    description: '{{ doc("alscompute_stg_sample_c9orf72_repeat_expansion_imputed")
+      }}'
+    data_type: enumeration
+  - name: c9orf72_repeat_length
+    description: '{{ doc("alscompute_stg_sample_c9orf72_repeat_length") }}'
+    data_type: string
+  - name: affected_status
+    description: '{{ doc("alscompute_stg_sample_affected_status") }}'
+    data_type: enumeration
+  - name: age_at_death_years
+    description: '{{ doc("alscompute_stg_sample_age_at_death_years") }}'
+    data_type: number
+  - name: age_of_collection_years
+    description: '{{ doc("alscompute_stg_sample_age_of_collection_years") }}'
+    data_type: string
+  - name: age_of_diagnosis_years
+    description: '{{ doc("alscompute_stg_sample_age_of_diagnosis_years") }}'
+    data_type: number
+  - name: age_of_onset_years
+    description: '{{ doc("alscompute_stg_sample_age_of_onset_years") }}'
+    data_type: number
+  - name: concordant_gender
+    description: '{{ doc("alscompute_stg_sample_concordant_gender") }}'
+    data_type: enumeration
+  - name: cram
+    description: '{{ doc("alscompute_stg_sample_cram") }}'
+    data_type: string
+  - name: cram_index
+    description: '{{ doc("alscompute_stg_sample_cram_index") }}'
+    data_type: string
+  - name: cram_md5sum
+    description: '{{ doc("alscompute_stg_sample_cram_md5sum") }}'
+    data_type: string
+  - name: diagnosis
+    description: '{{ doc("alscompute_stg_sample_diagnosis") }}'
+    data_type: enumeration
+  - name: diagnosis_subtype
+    description: '{{ doc("alscompute_stg_sample_diagnosis_subtype") }}'
+    data_type: enumeration
+  - name: family_history
+    description: '{{ doc("alscompute_stg_sample_family_history") }}'
+    data_type: enumeration
+  - name: gvcf
+    description: '{{ doc("alscompute_stg_sample_gvcf") }}'
+    data_type: string
+  - name: gvcf_index
+    description: '{{ doc("alscompute_stg_sample_gvcf_index") }}'
+    data_type: string
+  - name: imputed_gender_text
+    description: '{{ doc("alscompute_stg_sample_imputed_gender_text") }}'
+    data_type: enumeration
+  - name: reference_genome_build
+    description: '{{ doc("alscompute_stg_sample_reference_genome_build") }}'
+    data_type: enumeration
+  - name: reported_gender_coded
+    description: '{{ doc("alscompute_stg_sample_reported_gender_coded") }}'
+    data_type: enumeration
+  - name: reported_gender_text
+    description: '{{ doc("alscompute_stg_sample_reported_gender_text") }}'
+    data_type: enumeration
+  - name: sequencing_id
+    description: '{{ doc("alscompute_stg_sample_sequencing_id") }}'
+    data_type: string
+  - name: sequencing_platform
+    description: '{{ doc("alscompute_stg_sample_sequencing_platform") }}'
+    data_type: enumeration
+  - name: site_of_onset
+    description: '{{ doc("alscompute_stg_sample_site_of_onset") }}'
+    data_type: enumeration
+  - name: survival_months
+    description: '{{ doc("alscompute_stg_sample_survival_months") }}'
+    data_type: string
+  - name: survival_years
+    description: '{{ doc("alscompute_stg_sample_survival_years") }}'
+    data_type: number
+  - name: targeted_expansion_hunter_vcf
+    description: '{{ doc("alscompute_stg_sample_targeted_expansion_hunter_vcf") }}'
+    data_type: string
