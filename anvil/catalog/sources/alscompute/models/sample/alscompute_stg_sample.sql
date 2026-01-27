@@ -2,6 +2,7 @@
 
 with source as (
     select 
+      "datarepo_row_id"::text as "datarepo_row_id",
       "sample_id"::text as "sample_id",
        "c9orf72_repeat_expansion_imputed"::text as "c9orf72_repeat_expansion_imputed",
        "c9orf72_repeat_length"::text as "c9orf72_repeat_length",
@@ -28,14 +29,46 @@ with source as (
        "site_of_onset"::text as "site_of_onset",
        "survival_months"::text as "survival_months",
        "survival_years"::text as "survival_years",
-       "targeted_expansion_hunter_vcf"::text as "targeted_expansion_hunter_vcf"
-    from {{ source('alscompute','alscompute_hmb_sample') }}
-)
+       "targeted_expansion_hunter_vcf"::text as "targeted_expansion_hunter_vcf",
+       "ingest_provenance"::text as "ingest_provenance"
+    FROM read_csv('data/alscompute/alscompute_hmb_sample.csv',
+    AUTO_DETECT=FALSE, 
+    HEADER=TRUE,
+    nullstr = ['Unknown', 'Not Applicable'],
+    columns = {
+       'datarepo_row_id': 'STRING',
+       'sample_id': 'STRING',
+       'c9orf72_repeat_expansion_imputed': 'STRING',
+       'c9orf72_repeat_length': 'STRING',
+       'affected_status': 'STRING',
+       'age_at_death_years': 'STRING',
+       'age_of_collection_years': 'STRING',
+       'age_of_diagnosis_years': 'STRING',
+       'age_of_onset_years': 'STRING',
+       'concordant_gender': 'STRING',
+       'cram': 'STRING',
+       'cram_index': 'STRING',
+       'cram_md5sum': 'STRING',
+       'diagnosis': 'STRING',
+       'diagnosis_subtype': 'STRING',
+       'family_history': 'STRING',
+       'gvcf': 'STRING',
+       'gvcf_index': 'STRING',
+       'imputed_gender_text': 'STRING',
+       'reference_genome_build': 'STRING',
+       'reported_gender_coded': 'STRING',
+       'reported_gender_text': 'STRING',
+       'sequencing_id': 'STRING',
+       'sequencing_platform': 'STRING',
+       'site_of_onset': 'STRING',
+       'survival_months': 'STRING',
+       'survival_years': 'STRING',
+       'targeted_expansion_hunter_vcf': 'STRING',
+       'ingest_provenance': 'STRING'
+    }))
 
 select 
   ROW_NUMBER() OVER () AS ftd_index,
   source.*,
-  (select REPLACE(UPPER(title),'ANVIL_ALSCompute_Collection_','') from {{ source('alscompute','alscompute_hmb_anvil_dataset') }}
-    limit 1
-  ) as consent_id
+  REPLACE(REPLACE(UPPER(ingest_provenance),'SAMPLE_ANVIL_ALSCOMPUTE_COLLECTION_',''),'.TSV','') as consent_id
   from source
