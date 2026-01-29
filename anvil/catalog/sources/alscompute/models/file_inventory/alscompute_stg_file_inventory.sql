@@ -32,5 +32,9 @@ with source as (
 
 select 
   ROW_NUMBER() OVER () AS ftd_index,
-  source.*
+  source.*,
+  (select REPLACE(title, 'ANVIL_ALSCompute_Collection_', '')
+      from {{ source('alscompute','alscompute_hmb_anvil_dataset') }}
+      limit 1
+   ) as consent_id
 from source

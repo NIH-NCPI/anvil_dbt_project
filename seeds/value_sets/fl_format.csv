@@ -14,3 +14,6 @@ cser,txt,Textual format,http://edamontology.org/format_2330,Textual format,,Text
 cser,vcfgz,VCF,http://edamontology.org/format_3016,VCF,,"Variant Call Format (VCF) for sequence variation (indels, polymorphisms, structural variation)",
 cser,tbi,tabix,http://edamontology.org/format_3616,tabix,,TAB-delimited genome position file index format,
 cser,fastqgz,FASTQ,http://edamontology.org/format_1930,FASTQ,,FASTQ short read format ignoring quality scores,
+alscompute,vcf,VCF,http://edamontology.org/format_3016,VCF,,"Variant Call Format (VCF) for sequence variation (indels, polymorphisms, structural variation)",
+alscompute,md5,md5,,,,,
+alscompute,vcfbgz,VCF,http://edamontology.org/format_3016,VCF,,"Variant Call Format (VCF) for sequence variation (indels, polymorphisms, structural variation)",

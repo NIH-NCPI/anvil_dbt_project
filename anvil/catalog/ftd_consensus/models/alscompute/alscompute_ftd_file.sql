@@ -1,17 +1,14 @@
 {{ config(materialized='table', schema='alscompute_data') }}
 
 select 
-GEN_UNKNOWN.filename::text as "filename",
-  GEN_UNKNOWN.format::text as "format",
-  GEN_UNKNOWN.data_type::text as "data_type",
-  GEN_UNKNOWN.size::text as "size",
-  GEN_UNKNOWN.drs_uri::text as "drs_uri",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "file_metadata",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "id"
-from {{ ref('alscompute_stg_anvil_dataset') }} as anvil_dataset
-join {{ ref('alscompute_stg_file_inventory') }} as file_inventory
-on harmonized_genotypes.file_inventory_id = file_inventory.file_inventory_id  join {{ ref('alscompute_stg_harmonized_genotypes') }} as harmonized_genotypes
-on file_inventory.file_inventory_id = harmonized_genotypes.file_inventory_id  join {{ ref('alscompute_stg_sample') }} as sample
-on  
-
+name::text as "filename",
+curie::text as "format",
+NULL::text as "data_type",
+size_in_bytes::text as "size",
+file_ref::text as "drs_uri",
+    {{ generate_global_id(prefix='fd',descriptor=['name'], study_id='alscompute') }}::text as "file_metadata",
+    {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='alscompute') }}::text as "has_access_policy",
+    {{ generate_global_id(prefix='fi',descriptor=['name'], study_id='alscompute') }}::text as "id"
+from (select distinct name, full_extension, size_in_bytes, file_ref, consent_id from {{ ref('alscompute_stg_file_inventory') }}) as fi
+left join {{ ref('fl_format') }} as ff
+on lower(replace(fi.full_extension,'.','')) = lower(ff.src_format)
