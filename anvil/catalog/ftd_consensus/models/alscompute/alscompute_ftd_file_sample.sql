@@ -40,6 +40,14 @@ with sm_files as (
     sample_id
     from {{ ref('alscompute_stg_sample') }}    
     where gvcf_index is not null
+    
+    union all
+    
+    select
+    targeted_expansion_hunter_vcf as file,
+    sample_id
+    from {{ ref('alscompute_stg_sample') }}    
+    where targeted_expansion_hunter_vcf is not null
     )
 
 select distinct

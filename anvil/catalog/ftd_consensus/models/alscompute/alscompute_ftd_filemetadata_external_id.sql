@@ -1,11 +1,20 @@
 {{ config(materialized='table', schema='alscompute_data') }}
 
-select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "filemetadata_id",
-  GEN_UNKNOWN.external_id::text as "external_id"
-from {{ ref('alscompute_stg_anvil_dataset') }} as anvil_dataset
-join {{ ref('alscompute_stg_file_inventory') }} as file_inventory
-on harmonized_genotypes.file_inventory_id = file_inventory.file_inventory_id  join {{ ref('alscompute_stg_harmonized_genotypes') }} as harmonized_genotypes
-on file_inventory.file_inventory_id = harmonized_genotypes.file_inventory_id  join {{ ref('alscompute_stg_sample') }} as sample
-on  
+with unioned_file_ids as (
+        select
+            distinct 
+            name as "file_id",
+        from {{ ref('alscompute_stg_file_inventory') }}
+    
+        union all
+   
+        select
+            distinct 
+            sample_id as "file_id",
+        from {{ ref('alscompute_stg_sample') }}
+)
 
+select 
+  {{ generate_global_id(prefix='fd',descriptor=['file_id'], study_id='alscompute') }}::text as "filemetadata_id",
+  file_id::text as "external_id"
+from unioned_file_ids

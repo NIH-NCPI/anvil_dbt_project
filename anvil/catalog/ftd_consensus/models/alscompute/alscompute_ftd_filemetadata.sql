@@ -1,14 +1,39 @@
 {{ config(materialized='table', schema='alscompute_data') }}
 
-select 
-GEN_UNKNOWN.code::text as "code",
-  GEN_UNKNOWN.display::text as "display",
-  GEN_UNKNOWN.value_code::text as "value_code",
-  GEN_UNKNOWN.value_display::text as "value_display",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "id"
-from {{ ref('alscompute_stg_anvil_dataset') }} as anvil_dataset
-join {{ ref('alscompute_stg_file_inventory') }} as file_inventory
-on harmonized_genotypes.file_inventory_id = file_inventory.file_inventory_id  join {{ ref('alscompute_stg_harmonized_genotypes') }} as harmonized_genotypes
-on file_inventory.file_inventory_id = harmonized_genotypes.file_inventory_id  join {{ ref('alscompute_stg_sample') }} as sample
-on  
+{%- set fi_metadata_columns = ['crc32c','md5_hash'] -%}
+{%- set sam_metadata_columns = ['reference_genome_build'] -%}
 
+with
+unpivot_df as (
+    {%- for col in fi_metadata_columns -%}
+        select
+            distinct 
+            name as "file_id",
+            '{{ col }}' as "display",
+            cast({{ col }} as varchar) as "value_display",
+        from {{ ref('alscompute_stg_file_inventory') }}
+        where {{ col }} IS NOT NULL
+        {% if not loop.last %}union all{% endif %}
+    {% endfor %}
+    
+        union all
+   
+    {% for col in sam_metadata_columns %}
+        select
+            distinct 
+            sample_id as "file_id",
+            '{{ col }}' as "display",
+            cast({{ col }} as varchar) as "value_display",
+        from {{ ref('alscompute_stg_sample') }}
+        where {{ col }} IS NOT NULL
+        {% if not loop.last %}union all{% endif %}
+    {% endfor %}
+)
+
+select 
+NULL::text as "code",
+display,
+NULL::text as "value_code",
+value_display,
+    {{ generate_global_id(prefix='fd',descriptor=['file_id'], study_id='alscompute') }}::text as "id"
+from unpivot_df
