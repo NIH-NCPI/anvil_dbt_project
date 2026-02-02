@@ -1,18 +1,27 @@
 {{ config(materialized='table', schema='alscompute_data') }}
 
+with derived_sample_type as (
+    select 
+    CASE
+        WHEN age_of_collection_years ~ '^[A-Za-z]+$'
+        THEN age_of_collection_years
+        ELSE 'unknown'
+    END as sample_type,
+    consent_id,
+    sample_id
+    from (select distinct age_of_collection_years, consent_id, sample_id from {{ ref('alscompute_stg_sample') }})
+    )
+    
 select 
-  {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "parent_sample",
-  GEN_UNKNOWN.sample_type::text as "sample_type",
-  GEN_UNKNOWN.availablity_status::text as "availablity_status",
-  GEN_UNKNOWN.quantity_number::text as "quantity_number",
-  GEN_UNKNOWN.quantity_units::text as "quantity_units",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "id",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "subject_id",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "biospecimen_collection_id"
-from {{ ref('alscompute_stg_anvil_dataset') }} as anvil_dataset
-join {{ ref('alscompute_stg_file_inventory') }} as file_inventory
-on harmonized_genotypes.file_inventory_id = file_inventory.file_inventory_id  join {{ ref('alscompute_stg_harmonized_genotypes') }} as harmonized_genotypes
-on file_inventory.file_inventory_id = harmonized_genotypes.file_inventory_id  join {{ ref('alscompute_stg_sample') }} as sample
-on  
-
+  NULL::text as "parent_sample",
+  curie::text as "sample_type",
+  NULL::text as "availablity_status",
+  NULL::text as "quantity_number",
+  NULL::text as "quantity_units",
+  {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='alscompute') }}::text as "has_access_policy",
+  {{ generate_global_id(prefix='sm',descriptor=['sample_id'], study_id='alscompute') }}::text as "id",
+  NULL::text as "subject_id",
+  {{ generate_global_id(prefix='bc',descriptor=['sample_id'], study_id='alscompute') }}::text as "biospecimen_collection_id"
+from derived_sample_type as d
+LEFT JOIN  {{ ref('sm_sample_type') }} as s
+on  d.sample_type = s.src_format 
