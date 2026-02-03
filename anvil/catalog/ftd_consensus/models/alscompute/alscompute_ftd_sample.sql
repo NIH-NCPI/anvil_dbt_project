@@ -20,7 +20,7 @@ select
   NULL::text as "quantity_units",
   {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='alscompute') }}::text as "has_access_policy",
   {{ generate_global_id(prefix='sm',descriptor=['sample_id'], study_id='alscompute') }}::text as "id",
-  NULL::text as "subject_id",
+  {{ generate_global_id(prefix='sb',descriptor=['sample_id','consent_id'], study_id='alscompute') }}::text as "subject_id",
   {{ generate_global_id(prefix='bc',descriptor=['sample_id'], study_id='alscompute') }}::text as "biospecimen_collection_id"
 from derived_sample_type as d
 LEFT JOIN  {{ ref('sm_sample_type') }} as s
