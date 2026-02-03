@@ -1,23 +1,24 @@
 {{ config(materialized='table', schema='alscompute_data') }}
 
 select 
-GEN_UNKNOWN.assertion_type::text as "assertion_type",
-  GEN_UNKNOWN.age_at_assertion::text as "age_at_assertion",
-  GEN_UNKNOWN.age_at_event::text as "age_at_event",
-  GEN_UNKNOWN.age_at_resolution::text as "age_at_resolution",
-  GEN_UNKNOWN.code::text as "code",
-  GEN_UNKNOWN.display::text as "display",
-  GEN_UNKNOWN.value_code::text as "value_code",
-  GEN_UNKNOWN.value_display::text as "value_display",
-  GEN_UNKNOWN.value_number::text as "value_number",
-  GEN_UNKNOWN.value_units::text as "value_units",
-  GEN_UNKNOWN.value_units_display::text as "value_units_display",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "has_access_policy",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "id",
-    {{ generate_global_id(prefix='',descriptor=[''], study_id='alscompute') }}::text as "subject_id"
-from {{ ref('alscompute_stg_anvil_dataset') }} as anvil_dataset
-join {{ ref('alscompute_stg_file_inventory') }} as file_inventory
-on harmonized_genotypes.file_inventory_id = file_inventory.file_inventory_id  join {{ ref('alscompute_stg_harmonized_genotypes') }} as harmonized_genotypes
-on file_inventory.file_inventory_id = harmonized_genotypes.file_inventory_id  join {{ ref('alscompute_stg_sample') }} as sample
-on  
-
+'disease'::text as "assertion_type",
+CASE
+    WHEN age_of_diagnosis_years = '-9' THEN NULL
+    ELSE age_of_diagnosis_years
+END::text as "age_at_assertion",
+CASE
+    WHEN age_of_onset_years = '-9.0' THEN NULL
+    ELSE age_of_onset_years
+END::text as "age_at_event",
+NULL::text as "age_at_resolution",
+NULL::text as "code",
+NULL::text as "display",
+NULL::text as "value_code",
+NULL::text as "value_display",
+NULL::text as "value_number",
+NULL::text as "value_units",
+NULL::text as "value_units_display",
+    {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='alscompute') }}::text as "has_access_policy",
+    {{ generate_global_id(prefix='sa',descriptor=['sample_id','code'], study_id='alscompute') }}::text as "id",
+    {{ generate_global_id(prefix='sb',descriptor=['sample_id','consent_id'], study_id='alscompute') }}::text as "subject_id"
+from (select distinct age_of_diagnosis_years, age_of_onset_years, sample_id, consent_id from {{ ref('alscompute_stg_sample') }}) as sample
