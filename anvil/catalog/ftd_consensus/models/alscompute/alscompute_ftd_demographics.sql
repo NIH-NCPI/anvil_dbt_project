@@ -16,7 +16,6 @@ select
       WHEN age_at_death_years IS NOT NULL THEN 'Dead'
       ELSE 'Alive'
   END::text as "vital_status",
-  sample_id,
     {{ generate_global_id(prefix='ap',descriptor=['consent_id'], study_id='alscompute') }}::text as "has_access_policy",
     {{ generate_global_id(prefix='dm',descriptor=['sample_id','consent_id'], study_id='alscompute') }}::text as "id"
 from (select distinct reported_gender_text, age_at_death_years, consent_id, sample_id from {{ ref('alscompute_stg_sample') }}) as s
