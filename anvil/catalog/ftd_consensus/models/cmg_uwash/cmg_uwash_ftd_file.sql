@@ -1,6 +1,6 @@
 {{ config(materialized='table', schema='cmg_uwash_data') }}
 
-select 
+select distinct
 name::text as "filename",
 curie::text as "format",
 NULL::text as "data_type",

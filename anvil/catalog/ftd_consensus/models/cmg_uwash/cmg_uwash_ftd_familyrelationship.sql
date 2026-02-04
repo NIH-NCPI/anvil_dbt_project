@@ -58,8 +58,6 @@ select
   ftd_subject_1,
   ftd_subject_2,
   coalesce(bc.bio_curie, bc.def_curie, 'Needs Handling - nullable')::text as "relationship_code",
-  coalesce(other_rel_code, 'FTD_NULL') AS "ftd_family_rel", -- flag nulls for analysis
-  coalesce(bc.bio_curie, 'Needs Handling - nullable') AS "ftd_flag_family_rel", -- flag unhandled strings
   
 from fr_base
      left join

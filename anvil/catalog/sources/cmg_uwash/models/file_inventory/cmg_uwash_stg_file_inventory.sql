@@ -26,7 +26,7 @@ with source as (
         ,
         "uri"::TEXT AS "uri",
         'DS-CHDEF'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWash_DS_CHDEF_20250224_ANV5_202502241753_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -66,7 +66,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'GRU-IRB'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWash_GRU_IRB_20250224_ANV5_202502241723_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWash_GRU_IRB_20250224_ANV5_202502241723_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -106,7 +106,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'GRU'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWash_GRU_20250224_ANV5_202502241706_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWash_GRU_20250224_ANV5_202502241706_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -146,7 +146,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'HMB-IRB'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_HMB_IRB_20250219_ANV5_202502201921_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_HMB_IRB_20250219_ANV5_202502201921_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -186,7 +186,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'HMB'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_HMB_20250219_ANV5_202502201916_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_HMB_20250219_ANV5_202502201916_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -226,7 +226,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'DS-NBIA'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_DS_NBIA_20250206_ANV5_202502201903_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_DS_NBIA_20250206_ANV5_202502201903_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -266,7 +266,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'DS-HFA'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_DS_HFA_20250206_ANV5_202502201859_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_DS_HFA_20250206_ANV5_202502201859_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -306,7 +306,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'DS-EP'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWash_DS_EP_20250219_ANV5_202502201854_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWash_DS_EP_20250219_ANV5_202502201854_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -346,7 +346,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'DS-BDIS'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_DS_BDIS_20250206_ANV5_202502201850_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_DS_BDIS_20250206_ANV5_202502201850_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'
@@ -386,7 +386,7 @@ with source as (
         "uri"::TEXT AS "uri"
         ,
         'DS-BAV-IRB-PUB-RD'::TEXT AS "consent_id"
-        FROM read_csv('/home/jupyter/pipeline/anvil_dbt_project/data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
+        FROM read_csv('data/cmg_uwash/file_inventory_ANVIL_CMG_UWASH_DS_BAV_IRB_PUB_RD_20250206_ANV5_202502201846_000000000000.csv', AUTO_DETECT=FALSE, HEADER=TRUE, columns={'datarepo_row_id': 'VARCHAR'
         ,'file_id': 'VARCHAR'
         ,'name': 'VARCHAR'
         ,'path': 'VARCHAR'

@@ -7,6 +7,6 @@ ds.snapshot_dataset::text as "snapshot_dataset",
 NULL::text as "table_id",
 NULL::text as "parameterized_query",
 {{ generate_global_id(prefix='ds',descriptor=['ad.dataset_id'], study_id='phs000693') }}::text as "id"
-from {{ ref('cmg_uwash_stg_anvil_dataset') }} as ad
+from (select distinct dataset_id, consent_group from {{ ref('cmg_uwash_stg_anvil_dataset') }}) as ad
 left join {{ ref('ad_data_source') }} as ds
 using(consent_group)

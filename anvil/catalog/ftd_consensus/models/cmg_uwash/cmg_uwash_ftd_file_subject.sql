@@ -1,6 +1,6 @@
 {{ config(materialized='table', schema='cmg_uwash_data') }}
 
-select 
+select distinct
   {{ generate_global_id(prefix='fl',descriptor=['name'], study_id='phs000693') }}::text as "file_id",
     {{ generate_global_id(prefix='sb',descriptor=['subject_id'], study_id='phs000693') }}::text as "subject_id"
 from {{ ref('cmg_uwash_stg_sample') }} as s
