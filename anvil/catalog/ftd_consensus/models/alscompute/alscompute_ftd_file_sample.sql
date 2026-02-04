@@ -51,7 +51,7 @@ with sm_files as (
     )
 
 select distinct
-  {{ generate_global_id(prefix='fi',descriptor=['f.name'], study_id='alscompute') }}::text as "file_id",
+  {{ generate_global_id(prefix='fi',descriptor=['f.file_id'], study_id='alscompute') }}::text as "file_id",
     {{ generate_global_id(prefix='sm',descriptor=['sf.sample_id'], study_id='alscompute') }}::text as "sample_id"
 from {{ ref('alscompute_stg_file_inventory') }} as f
 left join sm_files as sf

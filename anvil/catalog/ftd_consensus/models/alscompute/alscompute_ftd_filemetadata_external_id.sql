@@ -3,7 +3,7 @@
 with unioned_file_ids as (
         select
             distinct 
-            name as "file_id",
+            file_id as "file_id",
         from {{ ref('alscompute_stg_file_inventory') }}
     
         union all

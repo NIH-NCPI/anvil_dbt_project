@@ -7,7 +7,7 @@ CASE
     ELSE age_of_diagnosis_years
 END::text as "age_at_assertion",
 CASE
-    WHEN age_of_onset_years = '-9.0' THEN NULL
+    WHEN age_of_onset_years = '-9' THEN NULL
     ELSE age_of_onset_years
 END::text as "age_at_event",
 NULL::text as "age_at_resolution",

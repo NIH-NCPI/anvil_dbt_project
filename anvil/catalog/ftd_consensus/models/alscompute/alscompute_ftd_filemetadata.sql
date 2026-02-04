@@ -1,14 +1,14 @@
 {{ config(materialized='table', schema='alscompute_data') }}
 
 {%- set fi_metadata_columns = ['crc32c','md5_hash'] -%}
-{%- set sam_metadata_columns = ['reference_genome_build'] -%}
+{%- set sam_metadata_columns = ['reference_genome_build','sequencing_platform'] -%}
 
 with
 unpivot_df as (
     {%- for col in fi_metadata_columns -%}
         select
             distinct 
-            name as "file_id",
+            file_id as "file_id",
             '{{ col }}' as "display",
             cast({{ col }} as varchar) as "value_display",
         from {{ ref('alscompute_stg_file_inventory') }}
