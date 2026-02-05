@@ -16,4 +16,4 @@ packages:
   - local: "anvil/catalog/sources/cser"
   
   - local: "anvil/catalog/ftd_consensus"
-#   - local: "anvil/catalog/tgt_consensus_a"
+  - local: "anvil/catalog/tgt_consensus_a"
