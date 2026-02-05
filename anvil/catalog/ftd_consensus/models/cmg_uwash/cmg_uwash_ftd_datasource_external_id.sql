@@ -1,0 +1,6 @@
+{{ config(materialized='table', schema='cmg_uwash_data') }}
+
+select 
+{{ generate_global_id(prefix='ds',descriptor=['dataset_id'], study_id='phs000693') }}::text as "datasource_id",
+  dataset_id::text as "external_id"
+from (select distinct dataset_id from {{ ref('cmg_uwash_stg_anvil_dataset') }}) as ad

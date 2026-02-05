@@ -11,6 +11,7 @@ packages:
   - local: "anvil/catalog/sources/GWAS"
   - local: "anvil/catalog/sources/cmg_bh"
   - local: "anvil/catalog/sources/cmg_yale"
+  - local: "anvil/catalog/sources/cmg_uwash"
   - local: "anvil/catalog/sources/PGRNseq"
   - local: "anvil/catalog/sources/cser"
   
