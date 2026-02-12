@@ -56,7 +56,10 @@ def get_separate_src_tables_dict(src_df_names_dict, tablename, paths):
                 """
                 result = engine.execute(query)
 
-                df = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
+                try:
+                    df = result.fetchdf()
+                except Exception:
+                    df = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
 
                 separate_src_tables_dict[file.replace('_000000000000.csv','')] = df  
     return separate_src_tables_dict
