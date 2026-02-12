@@ -115,20 +115,27 @@ def generate_union_query(table_columns, all_columns, table_paths):
     """
     Generates a sql query that will allow unioning data without matching column names.
     """
+    # Build a columns definition mapping per table so we can force VARCHAR types
+    column_defs = {}
+    for table, cols in table_columns.items():
+        defs = ", ".join([f"'{c}': 'VARCHAR'" for c in cols])
+        column_defs[table] = "{ " + defs + " }"
+
     template = Template("""
     {% for table, columns in table_columns.items() %}
-    SELECT 
+    SELECT
         {% for col in all_columns %}
-        COALESCE({% if col in columns %}{{ col }}{% else %}NULL{% endif %}, NULL) AS {{ col }}{% if not loop.last %}, {% endif %}
+        CAST(COALESCE({% if col in columns %}"{{ col }}"{% else %}NULL{% endif %}, NULL) AS VARCHAR) AS "{{ col }}"{% if not loop.last %}, {% endif %}
         {% endfor %}
-    FROM '{{ table }}'
+    FROM read_csv('{{ table }}', AUTO_DETECT=FALSE, HEADER=TRUE, columns={{ column_defs[table]|safe }})
     {% if not loop.last %}UNION ALL{% endif %}
     {% endfor %}
     """)
 
     query = template.render(
         table_columns=table_columns,
-        all_columns=all_columns
+        all_columns=all_columns,
+        column_defs=column_defs
     )
 
     return query
