@@ -3,13 +3,14 @@ import pandas as pd
 import numpy as np
 from jinja2 import Template
 import re
+import gc
 from pathlib import Path
 from dbt_pipeline_utils.scripts.helpers.general import read_file
 
 from scripts.general.common import engine, execute
-
-
 # -
+
+
 
 def study_config_dds_to_dict(study_config, paths):
     """
@@ -31,7 +32,7 @@ def study_config_df_lists_to_dict(study_config):
     """
     src_dfs_dict = {}
     for table_name, table_info in study_config["data_files"].items():
-        src_dfs_dict[table_name] = table_info['identifier']
+        src_dfs_dict[table_name] = [table_info['identifier']]
     return src_dfs_dict
 
 
@@ -48,10 +49,43 @@ def get_separate_src_tables_dict(src_df_names_dict, tablename, paths):
 
                 table_path = paths["src_data_dir"] / file
                 
-                # Read CSV directly with pandas to avoid DuckDB memory issues
-                df = pd.read_csv(str(table_path), dtype=str)
-
-                separate_src_tables_dict[file.replace('_000000000000.csv','')] = df  
+                print(f"DEBUG: Reading file: {table_path}")
+                print(f"DEBUG: File exists: {table_path.exists()}")
+                
+                if table_path.exists():
+                    file_size_mb = table_path.stat().st_size / (1024 * 1024)
+                    print(f"DEBUG: File size: {file_size_mb:.2f} MB")
+                
+                # Read CSV in chunks with low_memory=False to avoid memory exhaustion
+                # Process chunks incrementally to keep memory usage low
+                try:
+                    print("DEBUG: Starting to read CSV in chunks...")
+                    chunks = []
+                    chunk_count = 0
+                    for chunk in pd.read_csv(str(table_path), chunksize=5000, low_memory=False):
+                        chunks.append(chunk)
+                        chunk_count += 1
+                        if chunk_count % 10 == 0:
+                            print(f"DEBUG: Read {chunk_count * 5000} rows...")
+                    
+                    print(f"DEBUG: Concatenating {len(chunks)} chunks...")
+                    df = pd.concat(chunks, ignore_index=True)
+                    
+                    # Add filename column for tracking data provenance if it doesn't already exist
+                    if 'ingest_provenance' not in df.columns:
+                        filename_key = file.replace('_000000000000.csv', '')
+                        df['ingest_provenance'] = filename_key
+                    
+                    print(f"DEBUG: Successfully read {len(df)} rows, {len(df.columns)} columns")
+                    filename_key = file.replace('_000000000000.csv', '')
+                    separate_src_tables_dict[filename_key] = df
+                except Exception as e:
+                    print(f"ERROR reading {table_path}: {e}")
+                    raise
+                finally:
+                    # Force garbage collection after reading to free memory
+                    gc.collect()
+                    
     return separate_src_tables_dict
 
 
@@ -77,6 +111,13 @@ def union_tables(src_dfs_dict, paths):
         query = generate_union_query(table_columns_all, all_columns_list, src_tables)
 
         df = execute(query)
+        
+                
+        # Add ingest_provenance column if it doesn't exist
+        if 'ingest_provenance' not in df.columns:
+            df['ingest_provenance'] = table_name
+        
+        
         unioned_dfs_dict[table_name] = df
 
     return unioned_dfs_dict
@@ -289,8 +330,12 @@ def enum_report_by_file(src_dds_dict, src_df_names_dict, paths):
                 comparison_results['src_table'] = table_name 
 
                 all_results.append(comparison_results)
+                
+                
         results_df = pd.concat(all_results, ignore_index=True)
-
+        # Explicitly free memory after processing this table
+        del separate_src_tables_dict
+        gc.collect()
     return results_df
 
 
