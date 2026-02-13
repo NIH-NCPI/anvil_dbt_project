@@ -47,19 +47,9 @@ def get_separate_src_tables_dict(src_df_names_dict, tablename, paths):
             for file in file_list:
 
                 table_path = paths["src_data_dir"] / file
-                table_columns, _ = get_column_names(file_list, paths)
-                columns = table_columns[str(table_path)]
-
-                column_definitions = ", ".join([f"'{col}': 'VARCHAR'" for col in columns])  # Fix: Use proper dictionary syntax
-                query = f"""
-                SELECT * FROM read_csv('{table_path}', AUTO_DETECT=FALSE, HEADER=TRUE, columns={{ {column_definitions} }})
-                """
-                result = engine.execute(query)
-
-                try:
-                    df = result.fetchdf()
-                except Exception:
-                    df = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
+                
+                # Read CSV directly with pandas to avoid DuckDB memory issues
+                df = pd.read_csv(str(table_path), dtype=str)
 
                 separate_src_tables_dict[file.replace('_000000000000.csv','')] = df  
     return separate_src_tables_dict
