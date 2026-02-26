@@ -63,7 +63,10 @@ def get_tables_from_schema(schema):
     SELECT table_name FROM information_schema.tables WHERE table_schema = '{schema}'
     """
     )
-    r = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
+    try:
+        r = result.fetchdf()
+    except Exception:
+        r = pd.DataFrame(result.fetchall(), columns=[col[0] for col in result.description])
     return r["table_name"].to_list()
 
 
