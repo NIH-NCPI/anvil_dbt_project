@@ -4,5 +4,5 @@ dbt-duckdb==1.9.3
 pandas==2.2.3
 numpy==1.4.2
 
-dbt_pipeline_utils @ git+https://github.com/NIH-NCPI/pipeline-utils.git
-search_dragon @ git+https://github.com/NIH-NCPI/search-dragon.git
+dbt_pipeline_utils @ git+https://github.com/NIH-NCPI/pipeline-utils.git@main
+search_dragon @ git+https://github.com/NIH-NCPI/search-dragon.git@main
